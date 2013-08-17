@@ -28,7 +28,7 @@
     <context:annotation-config/>
 
     <!-- Activates scanning of @Service -->
-    <context:component-scan base-package="org.sz.platform.service"/>
+    <context:component-scan base-package="org.sz.platform.*.service"/>
 
     <tx:advice id="txAdvice">
         <tx:attributes>
@@ -45,12 +45,12 @@
         </tx:attributes>
     </tx:advice>
 
-    <bean id="userSecurityAdvice" class="org.sz.platform.service.UserSecurityAdvice"/>
+    <bean id="userSecurityAdvice" class="org.sz.platform.common.service.UserSecurityAdvice"/>
 
     <!-- =================================================================== -->
     <!-- Mail: Sender and Velocity configuration                             -->
     <!-- =================================================================== -->
-    <bean id="mailEngine" class="org.sz.platform.service.MailEngine">
+    <bean id="mailEngine" class="org.sz.platform.common.service.MailEngine">
         <property name="mailSender" ref="mailSender"/>
         <property name="velocityEngine" ref="velocityEngine"/>
         <property name="from" value="${mail.default.from}"/>

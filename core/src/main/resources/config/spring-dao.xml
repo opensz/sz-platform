@@ -45,6 +45,6 @@
     <context:annotation-config/>
 
     <!-- Activates scanning of @Repository -->
-    <context:component-scan base-package="org.sz.platform.dao"/>
+    <context:component-scan base-package="org.sz.platform.*.dao"/>
 
 </beans>

@@ -4,10 +4,10 @@
 <dwr>
     <allow>
         <create creator="spring" javascript="UserManager">
-            <param name="class" value="org.sz.platform.service.UserManager"/>
+            <param name="class" value="org.sz.platform.common.service.UserManager"/>
             <param name="beanName" value="userManager"/>
             <include method="getUsers"/>
         </create>
-        <convert converter="bean" match="org.sz.platform.model.User"/>
+        <convert converter="bean" match="org.sz.platform.common.model.User"/>
     </allow>
 </dwr>

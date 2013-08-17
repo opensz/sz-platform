@@ -10,7 +10,7 @@
     <uri>http://www.appfuse.org/tags/spring</uri>
     <tag>
         <name>label</name>
-        <tag-class>org.sz.platform.webapp.taglib.LabelTag</tag-class>
+        <tag-class>org.sz.platform.common.webapp.taglib.LabelTag</tag-class>
         <body-content>JSP</body-content>
         <attribute>
             <name>key</name>
@@ -35,8 +35,8 @@
     </tag>
     <tag>
         <name>constants</name>
-        <tag-class>org.sz.platform.webapp.taglib.ConstantsTag</tag-class>
-        <tei-class>org.sz.platform.webapp.taglib.ConstantsTei</tei-class>
+        <tag-class>org.sz.platform.common.webapp.taglib.ConstantsTag</tag-class>
+        <tei-class>org.sz.platform.common.webapp.taglib.ConstantsTei</tei-class>
         <body-content>empty</body-content>
         <attribute>
             <name>className</name>
@@ -50,7 +50,7 @@
     </tag>
     <tag>
         <name>country</name>
-        <tag-class>org.sz.platform.webapp.taglib.CountryTag</tag-class>
+        <tag-class>org.sz.platform.common.webapp.taglib.CountryTag</tag-class>
         <body-content>empty</body-content>
         <attribute>
             <name>name</name>

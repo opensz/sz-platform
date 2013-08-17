@@ -3,8 +3,11 @@
 
     <persistence-unit name="ApplicationEntityManager" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
+        
+        <!--  
         <class>org.sz.platform.model.User</class>
         <class>org.sz.platform.model.Role</class>
+        -->
         
         <!-- 
         Adding more <class>f.q.c.Name</class> elements here is not required.  

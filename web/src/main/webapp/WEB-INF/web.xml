@@ -17,7 +17,7 @@
 	<!-- Force a single locale using param-name 'javax.servlet.jsp.jstl.fmt.locale' -->
 	<context-param>
 		<param-name>javax.servlet.jsp.jstl.fmt.fallbackLocale</param-name>
-		<param-value>en</param-value>
+		<param-value>zh_CN</param-value>
 	</context-param>
 	<!-- Context Configuration locations for Spring XML files -->
 	<context-param>
@@ -60,7 +60,7 @@
 		if you're using JPA -->
 	<filter>
 		<filter-name>localeFilter</filter-name>
-		<filter-class>org.sz.platform.webapp.filter.LocaleFilter</filter-class>
+		<filter-class>org.sz.platform.common.webapp.filter.LocaleFilter</filter-class>
 	</filter>
 	<filter>
 		<filter-name>rewriteFilter</filter-name>
@@ -156,13 +156,13 @@
 		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
 	</listener>
 	<listener>
-		<listener-class>org.sz.platform.webapp.listener.StartupListener</listener-class>
+		<listener-class>org.sz.platform.common.webapp.listener.StartupListener</listener-class>
 	</listener>
 	<listener>
-		<listener-class>org.sz.platform.webapp.listener.UserCounterListener</listener-class>
+		<listener-class>org.sz.platform.common.webapp.listener.UserCounterListener</listener-class>
 	</listener>
 	<listener>
-		<listener-class>org.sz.platform.webapp.jsp.EscapeXmlELResolverListener</listener-class>
+		<listener-class>org.sz.platform.common.webapp.jsp.EscapeXmlELResolverListener</listener-class>
 	</listener>
 	<listener>
 		<listener-class>net.sf.navigator.menu.MenuContextListener</listener-class>
