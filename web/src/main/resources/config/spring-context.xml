@@ -11,7 +11,5 @@
     <!-- Activates scanning of @Repository and @Service -->
     <context:component-scan base-package="org.sz.platform"/>
 
-    <!-- Add new DAOs here -->
 
-    <!-- Add new Managers here -->
 </beans>

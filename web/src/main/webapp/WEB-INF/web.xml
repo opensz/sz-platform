@@ -23,6 +23,7 @@
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
+		    classpath:net/bull/javamelody/monitoring-spring.xml
 		    classpath:/config/_spring-resources.xml
             classpath:/config/spring-*.xml
             classpath*:/applicationContext.xml
@@ -98,6 +99,10 @@
 		<filter-name>monitoring</filter-name>
 		<filter-class>net.bull.javamelody.MonitoringFilter</filter-class>
 		<init-param>
+			<param-name>url-exclude-pattern</param-name>
+			<param-value>/styles/.*</param-value>
+		</init-param>
+		<init-param>
 			<param-name>quartz-default-listener-disabled</param-name>
 			<param-value>true</param-value>
 		</init-param>
@@ -106,7 +111,7 @@
 		<filter-name>monitoring</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	
+
 
 	<filter-mapping>
 		<filter-name>sitemesh</filter-name>
@@ -141,7 +146,7 @@
 		<filter-name>exportFilter</filter-name>
 		<url-pattern>/app/*</url-pattern>
 	</filter-mapping>
-	
+
 	<listener>
 		<listener-class>net.bull.javamelody.SessionListener</listener-class>
 	</listener>
