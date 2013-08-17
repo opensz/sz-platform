@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="SZ Platform - Web"
+  id="myeclipse.1376676404339"
+  context-root="/platform"
+  j2ee-spec="6.0"
+  archive="SZ Platform - Web.war">
+  <attributes>
+    <attribute name="webrootdir" value="src/main/webapp" />
+  </attributes>
+</project-module>
+
