@@ -7,6 +7,14 @@
 	<distributable />
 
 	<!-- precompiled jsp mappings -->
+	
+	
+	<!--设置Log4j的配置文件的路径 -->
+	<context-param>
+		<param-name>log4jConfigLocation</param-name>
+		<param-value>classpath:config/log4j.xml</param-value>
+	</context-param>
+	
 
 	<!-- Define the basename for a resource bundle for I18N -->
 	<context-param>

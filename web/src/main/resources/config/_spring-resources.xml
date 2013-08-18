@@ -9,9 +9,7 @@
         <property name="ignoreUnresolvablePlaceholders" value="true"/>
         <property name="locations">
             <list>
-                <value>classpath:config/jdbc.properties</value>
-                <value>classpath:config/mail.properties</value>
-                <value>classpath:config/hibernate.properties</value>
+                <value>classpath:config/platform.properties</value>
             </list>
         </property>
     </bean>
