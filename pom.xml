@@ -84,17 +84,10 @@
 
     <repositories>
         <repository>
-            <id>appfuse-snapshots</id>
-            <url>http://oss.sonatype.org/content/repositories/appfuse-snapshots</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-        
-        <repository>
+			<id>szdev</id>
+			<url>http://dev.servicezon.com/maven2</url>
+		</repository>
+		<repository>
 			<id>central</id>
 			<url>http://repo1.maven.org/maven2</url>
 		</repository>
@@ -102,10 +95,43 @@
 			<id>central-mirrors</id>
 			<url>http://mirrors.ibiblio.org/pub/mirrors/maven2</url>
 		</repository>
-        
-        <repository>
+		<repository>
+			<id>spring-release</id>
+			<url>http://maven.springframework.org/release</url>
+		</repository>
+		<repository>
+			<id>appfuse</id>
+			<url>http://static.appfuse.org/repository</url>
+		</repository>
+		<repository>
+			<id>jahia</id>
+			<url>http://maven.jahia.org/maven2</url>
+		</repository>
+		<repository>
+			<id>jarvana</id>
+			<url>http://www.jarvana.com/jarvana/browse</url>
+		</repository>
+		<repository>
+			<id>jboss</id>
+			<url>http://repository.jboss.com/maven2</url>
+		</repository>
+		<repository>
+			<id>wso2</id>
+			<url>http://dist.wso2.org/maven2</url>
+		</repository>
+		<repository>
+			<id>jboss-public-repository-group</id>
+			<url>https://repository.jboss.org/nexus/</url>
+		</repository>
+		<repository>
+			<id>alfresco</id>
+			<url>http://maven.alfresco.com/nexus/content/repositories/releases
+			</url>
+		</repository>
+		<repository>
 			<id>activiti</id>
-			<url>https://maven.alfresco.com/nexus/content/repositories/activiti</url>
+			<url>http://maven.alfresco.com/nexus/content/repositories/activiti
+			</url>
 		</repository>
     </repositories>
 
@@ -436,8 +462,14 @@
         <displaytag.version>1.2</displaytag.version>
         <spring.version>3.1.3.RELEASE</spring.version>
         <springmodules.validation.version>0.8</springmodules.validation.version>
-        
+        <mybatis.version>3.2.2</mybatis.version>
         <activiti.version>5.13</activiti.version>
+        
+        <quartz.version>2.0.2</quartz.version>
+        <blazeds.version>3.2</blazeds.version>
+        <json.version>2.4</json.version>
+        
+        <fr.version>7.0</fr.version>
 
         <!-- Testing dependency versions -->
         <cargo.version>1.2.4</cargo.version>
@@ -497,6 +529,9 @@
         <struts.menu.version>2.4.3</struts.menu.version>
         <urlrewrite.version>3.1.0</urlrewrite.version>
         <velocity.version>1.4</velocity.version>
+        
+        <commons.httpclient.version>3.1</commons.httpclient.version>
+		<httpclient.version>4.1.2</httpclient.version>
 
     </properties>
 
