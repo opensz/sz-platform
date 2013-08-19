@@ -26,7 +26,7 @@ public class ValidJs extends HttpServlet {
 		if (StringUtil.isNotEmpty(form)) {
 			try {
 				str = ValidationUtil.getJs(form, local);
-			} catch (TemplateException e) {
+			} catch (Exception e) {
 				str = "";
 			}
 		}

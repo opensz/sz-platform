@@ -1,6 +1,6 @@
 package org.sz.core.web.listener;
 
-import org.sz.core.util.AppUtil;
+import org.sz.core.util.SpringContextHolder;
 import org.sz.core.web.listener.ServerListener;
 
 import javax.servlet.ServletContextEvent;

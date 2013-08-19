@@ -6,7 +6,7 @@ import javax.servlet.http.HttpSessionAttributeListener;
 import javax.servlet.http.HttpSessionBindingEvent;
 
 import org.sz.core.model.OnlineUser;
-import org.sz.core.util.AppUtil;
+import org.sz.core.util.SpringContextHolder;
 //import org.sz.core.util.ContextUtil;
 //import org.sz.platform.model.system.SysUser;
 

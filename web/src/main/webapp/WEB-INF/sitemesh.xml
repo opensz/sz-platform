@@ -1,5 +1,5 @@
 <sitemesh>
-    <property name="decorators-file" value="/WEB-INF/classes/config/decorators.xml"/>
+    <property name="decorators-file" value="/WEB-INF/classes/conf/decorators.xml"/>
     <excludes file="${decorators-file}"/> 
     <page-parsers>
         <parser default="true" class="com.opensymphony.module.sitemesh.parser.FastPageParser"/>

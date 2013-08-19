@@ -8,7 +8,7 @@
 import org.springframework.context.ApplicationContextAware;
 import org.sz.core.model.OnlineUser;
  
- public class AppUtil extends org.sz.core.util.AppUtil
+ public class AppUtil extends org.sz.core.util.SpringContextHolder
    implements ApplicationContextAware
  {
    private static ServletContext servletContext;

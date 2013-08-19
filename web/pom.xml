@@ -16,131 +16,7 @@
 	<name>SZ Platform - Web</name>
 
 	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>dbunit-maven-plugin</artifactId>
-				<version>1.0-beta-3</version>
-				<configuration>
-					<dataTypeFactoryName>${dbunit.dataTypeFactoryName}</dataTypeFactoryName>
-					<driver>${jdbc.driverClassName}</driver>
-					<username>${jdbc.username}</username>
-					<password>${jdbc.password}</password>
-					<url>${jdbc.url}</url>
-					<src>src/test/resources/sample-data.xml</src>
-					<type>${dbunit.operation.type}</type>
-					<schema>${dbunit.schema}</schema>
-					<skip>${skipTests}</skip>
-					<transaction>true</transaction>
-				</configuration>
-				<executions>
-					<execution>
-						<id>test-compile</id>
-						<phase>test-compile</phase>
-						<goals>
-							<goal>operation</goal>
-						</goals>
-					</execution>
-					<execution>
-						<!-- Runs before integration tests and jetty:run-war -->
-						<id>test</id>
-						<phase>test</phase>
-						<goals>
-							<goal>operation</goal>
-						</goals>
-					</execution>
-				</executions>
-				<dependencies>
-					<dependency>
-						<groupId>${jdbc.groupId}</groupId>
-						<artifactId>${jdbc.artifactId}</artifactId>
-						<version>${jdbc.version}</version>
-					</dependency>
-				</dependencies>
-			</plugin>
-			<plugin>
-				<groupId>org.mortbay.jetty</groupId>
-				<artifactId>jetty-maven-plugin</artifactId>
-				<version>8.1.3.v20120416</version>
-				<configuration>
-					<webApp>
-						<contextPath>/</contextPath>
-					</webApp>
-				</configuration>
-			</plugin>
-			<!-- clean-up previous hibernate-search indexed from integration tests, 
-				as there could be a lock -->
-			<plugin>
-				<artifactId>maven-clean-plugin</artifactId>
-				<version>2.5</version>
-				<configuration>
-					<filesets>
-						<fileset>
-							<directory>${user.home}/${project.build.finalName}/index</directory>
-						</fileset>
-					</filesets>
-				</configuration>
-			</plugin>
-			<!-- will package a ready-to-run app regarding hibernate-search index 
-				location -->
-			<plugin>
-				<artifactId>maven-war-plugin</artifactId>
-				<version>2.3</version>
-				<configuration>
-					<escapeString>\</escapeString>
-					<webResources>
-						<resource>
-							<directory>src/main/resources/packaged</directory>
-							<targetPath>WEB-INF/classes</targetPath>
-							<filtering>true</filtering>
-							<includes>
-								<include>config/hibernate.properties</include>
-							</includes>
-						</resource>
-					</webResources>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>native2ascii-maven-plugin</artifactId>
-				<version>1.0-beta-1</version>
-				<executions>
-					<execution>
-						<id>native2ascii-utf8</id>
-						<goals>
-							<goal>native2ascii</goal>
-						</goals>
-						<configuration>
-							<encoding>UTF8</encoding>
-							<includes>
-								<include>ApplicationResources_zh*.properties</include>
-								<include>ApplicationResources_ko*.properties</include>
-								<include>displaytag_zh*.properties</include>
-							</includes>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-		<resources>
-			<resource>
-				<directory>src/main/resources</directory>
-				<filtering>true</filtering>
-			</resource>
-		</resources>
-		<testResources>
-			<testResource>
-				<directory>src/test/resources</directory>
-				<filtering>true</filtering>
-			</testResource>
-			<testResource>
-				<directory>src/main/webapp</directory>
-				<filtering>true</filtering>
-				<includes>
-					<include>**/*.xml</include>
-				</includes>
-			</testResource>
-		</testResources>
+		
 	</build>
 
 	<!-- Dependencies calculated by AppFuse when running full-source plugin -->
@@ -150,11 +26,13 @@
 			<artifactId>${jdbc.artifactId}</artifactId>
 			<version>${jdbc.version}</version>
 		</dependency>
+		<!--  
 		<dependency>
 			<groupId>${project.parent.groupId}</groupId>
 			<artifactId>${project.parent.artifactId}-core</artifactId>
 			<version>${project.parent.version}</version>
 		</dependency>
+		-->
 		<dependency>
 			<groupId>commons-dbcp</groupId>
 			<artifactId>commons-dbcp</artifactId>
@@ -272,21 +150,7 @@
 			<artifactId>dwr</artifactId>
 			<version>${dwr.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>${slf4j.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>jcl-over-slf4j</artifactId>
-			<version>${slf4j.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>${slf4j.version}</version>
-		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
@@ -414,134 +278,88 @@
 			</exclusions>
 		</dependency>
 		
+		<dependency>
+			<groupId>net.sf.json-lib</groupId>
+			<artifactId>json-lib</artifactId>
+			<version>${json.version}</version>
+			<classifier>jdk15</classifier>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+			<version>2.3.16</version>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.2</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>xerces</groupId>
+			<artifactId>xercesImpl</artifactId>
+			<version>2.9.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>IKAnalyzer</artifactId>
+			<version>3.2.8</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun.jimi</groupId>
+			<artifactId>jimi</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.logicalcobwebs</groupId>
+			<artifactId>proxool</artifactId>
+			<version>0.9.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.logicalcobwebs</groupId>
+			<artifactId>proxool-cglib</artifactId>
+			<version>0.9.1</version>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>edu.emory.mathcs</groupId>
+			<artifactId>backport</artifactId>
+			<version>1.0</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>jaxen</groupId>
+			<artifactId>jaxen</artifactId>
+			<version>1.1.1</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>icu4j</artifactId>
+					<groupId>com.ibm.icu</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.rxtx</groupId>
+			<artifactId>rxtx</artifactId>
+			<version>2.1.7</version>
+		</dependency>
+		
 		
 				
 
 
 	</dependencies>
 
-	<profiles>
-		<profile>
-			<id>integration-test</id>
-			<activation>
-				<property>
-					<name>!skipTests</name>
-				</property>
-			</activation>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.codehaus.cargo</groupId>
-						<artifactId>cargo-maven2-plugin</artifactId>
-						<version>${cargo.version}</version>
-						<configuration>
-							<wait>${cargo.wait}</wait>
-							<container>
-								<containerId>${cargo.container}</containerId>
-								<home>${cargo.container.home}</home>
-								<zipUrlInstaller>
-									<url>${cargo.container.url}</url>
-									<extractDir>${installDir}</extractDir>
-								</zipUrlInstaller>
-							</container>
-							<configuration>
-								<home>${project.build.directory}/${cargo.container}/container</home>
-								<properties>
-									<cargo.hostname>${cargo.host}</cargo.hostname>
-									<cargo.servlet.port>${cargo.port}</cargo.servlet.port>
-									<!-- To prevent conflicts with already running instances -->
-									<cargo.tomcat.ajp.port>8123</cargo.tomcat.ajp.port>
-								</properties>
-							</configuration>
-						</configuration>
-						<executions>
-							<execution>
-								<id>start-container</id>
-								<phase>pre-integration-test</phase>
-								<goals>
-									<goal>start</goal>
-								</goals>
-							</execution>
-							<execution>
-								<id>stop-container</id>
-								<phase>post-integration-test</phase>
-								<goals>
-									<goal>stop</goal>
-								</goals>
-							</execution>
-						</executions>
-					</plugin>
-					<plugin>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>webtest-maven-plugin</artifactId>
-						<version>1.0.0</version>
-						<executions>
-							<execution>
-								<id>webtest-test</id>
-								<phase>integration-test</phase>
-								<goals>
-									<goal>test</goal>
-								</goals>
-							</execution>
-							<execution>
-								<id>webtest-verify</id>
-								<phase>verify</phase>
-								<goals>
-									<goal>verify-result</goal>
-								</goals>
-							</execution>
-							<execution>
-								<id>webtest-report-html</id>
-								<phase>post-integration-test</phase>
-								<goals>
-									<goal>report</goal>
-								</goals>
-							</execution>
-						</executions>
-						<configuration>
-							<host>${cargo.host}</host>
-							<port>${cargo.port}</port>
-							<sourcedirectory>src/test/resources</sourcedirectory>
-							<sourcefile>web-tests.xml</sourcefile>
-							<target>${webtest.target}</target>
-							<basepath>${project.build.finalName}</basepath>
-							<resultpath>target/webtest/webtest-results</resultpath>
-							<haltonfailure>false</haltonfailure>
-							<haltonerror>false</haltonerror>
-							<loglevel>fatal</loglevel>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-		<!-- ================= Production Settings Profile ================= -->
-		<!-- Use "-P prod" when you want to use the settings in this profile -->
-		<!-- =============================================================== -->
-		<profile>
-			<id>prod</id>
-			<build>
-				<plugins>
-					<!-- Override location of data file for DbUnit to load (doesn't have 
-						negative keys) -->
-					<plugin>
-						<groupId>org.codehaus.mojo</groupId>
-						<artifactId>dbunit-maven-plugin</artifactId>
-						<configuration>
-							<src>src/main/resources/default-data.xml</src>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
+	
 
-	<reporting>
-		<plugins>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>webtest-maven-plugin</artifactId>
-				<version>1.0.0</version>
-			</plugin>
-		</plugins>
-	</reporting>
+	
 </project>
