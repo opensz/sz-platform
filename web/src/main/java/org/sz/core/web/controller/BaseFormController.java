@@ -6,18 +6,23 @@ import org.sz.core.Constants;
 import org.sz.core.model.User;
 import org.sz.core.service.MailEngine;
 import org.sz.core.service.UserManager;
+import org.sz.core.web.ResultMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.beans.propertyeditors.CustomNumberEditor;
 import org.springframework.context.MessageSource;
 import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.mail.SimpleMailMessage;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.validation.Validator;
 import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.context.ServletContextAware;
 import org.springframework.web.multipart.support.ByteArrayMultipartFileEditor;
+import org.springmodules.validation.commons.ConfigurableBeanValidator;
 
+import javax.annotation.Resource;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
@@ -30,17 +35,12 @@ import java.util.Locale;
 import java.util.Map;
 
 /**
- * Implementation of <strong>SimpleFormController</strong> that contains
- * convenience methods for subclasses.  For example, getting the current
- * user and saving messages/errors. This class is intended to
- * be a base class for all Form controllers.
- *
- * <p><a href="BaseFormController.java.html"><i>View Source</i></a></p>
- *
- * @author <a href="mailto:matt@raibledesigns.com">Matt Raible</a>
+ * 
  */
-public class BaseFormController implements ServletContextAware {
+public class BaseFormController extends GenericController implements ServletContextAware {
     protected final transient Log log = LogFactory.getLog(getClass());
+    
+    
     public static final String MESSAGES_KEY = "successMessages";
     private UserManager userManager = null;
     protected MailEngine mailEngine = null;
@@ -51,6 +51,9 @@ public class BaseFormController implements ServletContextAware {
 
     private MessageSourceAccessor messages;
     private ServletContext servletContext;
+    
+    @Resource
+	protected ConfigurableBeanValidator confValidator;
 
     @Autowired(required = false)
     Validator validator;
@@ -166,6 +169,25 @@ public class BaseFormController implements ServletContextAware {
         binder.registerCustomEditor(Date.class, null, 
                                     new CustomDateEditor(dateFormat, true));
     }
+    
+    protected ResultMessage validForm(String form, Object obj,
+			BindingResult result, HttpServletRequest request) {
+		ResultMessage resObj = new ResultMessage(1, "");
+		this.confValidator.setFormName(form);
+		this.confValidator.validate(obj, result);
+		if (result.hasErrors()) {
+			resObj.setResult(0);
+			List<FieldError> list = result.getFieldErrors();
+			String errMsg = "";
+			for (FieldError err : list) {
+				String msg = getText(err.getDefaultMessage(),
+						err.getArguments(), request);
+				errMsg = errMsg + msg + "\r\n";
+			}
+			resObj.setMessage(errMsg);
+		}
+		return resObj;
+	}
 
     /**
      * Convenience message to send messages to users, includes app URL as footer.

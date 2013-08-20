@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tabs>
+	<tab name="flow">
+	   <item  title="流程明细" url="/platform/bpm/bpmDefinition/detail.xht" />
+	   <item  title="全局设置" url="/itsm/bpm/bpmDefinition/globalNodeSet.xht" />
+	   <item  title="节点设置" url="/platform/bpm/bpmDefinition/nodeSet.xht" />
+	   <item  title="人员设置" url="/platform/bpm/bpmDefinition/userSet.xht" />
+	   <item  title="变量设置" url="/platform/bpm/bpmDefVar/list.xht" />
+	   <item  title="表单管理" url="/platform/bpm/bpmNodeSet/list.xht" />
+	   <item  title="流程实例" url="/platform/bpm/bpmDefinition/instance.xht" />
+	   <item  title="历史版本" url="/platform/bpm/bpmDefinition/versions.xht" />
+	   <item  title="其他参数" url="/platform/bpm/bpmDefinition/otherParam.xht" />
+	 </tab>
+	 <tab name="sysOrg">
+	 <item  title="组织简介" url="/platform/system/sysOrg/get.xht" />
+	 <item  title="组织分类" url="/platform/system/sysOrg/listById.xht" />
+	 <item  title="组织人员" url="/platform/system/sysUserOrg/userList.xht" />
+	 <item  title="组织参数" url="/platform/system/sysUserOrg/paramList.xht" />
+	 </tab>
+	 <tab name="msgSend">
+	 	<item  title="已读取信息人员列表" url="/platform/system/messageSend/readDetail.xht" />
+	 	<item  title="已回复信息人员列表" url="/platform/system/messageSend/replyDetail.xht" />
+	 </tab>
+</tabs>

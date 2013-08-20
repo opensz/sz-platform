@@ -1,20 +1,19 @@
 package org.sz.core.web.taglib;
 
-import org.sz.core.web.taglib.PageTag;
-
 import java.util.Enumeration;
 import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
-import javax.servlet.jsp.PageContext;
 import javax.servlet.jsp.tagext.TagSupport;
+
 import org.apache.commons.collections.map.HashedMap;
 import org.displaytag.util.ParamEncoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.sz.core.engine.FreemarkEngine;
-import org.sz.core.page.PageBean;
+import org.sz.core.query.PageBean;
 import org.sz.core.util.SpringContextHolder;
 
 public class PageTag extends TagSupport {

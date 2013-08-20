@@ -17,9 +17,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.web.servlet.ModelAndView;
+import org.sz.core.util.ContextUtil;
 import org.sz.core.web.ResultMessage;
 import org.sz.core.web.util.ConfigUtil;
 import org.sz.core.web.util.RequestUtil;
+import org.sz.platform.model.system.SysUser;
 
 public class GenericController {
 	protected Logger logger = LoggerFactory.getLogger(BaseController.class);
@@ -166,8 +168,8 @@ public class GenericController {
 		saveResultMessage(session, msg, 0);
 	}
 	
-//	protected SysUser getCurrentUser(){
-//		   SysUser sysUser=ContextUtil.getCurrentUser();
-//		   return sysUser;
-//	   }
+	protected SysUser getCurrentUser() {
+		SysUser sysUser = ContextUtil.getCurrentUser();
+		return sysUser;
+	}
 }

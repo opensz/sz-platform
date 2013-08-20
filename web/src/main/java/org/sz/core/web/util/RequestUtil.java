@@ -20,9 +20,9 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.sz.core.query.QueryFilter;
 import org.sz.core.util.StringUtil;
 import org.sz.core.util.TimeUtil;
-import org.sz.core.web.query.QueryFilter;
 
 public class RequestUtil {
 	
