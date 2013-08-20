@@ -16,7 +16,7 @@ import java.util.concurrent.locks.ReentrantLock;
 import org.dom4j.Document;
 import org.dom4j.Element;
 import org.sz.core.sms.IShortMessage;
-import org.sz.core.util.AppUtil;
+import org.sz.core.util.SpringContextHolder;
 import org.sz.core.util.Dom4jUtil;
 
 public class ShortMessageImpl implements IShortMessage {
@@ -131,7 +131,7 @@ public class ShortMessageImpl implements IShortMessage {
 			try {
 				if (instance == null)
 					instance = new ShortMessageImpl();
-				instance.setConfigproperties((Properties) AppUtil
+				instance.setConfigproperties((Properties) SpringContextHolder
 						.getBean("configproperties"));
 			} finally {
 				lock.unlock();
