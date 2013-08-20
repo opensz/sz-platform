@@ -10,17 +10,15 @@
 
 
 	<bean id="processEngineConfiguration"
-		class="org.activiti.spring.SpringProcessEngineConfiguration">
+		class="org.sz.platform.bpm.engine.SzProcessEngineConfiguration">	
+		<property name="processEngineName" ref="szBpmEngine" />
 		<property name="dataSource" ref="dataSource" />
 		<property name="transactionManager" ref="transactionManager" />
 		<property name="databaseSchemaUpdate" value="true" />
-
 		<property name="jpaEntityManagerFactory" ref="entityManagerFactory" />
 		<property name="jpaHandleTransaction" value="true" />
 		<property name="jpaCloseEntityManager" value="true" />
-
 		<property name="jobExecutorActivate" value="false" />
-		
 		<property name="history" value="audit" />
 		
 		<property name="deploymentResources" value="classpath*:/bpm/**/autodeploy.*.bpmn20.xml" />
