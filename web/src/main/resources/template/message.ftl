@@ -1,1 +1,1 @@
-${userName}:<br />你有一个待办事项需要处理，事项名称:<a href='javascript:void(0);' onclick="top.addToTab({resId:'taskStartFlowForm',resName:'流程启动',isExt:0,defaultUrl:'${linkStr}'});">${processName}</a>。
+${userName}:<br />你有一个待办事项需要处理，事项名称:<a href='javascript:void(0);' onclick="top.addToTab({resId:'taskStartFlowForm',resName:'流程启动',defaultUrl:'${linkStr}'});">${processName}</a>。

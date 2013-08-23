@@ -53,25 +53,6 @@ public class GenericController {
 		}
 		
 		
-//		String contextPath = request.getContextPath();
-//
-//		requestURI = requestURI.replace(".xht", "");
-//		int cxtIndex = requestURI.indexOf(contextPath);
-//		if (cxtIndex != -1) {
-//			requestURI = requestURI.substring(cxtIndex + contextPath.length());
-//		}
-//
-//		String[] paths = requestURI.split("[/]");
-//		if ((paths != null) && (paths.length == 5)) {
-//			String jspPath = "/" + paths[1] + "/" + paths[2] + "/" + paths[3]
-//					+ StringUtil.makeFirstLetterUpperCase(paths[4]) + ".jsp";
-//			return new ModelAndView(jspPath);
-//		}
-//		if ((paths != null) && (paths.length == 4)) {
-//			String jspPath = "/" + paths[1] + "/" + paths[2]
-//					+ StringUtil.makeFirstLetterUpperCase(paths[3]) + ".jsp";
-//			return new ModelAndView(jspPath);
-//		}
 
 		this.logger
 				.error("your request url is not the right pattern, it is not allowed use this getAutoView method");

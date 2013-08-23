@@ -1,0 +1,132 @@
+ul,li {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+
+.mail {
+	width: 731px;
+	margin: 0 auto;
+}
+
+.head {
+	background-image: url(/styles/itsm/images/mailsend/head.jpg );
+	background-repeat: no-repeat;
+	height: 78px;
+	width: 731px;
+}
+
+.head img {
+	padding-top: 26px;
+	padding-left: 26px;
+}
+
+.mid {
+	background-image: url(/styles/itsm/images/mailsend/mid.jpg);
+	background-repeat: repeat-y;
+	font-size: 14px;
+	color: #333333;
+	padding-bottom: 10px;
+}
+
+.mid .title {
+	background-image: url(/styles/itsm/images/mailsend/pic_bg.jpg);
+	background-repeat: no-repeat;
+	height: 51px;
+	width: 721px;
+	margin-right: auto;
+	margin-left: auto;
+	font-size: 14px;
+	line-height: 51px;
+	font-weight: bold;
+	color: #FFF;
+	text-align: center;
+}
+
+.mid .content {
+	color: #333;
+	font-size: 14px;
+	width: 650px;
+	line-height: 34px;
+	margin-top: 0;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+	padding-top: 30px;
+	padding-bottom: 26px;
+}
+
+.mid .case {
+	width: 641px;
+	margin-right: auto;
+	margin-left: auto;
+	padding-top: 6px;
+	border-top-width: 1px;
+	border-top-style: dotted;
+	border-top-color: #6b6b6b;
+	font-size: 12px;
+	color: #333333;
+}
+
+.case_up {
+	background-image: url(/styles/itsm/images/mailsend/table_up.jpg);
+	background-repeat: no-repeat;
+	height: 6px;
+	width: 641px;
+	overflow: hidden;
+}
+
+.case_mid {
+	background-image:url(/styles/itsm/images/mailsend/table_mid.jpg);
+	background-repeat: repeat-y;
+	width: 641px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.case_mid ul {
+	padding-left: 60px;
+}
+
+.case_mid li {
+	float: left;
+	height: 24px;
+	width: 230px;
+	line-height: 24px;
+}
+
+li .tab_tit1 {
+	font-weight: bold;
+	color: #333;
+	display: block;
+	float: left;
+	width: 70px;
+}
+
+li .tab_tit2 {
+	font-weight: bold;
+	color: #333;
+	display: block;
+	float: left;
+	width: 90px;
+}
+
+.case_bottom {
+	background-image: url(/styles/itsm/images/mailsend/table_bottom.jpg);
+	background-repeat: no-repeat;
+	height: 23px;
+	width: 641px;
+}
+
+.qm {
+	text-align: right;
+	padding-right: 50px;
+	padding-top: 16px;
+}
+
+.bottom {
+	background-image: url(/styles/itsm/images/mailsend/bottom.jpg);
+	background-repeat: no-repeat;
+	width: 731px;
+	height: 34px;
+}

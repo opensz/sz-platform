@@ -24,27 +24,9 @@ public class SubSystemServiceImpl extends BaseServiceImpl<SubSystem> implements 
 		return this.subSystemDao;
 	}
 
-//	public void setCurrentSystem(Long systemId, HttpServletRequest request,
-//			HttpServletResponse response) {
-//		SubSystem subSystem = (SubSystem) this.subSystemDao.getById(systemId);
-//		if (subSystem != null) {
-//			writeCurrentSystemCookie(String.valueOf(systemId), request,
-//					response);
-//			request.getSession().setAttribute(SubSystem.CURRENT_SYSTEM,
-//					subSystem);
-//		}
-//	}
-
-//	public void writeCurrentSystemCookie(String systemId,
-//			HttpServletRequest request, HttpServletResponse response) {
-//		if (CookieUtil.isExistByName(SubSystem.CURRENT_SYSTEM, request)) {
-//			CookieUtil.delCookie(SubSystem.CURRENT_SYSTEM, request, response);
-//		}
-//		int tokenValiditySeconds = 1209600;
-//		CookieUtil.addCookie(SubSystem.CURRENT_SYSTEM, systemId,
-//				tokenValiditySeconds, request, response);
-//	}
-
+	public SubSystem getById(Long systemId){
+		return (SubSystem) this.subSystemDao.getById(systemId);
+	}
 	public List<SubSystem> getByUser(SysUser user) {
 		if (user.getAuthorities().contains(SysRole.ROLE_GRANT_SUPER)) {
 			return getAll();

@@ -71,7 +71,6 @@
 
 <category id="console">
 	<view name="main" value="/platform/console/main.jsp"/>
-	<view name="mainIndex" value="/platform/console/mainIndex.jsp"/>
 	<view name="home" value="/platform/console/home.jsp"/>
 	<view name="dcomMain" value="/platform/console/dcomMain.jsp"/>
 	<view name="selectCurrSys" value="/platform/console/selectCurrSys.jsp"/>

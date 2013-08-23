@@ -1,0 +1,104 @@
+
+/*通用样式*/
+.accordion_icon{ background: url(images/accordion_icon.png) no-repeat; height: 16px; width: 16px; margin-top:0; margin-bottom:0px;}
+/*五种工单*/
+.case1 { background-position:0px 0px!important;}
+.case2 { background-position:-16px 0px!important;}
+.case3 { background-position:-32px 0px!important;}
+.case4 { background-position:-48px 0px!important;}
+.case5 { background-position:-64px 0px!important;}
+/*工单查询*/
+.search1 { background-position:0px -18px!important;}
+.search2 { background-position:-16px -18px!important;}
+.search3 { background-position:-32px -18px!important;}
+.search4 { background-position:-48px -18px!important;}
+.search5 { background-position:-64px -18px!important;}
+/*策略*/
+.tactics1{ background-position:0px -36px!important;}
+.tactics2{ background-position:-16px -36px!important;}
+.tactics3{ background-position:-32px -36px!important;}
+.tactics4{ background-position:-48px -36px!important;}
+.tactics5{ background-position:-64px -36px!important;}
+.tactics6{ background-position:-80px -36px!important;} 
+/*其他H1*/
+.h1a{ background-position:0px -53px!important;} 
+.h1b{ background-position:-16px -53px!important;} 
+.h1c{ background-position:-32px -53px!important;} 
+.h1d{ background-position:-48px -53px!important;} 
+.h1e{ background-position:-64px -53px!important;} 
+.h1f{ background-position:-80px -53px!important;} 
+.h1g{ background-position:-96px -53px!important;} 
+.h1h{ background-position:-112px -53px!important;} 
+.h1i{ background-position:-128px -53px!important;} 
+/*其他H2*/
+.h2a{ background-position:0px -71px!important;} 
+.h2b{ background-position:-16px -71px!important;} 
+.h2c{ background-position:-32px -71px!important;} 
+.h2d{ background-position:-48px -71px!important;}
+.h2e{ background-position:-64px -71px!important;} 
+.h2f{ background-position:-80px -71px!important;} 
+.h2g{ background-position:-96px -71px!important;} 
+.h2h{ background-position:-112px -71px!important;} 
+.h2i{ background-position:-128px -71px!important;} 
+.h2j{ background-position:-144px -71px!important;} 
+.h2k{ background-position:-160px -71px!important;} 
+.h2l{ background-position:-176px -71px!important;} 
+.h2m{ background-position:-192px -71px!important;}
+.h2n{ background-position:-208px -71px!important;}
+
+/*其他H3*/
+.h3a{ background-position:0px -89px!important;} 
+.h3b{ background-position:-16px -89px!important;} 
+.h3c{ background-position:-32px -89px!important;} 
+.h3d{ background-position:-48px -89px!important;}
+.h3e{ background-position:-64px -89px!important;} 
+.h3f{ background-position:-80px -89px!important;} 
+.h3g{ background-position:-96px -89px!important;} 
+.h3h{ background-position:-112px -89px!important;} 
+.h3i{ background-position:-128px -89px!important;} 
+.h3j{ background-position:-144px -89px!important;} 
+.h3k{ background-position:-160px -89px!important;} 
+.h3l{ background-position:-176px -89px!important;} 
+.h3m{ background-position:-192px -89px!important;} 
+.h3n{ background-position:-208px -89px!important;}
+.h3o{ background-position:-224px -89px!important;} 
+.h3p{ background-position:-240px -89px!important;} 
+.h3q{ background-position:-256px -89px!important;} 
+/*其他H4*/
+.h4a{ background-position:0px -107px!important;} 
+.h4b{ background-position:-16px -107px!important;} 
+.h4c{ background-position:-32px -107px!important;} 
+.h4d{ background-position:-48px -107px!important;}
+.h4e{ background-position:-64px -107px!important;} 
+.h4f{ background-position:-80px -107px!important;} 
+.h4g{ background-position:-96px -107px!important;} 
+.h4h{ background-position:-112px -107px!important;} 
+.h4i{ background-position:-128px -107px!important;} 
+.h4j{ background-position:-144px -107px!important;} 
+.h4k{ background-position:-160px -107px!important;} 
+.h4l{ background-position:-176px -107px!important;} 
+.h4m{ background-position:-192px -107px!important;} 
+.h4n{ background-position:-208px -107px!important;}
+.h4o{ background-position:-224px -107px!important;} 
+.h4p{ background-position:-240px -107px!important;} 
+.h4q{ background-position:-256px -107px!important;} 
+.h4r{ background-position:-272px -107px!important;} 
+/*其他H5*/
+.h5a{ background-position:0px -125px!important;} 
+.h5b{ background-position:-16px -125px!important;} 
+.h5c{ background-position:-32px -125px!important;} 
+.h5d{ background-position:-48px -125px!important;}
+.h5e{ background-position:-64px -125px!important;} 
+.h5f{ background-position:-80px -125px!important;} 
+.h5g{ background-position:-96px -125px!important;} 
+.h5h{ background-position:-112px -125px!important;} 
+.h5i{ background-position:-128px -125px!important;} 
+.h5j{ background-position:-144px -125px!important;} 
+.h5k{ background-position:-160px -125px!important;} 
+.h5l{ background-position:-176px -125px!important;} 
+
+
+
+
+
+

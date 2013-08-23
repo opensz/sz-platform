@@ -1,0 +1,124 @@
+﻿ /* 表单 */
+.l-form { margin:7px;}
+.l-form .l-group{ clear:both; margin:0; height:28px; line-height:28px; font-weight:bold; font-size:12px; color:#333; border-bottom:1px dotted #999999; margin-bottom:14px; display:block; position:relative; clear:both;}
+.l-form .l-group-hasicon{ padding-left:30px;}
+.l-form .l-group-hasicon img{ width:16px; height:16px; position:absolute; left:6px; top:6px;}
+.l-form ul, .l-form li{ list-style:none;}
+.l-form ul{ clear:both; margin-bottom:2px;}/*margin-top:2px;*/
+.l-form li{ float:left; overflow:hidden; text-align:left;  line-height:23px;padding:0; padding-top:2px; padding-bottom:2px;} 
+.l-form li textarea{ height:80px;}
+.l-form .l-group span{
+	padding-left:27px;
+	padding-bottom:5px;
+	background:url(../images/webpage_label.png) no-repeat 5px 0px;
+	background-size:16px 16px;
+}
+
+.l-hidden{ display:none;}
+
+.l-textarea{
+    border-color:#CCCFD7;
+}
+.l-textarea:hover {
+    border-color: #01AAEE;
+}
+
+.l-trigger {
+    background:url("../images/form/bg-trigger.gif") repeat-x scroll left center #D0D0D0;
+    border:1px solid #D0D0D0;
+}
+.l-trigger-hover {
+    background: url("../images/form/bg-trigger-over.gif") repeat-x scroll left center #FEDC75;
+    border: 1px solid #7eadd9;
+}
+.l-trigger-pressed {
+    background: url("../images/form/bg-trigger-over.gif") repeat-x scroll left center #FEDC75;
+    border: 1px solid #7eadd9;
+}
+
+/*按钮*/
+.l-button
+{
+   /* display:block;
+	
+	border: solid 1px #A3C0E8;
+    width:50px ; height:20px; overflow:hidden; line-height:20px;
+    background: #E0EDFF url(../images/controls/button-bg.gif) repeat-x center;
+     text-align:center;color: #2C4D79;  text-decoration:none; cursor:pointer;*/
+	 
+	margin-right:5px;
+	display: inline-block;
+	*display: inline;
+	vertical-align: baseline;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	padding:3px 8px 3px 8px;
+	-webkit-border-radius: 5px; 
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	color: #d9eef7;
+	border: solid 1px #0076a3;
+ 	background: #0095cd;
+	background: url(../images/ui/but_bg.jpg);	
+ 	background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+	background: -moz-linear-gradient(top,  #00adee,  #0078a5);
+ 	/*filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#00adee', endColorstr='#0078a5');	 */
+	behavior: url(ie-css3.htc); /* This lets IE know to call the script on all elements which get the 'box' class */		 
+}
+.l-button:hover{
+	border: solid 1px #0076a3;
+	text-decoration: none;
+	background: #007ead;
+	background:url(../images/ui/but_hover_bg.jpg);	
+	background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
+	background: -moz-linear-gradient(top,  #0095cc,  #00678e);
+	behavior: url(ie-css3.htc);	
+}
+
+/*按钮*/
+.but{
+	margin-right:5px;
+	display: inline-block;
+	*display: inline;
+	vertical-align: baseline;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	padding:3px 8px 3px 8px;
+	/*text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);	
+	*/
+	-webkit-border-radius: 5px; 
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	color: #d9eef7;
+	border: solid 1px #0076a3;
+ 	background: #0095cd;
+	background: url(../images/ui/but_bg.jpg);	
+ 	background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+	background: -moz-linear-gradient(top,  #00adee,  #0078a5);
+ 	/*filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#00adee', endColorstr='#0078a5');	 */
+	behavior: url(ie-css3.htc); /* This lets IE know to call the script on all elements which get the 'box' class */		
+}
+.but:hover ,.but_hover {
+	text-decoration: none;
+	background: #007ead;
+	background:url(../images/ui/but_hover_bg.jpg);	
+	background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
+	background: -moz-linear-gradient(top,  #0095cc,  #00678e);
+/* 	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#0095cc', endColorstr='#00678e'); */
+	behavior: url(ie-css3.htc);	
+}
+.but:active ,.but_active{
+	color: #80bed6;
+	background: url(../images/ui/but_active_bg.jpg);	
+ 	background: -webkit-gradient(linear, left top, left bottom, from(#0078a5), to(#00adee));
+	background: -moz-linear-gradient(top,  #0078a5,  #00adee); /	
+/* 	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#0078a5', endColorstr='#00adee'); */
+	behavior: url(ie-css3.htc);
+}

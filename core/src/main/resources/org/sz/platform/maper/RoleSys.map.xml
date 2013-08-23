@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="org.sz.platform.model.system.RoleSys">
+	<resultMap id="RoleSys" type="org.sz.platform.model.system.RoleSys">
+		<id property="id" column="ID" jdbcType="NUMERIC"/>
+		<result property="roleid" column="ROLEID" jdbcType="NUMERIC"/>
+		<result property="systemid" column="SYSTEMID" jdbcType="NUMERIC"/>
+	</resultMap>
+	
+	<sql id="columns">
+		ID,ROLEID,SYSTEMID
+	</sql>
+	
+	<sql id="dynamicWhere">
+		<where>
+			<if test="@Ognl@isNotEmpty(id)"> AND ID  =#{id} </if>
+			<if test="@Ognl@isNotEmpty(roleid)"> AND ROLEID  =#{roleid} </if>
+			<if test="@Ognl@isNotEmpty(systemid)"> AND SYSTEMID  =#{systemid} </if>
+		</where>
+	</sql>
+
+	<insert id="add" parameterType="org.sz.platform.model.system.RoleSys">
+		INSERT INTO SYS_ROLE_SYS
+		(ID,ROLEID,SYSTEMID)
+		VALUES
+		(#{id,jdbcType=NUMERIC}, #{roleid,jdbcType=NUMERIC}, #{systemid,jdbcType=NUMERIC})
+	</insert>
+	
+	<delete id="delById" parameterType="java.lang.Long">
+		DELETE FROM SYS_ROLE_SYS 
+		WHERE
+		ID=#{id}
+	</delete>
+	
+	<delete id="delBySysAndRole" parameterType="Map">
+		DELETE FROM SYS_ROLE_SYS  WHERE   ROLEID  =#{roleid} AND SYSTEMID  =#{systemid}
+	</delete>
+	
+	<update id="update" parameterType="org.sz.platform.model.system.RoleSys">
+		UPDATE SYS_ROLE_SYS SET
+		ROLEID=#{roleid,jdbcType=NUMERIC} , 
+		SYSTEMID=#{systemid,jdbcType=NUMERIC} 
+		WHERE
+		ID=#{id}
+	</update>
+	
+	<select id="getById" parameterType="java.lang.Long" resultMap="RoleSys">
+		SELECT <include refid="columns"/>
+		FROM SYS_ROLE_SYS
+		WHERE
+		ID=#{id}
+	</select>
+	
+	<select id="getByRole" parameterType="java.lang.Long" resultMap="RoleSys">
+		SELECT <include refid="columns"/>
+		FROM SYS_ROLE_SYS
+		WHERE
+		ROLEID=#{roleid}
+	</select>
+	
+	<select id="getAll" resultMap="RoleSys">
+		SELECT <include refid="columns"/>
+		FROM SYS_ROLE_SYS   
+		<include refid="dynamicWhere" />
+		<if test="@Ognl@isNotEmpty(orderField)">
+		order by ${orderField} ${orderSeq}
+		</if>
+		<if test="@Ognl@isEmpty(orderField)">
+		order by ID  desc
+		</if>
+	</select>
+</mapper>

@@ -1,8 +1,5 @@
 package org.sz.core.dao;
 
-import java.util.List;
-
-import org.sz.core.model.Role;
 
 /**
  * Lookup Data Access Object (GenericDao) interface.  This is used to lookup values in
@@ -13,9 +10,5 @@ import org.sz.core.model.Role;
 public interface LookupDao {
     //~ Methods ================================================================
 
-    /**
-     * Returns all Roles ordered by name
-     * @return populated list of roles
-     */
-    List<Role> getRoles();
+
 }

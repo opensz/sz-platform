@@ -1,0 +1,225 @@
+@charset "utf-8"; 
+
+input {
+	behavior: url('style/input.htc');
+}
+
+.maindesk .listdesk {
+	margin-top: 0;
+	margin-left: 17px;
+	margin-left: 0\9;
+	display: block;
+	width: 97.8%;
+	width: 99.2% \9;
+}
+
+.listdesk {
+	margin-top: 0;
+	margin-left: 30px;
+	margin-left: 15px\9;
+	display: block;
+	width: 96.1%;
+	width: 97.4% \9;
+	margin-top: 12px;
+}
+
+*:lang(zh) .maindesk .listdesk {
+	margin-left: 15px !important;
+	margin-left: 0\9 !important;
+}
+
+*:lang(zh) .listdesk {
+	margin-left: 30px !important;
+	margin-left: 15px\9 !important;
+}
+
+.list,.text-message {
+	display: block;
+	width: 96%;
+	width: 96% \9;
+	margin-left: 30px;
+	margin-left: 15px\9;
+	margin-bottom: 8px;
+	margin-top: 8px;
+}
+
+.text-message {
+	line-height: 22px;
+}
+
+.text-message h6 {
+	color: red;
+}
+
+.text-message b {
+	margin-right: 8px;
+}
+
+.list-nav { /**height:100!important;**/
+	height: auto;
+	overflow: hidden;
+	width: 100%;
+	margin: 0;
+	margin-bottom: 2px; >
+	margin-bottom: 0;
+}
+
+.list-content { /**height:100%!important;**/
+	height: auto;
+	overflow: hidden;
+	width: 100%; #
+	/*width: 98%;*/
+}
+
+.list-content li.table tr {
+	background: none;
+}
+
+.list-content li.table tr:hover {
+	background: none;
+}
+
+.list-content li .table .even:hover,.list-content li .table .old:hover {
+	height: 21px;
+	background: none;
+	text-align: left;
+}
+
+.list-content li .table .even:hover td {
+	background: #eee;
+}
+
+.list-content li .table .old:hover td {
+	background: #fff;
+}
+
+.list-content li .table .even:hover td,.list-content li .table .old:hover td,x:-moz-any-link,x:default
+	{
+	background: none;
+	background-color: none;
+	height: 21px;
+	border-top: 0 solid #ddd;
+	text-align: left;
+}
+
+.list-content li .table .even:hover td.gray,.list-content li .table .old:hover td.gray,x:-moz-any-link,x:default
+	{
+	background-color: #bcbcbc;
+}
+
+.title-center {
+	text-align: center;
+	margin: 4px auto;
+	font-weight: bold; #
+	display: inline-block;
+}
+
+.page-top {
+	padding: 0;
+	overflow: hidden;
+	width: 100%;
+}
+
+.page-top .left span {
+	display: block;
+	float: left;
+	margin-right: 10px;
+}
+
+.page-top .information {
+	float: right;
+}
+
+.page-info {
+	margin: 0 0 0 5px;
+}
+
+.page-top a {
+	padding: 0 2px;
+}
+
+.page-top a:hover {
+	padding: 0 2px;
+	color: #fff;
+}
+/*.pagination a {
+	padding: 0 2px;
+}
+
+.pagination a:hover {
+	padding: 0 2px;
+}*/
+
+.pagination .comeback {
+	float: right;
+}
+
+.pagination .comeback a {
+	text-decoration: underline;
+	font-size: 12px;
+}
+
+.pagination .comeback a:hover {
+	text-decoration: none;
+	font-size: 12px;
+	color: #333;
+}
+
+.page-top span {
+	margin: 0;
+	padding: 0;
+	margin-right: 2px;
+}
+
+.page-top div {
+	float: left;
+	padding-top: 10px;
+	display: inline;
+}
+
+.page-top div.right {
+	float: right;
+	margin-top: -10px;
+}
+
+.pagebanner,.pagelinks {
+	margin-top: 8px;
+	display: block;
+	float: left;
+}
+
+.div_href {
+	color: #fff;
+	margin-right: 2px;
+	cursor: pointer;
+}
+
+.div_curr {
+	color: #222;
+	background: #2c71ee;
+	color: #fff;
+}
+
+.pagination {
+	margin-bottom: 0;
+	height: 25px;
+	background:url("../../scripts/dwz/themes/default/images/grid/nextpage.png") repeat-x scroll 0 0 #d3e1f7;
+	overflow: hidden;
+	width: auto;
+}
+
+.page-bottom span {
+	margin: 0 4px;
+}
+
+.listdesk .list-nav {
+	margin: 0;
+}
+
+.listdesk .page-top div {
+	padding-top: 0;
+}
+
+.listdesk .list-content {
+	margin-top: -8px;
+}

@@ -1,0 +1,35 @@
+body{
+	font-size:12px;
+	font-family:Verdana, Geneva, sans-serif;
+	margin:0;
+	padding:0;
+	}
+	
+.login_logo{
+	margin:0 auto;
+	list-style:none;
+	width:900px;
+	margin-top:15%;
+}
+.login_logo li{
+	float:left;
+	list-style:none;
+	width:180px;
+	height:200px;
+	
+	margin-right:30px;
+}
+#logo01,#logo02,#logo03{
+	width:180px;
+	height:200px;
+	border:1px solid #023545;
+}
+#logo01{
+	background:url(../images/logo01.jpg);
+}
+#logo02{
+	background:url(../images/logo02.jpg);
+}
+#logo03{
+	background:url(../images/logo03.jpg);
+}

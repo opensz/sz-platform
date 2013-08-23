@@ -6,15 +6,17 @@
 	<display-name>sz platform</display-name>
 	<distributable />
 
+
+
 	<!-- precompiled jsp mappings -->
-	
-	
+
+
 	<!--设置Log4j的配置文件的路径 -->
 	<context-param>
 		<param-name>log4jConfigLocation</param-name>
 		<param-value>classpath:conf/log4j.xml</param-value>
 	</context-param>
-	
+
 
 	<!-- Define the basename for a resource bundle for I18N -->
 	<context-param>
@@ -38,11 +40,6 @@
             classpath:/conf/_spring-cxf.xml
             classpath:/conf/_spring-security.xml
         </param-value>
-	</context-param>
-	
-	<context-param>
-		<param-name>menuConfigLocation</param-name>
-		<param-value>/WEB-INF/classes/conf/menu-config.xml</param-value>
 	</context-param>
 
 	<filter>
@@ -68,10 +65,10 @@
 		server, or load balancer. -->
 	<!--filter> <filter-name>gzipFilter</filter-name> <filter-class>net.sf.ehcache.constructs.web.filter.GzipFilter</filter-class> 
 		</filter -->
-	<!--<filter> <filter-name>lazyLoadingFilter</filter-name> <filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter</filter-class> 
-		</filter> -->
-	<!-- Use "org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter" 
-		if you're using JPA -->
+	<filter>
+		<filter-name>lazyLoadingFilter</filter-name>
+		<filter-class>org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter</filter-class>
+	</filter>
 	<filter>
 		<filter-name>localeFilter</filter-name>
 		<filter-class>org.sz.core.web.filter.LocaleFilter</filter-class>
@@ -102,10 +99,6 @@
 			<param-value>springSecurityFilterChain</param-value>
 		</init-param>
 	</filter>
-	<filter>
-		<filter-name>sitemesh</filter-name>
-		<filter-class>com.opensymphony.module.sitemesh.filter.PageFilter</filter-class>
-	</filter>
 
 
 	<filter>
@@ -120,24 +113,34 @@
 			<param-value>true</param-value>
 		</init-param>
 	</filter>
+
+
+	<!-- 用于相同线程间共享Request对象 -->
+	<filter>
+		<filter-name>aopFilter</filter-name>
+		<filter-class>org.sz.core.web.filter.AopFilter</filter-class>
+	</filter>
+
+
+
 	<filter-mapping>
 		<filter-name>monitoring</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
-
 	<filter-mapping>
-		<filter-name>sitemesh</filter-name>
-		<url-pattern>/*</url-pattern>
-		<dispatcher>REQUEST</dispatcher>
-		<dispatcher>FORWARD</dispatcher>
+		<filter-name>aopFilter</filter-name>
+		<url-pattern>*.xht</url-pattern>
 	</filter-mapping>
+
 	<filter-mapping>
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	<!--<filter-mapping> <filter-name>lazyLoadingFilter</filter-name> <url-pattern>/*</url-pattern> 
-		</filter-mapping> -->
+	<filter-mapping>
+		<filter-name>lazyLoadingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
 	<filter-mapping>
 		<filter-name>localeFilter</filter-name>
 		<url-pattern>/*</url-pattern>
@@ -151,6 +154,13 @@
 	<filter-mapping>
 		<filter-name>securityFilter</filter-name>
 		<url-pattern>/*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+		<dispatcher>INCLUDE</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>securityFilter</filter-name>
+		<url-pattern>*.xht</url-pattern>
 		<dispatcher>REQUEST</dispatcher>
 		<dispatcher>FORWARD</dispatcher>
 		<dispatcher>INCLUDE</dispatcher>
@@ -177,19 +187,16 @@
 		<listener-class>org.sz.core.web.listener.StartupListener</listener-class>
 	</listener>
 	<listener>
-		<listener-class>org.sz.core.web.listener.UserCounterListener</listener-class>
+		<listener-class>org.sz.core.web.listener.UserSessionListener</listener-class>
 	</listener>
 	<listener>
 		<listener-class>org.sz.core.web.jsp.EscapeXmlELResolverListener</listener-class>
 	</listener>
-	<listener>
-		<listener-class>net.sf.navigator.menu.MenuContextListener</listener-class>
-	</listener>
 
 	<servlet>
 		<servlet-name>dispatcher</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-		<load-on-startup>1</load-on-startup>
+		<servlet-class>org.sz.core.web.servlet.SpringMvcServlet</servlet-class>
+		<load-on-startup>2</load-on-startup>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>classpath:conf/dispatcher-servlet.xml</param-value>
@@ -228,7 +235,7 @@
 
 	<servlet-mapping>
 		<servlet-name>dispatcher</servlet-name>
-		<url-pattern>/app/*</url-pattern>
+		<url-pattern>*.xht</url-pattern>
 	</servlet-mapping>
 
 	<welcome-file-list>
@@ -257,6 +264,10 @@
 			<url-pattern>*.jsp</url-pattern>
 			<trim-directive-whitespaces>true</trim-directive-whitespaces>
 		</jsp-property-group>
+		<taglib>
+			<taglib-uri>http://www.servicezon.com/functions</taglib-uri>
+			<taglib-location>/WEB-INF/tld/SzTag.tld</taglib-location>
+		</taglib>
 	</jsp-config>
 
 	<session-config>

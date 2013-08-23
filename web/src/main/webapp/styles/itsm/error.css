@@ -1,0 +1,33 @@
+body { margin: 0px; padding: 0px;}
+.error_bg { background: url(images/error/error_bg.jpg) repeat-x; height: 500px; width: 100%;}
+.error_sky { background: url(images/error/error_sky.jpg) no-repeat; height: 500px; width: 855px;}
+.error_sky .content { width: 750px; padding-top: 100px; margin:0 auto; }
+.content .pic1 { background: url(images/error/page_found1.png) no-repeat; float: left; height: 240px; width: 240px;}
+.content .info1 { float: left; width: 350px; padding-left: 30px; padding-top: 80px;}
+.content .info1 img{ border:0;}
+.content .pic2 { background: url(images/error/page_error1.png) no-repeat; float: left; height: 234px; width: 320px;}
+.content .info2 { float: left; padding-top: 40px; padding-left: 30px;}
+.content .info2 .detail {
+	font-size: 12px; padding-left: 28px;
+	background: url(images/error/b.jpg) no-repeat; background-position: 12px 2px;}
+.info2 a{ color:#333333; text-decoration:none;}
+.shadow { height: 39px; width: 757px; background: url(images/error/shadow.jpg) no-repeat;}
+.error_info { padding:0px 0px 30px 10px;}
+.error_info .top { background: url(images/error/up.jpg) no-repeat; height: 5px; width: 835px; overflow: hidden;}
+.error_info .mid { background: url(images/error/mid.jpg) repeat-y; width: 835px; height: auto;}
+.error_info .mid .title {
+	font-size: 12px; font-weight: bold; line-height: 24px; height: 24px; width: 810px; margin:0 auto;
+	border-bottom-width: 1px; border-bottom-style: dotted; border-bottom-color: #9ab0c8;}
+.error_info .mid .nr { word-wrap: break-word; word-break: normal; line-height: 22px; font-size: 12px; margin:0 auto; width: 810px; padding:10px 0px;}
+.error_info .bottom { background: url(images/error/down.jpg) no-repeat;	height: 5px; width: 835px;}
+.error_pic1{ background: url(images/error/page_found2.png) no-repeat; height: 50px; width: 300px;}
+.word{  font-weight: bold; font-size:12px; height:30px; line-height:30px; color:#33333; padding-left:15px;}
+.word .back { font-weight: bold; color: #903; text-decoration: none;}
+.back a { color: #903; text-decoration: none; }
+.back a:hover { color: #F00; text-decoration: underline; }
+.detail a { font-weight: bold; color: #333; text-decoration: none;}
+.detail a:hover { color: #BD0000; text-decoration: underline;}
+
+.error_pic2{ background: url(images/error/page_error2.png) no-repeat; height: 80px; width: 250px;}
+
+

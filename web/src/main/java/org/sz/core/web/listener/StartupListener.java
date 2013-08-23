@@ -27,8 +27,6 @@ import java.util.Map;
  * so if you're using Hibernate you'll have to explicitly initialize all loaded data at the
  * GenericDao or service level to avoid LazyInitializationException. Hibernate.initialize() works
  * well for doing this.
- *
- * @author <a href="mailto:matt@raibledesigns.com">Matt Raible</a>
  */
 public class StartupListener implements ServletContextListener {
     private static final Log log = LogFactory.getLog(StartupListener.class);
@@ -93,18 +91,13 @@ public class StartupListener implements ServletContextListener {
         LookupManager mgr = (LookupManager) ctx.getBean("lookupManager");
 
         // get list of possible roles
-        context.setAttribute(Constants.AVAILABLE_ROLES, mgr.getAllRoles());
+//        context.setAttribute(Constants.AVAILABLE_ROLES, mgr.getAllRoles());
         log.debug("Drop-down initialization complete [OK]");
 
-        // Any manager extending GenericManager will do:
-        GenericManager manager = (GenericManager) ctx.getBean("userManager");
-        doReindexing(manager);
+       
         log.debug("Full text search reindexing complete [OK]");
     }
 
-    private static void doReindexing(GenericManager manager) {
-        manager.reindexAll(false);
-    }
 
     /**
      * Shutdown servlet context (currently a no-op method).

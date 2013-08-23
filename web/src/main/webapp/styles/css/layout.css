@@ -1,0 +1,56 @@
+@charset "utf-8";
+
+
+.three_layout{
+	float:left;
+	width:32%;
+	margin-left:1%;
+	/* border:1px solid red; */
+}
+.three_layout li{
+	list-style:none;
+	margin-top:5px;
+	width:100%;
+	display:block;
+	height:24px;
+}
+.three_layout label{
+	float:left;
+	margin:0px;
+	width:100px;
+	height:100%;
+	display:inline-block;
+	background:#91C6E8; 
+	line-height:24px;
+	padding-left:5px;
+}
+.three_layout .form_data{
+	margin:0px;
+	border: 1px solid #CCCFD7;
+	color: #000000;
+	background-color: #FFFFFF;
+	height: 20px;
+	line-height:20px;
+}
+ .three_layout input,.three_layout  select,.three_layout  textarea,.three_layout .form_data{
+	float:left;
+	margin:0px;
+	width:66%;
+	height:99%;
+}
+.three2_layout{
+	width:65%;
+}
+.three3_layout{
+	width:98%;
+}
+.three3_layout textarea{
+	width:89%;
+}
+.three_layout .form_data_qx{
+	border:none;
+}
+.form_data_qx input,.form_data_qx  select,.form_data_qx  textarea,.form_data_qx .form_data{
+	width:auto;
+	height:90%;
+}

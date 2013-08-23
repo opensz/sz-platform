@@ -26,6 +26,8 @@ public class Resources extends BaseModel {
 	public static final Short IS_DISPLAY_IN_MENU_Y = 1;
 	public static final String IS_CHECKED_N = "false";
 	public static final String IS_CHECKED_Y = "true";
+	
+	
 	protected Long resId;
 	protected String resName;
 	protected String alias;
@@ -38,9 +40,9 @@ public class Resources extends BaseModel {
 	protected Short isOpen;
 	protected Long systemId;
 	protected String checked = "false";
-	protected Short isExt;
-	protected String xtype;
-	protected String ctrlName;
+	
+	
+	protected String param;
 
 	public String getChecked() {
 		return this.checked;
@@ -160,28 +162,13 @@ public class Resources extends BaseModel {
 		return this.systemId;
 	}
 
-	public Short getIsExt() {
-		return isExt;
+
+	public String getParam() {
+		return param;
 	}
 
-	public void setIsExt(Short isExt) {
-		this.isExt = isExt;
-	}
-
-	public String getXtype() {
-		return xtype;
-	}
-
-	public void setXtype(String xtype) {
-		this.xtype = xtype;
-	}
-
-	public String getCtrlName() {
-		return ctrlName;
-	}
-
-	public void setCtrlName(String ctrlName) {
-		this.ctrlName = ctrlName;
+	public void setParam(String param) {
+		this.param = param;
 	}
 
 	public boolean equals(Object object) {

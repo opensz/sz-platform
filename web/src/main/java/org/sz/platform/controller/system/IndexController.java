@@ -54,46 +54,7 @@ public class IndexController extends BaseController{
 	    return mv;
 	  }
 	 
-	 @RequestMapping({"login_bpm"})
-	  public ModelAndView login_bpm(HttpServletRequest request, HttpServletResponse response)
-	    throws Exception
-	  {
-	    return new ModelAndView("/login/login_bpm.jsp");
-	    //return mv;
-	  }
-	 @RequestMapping({"login_dcom"})
-	  public ModelAndView login_dcom(HttpServletRequest request, HttpServletResponse response)
-	    throws Exception
-	  {
-		 QueryFilter filter = new WebQueryFilter(request,"sysOrg");
-		 filter.addFilter("orgType", "2");
-		 filter.addFilter("orderField", "orgId");
-		 filter.addFilter("orderSeq", "asc");
-		 //List sysOrgList = this.sysOrgService.getAll(filter);
-		 ModelAndView mv=new ModelAndView("/login/login_dcom.jsp");
-	     //mv.addObject("sysOrgList", sysOrgList);
-	    return mv;
-	  }
-	 @RequestMapping({"login_itsmS3"})
-	  public ModelAndView login_itsmS3(HttpServletRequest request, HttpServletResponse response)
-	    throws Exception
-	  {
-		 QueryFilter filter = new WebQueryFilter(request,"sysOrg");
-		 filter.addFilter("orgType", "2");
-		 filter.addFilter("orderField", "orgId");
-		 filter.addFilter("orderSeq", "asc");
-		 List sysOrgList = this.sysOrgService.getAll(filter);
-		 ModelAndView mv=new ModelAndView("/login/login_itsmS3.jsp");
-	     mv.addObject("sysOrgList", sysOrgList);
-	    return mv;
-	  }
-	 @RequestMapping({"login_oa"})
-	  public ModelAndView login_oa(HttpServletRequest request, HttpServletResponse response,@RequestParam("systemId") String systemId)
-	    throws Exception
-	  {
-	    return new ModelAndView("/login/login_oa.jsp").addObject("systemId", systemId);
-	    //return mv;
-	  }
+
 	 
 	 @RequestMapping({ "checkUser" })
 	 @ResponseBody

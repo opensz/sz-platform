@@ -1,0 +1,617 @@
+body {
+	color: #000;
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 0;
+	font-size: 12px;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+:focus {
+	outline: 0;
+}
+
+div {
+	font-size: 1em;
+}
+
+img {
+	border: 0;
+	margin-top: 2px;
+}
+
+ol,ul {
+	list-style: none;
+}
+
+li {
+	display: inline;
+	list-style: none;
+}
+
+iframe {
+	border: #ccc solid 0;
+}
+
+a {
+	color: #666;
+	text-decoration: none;
+	padding: 0 2px;
+}
+
+a:hover {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+h1,h2,h3,h4,h5,h6 {
+	font: normal bold;
+}
+
+div#branding h1 {
+	font: normal normal 2.6em/ 1.5em;
+	letter-spacing: -1px;
+	color: #3e9ade;
+}
+
+div#branding p {
+	line-height: 1em;
+}
+
+h2 {
+	font: 1.4em/ 1.5em;
+}
+
+h3 {
+	font-size: 12px;
+	color: #222;
+	font-weight: normal;
+	text-align: left;
+}
+
+h4 {
+	font-size: 1.2em;
+	line-height: 1.3em;
+}
+
+h5 {
+	font-size: 1.1em;
+	line-height: 1.3em;
+}
+
+h6 {
+	font-size: 1em;
+	line-height: 1.3em;
+	color: #000;
+}
+
+p {
+	font-size: 1em;
+	margin: 0 0 1.5em 0;
+	line-height: 1.4em;
+	font-weight: normal;
+}
+
+code {
+	font-family: "courier new", courier, monospace;
+	font-size: 12px;
+	white-space: pre;
+}
+
+ul.glassList {
+	list-style: url(../images/aquadot.jpg) disc outside;
+	vertical-align: top;
+	line-height: 1.5em;
+}
+
+table {
+	font-size: 1em;
+	table-layout: auto; >
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+table td {
+	padding: 0;
+}
+
+.table tr {
+	font-size: 12px;
+}
+
+table caption {
+	font-weight: normal;
+}
+
+th {
+	font-weight: normal;
+}
+
+td {
+	font-size: 1em;
+}
+
+.tabledesk {
+	color: #000;
+	margin: 0;
+}
+
+.tabledesk {
+	border-left: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	width: 100%;
+}
+
+* html .tabledesk,*+html .tabledesk {
+	border: 1px solid #ddd;
+	border-top: none;
+	border-collapse: collapse;
+}
+
+*+html .tabledesk {
+	width: 100%;
+}
+
+.table {
+	border: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+	border-collapse: none; *
+	border-collapse: collapse;
+	_border-collapse: collapse;
+	color: #000;
+	margin: 0;
+	width: 100% !important;
+}
+
+.table {
+	color: #000;
+	margin: 0;
+}
+
+.table {
+	border: 1px solid #ddd;
+	border-right: none;
+	width: 100%;
+}
+
+* html .table,*+html .table {
+	border: 1px solid #ddd;
+	border-collapse: collapse;
+}
+
+.table caption {
+	padding: 0;
+	font-size: 1.3em;
+	font-weight: 100;
+	font-size: 1.25em;
+	color: #999;
+	background: transparent;
+}
+
+.table th table,.table th table td {
+	font-weight: normal;
+}
+
+.contribTable th {
+	padding: 0 !important;
+	background: #bcbcbc;
+}
+
+.contribTable th .tableHeaderTable {
+	margin: 0 !important;
+}
+
+.table th,.tabledesk th {
+	background:url("../../scripts/dwz/themes/default/images/grid/tableth_ssc.png") repeat-x scroll 0 0 #d3e1f7;
+	color: #000;
+	empty-cells: show;
+	text-align: left;
+	border-right: 1px solid #ddd;
+	padding-left: 5px;
+	height: 24px;
+	line-height: 24px;
+}
+
+.table td,.tableHeaderTable td,.tabledesk td {
+	font-weight: normal;
+	height: 24px;
+	line-height: 24px;
+	padding-left: 5px;
+	clear: both;
+}
+
+.table thead th a {
+	color: #000;
+	text-decoration: underline;
+}
+
+.table thead th a:hover {
+	color: #000;
+	text-decoration: none;
+}
+
+.table tbody td a,.tabledesk tbody td a {
+	background: transparent;
+	text-decoration: underline;
+	font-weight: normal;
+}
+
+.table tbody td a:hover,.tabledesk tbody td a:hover {
+	background: transparent;
+	text-decoration: none;
+	font-weight: normal;
+}
+
+.table tbody th,.table tbody td {
+	text-align: left;
+	padding-left: 8px;
+	font-weight: normal;
+}
+
+.table thead th {
+	text-align: left;
+	padding-left: 8px;
+	font-weight: bold;
+}
+
+table .sorted a,table .sortable a {
+	color: #000;
+	text-decoration: underline;
+}
+
+table .sorted a:hover,table .sortable a:hover {
+	color: #676767;
+}
+
+.even {
+	background: #eee;
+}
+
+.odd,.old {
+	background-color: #fff;
+}
+
+.table .total {
+	background-color: #f8f8f8;
+	height: 24px;
+	text-align: left;
+}
+
+.table .total td {
+	border-right: 1px solid #ddd;
+	border-top: 1px solid #ddd;
+	line-height: 24px;
+	height: 24px;
+	vertical-align: middle;
+	color: #f00;
+	font-weight: bold;
+}
+
+.table .even,.tabledesk .even {
+	text-align: left;
+	background: transparent url(images/even.gif) 0 0 repeat-x;
+	height: 24px;
+	line-height: 24px;
+}
+
+.table .odd,.table .old,.tabledesk .odd,.tabledesk .old {
+	text-align: left;
+	background: transparent url(images/odd.gif) 0 0 repeat-x;
+	height: 24px;
+	line-height: 24px;
+}
+
+.table .even td,.tabledesk .even td {
+	text-align: left;
+	height: 24px;
+	border-right: 1px solid #ddd;
+	line-height: 24px;
+	background-color: transparent; *
+	background-color: #f4f4f4;
+}
+.table .odd td,.table .old td,.tabledesk .odd td,.tabledesk .old td {
+	text-align: left;
+	height: 24px;
+	border-right: 1px solid #ddd;
+	line-height: 24px;
+	background-color: transparent; *
+	background-color: #fff;
+}
+
+.table
+ 
+.odd
+ 
+.important
+,
+.table
+ 
+.old
+ 
+.important
+,
+.tabledesk
+ 
+.odd
+ 
+.important
+,
+.tabledesk
+ 
+.old
+ 
+.important
+,
+.table
+ 
+.odd
+ 
+.close
+,
+.table
+ 
+.old
+ 
+.close
+,
+.tabledesk
+ 
+.odd
+ 
+.close
+,
+.tabledesk
+ 
+.old
+ 
+.close
+,
+.table
+ 
+.odd
+ 
+.open
+,
+.table
+ 
+.old
+ 
+.open
+,
+.tabledesk
+ 
+.odd
+ 
+.open
+,
+.tabledesk
+ 
+.old
+ 
+.open
+,
+.table
+ 
+.odd
+ 
+.oaservice
+,
+.table
+ 
+.old
+ 
+.oaservice
+,
+.tabledesk
+ 
+.odd
+ 
+.oaservice
+,
+.tabledesk
+ 
+.old
+ 
+.oaservice
+,
+.table
+ 
+.odd
+ 
+.ttservice
+,
+.table
+ 
+.old
+ 
+.ttservice
+,
+.tabledesk
+ 
+.odd
+ 
+.ttservice
+,
+.tabledesk
+ 
+.old
+ 
+.ttservice
+,
+.table
+ 
+.odd
+ 
+.requestrervice
+,
+.table
+ 
+.old
+ 
+.requestrervice
+,
+.tabledesk
+ 
+.odd
+ 
+.requestrervice
+,
+.tabledesk
+ 
+.old
+ 
+.requestrervice
+,
+{ padding-left:22px; height: 20px; border-right:1px solid #ddd; line-height: 20px; border-top: 1px solid #ddd;}
+.table .even .important,.tabledesk .even .important,.table .old .important,.table .odd .important,.tabledesk .old .important,.tabledesk .odd .important,.table .even .close,.table .even .oaservice,.table .even .ttservice,.table .even .requestrervice,.table .even .changeservice,.table .old .changeservice,.tabledesk .even .changeservice,.tabledesk .old .changeservice,.table .even .questionservice,.table .old .questionservice,.tabledesk .old .questionservice,.tabledesk .even .questionservice,.tabledesk .even .close,.table .even .open,.tabledesk .even .open
+	{
+	border-top: 1px solid #ddd;
+	padding-left: 22px;
+	height: 24px;
+	border-right: 1px solid #ddd;
+	line-height: 24px;
+}
+
+.table
+ 
+.odd
+ 
+.oaservice
+,
+.table
+ 
+.old
+ 
+.oaservice
+,
+.tabledesk
+ 
+.odd
+ 
+.oaservice
+,
+.tabledesk
+ 
+.old
+ 
+.oaservice
+,
+.table
+ 
+.odd
+ 
+.ttservice
+,
+.table
+ 
+.old
+ 
+.ttservice
+,
+.tabledesk
+ 
+.odd
+ 
+.ttservice
+,
+.tabledesk
+ 
+.old
+ 
+.ttservice
+,
+.table
+ 
+.odd
+ 
+.requestrervice
+,
+.table
+ 
+.old
+ 
+.requestrervice
+,
+.tabledesk
+ 
+.odd
+ 
+.requestrervice
+,
+.tabledesk
+ 
+.old
+ 
+.requestrervice
+,
+{
+padding-left
+:
+18px;
+}
+.table .odd .close,.table .old .close,.tabledesk .odd .close,.tabledesk .old .close,.table .odd .open,.table .old .open,.tabledesk .odd .open,.tabledesk .old .open
+	{
+	padding-left: 22px;
+}
+
+.table_over {
+	background-image: none;
+	height: 24px;
+	border-top: 1px solid #ddd;
+}
+
+.table input {
+	margin: 0;
+	padding: 0;
+}
+
+table td div {
+	line-height: 24px;
+	font-size: 12px;
+}
+
+table .disabled {
+	color: #B0B0B0;
+}
+
+table .disabled td {
+	color: #B0B0B0;
+}
+
+table .disable td a {
+	text-decoration: none;
+	color: #B0B0B0;
+}
+
+.form li.even { #
+	clear: both;
+	border-bottom: 1px solid red;
+	width: auto;
+	display: block;
+}
+
+.form li.even div {
+	display: block;
+	background-color: #903;
+}
+
+li.even {
+	font-weight: bold;
+	height: 24px;
+}
+
+.table .even td.gray,.table .old td.gray,.table .even td.gray:hover,.table .old td.gray:hover
+	{
+	background-color: #bcbcbc;
+	background-image: none;
+	border-bottom: 1px solid #fff;
+	border-top: none;
+}
+
+th.white {
+	background-color: #fff;
+}

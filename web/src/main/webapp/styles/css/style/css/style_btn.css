@@ -1,0 +1,446 @@
+/**pageBtnGroup**/
+.pageBtnGroup{
+	clear:both;
+	padding:10px;
+	text-align:center;
+}
+.btnBox_custom,
+.btnBox_search,
+.btnBox_add,
+.btnBox_del,
+.btnBox_save,
+.btnBox_reset,
+.btnBox_reject,
+.btnBox_edit,
+.btnBox_freeze,
+.btnBox_thaw,
+.btnBox_cance,
+.btnBox_audit,
+.btnBox_preview,
+.btnBox_mdf,
+.btnBox_online,
+.btnBox_offline,
+.btnBox_introsearch,
+.btnBox_feedBack,
+.btnBox_appoint,
+.btnBox_send,
+.btnBox_checkAll,
+.btnBox_reCheckAll,
+.btnBox_permissions,
+.btnBox_comis,
+.btnBox_publish,
+.btnBox_issued,
+.btnBox_upload,
+.btnBox_stop,
+.btnBox_entry,
+.btnBox_change,
+.btnBox_view,
+.btnBox_firstgo,
+.btnBox_apply,
+.btnBox_submit,
+.btnBox_reply,
+.btnBox_cancel,
+.btnBox_confirm,
+.btnBox_recovery,
+.btnBox_clean,
+.btnBox_backup,
+.btnBox_set,
+
+.btnBox_smallAdd,
+.btnBox_smallDel,
+.btnBox_mLeft,
+.btnBox_mRight,
+.btnBox_import,
+.btnBox_derived,
+.btnBox_browse
+{
+	background-color: #FFFFFF;
+	background-image:url(../images/btnBox.gif);
+	cursor:pointer;
+}
+.btnBox_custom{
+	border:0px;
+	width:80px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:0px -528px;
+}
+.btnBox_search {
+	width:80px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:0px 0px;
+}
+.btnBox_add {
+	width:80px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:0px -24px;
+}
+.btnBox_del {
+	width:80px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:0px -48px;
+}
+.btnBox_save {
+	width:80px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:0px -72px;
+}
+.btnBox_reset {
+	width:80px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:0px -96px;
+}
+.btnBox_reject {
+	width:80px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:0px -120px;
+}
+.btnBox_edit {
+	width:80px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:0px -144px;
+}
+.btnBox_freeze {
+	width:80px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:0px -168px;
+}
+.btnBox_thaw {
+	width:80px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:0px -192px;
+}
+.btnBox_cance {
+	width:80px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:0px -216px;
+}
+.btnBox_audit {
+	width:80px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:0px -240px;
+}
+.btnBox_preview {
+	width:80px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:0px -264px;
+}
+.btnBox_mdf {
+	width:80px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:0px -288px;
+}
+.btnBox_online {
+	width:80px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:0px -312px;
+}
+.btnBox_offline {
+	width:80px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:0px -336px;
+}
+.btnBox_introsearch {
+	width:80px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:0px -360px;
+}
+.btnBox_feedBack {
+	width:80px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:0px -384px;
+}
+.btnBox_appoint {
+	width:80px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:0px -408px;
+}
+.btnBox_send {
+	width:80px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:0px -432px;
+}
+.btnBox_checkAll{
+	width:80px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:0px -456px;
+}
+.btnBox_reCheckAll{
+	width:80px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:0px -480px;
+}
+.btnBox_permissions{
+	width:80px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:0px -504px;
+}
+.btnBox_comis {
+	width:80px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:-160px 0px;
+}
+.btnBox_publish {
+	width:80px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:-160px -144px;
+}
+.btnBox_issued {
+	width:80px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:-160px -168px;
+}
+.btnBox_upload {
+	width:80px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:-160px -192px;
+}
+.btnBox_stop {
+	width:80px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:-160px -216px;
+}
+.btnBox_entry {
+	width:80px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:-160px -240px;
+}
+.btnBox_change {
+	width:80px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:-160px -264px;
+}
+.btnBox_view {
+	width:80px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:-160px -288px;
+}
+.btnBox_firstgo {
+	width:80px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:-160px -312px;
+}
+.btnBox_apply {
+	width:80px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:-160px -336px;
+}
+.btnBox_submit {
+	width:80px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:-160px -360px;
+}
+.btnBox_reply {
+	width:80px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:-160px -384px;
+}
+.btnBox_cancel {
+	width:80px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:-160px -408px;
+}
+.btnBox_confirm {
+	width:80px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:-160px -432px;
+}
+.btnBox_recovery {
+	width:80px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:-160px -456px;
+}
+.btnBox_clean {
+	width:80px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:-160px -480px;
+}
+.btnBox_backup {
+	width:80px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:-160px -504px;
+}
+.btnBox_set {
+	width:80px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:-160px -528px;
+}
+
+.btnBox_smallAdd {
+	width:30px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:-160px -96px;
+}
+.btnBox_smallDel {
+	width:30px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:-160px -120px;
+}
+.btnBox_mLeft {
+	width:24px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:-220px -96px;
+}
+.btnBox_mRight {
+	width:24px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:-220px -120px;
+}
+.btnBox_import {
+	width:60px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:-160px -24px;
+}
+.btnBox_derived {
+	width:60px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:-160px -48px;
+}
+.btnBox_browse {
+	width:60px;
+	height:24px;
+	border:0px;
+	padding:0px;
+	background-repeat:no-repeat;
+	background-position:-160px -72px;
+}

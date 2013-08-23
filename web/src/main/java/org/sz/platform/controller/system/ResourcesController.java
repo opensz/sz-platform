@@ -17,6 +17,7 @@ import org.sz.core.annotion.Action;
 import org.sz.core.web.ResultMessage;
 import org.sz.core.web.controller.BaseController;
 import org.sz.core.web.query.WebQueryFilter;
+import org.sz.core.web.util.AppUtil;
 import org.sz.core.web.util.RequestUtil;
 import org.sz.platform.model.system.Resources;
 import org.sz.platform.service.system.ResourcesService;
@@ -41,8 +42,7 @@ public class ResourcesController extends BaseController {
 			HttpServletResponse response) throws Exception {
 		ModelAndView mv = getAutoView();
 		List subSystemList = this.subSystemService.getAll();
-		// TODO
-		Long currentSystemId = null; // SubSystemUtil.getCurrentSystemId(request);
+		Long currentSystemId = AppUtil.getCurrentSystemId(request);
 		mv.addObject("subSystemList", subSystemList).addObject(
 				"currentSystemId", currentSystemId);
 		return mv;
@@ -63,7 +63,7 @@ public class ResourcesController extends BaseController {
 	}
 
 	@RequestMapping({ "del" })
-	// @Action(description="删除子系统资源")
+	@Action(description="删除子系统资源")
 	public void del(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		Long[] lAryId = RequestUtil.getLongAryByStr(request, "resId");
@@ -74,7 +74,7 @@ public class ResourcesController extends BaseController {
 	}
 
 	@RequestMapping({ "edit" })
-	// @Action(description="编辑子系统资源")
+	@Action(description="编辑子系统资源")
 	public ModelAndView edit(HttpServletRequest request) throws Exception {
 		ModelAndView mv = getAutoView();
 		long systemId = RequestUtil.getLong(request, "systemId", 0L);
@@ -264,7 +264,7 @@ public class ResourcesController extends BaseController {
 	}
 
 	@RequestMapping({ "move" })
-	// @Action(description="转移子系统资源")
+	@Action(description="转移子系统资源")
 	public void move(HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		ResultMessage resultObj = null;

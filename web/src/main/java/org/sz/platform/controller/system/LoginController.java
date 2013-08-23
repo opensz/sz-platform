@@ -33,7 +33,6 @@ import org.sz.platform.service.system.SubSystemService;
 import org.sz.platform.service.system.SysUserOrgService;
 import org.sz.platform.service.system.SysUserService;
 
-
 @Controller
 @RequestMapping({ "/login.xht" })
 public class LoginController extends BaseController {
@@ -49,7 +48,7 @@ public class LoginController extends BaseController {
 
 	@Resource
 	private SysUserOrgService sysUserOrgService;
-	
+
 	@Resource
 	private Properties configproperties;
 	private String rememberPrivateKey = "szbpmPrivateKey";
@@ -61,12 +60,9 @@ public class LoginController extends BaseController {
 	public void login(HttpServletRequest request, HttpServletResponse response,
 			@RequestParam("username") String username,
 			@RequestParam("password") String password) throws IOException {
-		Long orgId = Long.valueOf(RequestUtil.getLong(request, "orgId",20000L));
-		Long systemId = Long.valueOf(RequestUtil.getLong(request, "systemId",1L));
-		String sourceUrl=request.getHeader("Referer");
-		
-		String dcId =RequestUtil.getString(request, "dcId");
-		succeedUrl= (dcId!=null && dcId.equals("dcom"))?"/platform/console/dcomMain.xht?systemId="+systemId:"/platform/console/main.xht";
+
+		String sourceUrl = request.getHeader("Referer");
+
 		String validCodeEnabled = this.configproperties
 				.getProperty("validCodeEnabled");
 		boolean error = false;
@@ -91,7 +87,7 @@ public class LoginController extends BaseController {
 				error = true;
 				return;
 			}
-			SysUser sysUser = this.sysUserService.getByAccount(username,orgId);
+			SysUser sysUser = this.sysUserService.getByAccount(username);
 
 			String encrptPassword = EncryptUtil.encryptSha256(password);
 			if ((sysUser == null)
@@ -101,79 +97,30 @@ public class LoginController extends BaseController {
 				error = true;
 				return;
 			}
-			
-			UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(
-					username, password);
-			SecurityContext securityContext = SecurityContextHolder
-					.getContext();
-			Authentication auth = this.authenticationManager
-					.authenticate(authRequest);
+
+			UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(username, password);
+			SecurityContext securityContext = SecurityContextHolder.getContext();
+			Authentication auth = this.authenticationManager.authenticate(authRequest);
 			securityContext.setAuthentication(auth);
-			Object principal = auth.getPrincipal();
-			if ((principal instanceof SysUser)) {
-				sysUser = (SysUser) principal;
-			}
 
-			sysUser.setSystemId(systemId);
-			if (dcId != null) {
-				sysUser.setDeskId(1L);
-			}
-			List<SysUserOrg> list = sysUserOrgService.getOrgByUserId(sysUser
-					.getUserId());
-			if (!list.isEmpty()) {
-				for (SysUserOrg sysUserOrg : list) {
-					if(sysUserOrg.getOrgId().equals(orgId)){  //如果和当前选择的orgId 相同 取到对应的org
-						
-							sysUser.setUserOrgId(sysUserOrg.getOrgId());
-							sysUser.setOrgName(sysUserOrg.getOrgName());
-						
-					}
-					else{
-						if(sysUserOrg.getOrgSupId().equals(orgId)){
-							//取到对应的部门
-							if (sysUserOrg.getIsDept() != null
-									&& sysUserOrg.getIsDept() == 1l) {
-								sysUser.setDeptId(sysUserOrg.getOrgId());
-								sysUser.setDeptName(sysUserOrg.getOrgName());
-							}
-						}
-					}
-					
-					
-					/*if (sysUserOrg.getIsPrimary() != null
-							&& sysUserOrg.getIsPrimary() == 1l) {
-						if (sysUserOrg.getIsDept() != null
-								&& sysUserOrg.getIsDept() == 1l) {
-							sysUser.setDeptId(sysUserOrg.getOrgId());
-							sysUser.setDeptName(sysUserOrg.getOrgName());
-						} else {
-							sysUser.setUserOrgId(sysUserOrg.getOrgId());
-							sysUser.setOrgName(sysUserOrg.getOrgName());
-						}
-					}*/
-				}
-			}
-
-			request.getSession().setAttribute("SPRING_SECURITY_LAST_USERNAME",
-					username);
-			request.getSession().setAttribute("sysUser",sysUser);
-			request.getSession().removeAttribute("SPRING_SECURITY_LAST_EXCEPTION");
+			request.getSession().setAttribute("SPRING_SECURITY_LAST_USERNAME", username);
+			request.getSession().removeAttribute( "SPRING_SECURITY_LAST_EXCEPTION");
 			writeRememberMeCookie(request, response, username, encrptPassword);
 		} catch (LockedException session) {
 			request.getSession().setAttribute("SPRING_SECURITY_LAST_EXCEPTION",
 					username + ":用户被锁定!");
 			error = true;
-			
+
 		} catch (DisabledException session) {
 			request.getSession().setAttribute("SPRING_SECURITY_LAST_EXCEPTION",
 					username + ":用户被禁用!");
 			error = true;
-			
+
 		} catch (AccountExpiredException session) {
 			request.getSession().setAttribute("SPRING_SECURITY_LAST_EXCEPTION",
 					username + ":用户已过期!");
 			error = true;
-			
+
 		} finally {
 			HttpSession session;
 			Integer tryCount;
@@ -188,26 +135,9 @@ public class LoginController extends BaseController {
 								Integer.valueOf(tryCount.intValue() + 1));
 				}
 			}
-			
-			//
-			//设置所选择的子系统ID, 为当前
-		
-			try {
-				systemId = RequestUtil.getLong(request, "systemId");
-			} catch (Exception exc) {
 
-			}
-			if(systemId != null){
-				//TODO
-				//subSystemService.setCurrentSystem(systemId, request, response);
-			}
-			if(request.getSession().getAttribute("SPRING_SECURITY_LAST_EXCEPTION")!=null){
-				response.sendRedirect(sourceUrl);
-			}
-			else{
-				response.sendRedirect(request.getContextPath() + this.succeedUrl);
-			}
-			
+			response.sendRedirect(request.getContextPath() + this.succeedUrl);
+
 		}
 	}
 

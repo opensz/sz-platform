@@ -1,0 +1,148 @@
+/**
+附件样式表。
+*/
+div.attachement{
+	word-break : break-all ;
+	overflow:auto;
+	padding: 2px 2px 2px 2px;
+}
+
+a.attachment{
+	text-decoration: none;
+	font-size: 12px;
+}
+
+a.attachment:hover{
+	text-decoration: underline;
+}
+
+table.formTable{
+	border:1px solid #8DC2E3;border-collapse :collapse;width:100%;text-align:center;
+	font-size: 12px;
+}
+
+td.formHead{
+	border:1px solid #8DC2E3;
+	text-align: center;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+td.formTitle{
+	padding:2px;border:1px solid #8DC2E3;
+	background-color:#EDF6FC;
+	text-align: right;
+	
+}
+
+td.formInput{
+	padding:2px;border:1px solid #8DC2E3;
+	background-color:white;
+	text-align: left;
+}
+
+table.listTable{
+	border:1px solid #8DC2E3;border-collapse :collapse;width:100%;text-align:center;
+	font-size: 12px;
+}
+
+table.listTable tr.headRow{
+	height: 25px;
+	
+}
+
+table.listTable tr.toolBar{
+	height: 25px;
+	
+	background: url(../images/content_bg_sort.jpg) repeat-x;
+}
+
+table.listTable tr.toolBar td{
+	border:1px solid #8DC2E3;
+	text-align: left;
+	padding-left: 4px;
+}
+
+table.listTable th{
+	border:1px solid #8DC2E3;
+	text-align: center;
+	height: 25px;
+	font-size:12px;
+	background-color:#F1F6FF;
+	font-weight:bold;
+	
+}
+
+table.listTable tr.listRow td{
+	border:1px solid #8DC2E3;
+	text-align: center;
+	height: 23px;
+}
+
+a.link{
+	padding-left:20px;cursor: pointer;  color: blue;font-size:12px;
+	text-decoration: none;
+}
+
+a.link.add{
+	background:url(../images/icons/icons_add.png) 0px -1px no-repeat;
+}
+
+a.link.del{
+	background:url(../images/icons/icons_del.png) 0px -1px no-repeat;
+}
+
+a.link.role{
+	background:url(../images/icon/find.png) 0px -1px no-repeat;
+}
+
+a.link.position{
+	background:url(../images/icon/find.png) 0px -1px no-repeat;
+}
+
+a.link.user{
+	background:url(../images/icon/user.gif) 0px -1px no-repeat;
+}
+
+a.link.users{
+	background:url(../images/icon/users.gif) 0px -1px no-repeat;
+}
+
+a.link.org{
+	background:url(../images/icon/org.gif) 0px -1px no-repeat;
+}
+
+
+/*--extend start--*/
+a.extend.message{
+    background:url(../images/extendIcon/message.gif) 0px -1px no-repeat;
+}
+
+a.extend.navigation{
+    background:url(../images/extendIcon/navigation.png) 0px -1px no-repeat;
+}
+
+a.extend.remoteupload{
+    background:url(../images/extendIcon/remoteupload.gif) 0px -1px no-repeat;
+}
+
+a.extend.script{
+    background:url(../images/extendIcon/script.gif) 0px -1px no-repeat;
+}
+
+a.extend.stat{
+    background:url(../images/extendIcon/stat.gif) 0px -1px no-repeat;
+}
+
+a.extend.subsys{
+    background:url(../images/extendIcon/subsys.png) 0px -1px no-repeat;
+}
+
+a.extend.task{
+    background:url(../images/extendIcon/task.png) 0px -1px no-repeat;
+}
+
+a.extend.user{
+    background:url(../images/extendIcon/user.png) 0px -1px no-repeat;
+}
+/*--extend end--*/

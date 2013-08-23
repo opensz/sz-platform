@@ -26,22 +26,29 @@
         <property name="useCodeAsDefaultMessage" value="true"/>
     </bean> 
 
+
     <context:component-scan base-package="org.sz.core.web"/>
+    <context:component-scan base-package="org.sz.platform.controller"/>
 
     <!-- Configures the @Controller programming model -->
     <mvc:annotation-driven/>
-
-    <!-- Convenient way to map URLs to JSPs w/o having a Controller -->
-    <mvc:view-controller path="/admin/activeUsers" view-name="admin/activeUsers"/>
-    <mvc:view-controller path="/mainMenu" view-name="mainMenu"/>
-
-    <!-- View Resolver for JSPs -->
-    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="requestContextAttribute" value="rc"/>
-        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-        <property name="prefix" value="/WEB-INF/pages/"/>
-        <property name="suffix" value=".jsp"/>
-    </bean>
+    
+    <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
+	
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" >
+		<property name="messageConverters">
+			<list>
+				<bean class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />
+			</list>
+		</property>
+	</bean>
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="redirectHttp10Compatible" value="false"/>
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+		<property name="contentType" value="text/html;charset=UTF-8" />
+		<property name="prefix" value="/WEB-INF/view" />
+		<property name="suffix" value="" />
+	</bean>
     
     <!-- Add additional controller beans here -->
 </beans>

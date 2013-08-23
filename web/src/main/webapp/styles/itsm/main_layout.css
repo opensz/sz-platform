@@ -1,0 +1,75 @@
+#mainBody { width: 100%; min-width: 1002px !important;}
+#left { float: left; width: 20%; background-color: #CCC; height: 500px;}
+#callCenter { height: 50px;}
+#center { float: left; width: 80%; height: 500px; background-color: #FF9;}
+#footer { width: 100% !important; height:35px; line-height: 25px;}
+
+/* ��ҳ�л�ӭҳ����ʽ*/
+.welcome { background: url(images/welcome_bg.jpg) repeat-x; height: 511px; width: 100%; overflow: hidden;}
+.wel_pic { background: url(images/welcome_pic.jpg) no-repeat; width: 1021px; height: 485px; margin: 0 auto;}
+.wel_title { font-size: 16px; font-weight: bold; margin: 0 auto; text-align: center; padding-top: 190px; color: #62707f;}
+
+ul,li { margin: 0; padding: 0; list-style-type: none;}
+a { color:#1d4279; text-decoration: none;}
+a:hover{ color:#ff0000;}
+body { behavior: url(iehoverfix.htc);}
+#header { height: 60px; width: auto; color: #000; background: url(images/bg.jpg) repeat-x;}
+#logo { float: left; height: 60px; width: 160px; background: url(images/logo.png) no-repeat;}
+		
+/**nav样式**/
+#nav_menu { height:60px; float: left; width: auto;}
+#navmenu a { color: #4f545a; }
+#navmenu a:hover { color: #feffff; }
+
+#navmenu li{ font-size:12px; width:67px; float:left; padding-top: 7px;}
+#navmenu li:hover { width: 67px; height: 60px; background: url(images/nav_hover_bg.jpg) no-repeat; }
+#navmenu li.current{ width: 67px; height:60px; background: url(images/nav_hover_bg.jpg) no-repeat; display: block;}
+.topic { width: 67px; height: 60px; display: block;}
+.topic:hover { width: 67px; height: 60px; background: url(images/nav_hover_bg.jpg) no-repeat; display: block;}
+.menu{ width:67px; text-align:center; line-height:19px;}
+/****************************************************************************************************************************/
+.pic{ margin-left:16px;} 
+.nav_icon{ width:32px; height:32px; background:url(images/nav_icon.png) no-repeat; }
+.self_ser{ background-position:0px 0px;}
+.contact_jc{ background-position:-32px 0px;}
+.knowledge{ background-position:-64px 0px;}
+.ser_manage { background-position:-96px 0px;}
+.ser_config { background-position:-128px 0px;}
+.ser_control { background-position:-160px 0px;}
+.asset_control { background-position:-192px 0px;}
+.client_ser { background-position:-224px 0px;}
+.yun_manage { background-position:-256px 0px;}
+.outer_ser{ background-position:-288px 0px;}
+.client_manage{ background-position:-320px 0px;}
+.system_manage{ background-position:-352px 0px;}
+.contract{ background-position:-384px 0px;}
+.company_manage{ background-position:-416px 0px;}
+
+
+/*新增样式*/
+#user_operation{ height:60px; float:right;}
+#operation{ min-width:210px; float:left; color:#e1f7f7;text-align:center;}
+#operation a{ color:#e1f7f7;}
+#operation a:hover{ color:#bfd4d9;}
+#fg_line{ background: url(images/fg_line.jpg) no-repeat; width:2px; height:60px; float:left;}
+.op_show2{ text-align:center; padding-top:3px; padding-bottom:2px;}
+.op_details{margin:0px auto; width:210px;padding-left:22px;}
+#fg_nr{ padding:0px 8px; line-height:22px; float:left;}
+
+#per_info { height:17px; width:87px; float:left; line-height:17px; padding-left:22px; background: url(images/per_info.png) no-repeat; background-position:0px 2px;}
+#change_pwd { height:17px; width:87px; float:left; line-height:17px; padding-left:22px; background: url(images/change_pwd.png) no-repeat; background-position:0px 2px;}
+#help{ height:17px; width:87px; float:left; line-height:17px; padding-left:22px; background: url(images/help.png) no-repeat; background-position: 0px 2px;}
+#exit{ height:17px; width:87px; float:left; line-height:17px; padding-left:22px; background: url(images/exit.png) no-repeat; background-position: 0px 2px;}
+#header_bg{ height:60px; min-width:660px; background: url(images/head_bg.jpg) no-repeat; }
+
+/*#user_operation2{ width:180px; height:60px; float:right;}
+#operation2{padding:3px 10px 0px 10px; color:#e1f7f7;float:clear;}
+#operation2 a{ color:#e1f7f7;}
+#operation2 a:hover{ color:#bfd4d9;}
+.op_show2{ color:#e1f7f7; padding:3px 20px 0px 20px;}
+#fg_line2{ background: url(images/fg_line.jpg) no-repeat; width:2px; height:60px; float:left;}
+#per_info2 {width:70px; height:17px; line-height:17px; padding-left:22px; background: url(images/per_info.png) no-repeat; background-position:0px 2px;}
+#change_pwd2 {height:17px; line-height:17px; padding-left:22px; background: url(images/change_pwd.png) no-repeat; background-position:0px 2px;}
+#exit2{ float:right;width:70px; height:17px; line-height:17px; padding-left:22px; background: url(images/exit.png) no-repeat; background-position: 0px 2px;}*/
+
+

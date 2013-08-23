@@ -1,0 +1,49 @@
+使用方法
+
+1.JS动态添加PANEL。
+	完整的示例见：
+	/WEB-INF/view/platform/console/main.jsp。
+	
+	 //构建面板
+	$("#leftMemu").ligerAccordion({ height: height-24, speed: null });
+	
+	//获取面板对象的引用。
+	accordion = $("#leftMemu").ligerGetAccordionManager();
+	
+	//扩展了添加panel的方法。
+	//panel标题，panel的图标，panel的内容。
+	accordion.addPanel(node.name,"",objUl);
+	//扩展了addComplete()方法，这个方法于在添加完panel后，添加panel的样式效果事件等。
+	accordion.addComplete();
+	//扩展了activeByTitle方法，这个方法可以根据标题使指定的panel为激活状态。
+	accordion.activeByTitle();
+	
+2.直接使用html。
+	 $("#accordion1").ligerAccordion();
+	
+	<div id="accordion1" > 
+         <div title="功能列表">
+              <ul>
+                    <li>列表一</li>
+                    <li>列表二</li>
+                    <li>列表三</li>
+                    <li>列表四</li>
+                    <li>列表五</li>
+                </ul>
+        </div>
+         <div title="列表">
+                <ul>
+                    <li>列表一</li>
+                    <li>列表二</li>
+                    <li>列表三</li>
+                    <li>列表四</li>
+                    <li>列表五</li>
+                </ul>
+        </div> 
+        <div title="其他" style="padding:10px"> 
+        		其他内容
+        </div>
+    </div> 
+
+	
+	

@@ -1,12 +1,19 @@
 package org.sz.core.web.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+
+import javax.annotation.Resource;
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.sz.core.Constants;
-import org.sz.core.model.User;
-import org.sz.core.service.MailEngine;
-import org.sz.core.service.UserManager;
-import org.sz.core.web.ResultMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.beans.propertyeditors.CustomNumberEditor;
@@ -21,18 +28,8 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.context.ServletContextAware;
 import org.springframework.web.multipart.support.ByteArrayMultipartFileEditor;
 import org.springmodules.validation.commons.ConfigurableBeanValidator;
-
-import javax.annotation.Resource;
-import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
-import java.io.Serializable;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
+import org.sz.core.Constants;
+import org.sz.core.web.ResultMessage;
 
 /**
  * 
@@ -42,9 +39,8 @@ public class BaseFormController extends GenericController implements ServletCont
     
     
     public static final String MESSAGES_KEY = "successMessages";
-    private UserManager userManager = null;
-    protected MailEngine mailEngine = null;
-    protected SimpleMailMessage message = null;
+
+//    protected SimpleMailMessage message = null;
     protected String templateName = "accountCreated.vm";
     protected String cancelView;
     protected String successView;
@@ -63,14 +59,7 @@ public class BaseFormController extends GenericController implements ServletCont
         messages = new MessageSourceAccessor(messageSource);
     }
 
-    @Autowired
-    public void setUserManager(UserManager userManager) {
-        this.userManager = userManager;
-    }
 
-    public UserManager getUserManager() {
-        return this.userManager;
-    }
 
     @SuppressWarnings("unchecked")
     public void saveError(HttpServletRequest request, String error) {
@@ -189,40 +178,11 @@ public class BaseFormController extends GenericController implements ServletCont
 		return resObj;
 	}
 
-    /**
-     * Convenience message to send messages to users, includes app URL as footer.
-     * @param user the user to send a message to.
-     * @param msg the message to send.
-     * @param url the URL of the application.
-     */
-    protected void sendUserMessage(User user, String msg, String url) {
-        if (log.isDebugEnabled()) {
-            log.debug("sending e-mail to user [" + user.getEmail() + "]...");
-        }
 
-        message.setTo(user.getFullName() + "<" + user.getEmail() + ">");
-
-        Map<String, Serializable> model = new HashMap<String, Serializable>();
-        model.put("user", user);
-
-        // TODO: once you figure out how to get the global resource bundle in
-        // WebWork, then figure it out here too.  In the meantime, the Username
-        // and Password labels are hard-coded into the template. 
-        // model.put("bundle", getTexts());
-        model.put("message", msg);
-        model.put("applicationURL", url);
-        mailEngine.sendMessage(message, templateName, model);
-    }
-
-    @Autowired
-    public void setMailEngine(MailEngine mailEngine) {
-        this.mailEngine = mailEngine;
-    }
-
-    @Autowired
-    public void setMessage(SimpleMailMessage message) {
-        this.message = message;
-    }
+//    @Autowired
+//    public void setMessage(SimpleMailMessage message) {
+//        this.message = message;
+//    }
 
     public void setTemplateName(String templateName) {
         this.templateName = templateName;

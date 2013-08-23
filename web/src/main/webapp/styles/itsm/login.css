@@ -1,0 +1,70 @@
+body {
+	margin: 0px;
+	padding: 0px;
+}
+div {
+	background-image: url(images/bg1.jpg);
+	background-repeat: repeat-x;
+	height: 621px;
+	width: auto;
+}
+div div {
+	background-image: url(images/bg2.jpg);
+	background-repeat: no-repeat;
+	width: 979px;
+	margin-right: auto;
+	margin-left: auto;
+}
+div div div{
+	width:548px;
+	margin-top: 0;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+	background-image: url(images/k_login.gif);
+	background-repeat: no-repeat;
+	background-position: center 125px;
+}
+.logo {
+	background-image: url(images/logo.gif);
+	background-repeat: no-repeat;
+	background-position: center 155px;
+	width: 548px;
+	height: 225px;
+}
+div,ul,li,h1,h2,h3,h4,h5,h6,img,p,dl,dt,dd,ol,th,td{margin: 0px;padding: 0px;}
+button {margin: 0;padding: 0;list-style-type: none;}
+li {list-style-type: none;}
+ul { margin:0; padding:0; list-style-type:none;}
+form,input,button,option,textarea,select{ margin: 0px;padding: 0px;}
+.ny_msg {
+	background:none;
+	width: 360px;
+	margin-top: 0;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+	height: 200px;
+}
+.ny_msg ul {
+	width: 380px;
+	padding-top: 15px;
+	margin-top: 0;
+	margin-right: auto;
+	margin-bottom: 0;
+	margin-left: auto;
+}
+.ny_msg .msg_form li { width: 100%; float: left; padding: 2px 0;}
+.ny_msg .msg_form li .type { width: 65px; float: left; line-height: 25px; font-size: 14px; font-weight: bold; color: #444;}
+.ny_msg .msg_form li input { line-height: 13px; padding-top: 2px; padding-right: 0; padding-bottom: 2px;padding-left: 0;}
+.ny_msg form .msg_form .sys {padding-top: 5px; font-size: 12px;}
+.ny_msg form .msg_form .butbox input {
+	height: 37px;
+	width: 98px;
+	background-image: url(images/button.jpg);
+	background-repeat: no-repeat;
+	font-size: 13px;
+	font-weight: bold;
+	color: #FFF;
+}
+.msg_form .butbox {padding-top: 5px;}

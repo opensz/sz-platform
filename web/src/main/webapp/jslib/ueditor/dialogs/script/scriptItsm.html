@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+    "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <script type="text/javascript" src="../internal.js"></script>
+        <title></title>
+        <style type="text/css">
+            html,body{
+                _overflow:hidden;
+            }
+            *{margin: 0;padding: 0;line-height: 20px;}
+            .wrapper{width: 520px;height: 300px; margin: 10px 15px;font-size: 12px}
+            textarea{width:510px ;height: 300px;resize: none;margin:5px;*margin-left:-12px;}
+        </style>
+    </head>
+    <body>
+    <div class="wrapper">
+        <p>
+            <label for="language"><var id="lang_input_text"></var></label>
+        </p>
+        
+            <textarea id="scriptInput" cols="" rows=""></textarea>
+    	</div>
+        <script type="text/javascript">
+            var scriptInput = $G('scriptInput'),
+                node = editor.selection.getRange().getClosedNode();
+            /*if(node && node.tagName == 'IMG' && (node = node.getAttribute('scriptInput'))){
+                scriptInput.value = node;
+            }*/
+            scriptInput.onkeydown = function(evt){
+                evt = evt || window.event;
+                /*if(evt.keyCode == 13){
+                    editor.execCommand('scriptitsm', scriptInput.value);
+                    dialog.close();
+                    domUtils.preventDefault(evt)
+                }*/
+            };
+            dialog.onok = function (){
+                editor.execCommand('scriptitsm', scriptInput.value);
+                dialog.close();
+            };
+            $focus(scriptInput);
+            
+            window.onload=function(){
+            	var doc = editor;
+            	
+            	if(doc.document.getElementById("scriptForm")!=null){
+   
+            		if(doc.scriptHtml!=null){
+            			$G('scriptInput').value=doc.scriptHtml;
+            		}
+            		else{
+            		    var html=doc.textarea.defaultValue;
+            			var startStr='<script id="scriptForm" _ue_org_tagname="script">';
+            			var returnValue=html.substring(html.indexOf(startStr)+startStr.length,html.length-9);
+            			$G('scriptInput').value=returnValue;
+            		}
+            	}
+            }
+            
+            function StringAs(string) {  
+			    return '"' + string.replace(/(\\|\"|\n|\r|\t)/g, "\\$1") + '"';  
+			} 
+        </script>
+    </body>
+</html>

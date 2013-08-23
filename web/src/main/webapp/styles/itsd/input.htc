@@ -1,0 +1,23 @@
+<script language=javascript>
+switch(type)
+{
+	 
+    case 'button':
+	  if(className==undefined || className==''){
+    className="button";
+	}
+   
+	
+	case 'submit':
+	  if(className==undefined || className==''){
+    className="button";
+	}
+	case 'reset':
+	  if(className==undefined || className==''){
+    className="button";
+	}
+    break;
+
+    default: ;//others use default style.
+}
+</script>

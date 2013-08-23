@@ -72,13 +72,8 @@ public class SysUser extends BaseModel implements UserDetails {
 	/////// field that added by y.mao /////////
 	private String empId;
 	protected String firstSpell; // 拼音首字母
-	
-	
-	private Long deptId;  
-	private String deptName;
-	private Long systemId; // 当前用户的子系统id
 	private String desc;
-	private Long deskId;//操作管理数据中心
+	
 	
 	//////////////////////////////////////////
 	@Transient
@@ -219,23 +214,7 @@ public class SysUser extends BaseModel implements UserDetails {
 		this.firstSpell = firstSpell;
 	}
 	
-	@Transient
-	public Long getDeptId() {
-		return deptId;
-	}
-
-	public void setDeptId(Long deptId) {
-		this.deptId = deptId;
-	}
-
-	@Transient
-	public String getDeptName() {
-		return deptName;
-	}
-
-	public void setDeptName(String deptName) {
-		this.deptName = deptName;
-	}
+	
 	
 	@Column(name="des")
 	public String getDesc() {
@@ -245,14 +224,7 @@ public class SysUser extends BaseModel implements UserDetails {
 	public void setDesc(String desc) {
 		this.desc = desc;
 	}
-	@Transient
-	public Long getSystemId() {
-		return systemId;
-	}
-
-	public void setSystemId(Long systemId) {
-		this.systemId = systemId;
-	}
+	
 
 	public String getEmpId() {
 		return empId;
@@ -404,12 +376,5 @@ public class SysUser extends BaseModel implements UserDetails {
 		return this.status == STATUS_OK;
 	}
 	
-	@Transient
-	public Long getDeskId() {
-		return deskId;
-	}
-	public void setDeskId(Long deskId){
-		this.deskId=deskId;
-	}
 
 }

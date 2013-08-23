@@ -8,10 +8,8 @@ import org.sz.platform.model.system.SysUser;
 
 public interface SubSystemService extends BaseService<SubSystem>{
 
-	//void setCurrentSystem(Long systemId, HttpServletRequest request, HttpServletResponse response);
-
-	//void writeCurrentSystemCookie(String systemId, HttpServletRequest request, HttpServletResponse response);
-
+	SubSystem getById(Long systemId);
+	
 	List<SubSystem> getByUser(SysUser user);
 
 	List<SubSystem> getLocalSystem();

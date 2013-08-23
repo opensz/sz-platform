@@ -1,10 +1,8 @@
 package org.sz.platform.model.system;
 
-import org.sz.platform.model.system.SubSystem;
-import org.sz.platform.model.system.SysRole;
-
 import java.util.Date;
 import java.util.List;
+
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.sz.core.model.BaseModel;
