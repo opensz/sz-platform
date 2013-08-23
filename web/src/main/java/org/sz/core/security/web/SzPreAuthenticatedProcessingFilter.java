@@ -1,4 +1,4 @@
-package org.sz.core.web.security;
+package org.sz.core.security.web;
 
 import java.util.Properties;
 

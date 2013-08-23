@@ -5,11 +5,11 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
               http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 
-	<http pattern="/images/**" security="none" />
+	<http pattern="/commons/**" security="none" />
 	<http pattern="/styles/**" security="none" />
 	<http pattern="/js/**" security="none" />
-	<http pattern="/commons/**" security="none" />
-	<http pattern="/scripts/**" security="none" />
+	<http pattern="/jslib/**" security="none" />
+	<http pattern="/libs/**" security="none" />
 	<http pattern="/themes/**" security="none" />
 	<http pattern="/login/**" security="none" />
 	<http pattern="/login**" security="none" />
@@ -30,36 +30,37 @@
 
 		<intercept-url pattern="*.xht" access="ROLE_USER,ROLE_ADMIN" />
 
-		<!--使用表单登录 -->
-        
-	
 
 		<form-login login-page="/login.jsp"
 			always-use-default-target="true" />
-		<!-- 
-		<custom-filter position="FORM_LOGIN_FILTER" ref="szAuthenticationFilter" /> 
-			
-		<custom-filter position="PRE_AUTH_FILTER" ref="szPreAuthFilter" />
-			-->
+
+
+		<!-- custom-filter position="FORM_LOGIN_FILTER" ref="szAuthenticationFilter" 
+			/ -->
+
+		<!-- custom-filter position="PRE_AUTH_FILTER" ref="szPreAuthFilter" / -->
 
 
 		<logout logout-url="/logout" logout-success-url="/login.jsp" />
 		<remember-me key="szplatformPrivateKey" />
 
+		<custom-filter before="FILTER_SECURITY_INTERCEPTOR" ref="szPermissionFilter" />
+		<access-denied-handler ref="szAccessDeniedHandler" />
+
 	</http>
 
 	<beans:bean id="szPreAuthFilter"
-		class="org.sz.core.web.security.SzPreAuthenticatedProcessingFilter">
+		class="org.sz.core.security.web.SzPreAuthenticatedProcessingFilter">
 		<beans:property name="authenticationManager" ref="authenticationManager" />
 	</beans:bean>
 
 	<beans:bean id="szAuthenticationFilter"
-		class="org.sz.core.web.security.SzUsernamePasswordAuthenticationFilter">
+		class="org.sz.core.security.web.SzUsernamePasswordAuthenticationFilter">
 		<beans:property name="authenticationManager" ref="authenticationManager" />
 	</beans:bean>
 
 	<beans:bean id="szAccessDeniedHandler"
-		class="org.sz.core.web.security.SzAccessDeniedHandler">
+		class="org.sz.core.security.web.SzAccessDeniedHandler">
 		<beans:property name="accessDeniedUrl" value="/403.jsp" />
 	</beans:bean>
 
@@ -69,10 +70,7 @@
 		</authentication-provider>
 	</authentication-manager>
 
-
-	<!-- 一个自定义的filter，必须包含authenticationManager,accessDecisionManager,securityMetadataSource三个属性，我们的所有控制将在这三个类中实现 -->
-
-	<beans:bean id="permissionFilter" class="org.sz.core.web.filter.PermissionFilter">
+	<beans:bean id="szPermissionFilter" class="org.sz.core.security.web.SzPermissionFilter">
 		<beans:property name="authenticationManager" ref="authenticationManager" />
 		<beans:property name="accessDecisionManager" ref="accessDecisionManager" />
 		<beans:property name="securityMetadataSource" ref="securityMetadataSource" />
@@ -80,12 +78,12 @@
 
 
 	<!-- 访问决策器，决定某个用户具有的角色，是否有足够的权限去访问某个资源 -->
-	<beans:bean id="accessDecisionManager" class="org.sz.core.web.security.SzDecisionManager" />
+	<beans:bean id="accessDecisionManager" class="org.sz.core.security.web.SzDecisionManager" />
 
 
 	<!-- 资源源数据定义，即定义某一资源可以被哪些角色访问 -->
 	<beans:bean id="securityMetadataSource"
-		class="org.sz.core.web.security.SzSecurityMetadataSource" scope="singleton">
+		class="org.sz.core.security.web.SzSecurityMetadataSource" scope="singleton">
 		<beans:property name="anonymousUrls">
 			<beans:set>
 				<beans:value>/login.xht</beans:value>

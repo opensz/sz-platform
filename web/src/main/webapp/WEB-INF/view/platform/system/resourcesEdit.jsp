@@ -1,7 +1,3 @@
-<%--
-	time:2011-12-05 17:00:54
-	desc:edit the 子系统资源
---%>
 <%@page language="java" pageEncoding="UTF-8"%>
 <%@include file="/commons/include/html_doctype.html"%>
 <html>
@@ -21,12 +17,15 @@
 				
 			}
 			valid(showRequest,showResponse);
-			$("a.save").click(function() {
-				$('#resourcesForm').submit(); 
-			});
 			
+			//$("a.save").click(function() {
+			//	$('#resourcesForm').submit(); 
+			//});
 			
 		});
+		function saveRes(){
+		   $('#resourcesForm').submit(); 
+		}
 		function selectIcon(){
 			 IconDialog({callback:function(src){
 				$("#icon").val(src);
@@ -82,7 +81,7 @@
 			</div>
 			<div class="panel-toolbar">
 				<div class="toolBar">
-					<div class="group"><a class="link save" id="dataFormSave" href="#">保存</a></div>
+					<div class="group"><a class="link save" id="dataFormSave" href="javascript:saveRes();">保存</a></div>
 					<div class="l-bar-separator"></div>
 					<div class="group"><a class="link back" href="${returnUrl}">返回</a></div>
 				</div>
