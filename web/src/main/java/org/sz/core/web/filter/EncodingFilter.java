@@ -10,6 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.filter.OncePerRequestFilter;
 
+/**
+ * replace org.springframework.web.filter.CharacterEncodingFilter
+ *
+ */
 public class EncodingFilter extends OncePerRequestFilter implements Filter {
 
 	private String encoding = "UTF-8";
