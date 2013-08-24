@@ -40,12 +40,9 @@ public class BaseFormController extends GenericController implements ServletCont
     
     public static final String MESSAGES_KEY = "successMessages";
 
-//    protected SimpleMailMessage message = null;
-    protected String templateName = "accountCreated.vm";
     protected String cancelView;
     protected String successView;
 
-    private MessageSourceAccessor messages;
     private ServletContext servletContext;
     
     @Resource
@@ -53,12 +50,6 @@ public class BaseFormController extends GenericController implements ServletCont
 
     @Autowired(required = false)
     Validator validator;
-
-    @Autowired
-    public void setMessages(MessageSource messageSource) {
-        messages = new MessageSourceAccessor(messageSource);
-    }
-
 
 
     @SuppressWarnings("unchecked")
@@ -93,7 +84,7 @@ public class BaseFormController extends GenericController implements ServletCont
      * @return
      */
     public String getText(String msgKey, Locale locale) {
-        return messages.getMessage(msgKey, locale);
+        return this.messages.getMessage(msgKey, locale);
     }
 
     /**
@@ -179,14 +170,7 @@ public class BaseFormController extends GenericController implements ServletCont
 	}
 
 
-//    @Autowired
-//    public void setMessage(SimpleMailMessage message) {
-//        this.message = message;
-//    }
 
-    public void setTemplateName(String templateName) {
-        this.templateName = templateName;
-    }
    
     public final BaseFormController setCancelView(String cancelView) {
         this.cancelView = cancelView;

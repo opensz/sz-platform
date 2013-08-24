@@ -6,16 +6,27 @@ function showRequest(formData, jqForm, options) {
 	return true;
 } 
 var __valid;
-function showResponse(responseText, statusText,isReset)  { 
+function showResponse(responseText, statusText)  { 
 	var obj=new org.sz.form.ResultMessage(responseText);
 	if(obj.isSuccess()){//成功
 		$.ligerMessageBox.confirm('提示信息',obj.getMessage()+' 继续操作吗?',function(rtn){
-			if(!rtn){
-				var returnUrl=$("a.back").attr("href");
-				location.href=returnUrl;
+			if(!rtn){  
+				var returnUrl=$("#returnUrl").val();
+				if($("#returnUrl").length>0 && returnUrl!=""){
+					location.href=returnUrl;
+					return;
+				}
+				var linkBack=$("a.back");
+				if(linkBack.length>0){
+					var returnUrl=linkBack.attr("href");
+					if(returnUrl!=""){
+						location.href=returnUrl;
+						return;
+					}
+				}
 			}
 			else{
-				if(isReset==1){
+				if(self.isReset==1){
 					__valid.resetForm();
 				}
 			}
@@ -25,7 +36,7 @@ function showResponse(responseText, statusText,isReset)  {
     	$.ligerMessageBox.error('出错了',obj.getMessage());
     }
 } 
-function valid(showRequest,showResponse){
+function valid(showRequest,showResponse,isReset){
 
 var options={};
 
@@ -34,6 +45,12 @@ if(showRequest )
 
 if(showResponse )
 	options.success=showResponse;
+
+if(isReset){
+	options.isReset=isReset;
+}else{
+    options.isReset=1;
+}
 
 __valid=$("#${formName}Form").validate({
    
@@ -59,7 +76,8 @@ __valid=$("#${formName}Form").validate({
 		$(form).ajaxSubmit(options);
     },
     success: function(label) {
-		label.html("&nbsp;").addClass("checked");
+		label.removeClass("error");
+		//label.html("&nbsp;").addClass("checked");
 	}
 	});
 }

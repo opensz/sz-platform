@@ -22,6 +22,7 @@
 
 	<http pattern="/media/**" security="none" />
 	<http pattern="/servlet/ValidCode" security="none" />
+	<http pattern="/servlet/ValidJs" security="none" />
 	<http pattern="/pad/**" security="none" />
 
 

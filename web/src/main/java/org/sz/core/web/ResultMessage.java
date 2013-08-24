@@ -1,11 +1,14 @@
 package org.sz.core.web;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
 import net.sf.json.util.JSONStringer;
 
-public class ResultMessage {
+public class ResultMessage implements Serializable {
+	private static final long serialVersionUID = 4431648807299228509L;
+
 	public static final int Success = 1;
 	public static final int Fail = 0;
 	private int result = 1;

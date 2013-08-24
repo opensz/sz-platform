@@ -249,6 +249,37 @@
 	</servlet-mapping>
 
 
+	<servlet>
+		<servlet-name>Connector</servlet-name>
+		<servlet-class>net.fckeditor.connector.ConnectorServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Connector</servlet-name>
+		<url-pattern>
+			/jslibs/fckeditor/editor/filemanager/connectors/*
+		</url-pattern>
+	</servlet-mapping>
+
+
+	<servlet>
+		<servlet-name>ValidCode</servlet-name>
+		<servlet-class>org.sz.core.web.servlet.ValidCode</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ValidJS</servlet-name>
+		<servlet-class>org.sz.core.web.servlet.ValidJs</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ValidCode</servlet-name>
+		<url-pattern>/servlet/ValidCode</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ValidJS</servlet-name>
+		<url-pattern>/servlet/ValidJs</url-pattern>
+	</servlet-mapping>
+
+
 
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>

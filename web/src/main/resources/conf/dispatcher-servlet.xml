@@ -21,22 +21,7 @@
         <property name="maxUploadSize" value="2097152"/>
     </bean>
     
-    <!-- 国际化资源 -->
-	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource" scope="prototype">
-		<property name="basename" value="i18n.ApplicationResources"/>
-        <property name="basenames">
-			<list>
-			    <value>classpath:i18n/ApplicationResources</value>
-				<value>classpath:i18n/errors</value>
-				<value>classpath:i18n/form</value>
-				<value>classpath:i18n/message</value>
-			</list>
-        </property>
-        <property name="useCodeAsDefaultMessage" value="true"/>
-         <property name="cacheSeconds" value="0"></property>
-        <property name="defaultEncoding" value="UTF-8"></property>
-    </bean> 
-
+    
 
     <context:component-scan base-package="org.sz.core.web"/>
     <context:component-scan base-package="org.sz.platform.controller"/>

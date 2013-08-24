@@ -52,7 +52,7 @@ function previewTemplate(url){
 							<input type="checkbox" class="pk" name="id" value="${desktopColumnItem.id}">
 							</display:column>
 							<display:column property="name" title="栏目名称" sortable="true" sortName="name"></display:column>
-							<display:column property="serviceMethod" title="数据方法名" sortable="true" sortName="serviceMethod"></display:column>
+							<display:column property="serviceMethod" title="数据方法名" sortable="true" sortName="serviceMethod"></display:column>
 							<display:column property="columnUrl" title="更多路径" sortable="true" sortName="columnUrl"></display:column>
 							<display:column title="管理" media="html" style="width:300px">
 								<a href="del.xht?id=${desktopColumnItem.id}" class="link del">删除</a>

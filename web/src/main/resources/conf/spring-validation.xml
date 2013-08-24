@@ -13,9 +13,7 @@
 		class="org.springmodules.validation.commons.DefaultValidatorFactory">
 		<property name="validationConfigLocations">
 			<list>
-				<value>classpath:conf/valid/validation.xml</value>
-				<value>classpath:conf/valid/validator-rules.xml</value>
-				<value>classpath:conf/valid/validator-rules-custom.xml</value>
+			    <value>classpath*:/conf/valid/*.xml</value>
 			</list>
 		</property>
 	</bean>

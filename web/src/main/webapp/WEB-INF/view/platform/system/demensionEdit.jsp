@@ -1,7 +1,3 @@
-<%--
-	time:2011-12-01 14:23:26
-	desc:edit the SYS_DEMENSION
---%>
 <%@page language="java" pageEncoding="UTF-8"%>
 <%@include file="/commons/include/html_doctype.html"%>
 <html>

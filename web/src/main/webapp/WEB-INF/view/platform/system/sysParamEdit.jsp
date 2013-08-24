@@ -1,7 +1,3 @@
-<%--
-	time:2012-02-23 17:43:35
-	desc:edit the 组织或人员参数属性
---%>
 <%@page language="java" pageEncoding="UTF-8"%>
 <%@include file="/commons/include/html_doctype.html"%>
 <html>

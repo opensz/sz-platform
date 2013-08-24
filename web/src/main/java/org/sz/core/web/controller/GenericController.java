@@ -29,13 +29,15 @@ public class GenericController {
 	public final String SUCCESS = "{success:true}";
 
 	public final String FAILURE = "{success:false}";
-	private MessageSourceAccessor messages;
+
 	public static final String STEP1 = "1";
 	public static final String STEP2 = "2";
 	public static final String MESSAGES_KEY = "successMessages";
 
 	@Resource
 	protected Properties configproperties;
+	
+	protected MessageSourceAccessor messages;
 
 	public ModelAndView getAutoView() throws Exception {
 		return getAutoView(null);

@@ -95,7 +95,7 @@
 <c:set var="ctx" value="${pageContext.request.contextPath }" />
 <div class="index_top">
 	<div class="left_logo">
-		<img id="logoImg" src="${currentSystem.logo}" />
+		<img id="logoImg" src="${ctx}${currentSystem.logo}" />
 	</div>
 	<div class="search_welcome">
 		<div class="welcome_panel">

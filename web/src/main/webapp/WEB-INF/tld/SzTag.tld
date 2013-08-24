@@ -141,12 +141,12 @@
 		<attribute>
 			<name>curTab</name>
 			<required>true</required>
-			<rtexpvalue>true</rtexpvalue>
+			<rtexprvalue>true</rtexprvalue>
 		</attribute>
 		<attribute>
 			<name>tabName</name>
 			<required>true</required>
-			<rtexpvalue>true</rtexpvalue>
+			<rtexprvalue>true</rtexprvalue>
 		</attribute>
 	</tag>
 	<!-- 流程标签 -->

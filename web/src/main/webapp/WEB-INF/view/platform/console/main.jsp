@@ -2,7 +2,7 @@
 <!DOCTYPE>
 <html>
 <head>
-    <title>SZ BPM 基础平台</title>
+    <title>SZ Platform 基础平台</title>
     <%@include file="/commons/include/form.jsp" %>
     <script type="text/javascript" src="${ctx}/js/topCommon.js"></script>
     <link href="${ctx}/styles/${styleName}/css/Aqua/css/ligerui-all.css" type="text/css" rel="stylesheet" name="styleTag" title="index">
