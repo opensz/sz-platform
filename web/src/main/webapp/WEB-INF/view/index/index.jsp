@@ -6,10 +6,10 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>${tools.appName }</title>
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-	<link rel="stylesheet" type="text/css" href="${ctx }/libs/ligerUI/skins/Aqua/css/ligerui-all.css" />
+	<link rel="stylesheet" type="text/css" href="${ctx }/jslib/ligerUI/skins/Aqua/css/ligerui-all.css" />
 	<link rel="stylesheet" type="text/css" href="${ctx }/styles/css/default.css" />
-	<script type="text/javascript" src="${ctx }/libs/jquery/jquery-1.7.2.min.js"></script>
-	<script type="text/javascript" src="${ctx }/libs/ligerUI/js/ligerui.min.js"></script>
+	<script type="text/javascript" src="${ctx }/jslib/jquery/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="${ctx }/jslib/ligerUI/js/ligerui.min.js"></script>
 	<script type="text/javascript">
 	
 		var centerHeight = null;

@@ -1,10 +1,13 @@
 <%@ page language="java"  pageEncoding="utf-8"%>
 <%@ include file="/WEB-INF/common/taglibs.jsp" %>
-<%@ include file="/WEB-INF/common/ligerLib.jsp" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
     <title>二维码生成</title>
+    <link rel="stylesheet" type="text/css" href="${ctx }/jslib/ligerUI/skins/Aqua/css/ligerui-all.css" />
+	<link rel="stylesheet" type="text/css" href="${ctx }/styles/css/default.css" />
+	<script type="text/javascript" src="${ctx }/jslib/jquery/jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="${ctx }/jslib/ligerUI/js/ligerui.min.js"></script>
     <script>
     var codeform=null;
     var opData="";

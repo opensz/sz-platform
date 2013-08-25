@@ -3075,7 +3075,7 @@
     };
 
     //dialog 图片文件夹的路径 预加载
-    $.ligerui.DialogImagePath = "../../libs/ligerUI/skins/Aqua/images/win/";
+    $.ligerui.DialogImagePath = "../skins/Aqua/images/win/";
 
     function prevImage(paths)
     {

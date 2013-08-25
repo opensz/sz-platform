@@ -9,7 +9,6 @@
 	<http pattern="/styles/**" security="none" />
 	<http pattern="/js/**" security="none" />
 	<http pattern="/jslib/**" security="none" />
-	<http pattern="/libs/**" security="none" />
 	<http pattern="/themes/**" security="none" />
 	<http pattern="/login/**" security="none" />
 	<http pattern="/login**" security="none" />

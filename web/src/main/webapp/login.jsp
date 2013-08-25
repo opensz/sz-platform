@@ -9,7 +9,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>SZ Platform--登录</title>
-<link rel="shortcut icon" href="${ctx}/commons/image/szplatform.ico">
+<link rel="shortcut icon" href="${ctx}/themes/img/commons/szplatform.ico">
 <link type="text/css" rel="stylesheet"
 	href="${ctx}/styles/default/css/login.css" />
 <script type="text/javascript">

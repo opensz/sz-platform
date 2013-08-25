@@ -257,7 +257,7 @@
 	<servlet-mapping>
 		<servlet-name>Connector</servlet-name>
 		<url-pattern>
-			/jslibs/fckeditor/editor/filemanager/connectors/*
+			/jslib/fckeditor/editor/filemanager/connectors/*
 		</url-pattern>
 	</servlet-mapping>
 
