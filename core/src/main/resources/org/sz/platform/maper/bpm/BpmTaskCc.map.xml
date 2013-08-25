@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="org.sz.platform.bpm.model.flow.BpmTaskCc">
+	<resultMap id="BpmTaskCc" type="org.sz.platform.bpm.model.flow.BpmTaskCc">
+		<id property="id" column="ID" jdbcType="NUMERIC"/>
+		<result property="userId" column="USER_ID" jdbcType="NUMERIC"/>
+		<result property="taskId" column="TASK_ID" jdbcType="VARCHAR"/>
+		<result property="ccTime" column="CC_TIME" jdbcType="TIMESTAMP"/>		
+	</resultMap>
+	
+	<sql id="columns">
+		ID, TASK_ID, USER_ID, CC_TIME
+	</sql>
+	
+	<insert id="add" parameterType="org.sz.platform.bpm.model.flow.BpmTaskCc">
+		INSERT INTO bpm_task_cc
+		(<include refid="columns"/>)
+		VALUES
+		(#{id,jdbcType=NUMERIC}, #{taskId,jdbcType=VARCHAR}, #{userId,jdbcType=NUMERIC}, #{ccTime,jdbcType=TIMESTAMP})
+	</insert>
+</mapper>

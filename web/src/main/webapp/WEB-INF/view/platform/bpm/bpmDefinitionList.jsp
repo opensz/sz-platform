@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="org.sz.platform.model.bpm.BpmDefRights"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="org.sz.platform.bpm.model.flow.BpmDefRights"%>
 <%@include file="/commons/include/html_doctype.html" %>
 <html>
 <head>

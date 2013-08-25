@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" import="org.sz.platform.model.system.SysParam"
+<%@ page language="java" contentType="text/html; charset=UTF-8" import="org.sz.platform.system.model.SysParam"
     pageEncoding="UTF-8"%>
 <%@include file="/commons/include/html_doctype.html"%>
 <html>

@@ -45,6 +45,10 @@
 
 	</bean>
 
+	<bean id="groovyEngine" class="org.sz.core.engine.GroovyScriptEngine">
+
+	</bean>
+
 	<!-- 邮件发送引擎 -->
 	<bean id="mailEngine" class="org.sz.core.engine.MailEngine">
 		<property name="freemarkEngine" ref="freemarkEngine" />
@@ -64,7 +68,14 @@
 		</property>
 	</bean>
 
-	
+	<!-- 邮件/短信发送引擎 -->
+	<bean id="messageEngine" class="org.sz.core.engine.MessageEngine">
+		<property name="mailSender" ref="mailSender" />
+		<property name="shortMessage" ref="sms"></property>
+		<property name="fromUser" value="${mail.from}" />
+	</bean>
+
+
 	<!-- 缓存操作类，如果需要修改缓存的实现，修改实现的class就可以了，id不要修改。 -->
 	<bean id="iCache" class="org.sz.core.cache.impl.MemoryCache"></bean>
 

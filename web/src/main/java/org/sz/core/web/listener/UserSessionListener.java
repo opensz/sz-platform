@@ -6,9 +6,7 @@ import javax.servlet.http.HttpSessionBindingEvent;
 import org.sz.core.model.OnlineUser;
 import org.sz.core.util.ContextUtil;
 import org.sz.core.web.util.AppUtil;
-import org.sz.platform.model.system.SysUser;
-//import org.sz.core.util.ContextUtil;
-//import org.sz.platform.model.system.SysUser;
+import org.sz.platform.system.model.SysUser;
 
 public class UserSessionListener implements HttpSessionAttributeListener {
 	public void attributeAdded(HttpSessionBindingEvent event) {

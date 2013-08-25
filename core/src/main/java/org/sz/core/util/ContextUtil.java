@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.sz.platform.model.system.SysUser;
+import org.sz.platform.system.model.SysUser;
 
 
 public class ContextUtil {

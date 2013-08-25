@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.sz.core.model.OnlineUser;
 import org.sz.core.util.ContextUtil;
-import org.sz.platform.model.system.SubSystem;
-import org.sz.platform.model.system.SysUser;
-import org.sz.platform.service.system.SubSystemService;
+import org.sz.platform.system.model.SubSystem;
+import org.sz.platform.system.model.SysUser;
+import org.sz.platform.system.service.SubSystemService;
 
 public class AppUtil extends ContextUtil {
 

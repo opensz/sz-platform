@@ -59,7 +59,7 @@
 
 	<beans:bean id="szAccessDeniedHandler"
 		class="org.sz.core.security.web.SzAccessDeniedHandler">
-		<beans:property name="accessDeniedUrl" value="/403.jsp" />
+		<beans:property name="accessDeniedUrl" value="/WEB-INF/common/errorpage/403.jsp" />
 	</beans:bean>
 
 	<authentication-manager alias="authenticationManager">

@@ -1,4 +1,4 @@
-<%@page import="org.sz.platform.model.system.GlobalType"%>
+<%@page import="org.sz.platform.system.model.GlobalType"%>
 <%@page pageEncoding="UTF-8"%>
 <%@include file="/commons/include/html_doctype.html"%>
 <%

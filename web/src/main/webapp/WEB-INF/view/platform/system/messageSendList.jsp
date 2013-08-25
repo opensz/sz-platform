@@ -1,7 +1,7 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@include file="/commons/include/html_doctype.html" %>
-<%@ page language="java" import="org.sz.platform.model.system.MessageSend" %>
+<%@ page language="java" import="org.sz.platform.system.model.MessageSend" %>
 <html>
 <head>
 	<title>发送消息管理</title>

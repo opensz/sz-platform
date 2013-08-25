@@ -2,7 +2,7 @@
 	time:2011-11-28 10:17:09
 	desc:edit the 用户表
 --%>
-<%@page language="java" pageEncoding="UTF-8" import="org.sz.platform.model.system.SysUser"%>
+<%@page language="java" pageEncoding="UTF-8" import="org.sz.platform.system.model.SysUser"%>
 <%@include file="/commons/include/html_doctype.html"%>
 <html>
 <head>

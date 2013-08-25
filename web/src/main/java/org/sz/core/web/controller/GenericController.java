@@ -21,7 +21,7 @@ import org.sz.core.util.ContextUtil;
 import org.sz.core.web.ResultMessage;
 import org.sz.core.web.util.ConfigUtil;
 import org.sz.core.web.util.RequestUtil;
-import org.sz.platform.model.system.SysUser;
+import org.sz.platform.system.model.SysUser;
 
 public class GenericController {
 	protected Logger logger = LoggerFactory.getLogger(BaseController.class);

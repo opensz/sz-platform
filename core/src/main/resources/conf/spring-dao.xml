@@ -16,10 +16,21 @@
 		<property name="configLocation" value="classpath:/conf/configuration.xml" />
 		<property name="mapperLocations">
 			<list>
-				<value>classpath:/org/sz/platform/maper/*.map.xml</value>
+				<value>classpath:/org/sz/platform/maper/system/*.map.xml</value>
+				<value>classpath:/org/sz/platform/maper/bpm/*.map.xml</value>
 			</list>
 		</property>
 		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<!-- 表创建器 -->
+	<bean id="tableOperator" class="org.sz.core.customertable.TableOperatorFactoryBean">
+		<property name="dbType" value="${jdbc.dbType}" />
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+
+	</bean>
+
+	<bean id="dialect" class="org.sz.core.mybatis.dialect.MySQLDialect">
 	</bean>
 	
 	<!-- EntityManagerFactory -->

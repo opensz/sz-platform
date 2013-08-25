@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.BeansException;
@@ -14,14 +15,17 @@ import org.springframework.security.web.FilterInvocation;
 import org.springframework.security.web.access.intercept.FilterInvocationSecurityMetadataSource;
 import org.sz.core.util.StringUtil;
 import org.sz.core.web.util.AppUtil;
-import org.sz.platform.model.system.SysRole;
-import org.sz.platform.service.system.SecurityUtil;
-import org.sz.platform.service.system.SubSystemService;
-import org.sz.platform.service.system.SysRoleService;
+import org.sz.platform.system.model.SysRole;
+import org.sz.platform.system.service.SecurityUtil;
+import org.sz.platform.system.service.SubSystemService;
+import org.sz.platform.system.service.SysRoleService;
 
 public class SzSecurityMetadataSource implements
 		FilterInvocationSecurityMetadataSource, BeanPostProcessor {
+	
+	@Resource
 	private SysRoleService sysRoleService;
+	@Resource
 	private SubSystemService subSystemService;
 	private HashSet<String> anonymousUrls = new HashSet();
 

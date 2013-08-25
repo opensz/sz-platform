@@ -18,10 +18,10 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.FilterInvocation;
 import org.sz.core.web.util.AppUtil;
-import org.sz.platform.model.system.SubSystem;
-import org.sz.platform.model.system.SysRole;
-import org.sz.platform.model.system.SysUser;
-import org.sz.platform.service.system.SecurityUtil;
+import org.sz.platform.system.model.SubSystem;
+import org.sz.platform.system.model.SysRole;
+import org.sz.platform.system.model.SysUser;
+import org.sz.platform.system.service.SecurityUtil;
 
 public class SzDecisionManager implements AccessDecisionManager {
 	public Logger logger = LoggerFactory.getLogger(SzDecisionManager.class);

@@ -1,4 +1,4 @@
-<%@page pageEncoding="UTF-8" import="org.sz.platform.model.system.SysUser"%>
+<%@page pageEncoding="UTF-8" import="org.sz.platform.system.model.SysUser"%>
 <%@include file="/commons/include/html_doctype.html"%>
 	<%@ taglib prefix="sz" uri="http://www.servicezon.com/paging" %>
 <html>

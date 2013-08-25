@@ -24,7 +24,7 @@
     
 
     <context:component-scan base-package="org.sz.core.web"/>
-    <context:component-scan base-package="org.sz.platform.controller"/>
+    <context:component-scan base-package="org.sz.platform.*.controller"/>
 
     <!-- Configures the @Controller programming model -->
     <mvc:annotation-driven/>
