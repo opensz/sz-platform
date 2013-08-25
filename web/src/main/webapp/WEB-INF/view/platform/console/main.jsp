@@ -2,8 +2,9 @@
 <!DOCTYPE>
 <html>
 <head>
-    <title>SZ Platform 基础平台</title>
+    <title>SZ Platform</title>
     <%@include file="/commons/include/form.jsp" %>
+    <link rel="shortcut icon" href="${ctx}/commons/image/szplatform.ico">
     <script type="text/javascript" src="${ctx}/js/topCommon.js"></script>
     <link href="${ctx}/styles/${styleName}/css/Aqua/css/ligerui-all.css" type="text/css" rel="stylesheet" name="styleTag" title="index">
 	<link href="${ctx}/styles/${styleName}/css/web.css" type="text/css" rel="stylesheet" name="styleTag" title="index">

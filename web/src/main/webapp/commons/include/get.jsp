@@ -19,5 +19,3 @@
 	src="${ctx}/jslib/calendar/My97DatePicker/WdatePicker.js"></script>
 <%@include file="/js/msg.jsp"%>
 
-<c:set var="checkAll" value="<input type='checkbox' id='chkall' />" />
-

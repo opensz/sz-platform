@@ -34,9 +34,6 @@
 							</form>
 					</div>
 					<div class="panel-data">
-				    	<c:set var="checkAll">
-							<input type="checkbox" id="chkall"/>
-						</c:set>
 					    <display:table name="demensionList" id="demensionItem" requestURI="list.xht" 
 					    	sort="external" cellpadding="1" cellspacing="1" export="false"  class="table-grid">
 							<display:column title="${checkAll}" media="html" style="width:30px;text-align:center;">
