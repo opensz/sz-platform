@@ -13,7 +13,8 @@
 	<div style="height: 100px;"></div>
 	<div class="errorcode">
 		<h1 class="error-digits">403</h1>
-		<p><img class="ico" src="${tools.ctx }/images/warning_icon.png"  alt="" /> 您没有权限访问当前页面,请联系管理员!</p>
+		<p><img class="ico" src="${ctx }/commons/image/error.gif"  alt="" /> 
+		您没有权限访问当前页面!</p>
 	</div>
 	<div class="error-footer">${tools.copyright }</div>
 </body>

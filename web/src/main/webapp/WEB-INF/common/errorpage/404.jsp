@@ -11,7 +11,8 @@
 	<div style="height: 100px;"></div>
 	<div class="errorcode">
 		<h1 class="error-digits">404</h1>
-		<p><img class="ico" src="${ctx }/images/warning_icon.png"  alt="" /> 您访问的页面不存在,请检查URL是否输入正确!</p>
+		<p><img class="ico" src="${ctx }/commons/image/error.gif"  alt="" /> 
+		您访问的页面不存在!</p>
 	</div>
 	<div class="error-footer">${tools.copyright }</div>
 </body>

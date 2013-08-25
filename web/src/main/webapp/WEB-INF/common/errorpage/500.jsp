@@ -41,7 +41,7 @@
 	<div style="height: 100px;"></div>
 	<div class="errorcode">
 		<h1 class="error-digits">500</h1>
-		<p><img class="ico" src="${tools.ctx }/images/warning_icon.png"  alt="" /> 您访问的页面出现异常!</p>
+		<p><img class="ico" src="${ctx }/commons/image/error.gif"  alt="" /> 您访问的页面出现异常!</p>
 		<c:if test="${tools.debug }">
 			<p style="text-align: left;"><c:out value="${pageScope.exception }" /></p>
 			<p style="text-align: left;"><c:out value="${pageScope.exception.cause }" /></p>
