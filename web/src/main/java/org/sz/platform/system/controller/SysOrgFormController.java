@@ -70,10 +70,7 @@ import org.sz.platform.system.service.SysUserService;
        }
        sysOrg.setCreatorId(curUser.getUserId());
        sysOrg.setCreatetime(now);
-       //sysOrg.setParentId(parentId)
-       if(sysOrg.getContactId()!=null){
-    	   sysOrg.setContactName(this.sysUserService.getById(sysOrg.getContactId()).getFullname());
-       }
+  
        this.sysOrgService.addOrg(sysOrg);
        
       

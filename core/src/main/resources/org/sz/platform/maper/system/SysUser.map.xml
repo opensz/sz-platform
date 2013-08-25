@@ -14,14 +14,14 @@
 		<result property="mobile" column="mobile" jdbcType="VARCHAR"/>
 		<result property="phone" column="phone" jdbcType="VARCHAR"/>
 		<result property="sex" column="sex" jdbcType="VARCHAR"/>
-		<result property="empId" column="empId" jdbcType="VARCHAR"/>
+		<result property="empId" column="emp_Id" jdbcType="VARCHAR"/>
 		<result property="picture" column="picture" jdbcType="VARCHAR"/>
 		<result property="firstSpell" column="first_spell" jdbcType="VARCHAR"/>
 		<result property="desc" column="des" jdbcType="VARCHAR"/>
 	</resultMap>
 	
 	<sql id="columns">
-		userId,fullname,account,password,isExpired,isLock,createtime,status,email,mobile,phone,sex,picture,first_spell,des,empId
+		userId,fullname,account,password,isExpired,isLock,createtime,status,email,mobile,phone,sex,picture,first_spell,des,emp_Id
 	</sql>
 	
 	<sql id="dynamicWhere">
@@ -70,7 +70,7 @@
 		mobile=#{mobile,jdbcType=VARCHAR} , 
 		phone=#{phone,jdbcType=VARCHAR} , 
 		sex=#{sex,jdbcType=VARCHAR} , 
-		empId=#{empId,jdbcType=VARCHAR} , 
+		emp_Id=#{empId,jdbcType=VARCHAR} , 
 		picture=#{picture,jdbcType=VARCHAR},
 		first_spell=#{firstSpell,jdbcType=VARCHAR} 
 		WHERE

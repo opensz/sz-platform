@@ -24,8 +24,7 @@
 			}
 			else
 			{
-				// edit by n.wang
-				location.href="edit.xht?orgId="+orgId+"&flag=LA&path="+path+"&action=add&demId="+$("#hidden1").val();
+				location.href="edit.xht?orgId="+orgId+"&flag=LA&path="+path;
 			}
 		}
 		
@@ -135,7 +134,7 @@
 			  </div>
 	          <div class="panel-body">
 	          	<div class="panel-search">
-		           <form id="searchForm" method="post" action="listById.xht?orgId=${orgId}">
+		           <form id="searchForm" method="post" action="listById.xht">
 			
 					<div class="row">
 							<span class="label">组织名称:</span><input type="text" name="Q_orgName_S"  class="inputText" />
@@ -181,17 +180,8 @@
 					   	<c:when test="${sysOrgItem.orgType==3}">
 						       部门
 					   	</c:when>
-					   	<c:when test="${sysOrgItem.orgType==4}">
-														 小组
-								</c:when>
-								<c:when test="${sysOrgItem.orgType==5}">
-														 其它组织
-								</c:when>
-								<c:when test="${sysOrgItem.orgType==6}">
-														 客户
-								</c:when>
 				       	<c:otherwise>
-					                            
+					                      其他组织      
 					   	</c:otherwise>
 				     </c:choose>
 				     </td>
@@ -203,11 +193,10 @@
 					 <a href="get.xht?orgId=${sysOrgItem.orgId}&flag=1&path=${path}" class="link detail">明细</a>
 					 </td>
 	    			 </tr>
-	    			 <input id="hidden1" type="hidden" value="${sysOrgItem.demId}"/>
 	    		</c:forEach>					    						    					    	
 	    </tbody>					    	
 	   </table>
-	   <sz:paging tableId="sysOrgItem"/>
+	   <hotent:paging tableId="sysOrgItem"/>
 	    </div>
     </c:otherwise>
     </c:choose>

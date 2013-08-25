@@ -25,10 +25,7 @@
 			changeDesc();
 			
 			
-			var useType = "${bpmFormTemplate.useType}";
-			if(useType){
-				$("select[name='useType']").val(useType);
-			}
+			
 		});
 		
 		function show(templateType) {
@@ -39,11 +36,6 @@
 				$('#macro').css('display', 'none');
 			}
 			
-			if(templateType =='list' || templateType =='detail' || templateType =='main'){
-				$('#useTypeTb').css('display', '');
-			}else{
-				$('#useTypeTb').css('display', 'none');
-			}
 		}
 		
 		function changeDesc() {
@@ -119,17 +111,7 @@
 							</td>
 						</tr>
 						</tbody>
-						<tbody id="useTypeTb" style="<c:if test="${bpmFormTemplate.templateType =='main' || bpmFormTemplate.templateType =='subTable' || bpmFormTemplate.templateType =='macro'}">display:none</c:if>">
-							<tr>
-								<th>使用类型：</th>
-								<td>
-									<select name="useType">
-										<option value="form">表单</option>
-										<option value="asset">资产</option>
-									</select>
-								</td>
-							</tr>
-						</tbody>
+						
 						<tr>
 							<th width="20%">模板html: </th>
 							<td><textarea id="html" name="html" cols=100 rows=20>${fn:escapeXml(bpmFormTemplate.html)}</textarea></td>

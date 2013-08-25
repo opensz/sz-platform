@@ -45,11 +45,15 @@ public class GenericController {
 	public ModelAndView getAutoView(String businessType) throws Exception {
 		HttpServletRequest request = RequestUtil.getHttpServletRequest();
 		String requestURI = request.getRequestURI();
-		this.logger.debug("requestURI:" + requestURI);
 		
-		
+	
 		// modified by bobo, 20130213
 		String jspPath = ConfigUtil.getJspPath(requestURI, businessType);
+		
+		if(this.logger.isDebugEnabled()){
+			this.logger.debug("request=" + requestURI+"<br/>jsp="+jspPath);
+		}
+		
 		if(jspPath!=null && jspPath.endsWith(".jsp")){
 			return new ModelAndView(jspPath);
 		}

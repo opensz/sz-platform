@@ -8,11 +8,13 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 import org.sz.core.model.BaseModel;
 
 public class BpmFormTemplate extends BaseModel {
+	
 	public static final String MainTable = "main";
 	public static final String SubTable = "subTable";
 	public static final String Macro = "macro";
 	public static final String List = "list";
 	public static final String Detail = "detail";
+	
 	protected Long templateId;
 	protected String templateName;
 	protected String alias;
@@ -21,8 +23,7 @@ public class BpmFormTemplate extends BaseModel {
 	protected String html;
 	protected String templateDesc;
 	protected int canEdit;
-	protected String useType; // 使用类型 form, asset
-	protected int isDefault; // 是否默认
+	
 
 	public String getAlias() {
 		return this.alias;
@@ -86,22 +87,6 @@ public class BpmFormTemplate extends BaseModel {
 
 	public String getTemplateDesc() {
 		return this.templateDesc;
-	}
-
-	public String getUseType() {
-		return useType;
-	}
-
-	public void setUseType(String useType) {
-		this.useType = useType;
-	}
-
-	public int getIsDefault() {
-		return isDefault;
-	}
-
-	public void setIsDefault(int isDefault) {
-		this.isDefault = isDefault;
 	}
 
 	public boolean equals(Object object) {

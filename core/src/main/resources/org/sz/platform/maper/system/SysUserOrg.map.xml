@@ -103,12 +103,12 @@
 	
 	
 	<select id="getOrgByUserId" parameterType="Long" resultMap="SysUserOrg">
-	     select a.userOrgId,a.orgId,a.userId,a.isPrimary,a.isCharge,b.orgName,a.isDept,b.orgsupid as orgSupId
+	     select a.userOrgId,a.orgId,a.userId,a.isPrimary,a.isCharge,b.orgName,b.orgsupid as orgSupId
       		from SYS_USER_ORG a join SYS_ORG b on a.orgid=b.orgid where  a.userid=#{userId} order by userOrgId desc
 	</select>
 		
 	<select id="getPrimaryByUserId" parameterType="Long" resultType="org.sz.platform.system.model.SysUserOrg">
-	     select a.userOrgId,a.orgId,a.userId,a.isPrimary,a.isCharge,b.orgName,a.isDept 
+	     select a.userOrgId,a.orgId,a.userId,a.isPrimary,a.isCharge,b.orgName 
       		from SYS_USER_ORG a join SYS_ORG b on a.orgid=b.orgid where  a.userid=#{userId} order by userOrgId desc
 	</select>
 	
@@ -118,7 +118,7 @@
 	
 
 	<select id="getUserByOrgId" resultMap="SysUserOrg">
-		SELECT a.userId,a.fullname  userName,a.account,b.userOrgId,c.orgName,b.isPrimary,isCharge,b.isDept
+		SELECT a.userId,a.fullname  userName,a.account,b.userOrgId,c.orgName,b.isPrimary,isCharge
 	    FROM  sys_user a 
 	    join sys_user_org b  on  a.userId=b.userId
 	    join sys_org c on b.orgId=c.orgId

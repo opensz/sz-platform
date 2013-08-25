@@ -4,7 +4,7 @@
 --%>
 <%@page import="sun.awt.color.CMM.CSAccessor"%>
 <%@page import="org.sz.core.util.StringUtil"%>
-<%@page language="java" pageEncoding="UTF-8" import="java.util.*,org.sz.platform.model.worktime.CalendarSetting;"%>
+<%@page language="java" pageEncoding="UTF-8" import="java.util.*,org.sz.platform.oa.model.worktime.CalendarSetting;"%>
 <%@include file="/commons/include/html_doctype.html"%>
 <html>
 <head>

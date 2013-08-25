@@ -1,8 +1,8 @@
 <%@tag import="org.apache.commons.lang.StringUtils"%>
 <%@tag import="org.sz.core.util.StringUtil"%>
-<%@tag import="org.sz.platform.model.system.SysUser"%>
-<%@tag import="org.sz.core.util.AppUtil"%>
-<%@tag import="org.sz.platform.service.system.SysUserService"%>
+<%@tag import="org.sz.platform.system.model.SysUser"%>
+<%@tag import="org.sz.core.web.util.AppUtil"%>
+<%@tag import="org.sz.platform.system.service.SysUserService"%>
 <%@tag language="java" pageEncoding="UTF-8"%>
 <%@attribute name="userId" type="java.lang.String" required="true" rtexprvalue="true"%>
 <%

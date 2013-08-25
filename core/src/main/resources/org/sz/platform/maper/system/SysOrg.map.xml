@@ -15,21 +15,13 @@
 		<result property="updateId" column="updateId" jdbcType="NUMERIC"/>
 		<result property="updatetime" column="updatetime" jdbcType="TIMESTAMP"/>
 		<result property="sn" column="sn" jdbcType="NUMERIC"/>
-		<result property="level" column="level" jdbcType="NUMERIC"/>
-		<result property="siteId" column="site_id" jdbcType="NUMERIC"/>
-		<result property="deskId" column="deskId" jdbcType="NUMERIC"/>
-		<result property="orgTypeId" column="orgTypeId" jdbcType="NUMERIC"/>
-		<result property="contactId" column="contactId" jdbcType="NUMERIC"/>
 		<result property="webSite" column="webSite" jdbcType="VARCHAR"/>
 		<result property="telephone" column="telephone" jdbcType="VARCHAR"/>
-		<result property="category" column="category" jdbcType="NUMERIC"/>
-		<result property="supplierType" column="supplierType" jdbcType="NUMERIC"/>
-		<result property="linkName" column="linkName" jdbcType="VARCHAR"/>
 	</resultMap>
 		
 	
 	<sql id="columns">
-		orgId,demId,orgName,orgDesc,orgSupId,path,depth,orgType,creatorId,createtime,updateId,updatetime,sn,level,deskId,site_id,orgTypeId,webSite,telephone,contactId,category,supplierType,linkName
+		orgId,demId,orgName,orgDesc,orgSupId,path,depth,orgType,creatorId,createtime,updateId,updatetime,sn,webSite,telephone
 	</sql>
 	
 	<sql id="dynamicWhere">
@@ -50,8 +42,7 @@
 		(<include refid="columns"/>)
 		VALUES
 		(#{orgId,jdbcType=NUMERIC}, #{demId,jdbcType=NUMERIC}, #{orgName,jdbcType=VARCHAR}, #{orgDesc,jdbcType=VARCHAR}, #{orgSupId,jdbcType=NUMERIC}, #{path,jdbcType=VARCHAR}, #{depth,jdbcType=NUMERIC}, #{orgType,jdbcType=NUMERIC}, #{creatorId,jdbcType=NUMERIC}, #{createtime,jdbcType=TIMESTAMP}, 
-		#{updateId,jdbcType=NUMERIC}, #{updatetime,jdbcType=TIMESTAMP}, #{sn,jdbcType=NUMERIC}, #{level,jdbcType=NUMERIC}, #{deskId,jdbcType=NUMERIC}, #{siteId,jdbcType=NUMERIC}, #{orgTypeId,jdbcType=NUMERIC}, #{webSite,jdbcType=VARCHAR},
-		 #{telephone,jdbcType=VARCHAR}, #{contactId,jdbcType=NUMERIC}, #{category,jdbcType=NUMERIC}, #{supplierType,jdbcType=NUMERIC}, #{linkName,jdbcType=VARCHAR}
+		#{updateId,jdbcType=NUMERIC}, #{updatetime,jdbcType=TIMESTAMP}, #{sn,jdbcType=NUMERIC}, #{webSite,jdbcType=VARCHAR},#{telephone,jdbcType=VARCHAR}
 		)
 	</insert>
 	
@@ -75,15 +66,8 @@
 		updateId=#{updateId,jdbcType=NUMERIC} , 
 		updatetime=#{updatetime,jdbcType=TIMESTAMP} , 
 		sn=#{sn,jdbcType=NUMERIC},
-		level=#{level,jdbcType=NUMERIC},
-		site_id=#{siteId,jdbcType=NUMERIC},
-		orgTypeId=#{orgTypeId,jdbcType=NUMERIC},
-		contactId=#{contactId,jdbcType=NUMERIC},
 		webSite=#{webSite,jdbcType=NUMERIC},
-		telephone=#{telephone,jdbcType=NUMERIC},
-		category=#{category,jdbcType=NUMERIC},
-		linkName=#{linkName,jdbcType=VARCHAR},
-		supplierType=#{supplierType,jdbcType=NUMERIC}  
+		telephone=#{telephone,jdbcType=NUMERIC}
 		WHERE
 		orgId=#{orgId}
 	</update>
@@ -96,9 +80,9 @@
 	</update>
 	
 	<select id="getById" parameterType="java.lang.Long" resultType="org.sz.platform.system.model.SysOrg">
-		SELECT  a.orgId,a.demId,a.orgName,a.orgDesc,a.orgSupId,a.path,a.depth,a.orgType,a.level,a.deskId,a.site_id siteId,a.orgTypeId,a.webSite,a.telephone,a.contactId,
-                a.creatorId,a.createtime,a.updateId,a.updatetime,b.demName,a.linkName,
-                c.orgName OrgSupName,d.fullname createName,u.fullname updateName,a.sn,a.category,a.supplierType 
+		SELECT  a.orgId,a.demId,a.orgName,a.orgDesc,a.orgSupId,a.path,a.depth,a.orgType,a.webSite,a.telephone,
+                a.creatorId,a.createtime,a.updateId,a.updatetime,b.demName,
+                c.orgName OrgSupName,d.fullname createName,u.fullname updateName,a.sn 
 		FROM sys_org a 
 		left join sys_org c on a.orgSupId=c.orgId 
 		join sys_demension b on a.demId=b.demId  
@@ -128,8 +112,8 @@
 	</delete>
 	
 	<select id="getOrgByOrgId" resultType="org.sz.platform.system.model.SysOrg">
-		SELECT  a.orgId,a.demId,a.orgName,a.orgDesc,a.orgSupId,a.path,a.depth,a.orgType,a.level,a.site_id siteId,a.orgTypeId,a.webSite,a.telephone,a.contactId,
-                a.creatorId,a.createtime,a.updateId,a.updatetime,b.demName,c.orgName OrgSupName,a.category,a.supplierType  
+		SELECT  a.orgId,a.demId,a.orgName,a.orgDesc,a.orgSupId,a.path,a.depth,a.orgType,a.webSite,a.telephone,
+                a.creatorId,a.createtime,a.updateId,a.updatetime,b.demName,c.orgName OrgSupName  
 		FROM sys_org a left join sys_org c on a.orgSupId=c.orgId join  sys_demension b on a.demId=b.demId  
 		where 1=1	
 		<if test="@Ognl@isNotEmpty(path)"> AND a.path  LIKE '${path}%'  </if>	
@@ -159,9 +143,8 @@
 	</select>
 			
 	<select id="getOrgByDemId" parameterType="Long" resultType="org.sz.platform.system.model.SysOrg">
-		SELECT  a.orgId,a.demId,a.orgName,a.orgDesc,a.orgSupId,a.path,a.depth,a.orgType,a.level,
-                a.creatorId,a.createtime,a.updateId,a.updatetime,a.sn,a.webSite,a.telephone,a.contactId,
-                b.demName,a.site_id siteId,a.orgTypeId  
+		SELECT  a.orgId,a.demId,a.orgName,a.orgDesc,a.orgSupId,a.path,a.depth,a.orgType,
+                a.creatorId,a.createtime,a.updateId,a.updatetime,a.sn,a.webSite,a.telephone,b.demName
 		FROM sys_org a join sys_demension b on a.demId=b.demId     
 		where   a.demId=#{demId}
 	    order by a.sn
@@ -207,7 +190,7 @@
 	</select>
 	
 	<select id="getPrimaryOrgByUserId" parameterType="Long" resultType="org.sz.platform.system.model.SysOrg">
-		select a.* from SYS_ORG a,SYS_USER_ORG b where a.orgId=b.orgId and b.isPrimary=1 and b.isDept=0 and b.userId=#{userId}
+		select a.* from SYS_ORG a,SYS_USER_ORG b where a.orgId=b.orgId and b.isPrimary=1 and b.userId=#{userId}
 	</select>
 	
 	<select id="getPrimaryOrgAndDeptByUserId" parameterType="Long" resultType="org.sz.platform.system.model.SysOrg">
@@ -216,15 +199,5 @@
 	
 	<select id="getOrgByType" parameterType="Long" resultType="org.sz.platform.system.model.SysOrg">
 		select * from SYS_ORG where orgType =#{orgType} order by sn
-	</select>
-	
-	
-	<select id="getCustomer" resultType="org.sz.platform.system.model.SysOrg">
-		
-		SELECT DISTINCT a.orgId,a.orgName,a.orgDesc,a.orgSupId,a.path 
-			FROM sys_org a where a.orgId in (select c.CUSTOMERID from sys_org_customer c where c.ORGID=#{orgId})
-			<if test="@Ognl@isNotEmpty(orgName)"> AND a.orgName  LIKE '%${orgName}%'  </if>
-		    <if test="@Ognl@isNotEmpty(customerId)"> AND a.orgId  =#{customerId}  </if>
-			
 	</select>
 </mapper>

@@ -17,6 +17,7 @@
 		<property name="mapperLocations">
 			<list>
 				<value>classpath:/org/sz/platform/maper/system/*.map.xml</value>
+				<value>classpath:/org/sz/platform/maper/oa/*.map.xml</value>
 				<value>classpath:/org/sz/platform/maper/bpm/*.map.xml</value>
 			</list>
 		</property>

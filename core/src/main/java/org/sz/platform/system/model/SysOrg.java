@@ -34,6 +34,7 @@ import org.sz.core.model.BaseModel;
    private String path;
    private Integer depth;
    private Short orgType;
+   
    private Long creatorId;
    private Date createtime;
    private Long updateId;
@@ -52,23 +53,8 @@ import org.sz.core.model.BaseModel;
    
    
    ///////// add by y.mao ///////////
-   private Long parentId;  //父节点可能为客户，集团，公司
-   private Long orgSupTempId;
-   
-   private Long level;
-   
-   private Long siteId;
-   private Long orgTypeId;
-   private Long contactId;
-   private String contactName;
-   private String linkName;// 联系人
    private String webSite;
    private String telephone;
- 
-   private Long supplierType;
-   private Long category;
-   private Long deskId;
-   
    
    ///////////////////////////////////
    
@@ -270,65 +256,7 @@ import org.sz.core.model.BaseModel;
    }
  
    
-   public Long getLevel() {
-	return level;
-	
-   }
-	
-	public void setLevel(Long level) {
-		this.level = level;
-	}
-	
-	
-	public Long getSiteId() {
-		return siteId;
-	}
-	
-	public void setSiteId(Long siteId) {
-		this.siteId = siteId;
-	}
-	
-	public Long getOrgTypeId() {
-		return orgTypeId;
-	}
-	
-	public void setOrgTypeId(Long orgTypeId) {
-		this.orgTypeId = orgTypeId;
-	}
-
-	
-public Long getParentId() {
-		return parentId;
-	}
-
-	public void setParentId(Long parentId) {
-		this.parentId = parentId;
-	}
-
-	
-public Long getOrgSupTempId() {
-		return orgSupTempId;
-	}
-
-	public void setOrgSupTempId(Long orgSupTempId) {
-		this.orgSupTempId = orgSupTempId;
-	}
-
-public Long getContactId() {
-		return contactId;
-	}
-
-	public void setContactId(Long contactId) {
-		this.contactId = contactId;
-	}
-
-	public String getContactName() {
-		return contactName;
-	}
-
-	public void setContactName(String contactName) {
-		this.contactName = contactName;
-	}
+  
 
 	public String getWebSite() {
 		return webSite;
@@ -344,40 +272,6 @@ public Long getContactId() {
 
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
-	}
-
-	
-public Long getSupplierType() {
-		return supplierType;
-	}
-
-	public void setSupplierType(Long supplierType) {
-		this.supplierType = supplierType;
-	}
-
-	public Long getCategory() {
-		return category;
-	}
-
-	public void setCategory(Long category) {
-		this.category = category;
-	}
-
-	
-	public String getLinkName() {
-		return linkName;
-	}
-
-	public void setLinkName(String linkName) {
-		this.linkName = linkName;
-	}
-
-	public Long getDeskId() {
-		return deskId;
-	}
-
-	public void setDeskId(Long deskId) {
-		this.deskId = deskId;
 	}
 
 	public boolean equals(Object object)

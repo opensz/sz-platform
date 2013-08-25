@@ -68,7 +68,6 @@
 								<c:if test="${bpmFormTemplateItem.templateType=='macro'}">宏模板</c:if>
 								
 							</display:column>
-							<display:column title="使用类型" property="useType" style="text-align:left" />
 							<display:column title="状态" style="text-align:left">
 								<c:choose>
 									<c:when test="${bpmFormTemplateItem.canEdit==0}"><span class="red">已锁定</span></c:when>

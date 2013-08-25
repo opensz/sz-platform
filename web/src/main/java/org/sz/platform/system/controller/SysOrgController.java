@@ -156,34 +156,6 @@ import org.sz.platform.system.service.SysUserService;
      }
      return mv;
    }
- 
-   @RequestMapping({"customerList"})
-   public ModelAndView customerList(HttpServletRequest request, HttpServletResponse response)
-     throws Exception
-   {
-     List demensionList = this.demensionService.getAll();
-     ModelAndView mv = getAutoView().addObject("demensionList", demensionList);
-     String isCustomer = RequestUtil.getString(request, "isCustomer");
-     if(isCustomer!=null && !isCustomer.equals("")){
-    	 mv.addObject("type", "org");
-     }
-     return mv;
-   }
-   
-   @RequestMapping({"customerSelector"})
-   public ModelAndView customerSelector(HttpServletRequest request, HttpServletResponse response)
-     throws Exception
-   {
-	     Long userId = Long.valueOf(RequestUtil.getLong(request, "userId"));
-	     QueryFilter filter= new WebQueryFilter(request, "sysUserItem");
-	     filter.addFilter("orgType", "6");
-	     List list = this.sysOrgService.getAll(filter);
-	     
-	     ModelAndView mv = getAutoView().addObject("sysOrgCustomerList", list).addObject("userId", userId);
-	     mv.addObject("params", filter.getFilters());
-	     return mv;
-   }
-   
   
    @RequestMapping({"view"})
    public ModelAndView view(HttpServletRequest request, HttpServletResponse response)
@@ -214,7 +186,7 @@ import org.sz.platform.system.service.SysUserService;
      String path = sysOrg.getPath();
      QueryFilter filter = new WebQueryFilter(request, "sysOrgItem");
      filter.getFilters().put("path", path);
-     filter.addFilter("orgType", "1,2,3");
+     //filter.addFilter("orgType", "1,2,3");
      List list = this.sysOrgService.getOrgByOrgId(filter);
      return mv.addObject("sysOrgList", list).addObject("orgId", orgId).addObject("sysOrg", Integer.valueOf(1));
    }
@@ -257,12 +229,7 @@ import org.sz.platform.system.service.SysUserService;
        }
      }
      orgTypeStr=sysOrg.getOrgType().toString();
-     if(sysOrg.getContactId()!=null){
-    	 if(this.sysUserService.getById(sysOrg.getContactId())!=null){
-    		 sysOrg.setContactName(this.sysUserService.getById(sysOrg.getContactId()).getFullname());
-    	 }
-  	   
-     }
+     
      Map map=new HashMap();
      map.put("enabled", true);
      
@@ -470,30 +437,7 @@ import org.sz.platform.system.service.SysUserService;
      return orgList;
    }
    
-   @RequestMapping({"getCustomerTree"})
-   @ResponseBody
-   /**
-    * 客户树
-    */
-   public List<SysOrg> getCustomerTree(HttpServletRequest request, HttpServletResponse response)
-     throws Exception
-   {
-	   QueryFilter filter = new WebQueryFilter(request);
-	   SysUser user =this.getCurrentUser();  //当前登陆人userId
-     filter.addFilter("orgId", user.getUserOrgId());
-     filter.addFilter("demId", 1);
-     filter.addFilter("orgType", "6");
-     List<SysOrg> orgList = this.sysOrgService.getOrgsByDemIdOrParam(filter.getFilters());
-     SysOrg org = new SysOrg();
-    
-     org.setOrgSupId(Long.valueOf(0L));
-     
-     org.setOrgType(SysOrg.BEGIN_TYPE);
-     org.setIsRoot(Short.valueOf("1"));
-     org.setOrgName("根节点");
-     orgList.add(org);
-     return orgList;
-   }
+
    
    @RequestMapping({"getOrgTreeData"})
    @ResponseBody
@@ -593,47 +537,5 @@ import org.sz.platform.system.service.SysUserService;
      }
      out.print(resultObj);
    }
-   
-   @RequestMapping({"supplierList"})
-   @Action(description="供应商列表")
-   public ModelAndView supplierList(HttpServletRequest request, HttpServletResponse response)
-     throws Exception
-   {
-	  QueryFilter filter = new WebQueryFilter(request,"supplier");
-	  filter.addFilter("orgType", "8");
-	  List<SysOrg> supplierList =this.sysOrgService.getAll(filter);
-	  ModelAndView mv =new ModelAndView("/platform/system/supplierList.jsp");
-	  mv.addObject("supplierList", supplierList);
-	  return mv;
-   }
-   
-   @RequestMapping({"supplierSave"})
-   @Action(description="供应商列表")
-   public ModelAndView supplierSave(HttpServletRequest request, HttpServletResponse response,SysOrg sysOrg)
-     throws Exception
-   {
-	   Long currentUserId =this.getCurrentUser().getUserId();
-	  QueryFilter filter = new WebQueryFilter(request);
-	  filter.addFilter("orgType", "8");
-	  if(sysOrg.getOrgId()!=null && sysOrg.getOrgId()>0L){
-		  sysOrg.setUpdatetime(new Date());
-		  sysOrg.setUpdateBy(currentUserId);
-		  this.sysOrgService.update(sysOrg);
-	  }
-	  else{
-		  sysOrg.setOrgId(UniqueIdUtil.genId());
-		  sysOrg.setCreatetime(new Date());
-		  sysOrg.setCreateBy(currentUserId);
-		  this.sysOrgService.add(sysOrg);
-	  }
-	  ModelAndView mv =new ModelAndView("redirect:supplierList.xht");
-	  
-	  //mv.addObject("supplierList", supplierList);
-	  return mv;
-   }
-   
-  
-   
- 
  }
 
