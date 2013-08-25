@@ -12,9 +12,7 @@
 	<http pattern="/themes/**" security="none" />
 	<http pattern="/login/**" security="none" />
 	<http pattern="/login**" security="none" />
-	<http pattern="/403**" security="none" />
-	<http pattern="/404**" security="none" />
-	<http pattern="/500**" security="none" />
+	<http pattern="/WEB-INF/common/errorpage/*.jsp" security="none" />
 
 	<http pattern="/monitoring/**" security="none" />
 
