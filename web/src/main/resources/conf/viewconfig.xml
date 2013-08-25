@@ -72,9 +72,7 @@
 <category id="console">
 	<view name="main" value="/platform/console/main.jsp"/>
 	<view name="home" value="/platform/console/home.jsp"/>
-	<view name="dcomMain" value="/platform/console/dcomMain.jsp"/>
 	<view name="selectCurrSys" value="/platform/console/selectCurrSys.jsp"/>
-	<view name="customerDialog" value="/platform/console/customerDialog.jsp"/>
 </category>
 
 </root>

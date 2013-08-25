@@ -31,9 +31,6 @@ public class DemensionController extends BaseController {
 		List list = this.demensionService.getDemenByQuery(new WebQueryFilter(
 				request, "demensionItem"));
 		ModelAndView mv = getAutoView().addObject("demensionList", list);
-
-		mv.addObject("checkAll", "<input type='checkbox' id='chkall333' />");
-		//request.setAttribute("checkAll", "<input type='checkbox' id='chkall22' />");
 		
 		return mv;
 	}
