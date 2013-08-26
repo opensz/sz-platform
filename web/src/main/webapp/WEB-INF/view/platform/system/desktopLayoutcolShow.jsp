@@ -61,6 +61,6 @@
 					</li>
 				</ul>
 			</div></td></tr></table>
-		<div id="colshtml">${html}</div>
+		<div id="colshtml">${f:unescapeXml(html)}</div>
 </body>
 </html>
