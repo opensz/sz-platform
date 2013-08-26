@@ -42,7 +42,7 @@
 	</c:if>
 	<display:table name="sysFileList" id="sysFileItem" requestURI="selector.xht" sort="external" cellpadding="1"
 		cellspacing="1" export="false" class="table-grid">
-		<display:column title="${checkAll}" media="html" style="width:30px;">
+		<display:column title="${f:unescapeXml(checkAll)}" media="html" style="width:30px;">
 			<c:choose>
 				<c:when test="${isSingle==0}">
 					<input onchange="window.parent.selectMulti(this);" type="checkbox" class="pk" name="fileId" value="${sysFileItem.fileId}">

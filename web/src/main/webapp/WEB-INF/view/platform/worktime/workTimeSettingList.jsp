@@ -40,7 +40,7 @@
 							<input type="checkbox" id="chkall"/>
 						</c:set>
 					    <display:table name="workTimeSettingList" id="workTimeSettingItem" requestURI="list.xht" sort="external" cellpadding="1" cellspacing="1"  class="table-grid">
-							<display:column title="${checkAll}" media="html" style="width:30px;">
+							<display:column title="${f:unescapeXml(checkAll)}" media="html" style="width:30px;">
 								  	<input type="checkbox" class="pk" name="id" value="${workTimeSettingItem.id}">
 							</display:column>
 							<display:column property="name" title="班次名" sortable="true" sortName="name"></display:column>

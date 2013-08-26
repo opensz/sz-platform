@@ -72,7 +72,7 @@
 							<input type="checkbox" id="chkall"/>
 						</c:set>
 					    <display:table name="sysUserList" id="sysUserItem" requestURI="list.xht" sort="external" cellpadding="1" cellspacing="1"  export="true"  class="table-grid">
-							<display:column title="${checkAll}" media="html" style="width:30px;text-align:center;">
+							<display:column title="${f:unescapeXml(checkAll)}" media="html" style="width:30px;text-align:center;">
 								  	<input type="checkbox" class="pk" name="userId" value="${sysUserItem.userId}">
 							</display:column>
 							<display:column property="fullname" title="姓名" sortable="true" sortName="fullname" style="text-align:left"></display:column>

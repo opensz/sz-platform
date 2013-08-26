@@ -98,14 +98,6 @@ public class SysUserOrgServiceImpl extends BaseServiceImpl<SysUserOrg>
 				}
 			}
 
-			if (BeanUtils.isNotEmpty(arrIsDept)) {
-				if (arrIsDept[inta] == 1L) {
-					sysUserOrg.setIsDept((short) 1);
-				} else {
-					sysUserOrg.setIsDept((short) 0);
-				}
-			}
-
 			this.dao.add(sysUserOrg);
 			inta++;
 		}

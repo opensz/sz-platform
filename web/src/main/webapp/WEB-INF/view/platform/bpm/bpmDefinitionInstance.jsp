@@ -43,7 +43,7 @@
 					<input type="checkbox" id="chkall"/>
 				</c:set>
 			    <display:table name="processRunList" id="processRunItem" requestURI="instance.xht" sort="external" cellpadding="1" cellspacing="1"  class="table-grid">
-					<display:column title="${checkAll}" media="html" style="width:30px;">
+					<display:column title="${f:unescapeXml(checkAll)}" media="html" style="width:30px;">
 						  	<input type="checkbox" class="pk" name="runId" value="${processRunItem.runId}">
 					</display:column>
 					<display:column property="subject" title="流程实例标题" sortable="true" sortName="subject" style="text-align:left"></display:column>

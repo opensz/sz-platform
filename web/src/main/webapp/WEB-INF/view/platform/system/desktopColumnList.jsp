@@ -48,7 +48,7 @@ function previewTemplate(url){
 							<input type="checkbox" id="chkall"/>
 						</c:set>
 					    <display:table name="desktopColumnList" id="desktopColumnItem" requestURI="list.xht" sort="external" cellpadding="1" cellspacing="1" export="false"  class="table-grid">
-							<display:column title="${checkAll}" media="html" style="width:30px;">
+							<display:column title="${f:unescapeXml(checkAll)}" media="html" style="width:30px;">
 							<input type="checkbox" class="pk" name="id" value="${desktopColumnItem.id}">
 							</display:column>
 							<display:column property="name" title="栏目名称" sortable="true" sortName="name"></display:column>

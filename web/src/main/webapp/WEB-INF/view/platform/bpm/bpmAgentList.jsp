@@ -49,7 +49,7 @@
 							<input type="checkbox" id="chkall"/>
 						</c:set>
 					    <display:table name="bpmAgentList" id="bpmAgentItem" requestURI="list.xht" sort="external" cellpadding="1" cellspacing="1" export="true"  class="table-grid">
-							<display:column title="${checkAll}" media="html" style="width:30px;">
+							<display:column title="${f:unescapeXml(checkAll)}" media="html" style="width:30px;">
 								  	<input type="checkbox" class="pk" name="id" value="${bpmAgentItem.id}">
 							</display:column>
 							<display:column property="agentid" title="agentid" sortable="true" sortName="agentid"></display:column>

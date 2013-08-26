@@ -48,7 +48,7 @@
 							<input type="checkbox" id="chkall"/>
 						</c:set>
 					    <display:table name="sysFileList" id="sysFileItem" requestURI="list.xht" sort="external" cellpadding="1" cellspacing="1" export="true"  class="table-grid">
-							<display:column title="${checkAll}" media="html" style="width:30px;">
+							<display:column title="${f:unescapeXml(checkAll)}" media="html" style="width:30px;">
 								  	<input type="checkbox" class="pk" name="fileId" value="${sysFileItem.fileId}">
 							</display:column>
 							<display:column property="fileName" title="文件名" sortable="true" sortName="fileName"></display:column>

@@ -751,63 +751,6 @@
 		            </tr>
 				 </table>
 	        </div>
-	        <div title="部门选择" tabid="deptdetail" >		         	         
-		          <table align="center"  cellpadding="0" cellspacing="0" class="table-grid table-list">
-				    <tr>
-			        <td width="28%" valign="top"  style="padding-left:2px !important;">
-					<div class="tbar-title">
-							<span class="tbar-label">所有部门</span> 
-			        </div>
-					<div class="panel-body" style="height:520px;overflow-y:auto;border:1px solid #6F8DC6;">	  		  
-			            <ul id="deptTree" class="ztree" style="width:200px;margin:-2; padding:-2;" >         
-			            </ul>    
-					</div>
-					</td>
-					<td width="3%" valign="middle"  style="padding-left:2px !important;">
-					<input type="button" id="deptAdd" value="添加>>" />
-					<br/>
-					<br/>
-					<br/>
-					</td>
-				    <td valign="top" style="padding-left:2px !important;">
-		            <div class="tbar-title">
-							<span class="tbar-label">已选部门</span>
-			         </div>
-					<div style="overflow-y:auto;border:1px solid #6F8DC6;">
-					      <table id="deptItem" class="table-grid table-list"  cellpadding="1" cellspacing="1">
-					   		<thead>
-					   			
-					   			<th style="text-align:center !important;">部门名称</th>
-					    		<th style="text-align:center !important;">是否部门</th>
-					    		<th style="text-align:center !important;">主要负责人</th>
-					    		
-					    		<th style="text-align:center !important;">操作</th>
-					    	</thead>
-					    	<c:forEach items="${deptList}" var="m">
-					    		<tr trName="${m.orgName}"  id="${m.orgId}_dept" style='cursor:pointer'>
-						    		
-						    		<td style="text-align: center;">
-					    				${m.orgName}<input type="hidden" name="orgId" value="${m.orgId}">
-					    				<input type="hidden" name="isDept" value="1">					    				
-					    			</td>
-					    			<td style="text-align: center;">					    			
-					    			 <input type="radio" name="deptIdPrimary" value="${m.orgId}"  <c:if test='${m.isPrimary==1}'>checked</c:if> />
-					    			</td>
-					    			<td style="text-align: center;">					    			
-					    			 	<input type="checkbox" name="chargeOrgId" value="${m.orgId}"  <c:if test='${m.isCharge==1}'>checked</c:if>> 
-					    			</td>
-					    			
-					    			<td style="text-align: center;">
-					    			 <a href="#" onclick="delrow('${m.orgId}')" class="link del">移除</a>
-					    			</td>
-					    		</tr>
-					    	</c:forEach>
-					   	 </table>
-					</div>
-		            </td>
-		            </tr>
-				 </table>
-	        </div>
 	        <div title="岗位选择" tabid="posdetail" icon="${ctx}/themes/img/icon/nav-sales.png">
 		         <table align="center"  cellpadding="0" cellspacing="0" class="table-grid">
 				   <tr>

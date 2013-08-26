@@ -36,7 +36,7 @@
 					<div class="panel-data">
 					    <display:table name="demensionList" id="demensionItem" requestURI="list.xht" 
 					    	sort="external" cellpadding="1" cellspacing="1" export="false"  class="table-grid">
-							<display:column title="${checkAll}" media="html" style="width:30px;text-align:center;">
+							<display:column title="${f:unescapeXml(checkAll)}" media="html" style="width:30px;text-align:center;">
 								  	<input type="checkbox" class="pk" name="demId" value="${demensionItem.demId}" ${demensionItem.demName=="行政维度"?"disabled='disabled'":""}>
 							</display:column>
 							<display:column property="demName" title="维度名称" sortable="true" sortName="demName" style="text-align:left"></display:column>

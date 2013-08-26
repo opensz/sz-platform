@@ -52,7 +52,7 @@
 							<input type="checkbox" id="chkall"/>
 						</c:set>
 					    <display:table name="globalTypeList" id="globalTypeItem" requestURI="list.xht" sort="external" cellpadding="1" cellspacing="1" export="false"  class="table-grid">
-							<display:column title="${checkAll}" media="html" style="width:30px;">
+							<display:column title="${f:unescapeXml(checkAll)}" media="html" style="width:30px;">
 								  	<input type="checkbox" class="pk" name="typeId" value="${globalTypeItem.typeId}">
 							</display:column>
 							<display:column property="typeName" title="名称" sortable="true" sortName="typeName" style="text-align:left"></display:column>

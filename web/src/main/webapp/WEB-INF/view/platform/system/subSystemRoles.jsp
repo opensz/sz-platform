@@ -46,7 +46,7 @@
 							<input type="checkbox" id="chkall"/>
 						</c:set>
 					    <display:table name="sysRoleList" id="sysRoleItem" requestURI="sysRoles.xht" sort="external" cellpadding="1" cellspacing="1" export="true"  class="table-grid">
-							<display:column title="${checkAll}" media="html" style="width:30px;">
+							<display:column title="${f:unescapeXml(checkAll)}" media="html" style="width:30px;">
 								  	<input type="checkbox" class="pk" name="roleId" value="${sysRoleItem.roleId}">
 							</display:column>
 							<display:column property="systemId" title="系统ID" sortable="true" sortName="systemId"></display:column>

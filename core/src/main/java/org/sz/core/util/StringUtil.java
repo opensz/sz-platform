@@ -98,6 +98,14 @@ public class StringUtil {
 	public static String trim(String toTrim, String trimStr) {
 		return trimSufffix(trimPrefix(toTrim, trimStr), trimStr);
 	}
+	
+	public static String escapeXml(String src) {
+		return StringEscapeUtils.escapeXml(src);
+	}
+	
+	public static String unescapeXml(String src) {
+		return StringEscapeUtils.unescapeXml(src);
+	}
 
 	public static String escapeHtml(String content) {
 		return StringEscapeUtils.escapeHtml(content);

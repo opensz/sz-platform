@@ -118,7 +118,7 @@
 				<input type="checkbox" id="chkall"/>
 			</c:set>
 		    <display:table name="bpmFormDefList" id="bpmFormDefItem" requestURI="list.xht" sort="external" cellpadding="1" cellspacing="1" export="false"  class="table-grid">
-				<display:column title="${checkAll}" media="html" style="width:30px;">
+				<display:column title="${f:unescapeXml(checkAll)}" media="html" style="width:30px;">
 					  	<input type="checkbox" class="pk" name="formDefId" value="${bpmFormDefItem.formDefId}">
 				</display:column>
 				<display:column property="subject" title="表单标题" sortable="true" sortName="subject" style="text-align:left"></display:column>

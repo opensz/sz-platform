@@ -42,7 +42,7 @@
 			<div class="panel-data">
 		    	<c:set var="checkAll"><input type="checkbox" id="chkall"/></c:set>
 				<display:table name="reportParamList" id="reportParamItem" requestURI="list.xht" sort="external" cellpadding="1" cellspacing="1" export="true"  class="table-grid">
-					<display:column title="${checkAll}" media="html" style="width:30px;">
+					<display:column title="${f:unescapeXml(checkAll)}" media="html" style="width:30px;">
 	 					<input type="checkbox" class="pk" name="PARAMID" value="${reportParamItem.PARAMID}">
 					</display:column>
 					<display:column property="REPORTID" title="所属报表" sortable="true" sortName="REPORTID"></display:column>

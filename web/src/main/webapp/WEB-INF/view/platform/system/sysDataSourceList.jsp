@@ -85,7 +85,7 @@
 							<input type="checkbox" id="chkall"/>
 						</c:set>
 					    <display:table name="sysDataSourceList" id="sysDataSourceItem" requestURI="list.xht" sort="external" cellpadding="1" cellspacing="1"  class="table-grid">
-							<display:column title="${checkAll}" media="html" style="width:30px;">
+							<display:column title="${f:unescapeXml(checkAll)}" media="html" style="width:30px;">
 								  	<input type="checkbox" class="pk" name="id" value="${sysDataSourceItem.id}">
 							</display:column>
 							<display:column property="name" style="text-align:left;" title="数据源名称" sortable="true" sortName="name"></display:column>

@@ -55,7 +55,7 @@
 							<input type="checkbox" id="chkall"/>
 						</c:set>
 					    <display:table name="bpmFormTemplateList" id="bpmFormTemplateItem" requestURI="list.xht" sort="external" cellpadding="1" cellspacing="1"  class="table-grid">
-							<display:column title="${checkAll}" media="html" style="width:30px;">
+							<display:column title="${f:unescapeXml(checkAll)}" media="html" style="width:30px;">
 								  	<input type="checkbox" class="pk"  name="templateId" value="${bpmFormTemplateItem.templateId}"  <c:if test="${bpmFormTemplateItem.canEdit==0}">disabled="disabled"</c:if>  >
 							</display:column>
 							<display:column property="alias" title="别名" sortable="true" sortName="alias" style="text-align:left"></display:column>

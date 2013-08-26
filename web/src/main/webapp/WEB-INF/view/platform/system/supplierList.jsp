@@ -42,7 +42,7 @@
 							<input type="checkbox" id="chkall"/>
 						</c:set>
 					    <display:table name="supplierList" id="model" requestURI="supplierList.xht" sort="external" cellpadding="1" cellspacing="1"  export="true"  class="table-grid">
-							<display:column title="${checkAll}" media="html" style="width:30px;text-align:center;">
+							<display:column title="${f:unescapeXml(checkAll)}" media="html" style="width:30px;text-align:center;">
 								  	<input type="checkbox" class="pk" name="orgId" value="${model.orgId}">
 							</display:column>
 							<display:column property="orgName" title="名称" sortable="true" sortName="orgName" style="text-align:left"></display:column>

@@ -38,7 +38,7 @@
 							<input type="checkbox" id="chkall"/>
 						</c:set>
 					    <display:table name="indetityList" id="indetityItem" requestURI="list.xht" sort="external" cellpadding="1" cellspacing="1"  class="table-grid">
-							<display:column title="${checkAll}" media="html" style="width:30px;">
+							<display:column title="${f:unescapeXml(checkAll)}" media="html" style="width:30px;">
 								  	<input type="checkbox" class="pk" name="id" value="${indetityItem.id}">
 							</display:column>
 							<display:column property="name" title="名称" sortable="true" sortName="name"></display:column>

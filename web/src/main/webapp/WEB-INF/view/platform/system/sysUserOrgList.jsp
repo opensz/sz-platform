@@ -45,7 +45,7 @@
 							<input type="checkbox" id="chkall"/>
 						</c:set>
 					    <display:table name="sysUserOrgList" id="sysUserOrgItem" requestURI="list.xht" sort="external" cellpadding="1" cellspacing="1" export="true"  class="table-grid">
-							<display:column title="${checkAll}" media="html" style="width:30px;">
+							<display:column title="${f:unescapeXml(checkAll)}" media="html" style="width:30px;">
 								  	<input type="checkbox" class="pk" name="userOrgId" value="${sysUserOrgItem.userOrgId}">
 							</display:column>
 							<display:column property="orgId" title="组织ID" sortable="true" sortName="orgId"></display:column>

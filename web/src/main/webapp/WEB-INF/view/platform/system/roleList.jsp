@@ -30,7 +30,7 @@
 				<input type="checkbox" onclick="checkAll(this,'roleId');"/>
 			</c:set>
 		    <display:table name="roleList" id="roleItem" requestURI="role.xht" sort="external" cellpadding="0" cellspacing="1" export="true"  class="table-grid">
-				<display:column title="${checkAll}" media="html" style="width:30px;">
+				<display:column title="${f:unescapeXml(checkAll)}" media="html" style="width:30px;">
 					  	<input type="checkbox" name="roleId" value="${roleItem.id}">
 				</display:column>
 				<display:column property="name" title="名称" sortable="true" sortName="name"></display:column>

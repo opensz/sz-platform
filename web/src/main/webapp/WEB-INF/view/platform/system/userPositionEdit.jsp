@@ -59,7 +59,7 @@
 					<input type="checkbox" id="chkall"/>
 				</c:set>
 			    <display:table name="userPositionList" id="userPositionItem" requestURI="edit.xht" sort="external" cellpadding="1" cellspacing="1" export="false"  class="table-grid">
-					<display:column title="${checkAll}" media="html" style="width:30px;">
+					<display:column title="${f:unescapeXml(checkAll)}" media="html" style="width:30px;">
 						  	<input type="checkbox" class="pk" name="userPosId" value="${userPositionItem.userPosId}">
 						  	
 					</display:column>

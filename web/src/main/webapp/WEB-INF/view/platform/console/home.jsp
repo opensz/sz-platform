@@ -17,7 +17,7 @@
 </head>
 <body>
 <div id="colshtml" >
-	${html}
+	${f:unescapeHtml(html)}
 </div>
 </body>
 </html>

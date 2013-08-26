@@ -137,7 +137,7 @@
 					<input type="checkbox" id="chkall"/>
 				</c:set>
 			    <display:table name="outMailList" id="outMailItem" requestURI="list.xht" sort="external" cellpadding="1" cellspacing="1" export="false"  class="table-grid">
-					<display:column title="${checkAll}" media="html" style="width:30px;">
+					<display:column title="${f:unescapeXml(checkAll)}" media="html" style="width:30px;">
 						  	<input type="checkbox" class="pk" name="mailId" value="${outMailItem.mailId}">
 					</display:column>
 					<display:column property="senderAddresses" title="发件人" sortable="true" sortName="senderAddresses" style="width:80px;"></display:column>

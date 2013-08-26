@@ -54,7 +54,7 @@
 							<input type="checkbox" id="chkall"/>
 						</c:set>
 					    <display:table name="projectList" id="model" requestURI="list.xht" sort="external" cellpadding="1" cellspacing="1" export="false"  class="table-grid">
-							<display:column title="${checkAll}" media="html" style="width:30px;">
+							<display:column title="${f:unescapeXml(checkAll)}" media="html" style="width:30px;">
 							<input type="checkbox" class="pk" name="ids" id="ids" value="${model.id}">
 							</display:column>
 							

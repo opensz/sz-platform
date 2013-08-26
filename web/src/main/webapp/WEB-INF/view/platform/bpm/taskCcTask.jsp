@@ -74,7 +74,7 @@ function changeTaskUser(taskId,taskName){
 					<input type="checkbox" id="chkall"/>
 				</c:set>
 			    <display:table name="taskList" id="taskItem" requestURI="forMe.xht" sort="external" cellpadding="1" cellspacing="1"  class="table-grid">
-					<display:column title="${checkAll}" media="html" style="width:30px;">
+					<display:column title="${f:unescapeXml(checkAll)}" media="html" style="width:30px;">
 						  	<input type="checkbox" class="pk" name="id" value="${taskItem.id}">
 					</display:column>
 					<display:column property="subject" title="事项名称" style="text-align:left"></display:column>

@@ -39,7 +39,7 @@
 							<input type="checkbox" id="chkall"/>
 						</c:set>
 					    <display:table name="sysJobLogList" id="sysJobLogItem" requestURI="getLogList.xht" sort="external" cellpadding="1" cellspacing="1" export="true"  class="table-grid">
-							<display:column title="${checkAll}" media="html" style="width:30px;">
+							<display:column title="${f:unescapeXml(checkAll)}" media="html" style="width:30px;">
 								  	<input type="checkbox" class="pk" name="logId"  value="${sysJobLogItem.logId}">
 							</display:column>
 							<display:column property="jobName" title="任务名称" style="text-align:left" ></display:column>

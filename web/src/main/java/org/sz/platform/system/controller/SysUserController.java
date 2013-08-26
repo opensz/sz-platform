@@ -142,13 +142,11 @@ public class SysUserController extends BaseController {
 					.getOrgByUserId(userId);
 			// 客户id
 			for (SysUserOrg sysUserOrg : list) {
-				if (sysUserOrg.getIsDept() != null
-						&& sysUserOrg.getIsDept() == 1) {
-					deptList.add(sysUserOrg);
-				} else {
+				//if (sysUserOrg.getIsDept() != null && sysUserOrg.getIsDept() == 1) {
+				//	deptList.add(sysUserOrg);
+				//} else {
 					orgList.add(sysUserOrg);
-					
-				}
+				//}
 
 			}
 		} else if (userId == 0L) {
@@ -160,15 +158,7 @@ public class SysUserController extends BaseController {
 					.getOrgByUserId(currentUserId);
 			// 客户id
 			for (SysUserOrg sysUserOrg : list) {
-				if (sysUserOrg.getIsDept() != null
-						&& sysUserOrg.getIsDept() == 1
-						&& currentUserId != sysUserOrg.getUserId()) {
-					// deptList.add(sysUserOrg);
-				} else {
 					orgList.add(sysUserOrg);
-					
-				}
-
 			}
 
 			sysUser = new SysUser();
@@ -316,11 +306,7 @@ public class SysUserController extends BaseController {
 	public ModelAndView dialog(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		ModelAndView mv = getAutoView();
-		String orgId = RequestUtil.getString(request, "orgId");
 		SysUser user = this.getCurrentUser(); // 当前登陆人userId
-		if (orgId == null || orgId.equals("")) {
-			orgId = user.getUserOrgId().toString();
-		}
 		List demensionList = this.demensionService.getAll();
 		mv.addObject("demensionList", demensionList);
 		List subSystemList = this.subSystemService.getAll();
@@ -328,7 +314,6 @@ public class SysUserController extends BaseController {
 
 		String isSingle = RequestUtil.getString(request, "isSingle", "false");
 		mv.addObject("isSingle", isSingle);
-		mv.addObject("orgId", orgId);
 		return mv;
 	}
 

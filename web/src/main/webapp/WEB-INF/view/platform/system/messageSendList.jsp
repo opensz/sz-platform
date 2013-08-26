@@ -44,7 +44,7 @@
 						</c:set>
 					    <display:table name="messageSendList" id="messageSendItem" requestURI="list.xht" 
 					    	sort="external" cellpadding="1" cellspacing="1" export="false" class="table-grid">
-							<display:column title="${checkAll}" media="html" style="width:30px;">
+							<display:column title="${f:unescapeXml(checkAll)}" media="html" style="width:30px;">
 								  	<input type="checkbox" class="pk" name="id" value="${messageSendItem.id}">
 							</display:column>
 							<display:column property="subject" title="标题" sortable="true" sortName="subject"></display:column>

@@ -4,7 +4,35 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee web-jsptaglibrary_2_0.xsd">
 	<tlib-version>1.0</tlib-version>
 	<short-name>f</short-name>     
-	<uri>http://www.servicezon.com/functions</uri>     
+	<uri>http://www.servicezon.com/functions</uri>    
+	<function>
+		<description>HTML转义</description>  
+		<name>escapeHtml</name>  
+		<function-class>org.sz.core.util.StringUtil</function-class>   
+		<function-signature>java.lang.String escapeHtml(java.lang.String)</function-signature>
+		<example>${f:escapeHtml(htmlStr)}</example>          
+	</function>
+	<function>
+		<description>HTML反转义</description>  
+		<name>unescapeHtml</name>  
+		<function-class>org.sz.core.util.StringUtil</function-class>   
+		<function-signature>java.lang.String unescapeHtml(java.lang.String)</function-signature>
+		<example>${f:unescapeHtml(textStr)}</example>          
+	</function> 
+	<function>
+		<description>XML转义</description>  
+		<name>escapeXml</name>  
+		<function-class>org.sz.core.util.StringUtil</function-class>   
+		<function-signature>java.lang.String escapeXml(java.lang.String)</function-signature>
+		<example>${f:escapeXml(htmlStr)}</example>          
+	</function>
+	<function>
+		<description>XML反转义</description>  
+		<name>unescapeXml</name>  
+		<function-class>org.sz.core.util.StringUtil</function-class>   
+		<function-signature>java.lang.String unescapeXml(java.lang.String)</function-signature>
+		<example>${f:unescapeXml(textStr)}</example>          
+	</function> 
 	<function>
 		<description>时间转化</description>  
 		<name>formatTime</name>  

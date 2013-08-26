@@ -57,7 +57,7 @@
 				<display:table name="sysParamList" id="sysParamItem"
 					requestURI="list.xht" sort="external" cellpadding="1"
 					cellspacing="1" export="false" class="table-grid">
-					<display:column title="${checkAll}" media="html"
+					<display:column title="${f:unescapeXml(checkAll)}" media="html"
 						style="width:30px;">
 						<input type="checkbox" class="pk" name="paramId"
 							value="${sysParamItem.paramId}">
