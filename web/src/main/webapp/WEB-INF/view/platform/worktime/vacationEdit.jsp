@@ -1,5 +1,4 @@
 <%--
-	time:2012-02-20 09:25:49
 	desc:edit the 法定假期设置
 --%>
 <%@page language="java" pageEncoding="UTF-8"%>

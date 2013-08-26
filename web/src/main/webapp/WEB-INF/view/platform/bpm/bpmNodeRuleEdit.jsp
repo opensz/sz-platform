@@ -1,5 +1,4 @@
 <%--
-	time:2011-12-14 15:41:53
 	desc:edit the 流程节点规则
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>

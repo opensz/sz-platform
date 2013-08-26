@@ -1,5 +1,4 @@
 <%--
-	time:2012-02-20 09:25:52
 	desc:edit the 加班情况
 --%>
 <%@page language="java" pageEncoding="UTF-8"%>

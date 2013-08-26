@@ -1,5 +1,4 @@
 <%--
-	time:2012-05-25 10:16:17
 	desc:edit the office模版
 --%>
 <%@page language="java" pageEncoding="UTF-8"%>

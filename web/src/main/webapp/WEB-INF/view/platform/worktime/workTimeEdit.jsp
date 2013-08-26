@@ -1,5 +1,4 @@
 <%--
-	time:2012-02-22 16:58:15
 	desc:edit the 班次时间
 --%>
 <%@page language="java" pageEncoding="UTF-8"%>

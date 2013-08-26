@@ -1,5 +1,4 @@
 <%--
-	time:2011-12-01 16:50:08
 	desc:edit the 流程变量定义
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>

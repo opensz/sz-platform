@@ -1,5 +1,4 @@
 <%--
-	time:2011-12-14 08:41:55
 	desc:edit the 会签任务投票规则
 --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>

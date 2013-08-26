@@ -1,5 +1,4 @@
 <%--
-	time:2012-01-11 10:53:15
 	desc:edit the 表单验证规则
 --%>
 <%@page language="java" pageEncoding="UTF-8"%>

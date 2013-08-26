@@ -1,5 +1,4 @@
 <%--
-	time:2012-01-05 12:01:21
 	desc:edit the 脚本管理
 --%>
 <%@page language="java" pageEncoding="UTF-8"%>

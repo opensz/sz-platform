@@ -1,5 +1,4 @@
 <%--
-	time:2011-12-31 15:48:59
 	desc:edit the 流程节点消息
 --%>
 <%@page language="java" pageEncoding="UTF-8"%>

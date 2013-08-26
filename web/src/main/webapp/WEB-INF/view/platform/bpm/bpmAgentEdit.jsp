@@ -1,5 +1,4 @@
 <%--
-	time:2012-01-07 17:31:48
 	desc:edit the 流程代理
 --%>
 <%@page language="java" pageEncoding="UTF-8"%>

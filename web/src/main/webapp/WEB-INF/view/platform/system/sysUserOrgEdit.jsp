@@ -1,5 +1,4 @@
 <%--
-	time:2011-12-07 18:23:24
 	desc:edit the 用户所属组织或部门
 --%>
 <%@page language="java" pageEncoding="UTF-8"%>

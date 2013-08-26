@@ -1,6 +1,4 @@
-<%--
-	time:2011-12-04 18:56:52
---%>
+
 <%@page language="java" pageEncoding="UTF-8"%>
 <%@ taglib prefix="system" tagdir="/WEB-INF/tags/system" %>
 <%@include file="/commons/include/html_doctype.html"%>

@@ -1,5 +1,4 @@
 <%--
-	time:2011-11-30 09:49:45
 	desc:edit the 系统岗位表
 --%>
 <%@page language="java" pageEncoding="UTF-8"%>

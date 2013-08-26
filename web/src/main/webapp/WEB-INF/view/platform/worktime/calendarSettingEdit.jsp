@@ -1,5 +1,4 @@
 <%--
-	time:2012-02-20 14:57:32
 	desc:edit the 日历设置
 --%>
 <%@page language="java" pageEncoding="UTF-8"%>

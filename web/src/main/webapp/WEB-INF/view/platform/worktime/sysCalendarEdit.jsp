@@ -1,5 +1,4 @@
 <%--
-	time:2012-02-20 14:57:32
 	desc:edit the 系统日历
 --%>
 <%@page import="sun.awt.color.CMM.CSAccessor"%>

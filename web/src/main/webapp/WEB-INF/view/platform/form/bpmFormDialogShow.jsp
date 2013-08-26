@@ -1,5 +1,4 @@
 <%--
-	time:2012-06-25 11:05:09
 	desc:edit the 通用表单对话框
 --%>
 <%@page language="java" pageEncoding="UTF-8"%>

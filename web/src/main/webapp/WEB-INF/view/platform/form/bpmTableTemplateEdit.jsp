@@ -1,5 +1,4 @@
 <%--
-	time:2012-05-22 14:58:08
 	desc:edit the 查看表格业务数据的模板
 --%>
 <%@page language="java" pageEncoding="UTF-8"%>

@@ -1,5 +1,4 @@
 <%--
-	time:2012-01-14 15:14:52
 	desc:edit the 接收状态
 --%>
 <%@page language="java" pageEncoding="UTF-8"%>

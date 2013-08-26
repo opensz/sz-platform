@@ -1,5 +1,4 @@
 <%--
-	time:2012-12-14 17:17:09
 	desc:reset the 用户表
 --%>
 <%@page language="java" pageEncoding="UTF-8"%>

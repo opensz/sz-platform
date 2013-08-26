@@ -1,5 +1,4 @@
 <%--
-	time:2012-01-09 16:35:25
 	desc:edit the 表单模板
 --%>
 <%@page language="java" pageEncoding="UTF-8"%>

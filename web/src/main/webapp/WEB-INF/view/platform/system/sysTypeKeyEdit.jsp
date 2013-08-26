@@ -1,5 +1,4 @@
 <%--
-	time:2012-03-10 10:18:37
 	desc:edit the 系统分类键定义
 --%>
 <%@page language="java" pageEncoding="UTF-8"%>

@@ -1,5 +1,4 @@
 <%--
-	time:2012-02-20 09:25:51
 	desc:edit the 日历分配
 --%>
 <%@page language="java" pageEncoding="UTF-8"%>

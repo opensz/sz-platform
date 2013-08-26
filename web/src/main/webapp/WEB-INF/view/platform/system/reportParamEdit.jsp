@@ -1,5 +1,4 @@
 <%--
-	time:2012-04-12 11:08:13
 	desc:edit the 报表参数
 --%>
 <%@page language="java" pageEncoding="UTF-8"%>

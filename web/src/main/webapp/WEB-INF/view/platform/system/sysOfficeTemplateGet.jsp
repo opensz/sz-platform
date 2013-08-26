@@ -1,6 +1,4 @@
-<%--
-	time:2012-05-25 10:16:17
---%>
+
 <%@page language="java" pageEncoding="UTF-8"%>
 <%@include file="/commons/include/html_doctype.html"%>
 <html>

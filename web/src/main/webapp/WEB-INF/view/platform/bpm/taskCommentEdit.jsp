@@ -1,5 +1,4 @@
 <%--
-	time:2012-04-05 17:02:32
 	desc:edit the 流程任务评论
 --%>
 <%@page language="java" pageEncoding="UTF-8"%>

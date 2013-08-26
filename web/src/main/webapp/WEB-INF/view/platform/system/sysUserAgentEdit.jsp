@@ -1,5 +1,4 @@
 <%--
-	time:2011-12-23 16:15:45
 	desc:edit the SYS_USER_AGENT
 --%>
 <%@page language="java" pageEncoding="UTF-8"%>

@@ -1,5 +1,4 @@
 <%--
-	time:2012-02-03 14:40:59
 	desc:edit the 流水号生成
 --%>
 <%@page language="java" pageEncoding="UTF-8"%>

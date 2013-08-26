@@ -1,5 +1,4 @@
 <%--
-	time:2012-01-14 15:10:58
 	desc:edit the 发送消息
 --%>
 <%@page language="java" pageEncoding="UTF-8"%>

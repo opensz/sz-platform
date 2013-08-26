@@ -1,6 +1,4 @@
-<%--
-	time:2011-12-05 17:00:54
---%>
+
 <%@page language="java" pageEncoding="UTF-8" import="org.sz.platform.system.model.Resources"%>
 <%@include file="/commons/include/html_doctype.html"%>
 <html>

@@ -1,5 +1,4 @@
 <%--
-	time:2011-12-19 15:29:52
 	desc:edit the 任务会签数据
 --%>
 <%@page language="java" pageEncoding="UTF-8"%>

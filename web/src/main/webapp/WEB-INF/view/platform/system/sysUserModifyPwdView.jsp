@@ -1,6 +1,4 @@
-<%--
-	time:2011-11-28 10:17:09
---%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>

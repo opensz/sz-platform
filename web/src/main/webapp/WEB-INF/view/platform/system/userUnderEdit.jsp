@@ -1,5 +1,4 @@
 <%--
-	time:2012-07-05 10:08:09
 	desc:edit the 下属管理
 --%>
 <%@page language="java" pageEncoding="UTF-8"%>

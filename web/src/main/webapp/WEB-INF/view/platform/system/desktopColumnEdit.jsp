@@ -1,5 +1,4 @@
 <%--
-	time:2012-03-20 16:39:01
 	desc:edit the 桌面栏目
 --%>
 <%@page language="java" pageEncoding="UTF-8"%>

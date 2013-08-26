@@ -1,5 +1,4 @@
 <%--
-	time:2012-02-20 17:35:46
 	desc:edit the 可访问地址
 --%>
 <%@page language="java" pageEncoding="UTF-8"%>

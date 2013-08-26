@@ -1,5 +1,4 @@
 <%--
-	time:2012-05-28 09:04:06
 	desc:edit the 查看业务数据模板的权限信息
 --%>
 <%@page language="java" pageEncoding="UTF-8"%>

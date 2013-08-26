@@ -1,5 +1,4 @@
 <%--
-	time:2012-03-16 10:53:20
 	desc:edit the 常用语管理
 --%>
 <%@page language="java" pageEncoding="UTF-8" import="java.util.*;"%>
