@@ -6,5 +6,5 @@ import org.springframework.security.web.access.intercept.FilterSecurityIntercept
 
 public class SzPermissionFilter extends FilterSecurityInterceptor implements
 		Filter {
-	
+
 }

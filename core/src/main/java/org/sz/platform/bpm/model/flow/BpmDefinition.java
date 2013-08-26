@@ -1,8 +1,7 @@
 package org.sz.platform.bpm.model.flow;
 
-import org.sz.platform.bpm.model.flow.BpmDefinition;
-
 import java.util.Date;
+
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
@@ -22,10 +21,10 @@ public class BpmDefinition extends BaseModel implements Cloneable {
 	public static final String TABLE_NAME = "bpm_definition";
 	protected Long defId;
 	protected Long typeId;
-	protected String businessType;  //业务类型， CatType=BUSINESS_TYPE
+	protected String businessType; // 业务类型， CatType=BUSINESS_TYPE
 	protected String subject;
 	protected String defKey;
-	protected String taskNameRule;  //task name rule
+	protected String taskNameRule; // task name rule
 	protected String descp;
 	protected Date createtime;
 	protected Short status;
@@ -44,7 +43,7 @@ public class BpmDefinition extends BaseModel implements Cloneable {
 	protected Short needStartForm = 1;
 
 	protected Short toFirstNode = 0;
-	
+
 	protected Short isIso = 0;
 
 	public void setDefId(Long defId) {
@@ -222,8 +221,6 @@ public class BpmDefinition extends BaseModel implements Cloneable {
 	public void setNeedStartForm(Short needStartForm) {
 		this.needStartForm = needStartForm;
 	}
-	
-	
 
 	public String getBusinessType() {
 		return businessType;
@@ -232,7 +229,7 @@ public class BpmDefinition extends BaseModel implements Cloneable {
 	public void setBusinessType(String businessType) {
 		this.businessType = businessType;
 	}
-	
+
 	public Short getIsIso() {
 		return isIso;
 	}
@@ -250,11 +247,28 @@ public class BpmDefinition extends BaseModel implements Cloneable {
 	}
 
 	public int hashCode() {
-		return new HashCodeBuilder(-82280557, -700257973).append(this.defId).toHashCode();
+		return new HashCodeBuilder(-82280557, -700257973).append(this.defId)
+				.toHashCode();
 	}
 
 	public String toString() {
-		return new ToStringBuilder(this).append("defId", this.defId).append("typeId", this.typeId).append("subject", this.subject).append("defKey", this.defKey).append("taskNameRule", this.taskNameRule).append("descp", this.descp).append("createtime", this.createtime).append("status", this.status).append("defXml", this.defXml).append("actDeployId", this.actDeployId).append("actDefKey", this.actDefKey).append("actDefId", this.actDefId).append("createBy", this.createBy).append("updateBy", this.updateBy).append("reason", this.reason).append("versionNo", this.versionNo).append("parentDefId", this.parentDefId).append("isMain", this.isMain).append("updatetime", this.updatetime).toString();
+		return new ToStringBuilder(this).append("defId", this.defId)
+				.append("typeId", this.typeId).append("subject", this.subject)
+				.append("defKey", this.defKey)
+				.append("taskNameRule", this.taskNameRule)
+				.append("descp", this.descp)
+				.append("createtime", this.createtime)
+				.append("status", this.status).append("defXml", this.defXml)
+				.append("actDeployId", this.actDeployId)
+				.append("actDefKey", this.actDefKey)
+				.append("actDefId", this.actDefId)
+				.append("createBy", this.createBy)
+				.append("updateBy", this.updateBy)
+				.append("reason", this.reason)
+				.append("versionNo", this.versionNo)
+				.append("parentDefId", this.parentDefId)
+				.append("isMain", this.isMain)
+				.append("updatetime", this.updatetime).toString();
 	}
 
 	public Object clone() {

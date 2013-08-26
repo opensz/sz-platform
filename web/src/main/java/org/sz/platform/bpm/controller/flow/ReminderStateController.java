@@ -28,8 +28,8 @@ public class ReminderStateController extends BaseController {
 	@Action(description = "查看任务催办执行情况分页列表")
 	public ModelAndView list(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		List list = this.reminderStateService.getAll(new WebQueryFilter(request,
-				"reminderStateItem"));
+		List list = this.reminderStateService.getAll(new WebQueryFilter(
+				request, "reminderStateItem"));
 		ModelAndView mv = getAutoView().addObject("reminderStateList", list);
 
 		return mv;

@@ -98,13 +98,18 @@ public class LoginController extends BaseController {
 				return;
 			}
 
-			UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(username, password);
-			SecurityContext securityContext = SecurityContextHolder.getContext();
-			Authentication auth = this.authenticationManager.authenticate(authRequest);
+			UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken(
+					username, password);
+			SecurityContext securityContext = SecurityContextHolder
+					.getContext();
+			Authentication auth = this.authenticationManager
+					.authenticate(authRequest);
 			securityContext.setAuthentication(auth);
 
-			request.getSession().setAttribute("SPRING_SECURITY_LAST_USERNAME", username);
-			request.getSession().removeAttribute( "SPRING_SECURITY_LAST_EXCEPTION");
+			request.getSession().setAttribute("SPRING_SECURITY_LAST_USERNAME",
+					username);
+			request.getSession().removeAttribute(
+					"SPRING_SECURITY_LAST_EXCEPTION");
 			writeRememberMeCookie(request, response, username, encrptPassword);
 		} catch (LockedException session) {
 			request.getSession().setAttribute("SPRING_SECURITY_LAST_EXCEPTION",

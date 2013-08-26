@@ -8,7 +8,7 @@ import java.util.List;
 import org.sz.core.service.BaseService;
 import org.sz.platform.system.model.Script;
 
-public interface ScriptService  extends BaseService<Script>{
+public interface ScriptService extends BaseService<Script> {
 
 	List<String> getDistinctCategory();
 

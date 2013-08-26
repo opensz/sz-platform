@@ -21,7 +21,7 @@ LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
 ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-*/
+ */
 package org.sz.core.web.jsp;
 
 import javax.servlet.ServletContextEvent;
@@ -33,12 +33,12 @@ import javax.servlet.jsp.JspFactory;
  */
 public class EscapeXmlELResolverListener implements ServletContextListener {
 
-    public void contextInitialized(ServletContextEvent event) {
-        JspFactory.getDefaultFactory()
-                .getJspApplicationContext(event.getServletContext())
-                .addELResolver(new EscapeXmlELResolver());
-    }
+	public void contextInitialized(ServletContextEvent event) {
+		JspFactory.getDefaultFactory()
+				.getJspApplicationContext(event.getServletContext())
+				.addELResolver(new EscapeXmlELResolver());
+	}
 
-    public void contextDestroyed(ServletContextEvent event) {
-    }
+	public void contextDestroyed(ServletContextEvent event) {
+	}
 }

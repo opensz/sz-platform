@@ -23,7 +23,7 @@ import org.sz.core.util.ContextUtil;
 
 public abstract class GenericDaoImpl<E, PK extends Serializable> extends
 		BaseMyBatisDao implements IEntityDao<E, PK>, GenericDao2<E, PK> {
-	
+
 	public static final String Oracle = "oracle";
 	public static final String MySql = "mysql";
 	public static final String SQLServer = "sqlserver";

@@ -50,15 +50,15 @@ public class SysRoleController extends BaseController {
 			HttpServletResponse response) throws Exception {
 
 		QueryFilter queryFilter = new WebQueryFilter(request, "sysRoleItem");
-//		SysUser sysUser = getCurrentUser();
-//		Long systemId = sysUser.getSystemId();
-//		if (systemId != 1L) {
-//			queryFilter.addFilter("systemId", systemId);
-//		}
+		// SysUser sysUser = getCurrentUser();
+		// Long systemId = sysUser.getSystemId();
+		// if (systemId != 1L) {
+		// queryFilter.addFilter("systemId", systemId);
+		// }
 		List list = this.sysRoleService.getRoleList(queryFilter);
 		ModelAndView mv = getAutoView().addObject("sysRoleList", list);
 
-//		mv.addObject("systemId", sysUser.getSystemId());
+		// mv.addObject("systemId", sysUser.getSystemId());
 		return mv;
 	}
 
@@ -187,14 +187,14 @@ public class SysRoleController extends BaseController {
 	@ResponseBody
 	public List<SysRole> getTreeData(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		
+
 		QueryFilter queryFilter = new WebQueryFilter(request, "sysRole");
-		
-//		SysUser sysUser = getCurrentUser();
-//		Long systemId = sysUser.getSystemId();
-//		if (systemId != 1L) {
-//			queryFilter.addFilter("systemId", systemId);
-//		}
+
+		// SysUser sysUser = getCurrentUser();
+		// Long systemId = sysUser.getSystemId();
+		// if (systemId != 1L) {
+		// queryFilter.addFilter("systemId", systemId);
+		// }
 		queryFilter.setPageBean(null);
 		List rolList = this.sysRoleService.getRoleTree(queryFilter);
 		SysRole rol = new SysRole();

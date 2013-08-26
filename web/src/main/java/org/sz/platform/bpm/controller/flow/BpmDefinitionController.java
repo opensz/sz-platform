@@ -208,9 +208,9 @@ public class BpmDefinitionController extends BaseController {
 			throws Exception {
 		ResultMessage message = null;
 		String preUrl = RequestUtil.getPrePage(request);
-		
-	    String isOnlyVersion = request.getParameter("isOnlyVersion");
-	    boolean onlyVersion = "true".equals(isOnlyVersion) ? true : false;
+
+		String isOnlyVersion = request.getParameter("isOnlyVersion");
+		boolean onlyVersion = "true".equals(isOnlyVersion) ? true : false;
 		try {
 			String lAryId = RequestUtil.getString(request, "defId");
 			if (StringUtil.isEmpty(lAryId)) {
@@ -292,16 +292,20 @@ public class BpmDefinitionController extends BaseController {
 
 	@RequestMapping({ "userSet" })
 	@Action(description = "人员设置")
-	public ModelAndView userSet(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ModelAndView userSet(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
 		Long defId = Long.valueOf(RequestUtil.getLong(request, "defId"));
-		BpmDefinition bpmDefinition = (BpmDefinition) this.bpmDefinitionService.getById(defId);
+		BpmDefinition bpmDefinition = (BpmDefinition) this.bpmDefinitionService
+				.getById(defId);
 		List<BpmNodeSet> setList = this.bpmNodeSetService.getByDefId(defId);
 
 		List<NodeUserMap> nodeUserMapList = new ArrayList<NodeUserMap>();
 
 		for (BpmNodeSet nodeSet : setList) {
-			List<BpmNodeUser> userList = this.bpmNodeUserService.getBySetId(nodeSet.getSetId());
-			NodeUserMap nodeUserMap = new NodeUserMap(nodeSet.getSetId(), nodeSet.getNodeId(), nodeSet.getNodeName(), userList);
+			List<BpmNodeUser> userList = this.bpmNodeUserService
+					.getBySetId(nodeSet.getSetId());
+			NodeUserMap nodeUserMap = new NodeUserMap(nodeSet.getSetId(),
+					nodeSet.getNodeId(), nodeSet.getNodeName(), userList);
 			nodeUserMapList.add(nodeUserMap);
 		}
 		ModelAndView modelView = getAutoView();
@@ -334,9 +338,9 @@ public class BpmDefinitionController extends BaseController {
 
 		request.setAttribute("uId", uId);
 		request.setAttribute("defId", Long.valueOf(defId));
-		
-		//增加copyId
-		if(!"".equals(copyId)){
+
+		// 增加copyId
+		if (!"".equals(copyId)) {
 			request.setAttribute("copyId", copyId);
 		}
 		return getAutoView();
@@ -363,18 +367,18 @@ public class BpmDefinitionController extends BaseController {
 
 		return null;
 	}
-	
+
 	@RequestMapping({ "copyBpmDef" })
 	@Action(description = "拷贝流程定义")
 	public void copyBpmDef(HttpServletRequest request,
-			HttpServletResponse response) throws Exception{
+			HttpServletResponse response) throws Exception {
 		ResultMessage message = null;
 		String preUrl = RequestUtil.getPrePage(request);
 		Long copyId = RequestUtil.getLong(request, "copyId");
-		if(copyId > 0L){
+		if (copyId > 0L) {
 			bpmDefinitionService.copyFormDef(copyId, true);
 			message = new ResultMessage(1, "流程定义拷贝成功");
-		}else{
+		} else {
 			message = new ResultMessage(0, "没有指定要拷贝的流程定义");
 		}
 		addMessage(message, request);
@@ -437,8 +441,8 @@ public class BpmDefinitionController extends BaseController {
 		long defId = RequestUtil.getLong(request, "defId");
 		BpmDefinition bpmDefinition = null;
 		if (defId > 0L) {
-			bpmDefinition = this.bpmDefinitionService
-					.getById(Long.valueOf(defId));
+			bpmDefinition = this.bpmDefinitionService.getById(Long
+					.valueOf(defId));
 		} else {
 			bpmDefinition = new BpmDefinition();
 			Long proTypeId = Long
@@ -446,19 +450,20 @@ public class BpmDefinitionController extends BaseController {
 			if (proTypeId.longValue() > 0L) {
 				bpmDefinition.setTypeId(new Long(proTypeId.longValue()));
 			}
-			
-			//判断copyId 是否存在
+
+			// 判断copyId 是否存在
 			Long copyId = RequestUtil.getLong(request, "copyId");
-			if(copyId > 0L){
-				BpmDefinition copyBpmDefinition = this.bpmDefinitionService.getById(copyId);
-				
+			if (copyId > 0L) {
+				BpmDefinition copyBpmDefinition = this.bpmDefinitionService
+						.getById(copyId);
+
 				bpmDefinition.setDefXml(copyBpmDefinition.getDefXml());
 				bpmDefinition.setTypeId(copyBpmDefinition.getTypeId());
 				bpmDefinition.setSubject(copyBpmDefinition.getSubject());
 				bpmDefinition.setDefKey("case_" + UniqueIdUtil.genId());
 				bpmDefinition.setDescp(copyBpmDefinition.getDescp());
 				bpmDefinition.setDefId(0L);
-				bpmDefinition.setVersionNo(1); //默认给1
+				bpmDefinition.setVersionNo(1); // 默认给1
 			}
 		}
 		StringBuffer msg = new StringBuffer(
@@ -861,16 +866,17 @@ public class BpmDefinitionController extends BaseController {
 	public BpmDefinition getCanDirectStart(HttpServletRequest request)
 			throws Exception {
 		Long defId = RequestUtil.getLong(request, "defId");
-		BpmDefinition  bpmDefinition = null;
-		if(defId > 0L){
-			bpmDefinition =  bpmDefinitionService.getById(defId);
-		}else{
+		BpmDefinition bpmDefinition = null;
+		if (defId > 0L) {
+			bpmDefinition = bpmDefinitionService.getById(defId);
+		} else {
 			String actDefKey = RequestUtil.getString(request, "actDefKey");
-			if(StringUtils.isNotBlank(actDefKey)){
-				bpmDefinition = bpmDefinitionService.getMainDefByActDefKey(actDefKey);
+			if (StringUtils.isNotBlank(actDefKey)) {
+				bpmDefinition = bpmDefinitionService
+						.getMainDefByActDefKey(actDefKey);
 			}
 		}
-//		boolean rtn = this.bpmFormRunService.getCanDirectStart(defId);
+		// boolean rtn = this.bpmFormRunService.getCanDirectStart(defId);
 		return bpmDefinition;
 	}
 }

@@ -67,8 +67,8 @@ public class ColumnModel {
 	}
 
 	public int getCharLen() {
-		if(this.charLen==4000){
-			this.charLen=2000;
+		if (this.charLen == 4000) {
+			this.charLen = 2000;
 		}
 		return this.charLen;
 	}

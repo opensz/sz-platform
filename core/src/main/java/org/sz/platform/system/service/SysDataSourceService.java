@@ -6,7 +6,7 @@ import java.util.Map;
 import org.sz.core.service.BaseService;
 import org.sz.platform.system.model.SysDataSource;
 
-public interface SysDataSourceService extends BaseService<SysDataSource>{
+public interface SysDataSourceService extends BaseService<SysDataSource> {
 
 	void delByIds(Long[] ids);
 

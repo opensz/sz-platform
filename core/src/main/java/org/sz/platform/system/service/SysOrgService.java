@@ -11,16 +11,16 @@ public interface SysOrgService extends BaseService<SysOrg> {
 
 	List<SysOrg> getOrgByOrgId(QueryFilter queryFilter);
 
-	List<SysOrg> getOrgsByDemIdOrAll(Long demId,String orgTypes);
+	List<SysOrg> getOrgsByDemIdOrAll(Long demId, String orgTypes);
 
-	List<SysOrg> getOrgsByDemIdOrParam(Map	map);
-	
+	List<SysOrg> getOrgsByDemIdOrParam(Map map);
+
 	Map getOrgMapByDemId(Long demId);
 
 	void delById(Long id);
 
-	 void delByOrgId(Long id);
-	 
+	void delByOrgId(Long id);
+
 	List<SysOrg> getOrgsByUserId(Long userId);
 
 	String getOrgIdsByUserId(Long userId);
@@ -36,11 +36,12 @@ public interface SysOrgService extends BaseService<SysOrg> {
 	void updOrg(SysOrg sysOrg) throws Exception;
 
 	SysOrg getPrimaryOrgByUserId(Long userId);
-	
+
 	List<SysOrg> getByContractIds(String contractIds);
-	
+
 	/**
 	 * 通过type字段得到org信息
+	 * 
 	 * @param type
 	 * @return List<SysOrg>
 	 */
@@ -48,6 +49,7 @@ public interface SysOrgService extends BaseService<SysOrg> {
 
 	/**
 	 * 查询org下的客户
+	 * 
 	 * @param orgId
 	 * @return
 	 */

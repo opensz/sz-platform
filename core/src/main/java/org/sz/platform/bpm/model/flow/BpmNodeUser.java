@@ -5,12 +5,10 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.sz.core.model.BaseModel;
 
-import org.sz.platform.bpm.model.flow.BpmNodeUser;
-
 public class BpmNodeUser extends BaseModel implements Cloneable {
 	public static final short ASSIGN_TYPE_START_USER = 0;
 	public static final short ASSIGN_TYPE_USER = 1;
-	public static final short ASSIGN_TYPE_GROUP = 100; //多组选择
+	public static final short ASSIGN_TYPE_GROUP = 100; // 多组选择
 	public static final short ASSIGN_TYPE_ROLE = 2;
 	public static final short ASSIGN_TYPE_ORG = 3;
 	public static final short ASSIGN_TYPE_ORG_CHARGE = 4;
@@ -83,15 +81,28 @@ public class BpmNodeUser extends BaseModel implements Cloneable {
 			return false;
 		}
 		BpmNodeUser rhs = (BpmNodeUser) object;
-		return new EqualsBuilder().append(this.nodeUserId, rhs.nodeUserId).append(this.setId, rhs.setId).append(this.nodeId, rhs.nodeId).append(this.assignType, rhs.assignType).append(this.actDefId, rhs.actDefId).append(this.cmpIds, rhs.cmpIds).append(this.cmpNames, rhs.cmpNames).isEquals();
+		return new EqualsBuilder().append(this.nodeUserId, rhs.nodeUserId)
+				.append(this.setId, rhs.setId).append(this.nodeId, rhs.nodeId)
+				.append(this.assignType, rhs.assignType)
+				.append(this.actDefId, rhs.actDefId)
+				.append(this.cmpIds, rhs.cmpIds)
+				.append(this.cmpNames, rhs.cmpNames).isEquals();
 	}
 
 	public int hashCode() {
-		return new HashCodeBuilder(-82280557, -700257973).append(this.nodeUserId).append(this.setId).append(this.nodeId).append(this.assignType).append(this.actDefId).append(this.cmpIds).append(this.cmpNames).toHashCode();
+		return new HashCodeBuilder(-82280557, -700257973)
+				.append(this.nodeUserId).append(this.setId).append(this.nodeId)
+				.append(this.assignType).append(this.actDefId)
+				.append(this.cmpIds).append(this.cmpNames).toHashCode();
 	}
 
 	public String toString() {
-		return new ToStringBuilder(this).append("nodeUserId", this.nodeUserId).append("setId", this.setId).append("nodeId", this.nodeId).append("assignType", this.assignType).append("actDefId", this.actDefId).append("cmpIds", this.cmpIds).append("cmpNames", this.cmpNames).toString();
+		return new ToStringBuilder(this).append("nodeUserId", this.nodeUserId)
+				.append("setId", this.setId).append("nodeId", this.nodeId)
+				.append("assignType", this.assignType)
+				.append("actDefId", this.actDefId)
+				.append("cmpIds", this.cmpIds)
+				.append("cmpNames", this.cmpNames).toString();
 	}
 
 	public String getCmpIds() {

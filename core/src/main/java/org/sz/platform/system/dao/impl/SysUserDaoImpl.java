@@ -221,10 +221,9 @@ public class SysUserDaoImpl extends BaseDaoImpl<SysUser> implements
 
 	}
 
-	
-
 	private JdbcTemplate getJdbcTemplate() throws Exception {
-		JdbcTemplate jdbcTemplate = (JdbcTemplate) ContextUtil.getBean("jdbcTemplate");
+		JdbcTemplate jdbcTemplate = (JdbcTemplate) ContextUtil
+				.getBean("jdbcTemplate");
 		return jdbcTemplate;
 	}
 

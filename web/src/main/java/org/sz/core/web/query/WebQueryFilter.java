@@ -75,7 +75,6 @@ public class WebQueryFilter extends QueryFilter {
 		return this.request;
 	}
 
-
 	public void setForWeb() {
 		String pbName = "pageBean";
 		String href = "requestURI";

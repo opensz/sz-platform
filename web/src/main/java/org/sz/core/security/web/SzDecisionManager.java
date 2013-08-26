@@ -25,7 +25,6 @@ import org.sz.platform.system.service.SecurityUtil;
 
 public class SzDecisionManager implements AccessDecisionManager {
 	public Logger logger = LoggerFactory.getLogger(SzDecisionManager.class);
-	
 
 	public void decide(Authentication authentication, Object object,
 			Collection<ConfigAttribute> configAttributes)
@@ -64,7 +63,8 @@ public class SzDecisionManager implements AccessDecisionManager {
 			return;
 		}
 
-		SubSystem currentSys = AppUtil.getCurrentSystem(((FilterInvocation) object).getHttpRequest());
+		SubSystem currentSys = AppUtil
+				.getCurrentSystem(((FilterInvocation) object).getHttpRequest());
 		Map systemRoleMap;
 		if (currentSys != null) {
 			Long systemId = Long.valueOf(currentSys.getSystemId());

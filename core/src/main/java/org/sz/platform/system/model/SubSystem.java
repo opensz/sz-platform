@@ -7,180 +7,167 @@ import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.sz.core.model.BaseModel;
 
-public class SubSystem extends BaseModel
-{
-  public static String CURRENT_SYSTEM = "CURRENT_SYSTEM";
+public class SubSystem extends BaseModel {
+	public static String CURRENT_SYSTEM = "CURRENT_SYSTEM";
 
-  public static String DEFAULT_LOG = "/styles/default/images/resicon/home.png";
+	public static String DEFAULT_LOG = "/styles/default/images/resicon/home.png";
 
-  public static short isLocal_Y = 1;
-  public static short isLocal_N = 0;
+	public static short isLocal_Y = 1;
+	public static short isLocal_N = 0;
 
-  private long systemId = 0L;
-  private String sysName;
-  private String alias;
-  private String logo;
-  private String defaultUrl;
-  private String memo;
-  private Date createtime;
-  private String creator;
-  private Short allowDel = Short.valueOf((short)0);
-  private Short needOrg;
-  private Short isActive = Short.valueOf((short)1);
+	private long systemId = 0L;
+	private String sysName;
+	private String alias;
+	private String logo;
+	private String defaultUrl;
+	private String memo;
+	private Date createtime;
+	private String creator;
+	private Short allowDel = Short.valueOf((short) 0);
+	private Short needOrg;
+	private Short isActive = Short.valueOf((short) 1);
 
-  private Long parentId = Long.valueOf(0L);
+	private Long parentId = Long.valueOf(0L);
 
-  private Short isLocal = Short.valueOf((short)1);
-  private String homePage;
-  List<SysRole> roleList;
+	private Short isLocal = Short.valueOf((short) 1);
+	private String homePage;
+	List<SysRole> roleList;
 
-  public String getHomePage()
-  {
-    return this.homePage;
-  }
-  public void setHomePage(String homePage) {
-    this.homePage = homePage;
-  }
-  public Short getIsLocal() {
-    return this.isLocal;
-  }
-  public void setIsLocal(Short isLocal) {
-    this.isLocal = isLocal;
-  }
+	public String getHomePage() {
+		return this.homePage;
+	}
 
-  public void setSystemId(long systemId)
-  {
-    this.systemId = systemId;
-  }
+	public void setHomePage(String homePage) {
+		this.homePage = homePage;
+	}
 
-  public long getSystemId()
-  {
-    return this.systemId;
-  }
+	public Short getIsLocal() {
+		return this.isLocal;
+	}
 
-  public void setSysName(String sysName) {
-    this.sysName = sysName;
-  }
+	public void setIsLocal(Short isLocal) {
+		this.isLocal = isLocal;
+	}
 
-  public String getSysName()
-  {
-    return this.sysName;
-  }
+	public void setSystemId(long systemId) {
+		this.systemId = systemId;
+	}
 
-  public void setAlias(String alias) {
-    this.alias = alias;
-  }
+	public long getSystemId() {
+		return this.systemId;
+	}
 
-  public String getAlias()
-  {
-    return this.alias;
-  }
+	public void setSysName(String sysName) {
+		this.sysName = sysName;
+	}
 
-  public void setLogo(String logo) {
-    this.logo = logo;
-  }
+	public String getSysName() {
+		return this.sysName;
+	}
 
-  public String getLogo()
-  {
-    if (this.logo != null) {
-      return this.logo;
-    }
-    return DEFAULT_LOG;
-  }
+	public void setAlias(String alias) {
+		this.alias = alias;
+	}
 
-  public void setDefaultUrl(String defaultUrl)
-  {
-    this.defaultUrl = defaultUrl;
-  }
+	public String getAlias() {
+		return this.alias;
+	}
 
-  public String getDefaultUrl()
-  {
-    return this.defaultUrl;
-  }
+	public void setLogo(String logo) {
+		this.logo = logo;
+	}
 
-  public void setMemo(String memo) {
-    this.memo = memo;
-  }
+	public String getLogo() {
+		if (this.logo != null) {
+			return this.logo;
+		}
+		return DEFAULT_LOG;
+	}
 
-  public String getMemo()
-  {
-    return this.memo;
-  }
+	public void setDefaultUrl(String defaultUrl) {
+		this.defaultUrl = defaultUrl;
+	}
 
-  public void setCreatetime(Date createtime) {
-    this.createtime = createtime;
-  }
+	public String getDefaultUrl() {
+		return this.defaultUrl;
+	}
 
-  public Date getCreatetime()
-  {
-    return this.createtime;
-  }
+	public void setMemo(String memo) {
+		this.memo = memo;
+	}
 
-  public void setCreator(String creator) {
-    this.creator = creator;
-  }
+	public String getMemo() {
+		return this.memo;
+	}
 
-  public String getCreator()
-  {
-    return this.creator;
-  }
+	public void setCreatetime(Date createtime) {
+		this.createtime = createtime;
+	}
 
-  public void setAllowDel(Short allowDel) {
-    this.allowDel = allowDel;
-  }
+	public Date getCreatetime() {
+		return this.createtime;
+	}
 
-  public Short getAllowDel()
-  {
-    return this.allowDel;
-  }
+	public void setCreator(String creator) {
+		this.creator = creator;
+	}
 
-  public void setNeedOrg(Short needOrg) {
-    this.needOrg = needOrg;
-  }
+	public String getCreator() {
+		return this.creator;
+	}
 
-  public Short getNeedOrg()
-  {
-    return this.needOrg;
-  }
+	public void setAllowDel(Short allowDel) {
+		this.allowDel = allowDel;
+	}
 
-  public void setIsActive(Short isActive) {
-    this.isActive = isActive;
-  }
+	public Short getAllowDel() {
+		return this.allowDel;
+	}
 
-  public Short getIsActive()
-  {
-    return this.isActive;
-  }
+	public void setNeedOrg(Short needOrg) {
+		this.needOrg = needOrg;
+	}
 
-  public List<SysRole> getRoleList()
-  {
-    return this.roleList;
-  }
-  public void setRoleList(List<SysRole> roleList) {
-    this.roleList = roleList;
-  }
+	public Short getNeedOrg() {
+		return this.needOrg;
+	}
 
-  public Long getParentId() {
-    return this.parentId;
-  }
+	public void setIsActive(Short isActive) {
+		this.isActive = isActive;
+	}
 
-  public void setParentId(Long parentId) {
-    this.parentId = parentId;
-  }
+	public Short getIsActive() {
+		return this.isActive;
+	}
 
-  public int hashCode() {
-    HashCodeBuilder has = new HashCodeBuilder();
-    has.append(this.systemId);
-    return has.toHashCode();
-  }
+	public List<SysRole> getRoleList() {
+		return this.roleList;
+	}
 
-  public boolean equals(Object object)
-  {
-    if (!(object instanceof SubSystem))
-    {
-      return false;
-    }
-    SubSystem rhs = (SubSystem)object;
-    return new EqualsBuilder().append(this.systemId, rhs.systemId).isEquals();
-  }
+	public void setRoleList(List<SysRole> roleList) {
+		this.roleList = roleList;
+	}
+
+	public Long getParentId() {
+		return this.parentId;
+	}
+
+	public void setParentId(Long parentId) {
+		this.parentId = parentId;
+	}
+
+	public int hashCode() {
+		HashCodeBuilder has = new HashCodeBuilder();
+		has.append(this.systemId);
+		return has.toHashCode();
+	}
+
+	public boolean equals(Object object) {
+		if (!(object instanceof SubSystem)) {
+			return false;
+		}
+		SubSystem rhs = (SubSystem) object;
+		return new EqualsBuilder().append(this.systemId, rhs.systemId)
+				.isEquals();
+	}
 }

@@ -8,13 +8,11 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.sz.platform.system.model.SysUser;
 
 @WebService
-public abstract interface UserDetailsService
-{
-  @WebMethod(operationName="UserDetailsService_loadUserByUsername")
-  public abstract SysUser loadUserByUsername(String paramString)
-    throws UsernameNotFoundException, DataAccessException;
+public abstract interface UserDetailsService {
+	@WebMethod(operationName = "UserDetailsService_loadUserByUsername")
+	public abstract SysUser loadUserByUsername(String paramString)
+			throws UsernameNotFoundException, DataAccessException;
 
-  @WebMethod(operationName="UserDetailsService_loadRoleByUsername")
-  public abstract Collection<String> loadRoleByUsername(String paramString);
+	@WebMethod(operationName = "UserDetailsService_loadRoleByUsername")
+	public abstract Collection<String> loadRoleByUsername(String paramString);
 }
-

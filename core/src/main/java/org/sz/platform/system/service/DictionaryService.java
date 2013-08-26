@@ -5,7 +5,7 @@ import java.util.List;
 import org.sz.core.service.BaseService;
 import org.sz.platform.system.model.Dictionary;
 
-public interface DictionaryService extends BaseService<Dictionary>{
+public interface DictionaryService extends BaseService<Dictionary> {
 
 	List<Dictionary> getByNodeKey(String nodeKey);
 

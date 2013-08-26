@@ -130,9 +130,9 @@ public class MessageSendController extends BaseController {
 		MessageSend messageSend = (MessageSend) listSize.get(0);
 
 		//
-		//查询条数
+		// 查询条数
 		Integer count = sendService.getNotReadMsgCount(sysUser.getUserId());
-		
+
 		this.readService.addMessageRead(messageSend.getId(), sysUser);
 
 		MessageReply msgReply = new MessageReply();

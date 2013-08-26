@@ -7,7 +7,7 @@ import org.sz.platform.system.model.Resources;
 import org.sz.platform.system.model.SubSystem;
 import org.sz.platform.system.model.SysUser;
 
-public interface ResourcesService extends BaseService<Resources>{
+public interface ResourcesService extends BaseService<Resources> {
 
 	void addRes(Resources resources, String[] aryName, String[] aryUrl)
 			throws Exception;

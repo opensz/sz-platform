@@ -100,8 +100,9 @@ public class BpmFormTableController extends BaseController {
 		boolean canEditTbColName = true;
 
 		if (tableId.longValue() > 0L) {
-			//暂时修改成false，原因是方便修改自定义表数据
-			//canEditTbColName = !this.bpmFormDefDao.isTableHasFormDef(tableId);
+			// 暂时修改成false，原因是方便修改自定义表数据
+			// canEditTbColName =
+			// !this.bpmFormDefDao.isTableHasFormDef(tableId);
 			canEditTbColName = false;
 		}
 		List mainTableList = this.service.getAllUnpublishedMainTable();
@@ -114,20 +115,20 @@ public class BpmFormTableController extends BaseController {
 
 	@RequestMapping({ "copy" })
 	public ModelAndView copy(HttpServletRequest request) throws Exception {
-		ModelAndView mv = new ModelAndView("/platform/form/bpmFormTableEdit.jsp");
+		ModelAndView mv = new ModelAndView(
+				"/platform/form/bpmFormTableEdit.jsp");
 		Long tableId = 1367046006987l;
 
 		boolean canEditTbColName = true;
 
-		
 		List mainTableList = this.service.getAllUnpublishedMainTable();
 		mv.addObject("canEditTbColName", Boolean.valueOf(canEditTbColName))
 				.addObject("tableId", tableId)
 				.addObject("mainTableList", mainTableList);
-		
+
 		return mv;
 	}
-	
+
 	@ResponseBody
 	@RequestMapping({ "getByTableId" })
 	public Map<String, Object> getByTableId(HttpServletRequest request) {
@@ -148,16 +149,19 @@ public class BpmFormTableController extends BaseController {
 		Map map = new HashMap();
 		BpmFormTable bpmFormTable = (BpmFormTable) this.service
 				.getById(tableId);
-		
-		if(bpmFormTable  == null){
+
+		if (bpmFormTable == null) {
 			throw new RuntimeException("表ID不存在!");
 		}
-		bpmFormTable.setFieldList(this.bpmFormFieldService.getAllByTableId(tableId));
+		bpmFormTable.setFieldList(this.bpmFormFieldService
+				.getAllByTableId(tableId));
 
-		List<BpmFormTable> subTableList = this.service.getSubTableByMainTableId(tableId);
-		if(subTableList != null && subTableList.size() > 0){
-			for(BpmFormTable subTable : subTableList){
-				subTable.setFieldList(this.bpmFormFieldService.getAllByTableId(subTable.getTableId()));
+		List<BpmFormTable> subTableList = this.service
+				.getSubTableByMainTableId(tableId);
+		if (subTableList != null && subTableList.size() > 0) {
+			for (BpmFormTable subTable : subTableList) {
+				subTable.setFieldList(this.bpmFormFieldService
+						.getAllByTableId(subTable.getTableId()));
 			}
 			bpmFormTable.setSubTableList(subTableList);
 		}
@@ -169,8 +173,8 @@ public class BpmFormTableController extends BaseController {
 	public ModelAndView dialog(HttpServletRequest request) throws Exception {
 		ModelAndView mv = getAutoView();
 
-		List bpmFormTableList = this.service.getAllMainTable(new WebQueryFilter(
-				request, "bpmFormTableItem"));
+		List bpmFormTableList = this.service
+				.getAllMainTable(new WebQueryFilter(request, "bpmFormTableItem"));
 
 		mv.addObject("bpmFormTableList", bpmFormTableList);
 

@@ -50,7 +50,7 @@ public class BpmFormDialog extends BaseModel {
 	protected String dsalias = "";
 
 	protected String returnFields = "";
-	
+
 	protected Integer isSync = Integer.valueOf(1);
 
 	private List<Map<String, Object>> list = new ArrayList();
@@ -297,7 +297,7 @@ public class BpmFormDialog extends BaseModel {
 			JSONObject jsonObj = (JSONObject) obj;
 			returnFields += jsonObj.getString("field") + ",";
 		}
-		if(!"".equals(returnFields)){
+		if (!"".equals(returnFields)) {
 			returnFields = returnFields.substring(0, returnFields.length() - 1);
 		}
 		return returnFields;

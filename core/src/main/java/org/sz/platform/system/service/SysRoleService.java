@@ -7,7 +7,7 @@ import org.sz.core.service.BaseService;
 import org.sz.platform.system.model.ResourcesUrlExt;
 import org.sz.platform.system.model.SysRole;
 
-public interface SysRoleService extends BaseService<SysRole>{
+public interface SysRoleService extends BaseService<SysRole> {
 
 	boolean isExistRoleAlias(String alias);
 

@@ -63,9 +63,11 @@ public class BpmFormTable extends BaseModel {
 	protected String detailTemplate = "";
 
 	protected Integer hasForm = Integer.valueOf(0);
-	
-	protected List<BpmFormField> fieldList = Collections.<BpmFormField> emptyList();
-	protected List<BpmFormTable> subTableList = Collections.<BpmFormTable> emptyList();
+
+	protected List<BpmFormField> fieldList = Collections
+			.<BpmFormField> emptyList();
+	protected List<BpmFormTable> subTableList = Collections
+			.<BpmFormTable> emptyList();
 
 	public void setTableId(Long tableId) {
 		this.tableId = tableId;
@@ -218,8 +220,6 @@ public class BpmFormTable extends BaseModel {
 			return null;
 		return getRelationsByXml(this.relation);
 	}
-	
-	
 
 	public List<BpmFormField> getFieldList() {
 		return fieldList;
@@ -297,22 +297,25 @@ public class BpmFormTable extends BaseModel {
 				.append("publishedBy", this.publishedBy)
 				.append("publishTime", this.publishTime).toString();
 	}
-	
-	public static Map<String, Object> fieldNameMapConvert(Map<String, Object> fields){
-		String[] removeFieldName = new String[]{"id","refid","curentuserid_","flowrunid_","status_","createtime_","offtime_","sourcecaseid_","changereason_","sourcecaseno_"};
+
+	public static Map<String, Object> fieldNameMapConvert(
+			Map<String, Object> fields) {
+		String[] removeFieldName = new String[] { "id", "refid",
+				"curentuserid_", "flowrunid_", "status_", "createtime_",
+				"offtime_", "sourcecaseid_", "changereason_", "sourcecaseno_" };
 		Map<String, Object> newMap = new HashMap<String, Object>();
-		for(String key : fields.keySet()){
+		for (String key : fields.keySet()) {
 			boolean flag = false;
-			for(String rfn : removeFieldName){
-				if(key.equals(rfn)){
+			for (String rfn : removeFieldName) {
+				if (key.equals(rfn)) {
 					flag = true;
 					break;
 				}
 			}
-			if(flag){
+			if (flag) {
 				continue;
 			}
-			
+
 			newMap.put("F_" + key, fields.get(key));
 		}
 		return newMap;

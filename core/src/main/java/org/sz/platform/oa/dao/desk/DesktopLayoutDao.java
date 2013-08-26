@@ -3,7 +3,7 @@ package org.sz.platform.oa.dao.desk;
 import org.sz.core.dao.BaseDao;
 import org.sz.platform.oa.model.desk.DesktopLayout;
 
-public interface DesktopLayoutDao extends BaseDao<DesktopLayout>{
+public interface DesktopLayoutDao extends BaseDao<DesktopLayout> {
 
 	DesktopLayout getDefaultLayout();
 

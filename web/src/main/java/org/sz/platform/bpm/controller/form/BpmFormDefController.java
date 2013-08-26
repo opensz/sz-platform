@@ -283,11 +283,11 @@ public class BpmFormDefController extends BaseController {
 			String reult = genTemplate(templateTableId, templateId);
 			bpmFormDef.setHtml(reult);
 
-			if(templateId != null && templateId.length > 0){
-				//设置主表模板ID
+			if (templateId != null && templateId.length > 0) {
+				// 设置主表模板ID
 				bpmFormDef.setTemplateId(templateId[0]);
 			}
-			
+
 			mv.addObject("templateId",
 					RequestUtil.getString(request, "templateId")).addObject(
 					"templateTableId",

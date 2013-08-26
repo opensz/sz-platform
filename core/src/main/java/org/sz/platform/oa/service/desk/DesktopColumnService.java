@@ -3,7 +3,7 @@ package org.sz.platform.oa.service.desk;
 import org.sz.core.service.BaseService;
 import org.sz.platform.oa.model.desk.DesktopColumn;
 
-public interface DesktopColumnService extends BaseService<DesktopColumn>{
+public interface DesktopColumnService extends BaseService<DesktopColumn> {
 
 	String getTemplatePath();
 

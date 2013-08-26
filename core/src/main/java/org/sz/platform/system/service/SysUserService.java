@@ -8,10 +8,10 @@ import org.sz.core.query.QueryFilter;
 import org.sz.core.service.BaseService;
 import org.sz.platform.system.model.SysUser;
 
-public interface SysUserService extends BaseService<SysUser>{
+public interface SysUserService extends BaseService<SysUser> {
 
-	SysUser getByAccount(String account,Long orgId);
-	
+	SysUser getByAccount(String account, Long orgId);
+
 	SysUser getByAccount(String account);
 
 	List<SysUser> getUserByOrgId(QueryFilter queryFilter);
@@ -47,26 +47,29 @@ public interface SysUserService extends BaseService<SysUser>{
 	List<SysUser> getByIdSet(Set uIds);
 
 	SysUser getByMail(String address);
-	
-	  /**
-	   * 根据角色ID返回要发送人员的 account,用”,“分隔
-	   * @param roleId
-	   * @return
-	   */
+
+	/**
+	 * 根据角色ID返回要发送人员的 account,用”,“分隔
+	 * 
+	 * @param roleId
+	 * @return
+	 */
 	String getReceiversByRoleId(Long roleId);
-	
+
 	String getReceiversByMyLeader(Long userId);
 
 	void updPwd(Long userId, String pwd);
 
 	void updStatus(Long userId, Short status, Short isLock);
-	
+
 	void updStatus(Long[] userIds, Long subSystemId);
 
 	Long saveUser(Integer bySelf, SysUser sysUser, Long[] aryOrgIds,
-			Long[] orgIdCharge, Long[] arrIsDept, Long orgIdPrimary, Long deptIdPrimary, Long[] posIds,
-			Long posIdPrimary, Long[] roleIds) throws Exception;
-	
-	Long saveUser(String fullName,String userName,String password,Long orgId) throws Exception;
-	
+			Long[] orgIdCharge, Long[] arrIsDept, Long orgIdPrimary,
+			Long deptIdPrimary, Long[] posIds, Long posIdPrimary, Long[] roleIds)
+			throws Exception;
+
+	Long saveUser(String fullName, String userName, String password, Long orgId)
+			throws Exception;
+
 }

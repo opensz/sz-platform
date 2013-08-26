@@ -1,6 +1,6 @@
- package org.sz.platform.system.controller;
- 
-  import javax.annotation.Resource;
+package org.sz.platform.system.controller;
+
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -16,50 +16,49 @@ import org.sz.core.web.ResultMessage;
 import org.sz.core.web.controller.BaseFormController;
 import org.sz.platform.system.model.MessageReceiver;
 import org.sz.platform.system.service.MessageReceiverService;
- 
- @Controller
- @RequestMapping({"/platform/system/messageReceiver/"})
- public class MessageReceiverFormController extends BaseFormController
- {
- 
-   @Resource
-   private MessageReceiverService messageReceiverService;
- 
-   @RequestMapping({"save"})
-   @Action(description="添加或更新消息接收者")
-   public void save(HttpServletRequest request, HttpServletResponse response, MessageReceiver messageReceiver, BindingResult bindResult)
-     throws Exception
-   {
-     ResultMessage resultMessage = validForm("messageReceiver", messageReceiver, bindResult, request);
- 
-     if (resultMessage.getResult() == 0) {
-       writeResultMessage(response.getWriter(), resultMessage);
-       return;
-     }
-     String resultMsg = null;
-     if (messageReceiver.getId() == null) {
-       messageReceiver.setId(Long.valueOf(UniqueIdUtil.genId()));
-       this.messageReceiverService.add(messageReceiver);
-       resultMsg = getText("record.added", new Object[] { "消息接收者" });
-     } else {
-       this.messageReceiverService.update(messageReceiver);
-       resultMsg = getText("record.updated", new Object[] { "消息接收者" });
-     }
-     writeResultMessage(response.getWriter(), resultMsg, 1);
-   }
- 
-   @ModelAttribute
-   protected MessageReceiver getFormObject(@RequestParam("id") Long id, Model model)
-     throws Exception
-   {
-     this.logger.debug("enter MessageReceiver getFormObject here....");
-     MessageReceiver messageReceiver = null;
-     if (id != null)
-       messageReceiver = (MessageReceiver)this.messageReceiverService.getById(id);
-     else {
-       messageReceiver = new MessageReceiver();
-     }
-     return messageReceiver;
-   }
- }
 
+@Controller
+@RequestMapping({ "/platform/system/messageReceiver/" })
+public class MessageReceiverFormController extends BaseFormController {
+
+	@Resource
+	private MessageReceiverService messageReceiverService;
+
+	@RequestMapping({ "save" })
+	@Action(description = "添加或更新消息接收者")
+	public void save(HttpServletRequest request, HttpServletResponse response,
+			MessageReceiver messageReceiver, BindingResult bindResult)
+			throws Exception {
+		ResultMessage resultMessage = validForm("messageReceiver",
+				messageReceiver, bindResult, request);
+
+		if (resultMessage.getResult() == 0) {
+			writeResultMessage(response.getWriter(), resultMessage);
+			return;
+		}
+		String resultMsg = null;
+		if (messageReceiver.getId() == null) {
+			messageReceiver.setId(Long.valueOf(UniqueIdUtil.genId()));
+			this.messageReceiverService.add(messageReceiver);
+			resultMsg = getText("record.added", new Object[] { "消息接收者" });
+		} else {
+			this.messageReceiverService.update(messageReceiver);
+			resultMsg = getText("record.updated", new Object[] { "消息接收者" });
+		}
+		writeResultMessage(response.getWriter(), resultMsg, 1);
+	}
+
+	@ModelAttribute
+	protected MessageReceiver getFormObject(@RequestParam("id") Long id,
+			Model model) throws Exception {
+		this.logger.debug("enter MessageReceiver getFormObject here....");
+		MessageReceiver messageReceiver = null;
+		if (id != null)
+			messageReceiver = (MessageReceiver) this.messageReceiverService
+					.getById(id);
+		else {
+			messageReceiver = new MessageReceiver();
+		}
+		return messageReceiver;
+	}
+}

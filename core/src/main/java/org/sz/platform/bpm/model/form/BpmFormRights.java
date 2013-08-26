@@ -5,8 +5,6 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.sz.core.model.BaseModel;
 
-import org.sz.platform.bpm.model.form.BpmFormRights;
-
 public class BpmFormRights extends BaseModel implements Cloneable {
 	public static final short FieldRights = 1;
 	public static final short TableRights = 2;

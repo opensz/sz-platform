@@ -5,7 +5,7 @@ import java.util.List;
 import org.sz.core.service.BaseService;
 import org.sz.platform.system.model.SysAcceptIp;
 
-public interface SysAcceptIpService extends BaseService<SysAcceptIp>{
+public interface SysAcceptIpService extends BaseService<SysAcceptIp> {
 
 	List<SysAcceptIp> getWhiteList();
 

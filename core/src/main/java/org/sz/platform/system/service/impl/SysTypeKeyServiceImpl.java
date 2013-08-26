@@ -10,7 +10,8 @@ import org.sz.platform.system.model.SysTypeKey;
 import org.sz.platform.system.service.SysTypeKeyService;
 
 @Service("sysTypeKeyService")
-public class SysTypeKeyServiceImpl extends BaseServiceImpl<SysTypeKey> implements SysTypeKeyService {
+public class SysTypeKeyServiceImpl extends BaseServiceImpl<SysTypeKey>
+		implements SysTypeKeyService {
 
 	@Resource
 	private SysTypeKeyDao dao;

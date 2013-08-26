@@ -154,7 +154,7 @@ public class Dom4jUtil {
 		String s = "";
 		try {
 			ByteArrayOutputStream out = new ByteArrayOutputStream();
-			
+
 			OutputFormat format = new OutputFormat("  ", true, "UTF-8");
 			XMLWriter writer = new XMLWriter(out, format);
 			writer.write(document);
@@ -182,9 +182,8 @@ public class Dom4jUtil {
 		DocumentSource source = new DocumentSource(document);
 		DocumentResult result = new DocumentResult();
 
-	
 		transformer.transform(source, result);
-	
+
 		Document transformedDoc = result.getDocument();
 		return transformedDoc;
 	}

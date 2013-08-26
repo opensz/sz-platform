@@ -1,11 +1,10 @@
 package org.sz.platform.bpm.model.form;
 
-import org.sz.platform.bpm.model.form.BpmFormField;
-
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
+
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
@@ -358,7 +357,7 @@ public class BpmFormField extends BaseModel implements Cloneable {
 				.toString();
 	}
 
-	//是否选择控件
+	// 是否选择控件
 	public Boolean isSelectControl() {
 		if ((this.getControlType().shortValue() == 16)
 				|| (this.getControlType().shortValue() == 4)
@@ -366,14 +365,14 @@ public class BpmFormField extends BaseModel implements Cloneable {
 				|| (this.getControlType().shortValue() == 6)
 				|| (this.getControlType().shortValue() == 7)
 				|| (this.getControlType().shortValue() == 5)
-				|| (this.getControlType().shortValue() == 17)	//项目
-				|| (this.getControlType().shortValue() == 18)	//合同
-				|| (this.getControlType().shortValue() == 19)	//交换机
-				|| (this.getControlType().shortValue() == 20)	//机房
-				|| (this.getControlType().shortValue() == 21)	//光电收发
-				|| (this.getControlType().shortValue() == 22)	//VLAN
-				|| (this.getControlType().shortValue() == 23)	//供应商 
-				|| (this.getControlType().shortValue() == 24)	//链路 
+				|| (this.getControlType().shortValue() == 17) // 项目
+				|| (this.getControlType().shortValue() == 18) // 合同
+				|| (this.getControlType().shortValue() == 19) // 交换机
+				|| (this.getControlType().shortValue() == 20) // 机房
+				|| (this.getControlType().shortValue() == 21) // 光电收发
+				|| (this.getControlType().shortValue() == 22) // VLAN
+				|| (this.getControlType().shortValue() == 23) // 供应商
+				|| (this.getControlType().shortValue() == 24) // 链路
 		) {
 			return true;
 

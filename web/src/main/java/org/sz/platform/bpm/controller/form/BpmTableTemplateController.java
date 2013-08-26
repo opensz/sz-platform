@@ -150,7 +150,8 @@ public class BpmTableTemplateController extends BaseController {
 		}
 		List listTemplate = this.bpmFormTemplateService.getListTemplate("form");
 
-		List detailTemplate = this.bpmFormTemplateService.getDetailTemplate("form");
+		List detailTemplate = this.bpmFormTemplateService
+				.getDetailTemplate("form");
 
 		return getAutoView().addObject("bpmTableTemplate", bpmTableTemplate)
 				.addObject("returnUrl", returnUrl)

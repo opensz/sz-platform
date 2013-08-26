@@ -100,15 +100,16 @@ public class SysUserController extends BaseController {
 		try {
 			Long[] lAryId = RequestUtil.getLongAryByStr(request, "userId");
 			// String ids=lAryId.
-			
-			SubSystem currentSystem=(SubSystem)request.getSession().getAttribute("CURRENT_SYSTEM");
-			Long systemId=0l;
-			if(currentSystem!=null){
-				systemId=currentSystem.getSystemId();
+
+			SubSystem currentSystem = (SubSystem) request.getSession()
+					.getAttribute("CURRENT_SYSTEM");
+			Long systemId = 0l;
+			if (currentSystem != null) {
+				systemId = currentSystem.getSystemId();
 			}
-			this.sysUserService.updStatus(lAryId, systemId);//删除用户修改 by maoyang
-		 
-			//this.sysUserService.delDcomUserAndShift(lAryId,currentSystem.getSystemId());
+			this.sysUserService.updStatus(lAryId, systemId);// 删除用户修改 by maoyang
+
+			// this.sysUserService.delDcomUserAndShift(lAryId,currentSystem.getSystemId());
 			// this.sycnUserService.deleteUserToItsm(ids);
 			message = new ResultMessage(1, "删除用户成功");
 		} catch (Exception e) {
@@ -142,11 +143,12 @@ public class SysUserController extends BaseController {
 					.getOrgByUserId(userId);
 			// 客户id
 			for (SysUserOrg sysUserOrg : list) {
-				//if (sysUserOrg.getIsDept() != null && sysUserOrg.getIsDept() == 1) {
-				//	deptList.add(sysUserOrg);
-				//} else {
-					orgList.add(sysUserOrg);
-				//}
+				// if (sysUserOrg.getIsDept() != null && sysUserOrg.getIsDept()
+				// == 1) {
+				// deptList.add(sysUserOrg);
+				// } else {
+				orgList.add(sysUserOrg);
+				// }
 
 			}
 		} else if (userId == 0L) {
@@ -158,7 +160,7 @@ public class SysUserController extends BaseController {
 					.getOrgByUserId(currentUserId);
 			// 客户id
 			for (SysUserOrg sysUserOrg : list) {
-					orgList.add(sysUserOrg);
+				orgList.add(sysUserOrg);
 			}
 
 			sysUser = new SysUser();

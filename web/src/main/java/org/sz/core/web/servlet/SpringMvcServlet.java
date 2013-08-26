@@ -13,15 +13,13 @@ public class SpringMvcServlet extends DispatcherServlet {
 			HttpServletResponse response) throws Exception {
 		String requestURI = request.getRequestURI();
 		this.logger.debug("not foud handle mapping for url: " + requestURI);
-		
-		
+
 		// modified by bobo, 20130213
-	    String jspPath = ConfigUtil.getJspPath(requestURI, true);
-	    
-	    
-	    this.logger.debug("requestURI:" + request.getRequestURI()
+		String jspPath = ConfigUtil.getJspPath(requestURI, true);
+
+		this.logger.debug("requestURI:" + request.getRequestURI()
 				+ " and forward to " + jspPath);
 		request.getRequestDispatcher(jspPath).forward(request, response);
-	
+
 	}
 }

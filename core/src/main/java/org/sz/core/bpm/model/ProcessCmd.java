@@ -2,6 +2,7 @@ package org.sz.core.bpm.model;
 
 import java.util.HashMap;
 import java.util.Map;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 
@@ -18,7 +19,7 @@ public class ProcessCmd {
 	private String[] lastDestTaskIds;
 	private String[] lastDestTaskUids;
 	private String businessKey;
-	private String businessType; //add
+	private String businessType; // add
 	private String businessUrl;
 	private String signUserIds;
 	private String assigneeIds;
@@ -44,19 +45,19 @@ public class ProcessCmd {
 
 	private String currentUserId = "";
 
-//	private ProcessRun processRun = null;
+	// private ProcessRun processRun = null;
 
 	private String userAccount = null;
-	
+
 	private Long caseId = null;
-	
+
 	private String tabData = "";
 
-	private String ccUserIds; //抄送ids
-	
+	private String ccUserIds; // 抄送ids
+
 	private Long serviceItemId;
 	private Long deskRequestId;
-	
+
 	public String getActDefId() {
 		return this.actDefId;
 	}
@@ -142,13 +143,13 @@ public class ProcessCmd {
 
 		this.destTask = null;
 	}
-	
+
 	public void setBack(boolean isBack, String destTask) {
 		this.isBack = isBack;
 
 		this.destTask = destTask;
 	}
-	
+
 	public boolean isRecover() {
 		return this.isRecover;
 	}
@@ -165,11 +166,11 @@ public class ProcessCmd {
 	}
 
 	public void setVoteAgree(Short voteAgree) {
-//		if (TaskOpinion.STATUS_REJECT.equals(voteAgree))
-//			setBack(true);
-//		else if (TaskOpinion.STATUS_RECOVER.equals(voteAgree)) {
-//			setRecover(true);
-//		}
+		// if (TaskOpinion.STATUS_REJECT.equals(voteAgree))
+		// setBack(true);
+		// else if (TaskOpinion.STATUS_RECOVER.equals(voteAgree)) {
+		// setRecover(true);
+		// }
 		this.voteAgree = voteAgree;
 	}
 
@@ -229,13 +230,13 @@ public class ProcessCmd {
 		this.currentUserId = currentUserId;
 	}
 
-//	public ProcessRun getProcessRun() {
-//		return this.processRun;
-//	}
-//
-//	public void setProcessRun(ProcessRun processRun) {
-//		this.processRun = processRun;
-//	}
+	// public ProcessRun getProcessRun() {
+	// return this.processRun;
+	// }
+	//
+	// public void setProcessRun(ProcessRun processRun) {
+	// this.processRun = processRun;
+	// }
 
 	public String getUserAccount() {
 		return this.userAccount;
@@ -340,6 +341,5 @@ public class ProcessCmd {
 	public void setDeskRequestId(Long deskRequestId) {
 		this.deskRequestId = deskRequestId;
 	}
-	
-	
+
 }

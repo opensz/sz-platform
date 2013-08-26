@@ -7,7 +7,7 @@ import org.sz.core.service.BaseService;
 import org.sz.platform.system.model.SysOrg;
 import org.sz.platform.system.model.SysUserOrg;
 
-public interface SysUserOrgService extends BaseService<SysUserOrg>{
+public interface SysUserOrgService extends BaseService<SysUserOrg> {
 
 	SysUserOrg getUserOrgModel(Long userId, Long orgId);
 
@@ -15,8 +15,9 @@ public interface SysUserOrgService extends BaseService<SysUserOrg>{
 
 	SysOrg getChageNameByOrgId(Long orgId);
 
-	void saveUserOrg(Long userId, Long[] aryOrgIds, Long primaryOrgId,Long primaryDeptId,
-			Long[] aryOrgCharge,Long[] arrIsDept) throws Exception;
+	void saveUserOrg(Long userId, Long[] aryOrgIds, Long primaryOrgId,
+			Long primaryDeptId, Long[] aryOrgCharge, Long[] arrIsDept)
+			throws Exception;
 
 	void addUserOrg(String[] orgIds, String orgIdPrimary, Long userId)
 			throws Exception;

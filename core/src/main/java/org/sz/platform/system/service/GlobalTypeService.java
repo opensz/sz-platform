@@ -6,7 +6,7 @@ import java.util.Set;
 import org.sz.core.service.BaseService;
 import org.sz.platform.system.model.GlobalType;
 
-public interface GlobalTypeService extends BaseService<GlobalType>{
+public interface GlobalTypeService extends BaseService<GlobalType> {
 
 	GlobalType getInitGlobalType(int isRoot, long parentId) throws Exception;
 

@@ -22,7 +22,7 @@ import org.sz.platform.system.service.SysRoleService;
 
 public class SzSecurityMetadataSource implements
 		FilterInvocationSecurityMetadataSource, BeanPostProcessor {
-	
+
 	@Resource
 	private SysRoleService sysRoleService;
 	@Resource

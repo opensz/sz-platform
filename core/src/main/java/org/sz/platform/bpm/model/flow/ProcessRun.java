@@ -1,10 +1,10 @@
 package org.sz.platform.bpm.model.flow;
 
-import org.sz.platform.bpm.model.flow.ProcessRun;
-
 import java.util.Date;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
@@ -26,7 +26,7 @@ public class ProcessRun extends BaseModel {
 	protected Short status;
 	protected String actInstId;
 	protected String actDefId;
-	protected String businessType; //add by bobo, 20130527
+	protected String businessType; // add by bobo, 20130527
 	protected String businessKey;
 	protected String businessUrl;
 	protected Date endTime;
@@ -115,8 +115,6 @@ public class ProcessRun extends BaseModel {
 	public String getActDefId() {
 		return this.actDefId;
 	}
-	
-	
 
 	public String getBusinessType() {
 		return businessType;

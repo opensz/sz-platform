@@ -26,8 +26,6 @@ import org.sz.platform.bpm.model.form.BpmFormDialog;
 import org.sz.platform.bpm.service.form.BpmFormDialogService;
 import org.sz.platform.system.service.SysDataSourceService;
 
-
-
 @Controller
 @RequestMapping({ "/platform/form/bpmFormDialog/" })
 public class BpmFormDialogController extends BaseController {
@@ -45,8 +43,8 @@ public class BpmFormDialogController extends BaseController {
 	// @Action(description = "查看通用表单对话框分页列表")
 	public ModelAndView list(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		List list = this.bpmFormDialogService.getAll(new WebQueryFilter(request,
-				"bpmFormDialogItem"));
+		List list = this.bpmFormDialogService.getAll(new WebQueryFilter(
+				request, "bpmFormDialogItem"));
 		ModelAndView mv = getAutoView().addObject("bpmFormDialogList", list);
 
 		return mv;
@@ -57,7 +55,7 @@ public class BpmFormDialogController extends BaseController {
 	public List<BpmFormDialog> getAllDialogs(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		List<BpmFormDialog> list = this.bpmFormDialogService.getAll();
-		for(BpmFormDialog bd : list){
+		for (BpmFormDialog bd : list) {
 			bd.setPageBean(null);
 		}
 		return list;

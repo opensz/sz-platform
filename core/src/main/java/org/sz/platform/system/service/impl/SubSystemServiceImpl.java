@@ -13,9 +13,9 @@ import org.sz.platform.system.model.SysRole;
 import org.sz.platform.system.model.SysUser;
 import org.sz.platform.system.service.SubSystemService;
 
-
 @Service("subSystemService")
-public class SubSystemServiceImpl extends BaseServiceImpl<SubSystem> implements SubSystemService {
+public class SubSystemServiceImpl extends BaseServiceImpl<SubSystem> implements
+		SubSystemService {
 
 	@Resource
 	private SubSystemDao subSystemDao;
@@ -24,9 +24,10 @@ public class SubSystemServiceImpl extends BaseServiceImpl<SubSystem> implements 
 		return this.subSystemDao;
 	}
 
-	public SubSystem getById(Long systemId){
+	public SubSystem getById(Long systemId) {
 		return (SubSystem) this.subSystemDao.getById(systemId);
 	}
+
 	public List<SubSystem> getByUser(SysUser user) {
 		if (user.getAuthorities().contains(SysRole.ROLE_GRANT_SUPER)) {
 			return getAll();

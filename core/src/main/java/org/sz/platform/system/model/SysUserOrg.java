@@ -1,7 +1,5 @@
 package org.sz.platform.system.model;
 
-import org.sz.platform.system.model.SysUserOrg;
-
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
@@ -114,15 +112,16 @@ public class SysUserOrg extends BaseModel {
 	// this.isDept = isDept;
 	// }
 
-	public boolean equals(Object object)
-   {
-     if (!(object instanceof SysUserOrg))
-     {
-       return false;
-     }
-     SysUserOrg rhs = (SysUserOrg)object;
-     return new EqualsBuilder().append(this.userOrgId, rhs.userOrgId).append(this.orgId, rhs.orgId).append(this.userId, rhs.userId).append(this.isPrimary, rhs.isPrimary).append(this.isCharge, rhs.isCharge).isEquals();
-   }
+	public boolean equals(Object object) {
+		if (!(object instanceof SysUserOrg)) {
+			return false;
+		}
+		SysUserOrg rhs = (SysUserOrg) object;
+		return new EqualsBuilder().append(this.userOrgId, rhs.userOrgId)
+				.append(this.orgId, rhs.orgId).append(this.userId, rhs.userId)
+				.append(this.isPrimary, rhs.isPrimary)
+				.append(this.isCharge, rhs.isCharge).isEquals();
+	}
 
 	public int hashCode() {
 		return new HashCodeBuilder(-82280557, -700257973)

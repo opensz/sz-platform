@@ -68,11 +68,9 @@ import org.sz.platform.system.model.SysUserAgent;
 import org.sz.platform.system.service.SysUserAgentService;
 import org.sz.platform.system.service.SysUserService;
 
-
-
 /**
  * 任务控制及处理
- *
+ * 
  */
 @Controller
 @RequestMapping({ "/platform/bpm/task/" })
@@ -131,11 +129,10 @@ public class TaskController extends BaseController {
 
 	@Resource
 	protected BpmFormTableDao bpmFormTableDao;
-	
-	
+
 	@Resource
-	protected TaskOpinionService taskOpinionService; 
-	
+	protected TaskOpinionService taskOpinionService;
+
 	@Resource
 	protected BpmFormHandlerDao bpmFormHandlerDao;
 
@@ -169,19 +166,23 @@ public class TaskController extends BaseController {
 
 	@RequestMapping({ "startFlowForm" })
 	// @Action(description = "跳至启动流程页面")
-	public ModelAndView startFlowForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		
-		Long serviceItemId = Long.valueOf(RequestUtil.getLong(request, "serviceItemId"));
+	public ModelAndView startFlowForm(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+
+		Long serviceItemId = Long.valueOf(RequestUtil.getLong(request,
+				"serviceItemId"));
 		Long defId = Long.valueOf(RequestUtil.getLong(request, "defId"));
-		Long deskRequestId = Long.valueOf(RequestUtil.getLong(request, "deskRequestId"));
+		Long deskRequestId = Long.valueOf(RequestUtil.getLong(request,
+				"deskRequestId"));
 
 		BpmDefinition bpmDefinition = null;
-		if(defId > 0L){
+		if (defId > 0L) {
 			bpmDefinition = this.bpmDefinitionService.getById(defId);
-		}else{
+		} else {
 			String actDefKey = RequestUtil.getString(request, "actDefKey");
-			if(StringUtils.isNotBlank(actDefKey)){
-				bpmDefinition = this.bpmDefinitionService.getMainDefByActDefKey(actDefKey);
+			if (StringUtils.isNotBlank(actDefKey)) {
+				bpmDefinition = this.bpmDefinitionService
+						.getMainDefByActDefKey(actDefKey);
 			}
 		}
 
@@ -189,7 +190,8 @@ public class TaskController extends BaseController {
 
 		short toFirstNode = bpmDefinition.getToFirstNode().shortValue();
 
-		BpmNodeSet bpmNodeSet = this.bpmFormRunService.getStartBpmNodeSet(actDefId, Short.valueOf(toFirstNode));
+		BpmNodeSet bpmNodeSet = this.bpmFormRunService.getStartBpmNodeSet(
+				actDefId, Short.valueOf(toFirstNode));
 
 		String ctxPath = request.getContextPath();
 
@@ -216,7 +218,6 @@ public class TaskController extends BaseController {
 		mv.addObject("defId", defId);
 		mv.addObject("isExtForm", isExtForm);
 		mv.addObject("isFormEmpty", Boolean.valueOf(isFormEmpty));
-
 
 		return mv;
 	}
@@ -250,11 +251,14 @@ public class TaskController extends BaseController {
 			ProcessCmd processCmd = BpmUtil.getProcessCmd(request);
 			Long userId = ContextUtil.getCurrentUserId();
 			processCmd.setCurrentUserId(userId.toString());
-			ProcessRun processRun = this.processRunService.startProcess(processCmd);
-			
-			if(processRun != null && StringUtils.isNotBlank(processRun.getActInstId())){
-				List<Task> taskList = this.taskService.createTaskQuery().processInstanceId(processRun.getActInstId()).list();
-				if(taskList != null && taskList.size() > 0){
+			ProcessRun processRun = this.processRunService
+					.startProcess(processCmd);
+
+			if (processRun != null
+					&& StringUtils.isNotBlank(processRun.getActInstId())) {
+				List<Task> taskList = this.taskService.createTaskQuery()
+						.processInstanceId(processRun.getActInstId()).list();
+				if (taskList != null && taskList.size() > 0) {
 					return taskList.get(0).getId();
 				}
 			}
@@ -263,9 +267,6 @@ public class TaskController extends BaseController {
 		}
 		return "";
 	}
-	
-	
-	
 
 	@RequestMapping({ "back" })
 	public ModelAndView back(HttpServletRequest request,
@@ -319,18 +320,25 @@ public class TaskController extends BaseController {
 	}
 
 	@RequestMapping({ "toSign" })
-	public ModelAndView toSign(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ModelAndView toSign(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
 		String taskId = request.getParameter("taskId");
 		ModelAndView modelView = getAutoView();
 
 		if (StringUtils.isNotEmpty(taskId)) {
 			TaskEntity taskEntity = this.bpmService.getTask(taskId);
-			String nodeId = this.bpmService.getExecution(taskEntity.getExecutionId()).getActivityId();
+			String nodeId = this.bpmService.getExecution(
+					taskEntity.getExecutionId()).getActivityId();
 			String actInstId = taskEntity.getProcessInstanceId();
-			Integer maxSignNums = this.taskSignDataService.getMaxSignNums(actInstId, nodeId, TaskSignData.NOT_COMPLETED);
-			List<TaskSignData> signDataList = this.taskSignDataService.getByActInstIdNodeIdSignNums(actInstId, nodeId, maxSignNums);
+			Integer maxSignNums = this.taskSignDataService.getMaxSignNums(
+					actInstId, nodeId, TaskSignData.NOT_COMPLETED);
+			List<TaskSignData> signDataList = this.taskSignDataService
+					.getByActInstIdNodeIdSignNums(actInstId, nodeId,
+							maxSignNums);
 
-			BpmNodeSign bpmNodeSign = this.bpmNodeSignService.getByDefIdAndNodeId(taskEntity.getProcessDefinitionId(), nodeId);
+			BpmNodeSign bpmNodeSign = this.bpmNodeSignService
+					.getByDefIdAndNodeId(taskEntity.getProcessDefinitionId(),
+							nodeId);
 
 			modelView.addObject("signDataList", signDataList);
 			modelView.addObject("task", taskEntity);
@@ -397,7 +405,7 @@ public class TaskController extends BaseController {
 		ModelAndView mv = getAutoView().addObject("taskList", list);
 		return mv;
 	}
-	
+
 	@RequestMapping({ "ccTask" })
 	public ModelAndView ccTask(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
@@ -421,7 +429,8 @@ public class TaskController extends BaseController {
 		ProcessRun processRun = this.processRunService.getByActInstanceId(task
 				.getProcessInstanceId());
 
-		BpmDefinition bpmDefinition = this.bpmDefinitionService.getById(processRun.getDefId());
+		BpmDefinition bpmDefinition = this.bpmDefinitionService
+				.getById(processRun.getDefId());
 		ModelAndView modelView = getAutoView();
 		modelView.addObject("bpmDefinition", bpmDefinition);
 		modelView.addObject("task", task);
@@ -440,10 +449,11 @@ public class TaskController extends BaseController {
 			HttpServletResponse response) throws Exception {
 		String ctxPath = request.getContextPath();
 		String taskId = RequestUtil.getString(request, "taskId");
-		boolean showChooseCaseNo=false;
-		//businessType 为ITSM3的时候，传入的caseType
-		String caseType = RequestUtil.getString(request, "caseType", "incident");
-		
+		boolean showChooseCaseNo = false;
+		// businessType 为ITSM3的时候，传入的caseType
+		String caseType = RequestUtil
+				.getString(request, "caseType", "incident");
+
 		String returnUrl = null;
 
 		if (StringUtils.isEmpty(returnUrl)) {
@@ -462,11 +472,11 @@ public class TaskController extends BaseController {
 
 		BpmDefinition bpmDefinition = this.bpmDefinitionService
 				.getByActDefId(actDefId);
-		
-		if(bpmDefinition.getIsIso()==1){
-			showChooseCaseNo=true;
+
+		if (bpmDefinition.getIsIso() == 1) {
+			showChooseCaseNo = true;
 		}
-		
+
 		ProcessRun processRun = this.processRunService
 				.getByActInstanceId(instanceId);
 
@@ -476,32 +486,32 @@ public class TaskController extends BaseController {
 		String form = "";
 		Boolean isExtForm = Boolean.valueOf(false);
 		Boolean isEmptyForm = Boolean.valueOf(false);
-		String	sourceCaseId="";
-		String	sourceCaseNo="";
-		String	destCaseNo="";
-	 	String changeReason =  "";
+		String sourceCaseId = "";
+		String sourceCaseNo = "";
+		String destCaseNo = "";
+		String changeReason = "";
 		if (bpmDefinition != null) {
-			Map formMap = this.bpmFormDefService.loadForm(processRun, taskName,userId, ctxPath);
+			Map formMap = this.bpmFormDefService.loadForm(processRun, taskName,
+					userId, ctxPath);
 			Object formDataObj = formMap.get("bpmFormData");
-			if(formDataObj != null){
-				BpmFormData bpmFormData = (BpmFormData)formDataObj;
-				Map	mapField=bpmFormData.getMainFields();
-				if(mapField.get("sourcecaseid_")!=null){
-					sourceCaseId=mapField.get("sourcecaseid_").toString();
+			if (formDataObj != null) {
+				BpmFormData bpmFormData = (BpmFormData) formDataObj;
+				Map mapField = bpmFormData.getMainFields();
+				if (mapField.get("sourcecaseid_") != null) {
+					sourceCaseId = mapField.get("sourcecaseid_").toString();
 				}
-				if(mapField.get("sourcecaseno_")!=null){
-					sourceCaseNo=mapField.get("sourcecaseno_").toString();
+				if (mapField.get("sourcecaseno_") != null) {
+					sourceCaseNo = mapField.get("sourcecaseno_").toString();
 				}
 
-				if(mapField.get("case_no")!=null){
-					destCaseNo=mapField.get("case_no").toString();
+				if (mapField.get("case_no") != null) {
+					destCaseNo = mapField.get("case_no").toString();
 				}
-				
-				
-				if(mapField.get("changereason_")!=null){
-					changeReason=mapField.get("changereason_").toString();
+
+				if (mapField.get("changereason_") != null) {
+					changeReason = mapField.get("changereason_").toString();
 				}
-				
+
 			}
 			isExtForm = (Boolean) formMap.get("isExtForm");
 			form = (String) formMap.get("form");
@@ -518,23 +528,20 @@ public class TaskController extends BaseController {
 		List taskAppItems = this.taskAppItemService.getApprovalByActDefId(
 				taskEntity.getProcessDefinitionId(),
 				taskEntity.getTaskDefinitionKey());
-		
-		
-		//检查业务分类, add by bobo, 2013
+
+		// 检查业务分类, add by bobo, 2013
 		String businessType = bpmDefinition.getBusinessType();
-		
+
 		String buinessKey = processRun.getBusinessKey();
-		
+
 		Long caseId = null;
-		
+
 		if (StringUtil.isNotEmpty(buinessKey)) {
 			caseId = Long.valueOf(buinessKey);
 		}
 
-		
-		
 		ModelAndView mv = getAutoView(businessType);
-		
+
 		mv.addObject("task", taskEntity);
 		mv.addObject("returnUrl", returnUrl);
 		mv.addObject("bpmNodeSet", bpmNodeSet);
@@ -551,13 +558,13 @@ public class TaskController extends BaseController {
 		mv.addObject("sourceCaseNo", sourceCaseNo);
 		mv.addObject("sourceCaseId", sourceCaseId);
 		mv.addObject("changeReason", changeReason);
-		
+
 		return mv;
 	}
-	
+
 	/**
-	 * ISO特殊流程处理
-	 * 拷贝工单
+	 * ISO特殊流程处理 拷贝工单
+	 * 
 	 * @param request
 	 * @param response
 	 * @throws Exception
@@ -567,24 +574,25 @@ public class TaskController extends BaseController {
 			HttpServletResponse response) throws Exception {
 		String taskId = RequestUtil.getString(request, "taskId");
 		Long destCaseId = RequestUtil.getLong(request, "destCaseId");
-		Long sourceCaseId = RequestUtil.getLong(request, "sourceCaseId");		
+		Long sourceCaseId = RequestUtil.getLong(request, "sourceCaseId");
 		String sourceCaseNo = RequestUtil.getString(request, "sourceCaseNo");
 		String destCaseNo = RequestUtil.getString(request, "destCaseNo");
-	
-		
-		//原因
-	 	String changeReason =  RequestUtil.getString(request, "changeReason");
+
+		// 原因
+		String changeReason = RequestUtil.getString(request, "changeReason");
 		Long tableId = RequestUtil.getLong(request, "tableId");
-		
-		BpmFormData bpmFormData = bpmFormHandlerService.getByKey(tableId, sourceCaseId.toString());
+
+		BpmFormData bpmFormData = bpmFormHandlerService.getByKey(tableId,
+				sourceCaseId.toString());
 		Object flowRunIdObj = bpmFormData.getMainFields().get("flowrunid_");
 		Long flowRunId = null;
-		if(flowRunIdObj != null){
+		if (flowRunIdObj != null) {
 			flowRunId = Long.valueOf(flowRunIdObj.toString());
 		}
-		//转换fieldName
-		bpmFormData.setMainFields(BpmFormTable.fieldNameMapConvert(bpmFormData.getMainFields()));
-		
+		// 转换fieldName
+		bpmFormData.setMainFields(BpmFormTable.fieldNameMapConvert(bpmFormData
+				.getMainFields()));
+
 		PkValue pkValue = bpmFormData.getPkValue();
 		pkValue.setValue(destCaseId);
 		pkValue.setIsAdd(false);
@@ -593,18 +601,19 @@ public class TaskController extends BaseController {
 		bpmFormData.getMainFields().put("sourcecaseid_", sourceCaseId);
 		bpmFormData.getMainFields().put("changereason_", changeReason);
 		bpmFormData.getMainFields().put("sourcecaseno_", sourceCaseNo);
-		//注意此处的key ,要保存数据有些字段, 设置当前工单的caseNo 是从前台传过来的
+		// 注意此处的key ,要保存数据有些字段, 设置当前工单的caseNo 是从前台传过来的
 		bpmFormData.getMainFields().put("F_case_no", destCaseNo);
-		
-//		bpmFormHandlerService.handFormData(bpmFormData);
-		bpmFormHandlerService.copyTask(bpmFormData, String.valueOf(sourceCaseId), flowRunId);
+
+		// bpmFormHandlerService.handFormData(bpmFormData);
+		bpmFormHandlerService.copyTask(bpmFormData,
+				String.valueOf(sourceCaseId), flowRunId);
 		//
-		//成功之后转到toStart
-		response.sendRedirect(request.getContextPath() + "/platform/bpm/task/toStart.xht?taskId=" + taskId + "&readOnly=false");
+		// 成功之后转到toStart
+		response.sendRedirect(request.getContextPath()
+				+ "/platform/bpm/task/toStart.xht?taskId=" + taskId
+				+ "&readOnly=false");
 	}
-	
-	
-	
+
 	@RequestMapping({ "opinionEdit" })
 	public ModelAndView opinionEdit(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
@@ -615,9 +624,6 @@ public class TaskController extends BaseController {
 		mv.addObject("taskOpinion", taskOpinion);
 		return mv;
 	}
-	
-	
-	
 
 	@RequestMapping({ "getForm" })
 	public ModelAndView getForm(HttpServletRequest request,
@@ -637,14 +643,14 @@ public class TaskController extends BaseController {
 
 		BpmDefinition bpmDefinition = this.bpmDefinitionService
 				.getByActDefId(actDefId);
-		
+
 		String businessType = bpmDefinition.getBusinessType();
-		
+
 		ProcessRun processRun = this.processRunService
 				.getByActInstanceId(instanceId);
-		
+
 		String buinessKey = processRun.getBusinessKey();
-		
+
 		String form = "";
 		Boolean isExtForm = Boolean.valueOf(false);
 		Boolean isEmptyForm = Boolean.valueOf(false);
@@ -704,7 +710,7 @@ public class TaskController extends BaseController {
 			out.print(resultMessage);
 		}
 	}
-	
+
 	@RequestMapping({ "complete" })
 	public void complete(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
@@ -714,23 +720,25 @@ public class TaskController extends BaseController {
 			ProcessCmd taskCmd = BpmUtil.getProcessCmd(request);
 			taskCmd.setCurrentUserId(ContextUtil.getCurrentUserId().toString());
 			this.processRunService.nextProcess(taskCmd);
-			
+
 			ResultMessage resultMessage = new ResultMessage(1, "任务成功完成!");
 			out.print(resultMessage);
 		} catch (Exception ex) {
-			
+
 			ex.printStackTrace();
 			ResultMessage resultMessage = new ResultMessage(0, "任务跳转失败!");
 			out.print(resultMessage);
 		}
 	}
-	
+
 	@RequestMapping({ "saveTaskChange" })
 	public void saveTaskChange(HttpServletRequest request,
-			HttpServletResponse response,TaskOpinion taskOpinion) throws Exception {
+			HttpServletResponse response, TaskOpinion taskOpinion)
+			throws Exception {
 		PrintWriter out = response.getWriter();
 		try {
-			TaskOpinion opinion =  taskOpinionService.getById(taskOpinion.getOpinionId());
+			TaskOpinion opinion = taskOpinionService.getById(taskOpinion
+					.getOpinionId());
 			opinion.setStartTime(taskOpinion.getStartTime());
 			opinion.setEndTime(taskOpinion.getEndTime());
 			opinion.setExeFullname(taskOpinion.getExeFullname());
@@ -746,8 +754,6 @@ public class TaskController extends BaseController {
 			out.print(resultMessage);
 		}
 	}
-	
-	
 
 	@RequestMapping({ "claim" })
 	// @Action(description = "锁定任务")
@@ -967,11 +973,13 @@ public class TaskController extends BaseController {
 	}
 
 	@RequestMapping({ "tranTaskUserMap" })
-	public ModelAndView tranTaskUserMap(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ModelAndView tranTaskUserMap(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
 		String taskId = request.getParameter("taskId");
 		int selectPath = RequestUtil.getInt(request, "selectPath", 1);
-		List<NodeTranUser> nodeTranUserList = this.bpmService.getNodeTaskUserMap(taskId, ContextUtil.getCurrentUserId());
-		
+		List<NodeTranUser> nodeTranUserList = this.bpmService
+				.getNodeTaskUserMap(taskId, ContextUtil.getCurrentUserId());
+
 		ModelAndView mv = getAutoView();
 		mv.addObject("nodeTranUserList", nodeTranUserList);
 		mv.addObject("selectPath", Integer.valueOf(selectPath));
@@ -1046,23 +1054,26 @@ public class TaskController extends BaseController {
 		saveSuccessResultMessage(request.getSession(), "成功完成任务!");
 		return "{success:true}";
 	}
-	
+
 	@RequestMapping({ "vadlidField" })
 	@ResponseBody
-	public String vadlidField(HttpServletRequest request, HttpServletResponse response)
-			throws Exception {
+	public String vadlidField(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
 		String tableName = request.getParameter("tableName");
-		String field=request.getParameter("field");
-		Map map=new HashMap();
+		String field = request.getParameter("field");
+		Map map = new HashMap();
 		map.put("tableName", tableName);
 		map.put("field", field);
 		map.put("value", request.getParameter("value"));
-		map.put("sql", "select count(F_"+field+") from w_"+tableName+" where F_"+field+"='"+request.getParameter("value")+"'");
-		SqlSession session=this.bpmFormTableDao.getSqlSessionFactory().openSession();
-		
-		Object obj=session.selectOne("Common_getSingleBySql",map);
-		
-		if(obj!=null && Long.valueOf(obj.toString())<1){
+		map.put("sql", "select count(F_" + field + ") from w_" + tableName
+				+ " where F_" + field + "='" + request.getParameter("value")
+				+ "'");
+		SqlSession session = this.bpmFormTableDao.getSqlSessionFactory()
+				.openSession();
+
+		Object obj = session.selectOne("Common_getSingleBySql", map);
+
+		if (obj != null && Long.valueOf(obj.toString()) < 1) {
 			return "{success:true}";
 		}
 		return "{success:false}";

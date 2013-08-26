@@ -6,8 +6,8 @@ import java.util.List;
 import org.sz.core.query.PageBean;
 import org.sz.core.query.QueryFilter;
 
-public interface  GenericService<E, PK extends Serializable> {
-//	abstract IEntityDao<E, PK> getEntityDao();
+public interface GenericService<E, PK extends Serializable> {
+	// abstract IEntityDao<E, PK> getEntityDao();
 
 	public void add(E entity);
 
@@ -24,6 +24,6 @@ public interface  GenericService<E, PK extends Serializable> {
 	public List<E> getAll();
 
 	public List<E> getAll(QueryFilter queryFilter);
-	
-	public List getMapList(String namespace,String sqlKey,Object params);
+
+	public List getMapList(String namespace, String sqlKey, Object params);
 }

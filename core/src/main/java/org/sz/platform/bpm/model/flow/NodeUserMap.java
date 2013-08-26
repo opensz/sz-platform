@@ -12,13 +12,14 @@ public class NodeUserMap {
 	private Long setId;
 	private List<BpmNodeUser> nodeUserList;
 	private Set<SysUser> users = new HashSet<SysUser>();
-	
-	private Short nodeAssignMode; //add by huhao 2013.01.22 节点流转模式
+
+	private Short nodeAssignMode; // add by huhao 2013.01.22 节点流转模式
 
 	public NodeUserMap() {
 	}
 
-	public NodeUserMap(Long setId, String nodeId, String nodeName, List<BpmNodeUser> nodeUserList) {
+	public NodeUserMap(Long setId, String nodeId, String nodeName,
+			List<BpmNodeUser> nodeUserList) {
 		this.setId = setId;
 		this.nodeId = nodeId;
 		this.nodeName = nodeName;
@@ -30,8 +31,9 @@ public class NodeUserMap {
 		this.nodeName = nodeName;
 		this.users = users;
 	}
-	
-	public NodeUserMap(String nodeId, String nodeName, Set<SysUser> users,Short nodeAssignMode) {
+
+	public NodeUserMap(String nodeId, String nodeName, Set<SysUser> users,
+			Short nodeAssignMode) {
 		this.nodeId = nodeId;
 		this.nodeName = nodeName;
 		this.users = users;

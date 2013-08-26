@@ -28,7 +28,6 @@ import org.sz.platform.system.service.ResourcesService;
 import org.sz.platform.system.service.SubSystemService;
 import org.sz.platform.system.webservice.impl.SystemResourcesServiceImpl;
 
-
 @Controller
 @RequestMapping({ "/platform/console" })
 public class MainController extends BaseController {
@@ -61,7 +60,7 @@ public class MainController extends BaseController {
 		List<MessageSend> list = this.msgSendService.getNotReadMsg(ContextUtil
 				.getCurrentUserId());
 		Long currentUserId = ContextUtil.getCurrentUser().getUserId();
-		
+
 		if (currentSystem != null) {
 			return getView("console", "main")
 					.addObject("currentSystem", currentSystem)
@@ -73,9 +72,8 @@ public class MainController extends BaseController {
 		}
 
 		if ((subSystemList != null) && (subSystemList.size() == 1)) {
-			AppUtil.setCurrentSystem(Long
-					.valueOf(((SubSystem) subSystemList.get(0)).getSystemId()),
-					request, response);
+			AppUtil.setCurrentSystem(Long.valueOf(((SubSystem) subSystemList
+					.get(0)).getSystemId()), request, response);
 			return getView("console", "main")
 					.addObject("currentSystem", subSystemList.get(0))
 					.addObject(
@@ -100,14 +98,10 @@ public class MainController extends BaseController {
 					.addObject("readMsg", Integer.valueOf(list.size()))
 					.addObject("userId", currentUserId);
 		}
-		
 
 		return null;
 	}
-	
-	
-	
-	
+
 	@RequestMapping({ "home" })
 	public ModelAndView home(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
@@ -129,8 +123,6 @@ public class MainController extends BaseController {
 				+ "/platform/console/main.xht");
 	}
 
-	
-	
 	@RequestMapping({ "getSysRolResTreeData" })
 	@ResponseBody
 	public List<Resources> getSysRolResTreeData(HttpServletRequest request,

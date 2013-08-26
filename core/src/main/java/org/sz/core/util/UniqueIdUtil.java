@@ -12,7 +12,8 @@ public class UniqueIdUtil {
 
 	private static Lock lock = new ReentrantLock();
 
-//	private static StrongUuidGenerator strongUidGen = new StrongUuidGenerator();
+	// private static StrongUuidGenerator strongUidGen = new
+	// StrongUuidGenerator();
 
 	public static long genId() throws Exception {
 		lock.lock();
@@ -42,7 +43,7 @@ public class UniqueIdUtil {
 		return config.getIdGenerator().getNextId();
 	}
 
-//	public static String genStrongUID() {
-//		return strongUidGen.getNextId();
-//	}
+	// public static String genStrongUID() {
+	// return strongUidGen.getNextId();
+	// }
 }

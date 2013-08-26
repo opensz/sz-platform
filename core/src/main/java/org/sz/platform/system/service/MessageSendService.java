@@ -7,12 +7,12 @@ import org.sz.core.service.BaseService;
 import org.sz.platform.system.model.MessageSend;
 import org.sz.platform.system.model.SysUser;
 
-public interface MessageSendService extends BaseService<MessageSend>{
+public interface MessageSendService extends BaseService<MessageSend> {
 
 	List<MessageSend> getReceiverByUser(QueryFilter queryFilter);
 
 	List<MessageSend> getNotReadMsg(Long receiverId);
-	
+
 	List<MessageSend> getNotReadMsgFirst(Long receiverId);
 
 	void addMessageSend(MessageSend messageSend, SysUser curUser,

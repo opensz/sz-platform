@@ -7,7 +7,7 @@ import org.sz.core.query.QueryFilter;
 import org.sz.core.service.BaseService;
 import org.sz.platform.system.model.Demension;
 
-public interface DemensionService extends BaseService<Demension>{
+public interface DemensionService extends BaseService<Demension> {
 
 	boolean getNotExists(Map params);
 

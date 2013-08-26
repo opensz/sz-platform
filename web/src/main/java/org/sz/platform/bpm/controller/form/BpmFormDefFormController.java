@@ -41,12 +41,12 @@ public class BpmFormDefFormController extends BaseFormController {
 		Long tableId = bpmFormDef.getTableId();
 		BpmFormTable bpmFormTable = (BpmFormTable) this.bpmFormTableDao
 				.getById(tableId);
-		
-		String template = FormUtil.getFreeMarkerTemplate(
-				bpmFormDef.getHtml(), tableId, bpmFormTable.getTableName());
+
+		String template = FormUtil.getFreeMarkerTemplate(bpmFormDef.getHtml(),
+				tableId, bpmFormTable.getTableName());
 		bpmFormDef.setTemplate(template);
 
-		try {		
+		try {
 			if (bpmFormDef.getFormDefId().longValue() == 0L) {
 				this.service.addForm(bpmFormDef, jsonObject);
 				String msg = getText("record.added", new Object[] { "自定义表单" });

@@ -6,10 +6,10 @@ import org.sz.core.service.BaseService;
 import org.sz.platform.system.model.SubSystem;
 import org.sz.platform.system.model.SysUser;
 
-public interface SubSystemService extends BaseService<SubSystem>{
+public interface SubSystemService extends BaseService<SubSystem> {
 
 	SubSystem getById(Long systemId);
-	
+
 	List<SubSystem> getByUser(SysUser user);
 
 	List<SubSystem> getLocalSystem();

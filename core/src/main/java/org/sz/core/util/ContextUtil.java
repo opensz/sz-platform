@@ -7,10 +7,9 @@ import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.sz.platform.system.model.SysUser;
 
-
 public class ContextUtil {
 	private static Logger logger = LoggerFactory.getLogger(ContextUtil.class);
-	
+
 	public static SysUser getCurrentUser() {
 		SysUser sysUser = null;
 		SecurityContext securityContext = SecurityContextHolder.getContext();
@@ -22,7 +21,7 @@ public class ContextUtil {
 					sysUser = (SysUser) principal;
 				}
 			}
-		}	
+		}
 		return sysUser;
 	}
 
@@ -32,11 +31,11 @@ public class ContextUtil {
 			return curUser.getUserId();
 		return null;
 	}
-	
+
 	public static Object getBean(Class cls) {
 		return SpringContextHolder.getBean(cls);
 	}
-	
+
 	public static Object getBean(String name) {
 		return SpringContextHolder.getBean(name);
 	}

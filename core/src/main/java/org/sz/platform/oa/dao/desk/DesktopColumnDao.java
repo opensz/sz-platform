@@ -5,7 +5,7 @@ import java.util.List;
 import org.sz.core.dao.BaseDao;
 import org.sz.platform.oa.model.desk.DesktopColumn;
 
-public interface DesktopColumnDao  extends BaseDao<DesktopColumn>{
+public interface DesktopColumnDao extends BaseDao<DesktopColumn> {
 
 	void delAll();
 

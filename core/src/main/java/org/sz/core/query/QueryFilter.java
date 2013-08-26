@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 
 public class QueryFilter {
 	protected Logger logger = LoggerFactory.getLogger(QueryFilter.class);
-	
+
 	public static final String ORDER_ASC = "1";
 	public static final String ORDER_DESC = "2";
 
@@ -16,7 +16,6 @@ public class QueryFilter {
 	protected String sortColumns = "";
 	protected String tableId = "";
 	protected PageBean pageBean = null;
-	
 
 	public PageBean getPageBean() {
 		return this.pageBean;
@@ -46,5 +45,6 @@ public class QueryFilter {
 		this.sortColumns = sortColumns;
 	}
 
-	public void setForWeb(){};
+	public void setForWeb() {
+	};
 }

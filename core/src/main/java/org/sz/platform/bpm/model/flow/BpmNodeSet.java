@@ -1,7 +1,5 @@
 package org.sz.platform.bpm.model.flow;
 
-import org.sz.platform.bpm.model.flow.BpmNodeSet;
-
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
@@ -196,15 +194,33 @@ public class BpmNodeSet extends BaseModel {
 			return false;
 		}
 		BpmNodeSet rhs = (BpmNodeSet) object;
-		return new EqualsBuilder().append(this.setId, rhs.setId).append(this.defId, rhs.defId).append(this.nodeName, rhs.nodeName).append(this.actDefId, rhs.actDefId).append(this.nodeId, rhs.nodeId).append(this.formType, rhs.formType).append(this.formUrl, rhs.formUrl).append(this.formKey, rhs.formKey).append(this.nodeType, rhs.nodeType).isEquals();
+		return new EqualsBuilder().append(this.setId, rhs.setId)
+				.append(this.defId, rhs.defId)
+				.append(this.nodeName, rhs.nodeName)
+				.append(this.actDefId, rhs.actDefId)
+				.append(this.nodeId, rhs.nodeId)
+				.append(this.formType, rhs.formType)
+				.append(this.formUrl, rhs.formUrl)
+				.append(this.formKey, rhs.formKey)
+				.append(this.nodeType, rhs.nodeType).isEquals();
 	}
 
 	public int hashCode() {
-		return new HashCodeBuilder(-82280557, -700257973).append(this.setId).append(this.defId).append(this.nodeName).append(this.actDefId).append(this.nodeId).append(this.formType).append(this.formUrl).append(this.formKey).append(this.nodeType).toHashCode();
+		return new HashCodeBuilder(-82280557, -700257973).append(this.setId)
+				.append(this.defId).append(this.nodeName).append(this.actDefId)
+				.append(this.nodeId).append(this.formType).append(this.formUrl)
+				.append(this.formKey).append(this.nodeType).toHashCode();
 	}
 
 	public String toString() {
-		return new ToStringBuilder(this).append("setId", this.setId).append("defId", this.defId).append("nodeName", this.nodeName).append("actDefId", this.actDefId).append("nodeId", this.nodeId).append("formType", this.formType).append("formUrl", this.formUrl).append("formKey", this.formKey).append("nodeType", this.nodeType).toString();
+		return new ToStringBuilder(this).append("setId", this.setId)
+				.append("defId", this.defId).append("nodeName", this.nodeName)
+				.append("actDefId", this.actDefId)
+				.append("nodeId", this.nodeId)
+				.append("formType", this.formType)
+				.append("formUrl", this.formUrl)
+				.append("formKey", this.formKey)
+				.append("nodeType", this.nodeType).toString();
 	}
 
 	public String getJumpType() {

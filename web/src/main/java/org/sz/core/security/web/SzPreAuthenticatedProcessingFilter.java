@@ -23,9 +23,9 @@ public class SzPreAuthenticatedProcessingFilter extends
 	protected String parterIdName = "parterId";
 
 	private static Properties configproperties = null;
-	
+
 	@Autowired
-	public void setConfigproperties(Properties configproperties){
+	public void setConfigproperties(Properties configproperties) {
 		SzPreAuthenticatedProcessingFilter.configproperties = configproperties;
 	}
 

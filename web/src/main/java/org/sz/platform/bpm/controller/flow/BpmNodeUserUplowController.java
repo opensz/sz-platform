@@ -1,6 +1,6 @@
- package org.sz.platform.bpm.controller.flow;
- 
-  import java.util.List;
+package org.sz.platform.bpm.controller.flow;
+
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -19,43 +19,47 @@ import org.sz.platform.bpm.service.flow.BpmNodeUserUplowService;
 import org.sz.platform.system.model.Demension;
 import org.sz.platform.system.service.DemensionService;
 import org.sz.platform.system.service.SysUserService;
- 
- @Controller
- @RequestMapping({"/platform/bpm/bpmNodeUserUplow/"})
- public class BpmNodeUserUplowController extends BaseController
- {
- 
-   @Resource
-   private BpmNodeUserUplowService bpmNodeUserUplowService;
- 
-   @Resource
-   private DemensionService demensionService;
- 
-   @Resource
-   private SysUserService sysUserService;
- 
-   @RequestMapping({"dialog"})
-   public ModelAndView dialog(HttpServletRequest request, HttpServletResponse response)
-     throws Exception
-   {
-     List demensionList = this.demensionService.getAll();
-     demensionList.add(Demension.positionDem);
- 
-     ModelAndView mv = getAutoView().addObject("demensionList", demensionList).addObject("uplowtypeList", BpmNodeUserUplow.UPLOWTYPE_MAP);
- 
-     return mv;
-   }
-   @RequestMapping({"getByUserId"})
-   public ModelAndView getByUserId(HttpServletRequest request, HttpServletResponse response) throws Exception { ModelAndView mv = getAutoView();
-     String json = RequestUtil.getString(request, "json");
-     json = new String(json.getBytes("ISO-8859-1"), "utf-8");
- 
-     JSONArray ja = JSONArray.fromObject(json);
-     List uplowList = (List)JSONArray.toCollection(ja, BpmNodeUserUplow.class);
- 
-     List userList = this.sysUserService.getByUserIdAndUplow(ContextUtil.getCurrentUserId().longValue(), uplowList);
- 
-     return mv.addObject("userList", userList);
-   }
- }
 
+@Controller
+@RequestMapping({ "/platform/bpm/bpmNodeUserUplow/" })
+public class BpmNodeUserUplowController extends BaseController {
+
+	@Resource
+	private BpmNodeUserUplowService bpmNodeUserUplowService;
+
+	@Resource
+	private DemensionService demensionService;
+
+	@Resource
+	private SysUserService sysUserService;
+
+	@RequestMapping({ "dialog" })
+	public ModelAndView dialog(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		List demensionList = this.demensionService.getAll();
+		demensionList.add(Demension.positionDem);
+
+		ModelAndView mv = getAutoView().addObject("demensionList",
+				demensionList).addObject("uplowtypeList",
+				BpmNodeUserUplow.UPLOWTYPE_MAP);
+
+		return mv;
+	}
+
+	@RequestMapping({ "getByUserId" })
+	public ModelAndView getByUserId(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		ModelAndView mv = getAutoView();
+		String json = RequestUtil.getString(request, "json");
+		json = new String(json.getBytes("ISO-8859-1"), "utf-8");
+
+		JSONArray ja = JSONArray.fromObject(json);
+		List uplowList = (List) JSONArray.toCollection(ja,
+				BpmNodeUserUplow.class);
+
+		List userList = this.sysUserService.getByUserIdAndUplow(ContextUtil
+				.getCurrentUserId().longValue(), uplowList);
+
+		return mv.addObject("userList", userList);
+	}
+}

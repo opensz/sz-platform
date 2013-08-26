@@ -36,29 +36,27 @@ public class GenericController {
 
 	@Resource
 	protected Properties configproperties;
-	
+
 	protected MessageSourceAccessor messages;
 
 	public ModelAndView getAutoView() throws Exception {
 		return getAutoView(null);
 	}
+
 	public ModelAndView getAutoView(String businessType) throws Exception {
 		HttpServletRequest request = RequestUtil.getHttpServletRequest();
 		String requestURI = request.getRequestURI();
-		
-	
+
 		// modified by bobo, 20130213
 		String jspPath = ConfigUtil.getJspPath(requestURI, businessType);
-		
-		if(this.logger.isDebugEnabled()){
-			this.logger.debug("request=" + requestURI+"<br/>jsp="+jspPath);
+
+		if (this.logger.isDebugEnabled()) {
+			this.logger.debug("request=" + requestURI + "<br/>jsp=" + jspPath);
 		}
-		
-		if(jspPath!=null && jspPath.endsWith(".jsp")){
+
+		if (jspPath != null && jspPath.endsWith(".jsp")) {
 			return new ModelAndView(jspPath);
 		}
-		
-		
 
 		this.logger
 				.error("your request url is not the right pattern, it is not allowed use this getAutoView method");
@@ -129,10 +127,11 @@ public class GenericController {
 		ResultMessage resultObj = new ResultMessage(successFail, resultMsg);
 		writer.print(resultObj);
 	}
-	
+
 	protected void writeResultMessage(PrintWriter writer, String resultMsg,
 			int successFail, Map<String, Object> params) {
-		ResultMessage resultObj = new ResultMessage(successFail, resultMsg, params);
+		ResultMessage resultObj = new ResultMessage(successFail, resultMsg,
+				params);
 		writer.print(resultObj);
 	}
 
@@ -154,7 +153,7 @@ public class GenericController {
 	protected void saveFailResultMessage(HttpSession session, String msg) {
 		saveResultMessage(session, msg, 0);
 	}
-	
+
 	protected SysUser getCurrentUser() {
 		SysUser sysUser = ContextUtil.getCurrentUser();
 		return sysUser;

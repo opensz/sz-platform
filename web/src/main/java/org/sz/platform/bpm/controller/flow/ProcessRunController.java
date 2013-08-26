@@ -207,16 +207,18 @@ public class ProcessRunController extends BaseController {
 		long id = RequestUtil.getLong(request, "runId");
 		ProcessRun processRun = (ProcessRun) this.processRunService
 				.getById(Long.valueOf(id));
-		if(processRun == null){
+		if (processRun == null) {
 			throw new RuntimeException("流程实例已经删除!");
 		}
-		
-		BpmDefinition bpmDefinition = bpmDefinitionService.getById(processRun.getDefId());
-		
+
+		BpmDefinition bpmDefinition = bpmDefinitionService.getById(processRun
+				.getDefId());
+
 		List hisTasks = this.bpmService.getHistoryTasks(processRun
 				.getActInstId());
-		return getAutoView().addObject("processRun", processRun).addObject(
-				"hisTasks", hisTasks).addObject("bpmDefinition", bpmDefinition);
+		return getAutoView().addObject("processRun", processRun)
+				.addObject("hisTasks", hisTasks)
+				.addObject("bpmDefinition", bpmDefinition);
 	}
 
 	@RequestMapping({ "userImage" })

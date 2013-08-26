@@ -1,20 +1,18 @@
 package org.sz.platform.bpm.model.form;
 
-import org.sz.platform.bpm.model.form.BpmFormTemplate;
-
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.sz.core.model.BaseModel;
 
 public class BpmFormTemplate extends BaseModel {
-	
+
 	public static final String MainTable = "main";
 	public static final String SubTable = "subTable";
 	public static final String Macro = "macro";
 	public static final String List = "list";
 	public static final String Detail = "detail";
-	
+
 	protected Long templateId;
 	protected String templateName;
 	protected String alias;
@@ -23,7 +21,6 @@ public class BpmFormTemplate extends BaseModel {
 	protected String html;
 	protected String templateDesc;
 	protected int canEdit;
-	
 
 	public String getAlias() {
 		return this.alias;

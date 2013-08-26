@@ -43,8 +43,8 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUser> implements
 	@Resource
 	private SysUserDao dao;
 
-//	@Resource
-//	private BpmNodeUserUplowService bpmNodeUserUplowService;
+	// @Resource
+	// private BpmNodeUserUplowService bpmNodeUserUplowService;
 
 	@Resource
 	private PositionService positionService;
@@ -52,8 +52,8 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUser> implements
 	@Resource
 	private SysOrgService sysOrgService;
 
-//	@Resource
-//	private BpmNodeUserService bpmNodeUserService;
+	// @Resource
+	// private BpmNodeUserService bpmNodeUserService;
 
 	@Resource
 	private SysUserOrgService sysUserOrgService;
@@ -132,74 +132,78 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUser> implements
 
 	public List<SysUser> getByParam(long nodeUserId) throws Exception {
 		List list = null;
-//		BpmNodeUser bpmNodeUser = (BpmNodeUser) this.bpmNodeUserService
-//				.getById(Long.valueOf(nodeUserId));
-//		Short ssignType = bpmNodeUser.getAssignType();
-//		String param = bpmNodeUser.getCmpIds();
-//		if (ssignType.shortValue() == 7)
-//			list = getByUserParam(param);
-//		else if (ssignType.shortValue() == 8) {
-//			list = getByOrgParam(param);
-//		}
+		// BpmNodeUser bpmNodeUser = (BpmNodeUser) this.bpmNodeUserService
+		// .getById(Long.valueOf(nodeUserId));
+		// Short ssignType = bpmNodeUser.getAssignType();
+		// String param = bpmNodeUser.getCmpIds();
+		// if (ssignType.shortValue() == 7)
+		// list = getByUserParam(param);
+		// else if (ssignType.shortValue() == 8) {
+		// list = getByOrgParam(param);
+		// }
 		return list;
 	}
 
 	public List<SysUser> getByUserIdAndUplow(long userId, long nodeUserId) {
-//		List uplowList = this.bpmNodeUserUplowService
-//				.getByNodeUserId(nodeUserId);
-//		return getByUserIdAndUplow(userId, uplowList);
+		// List uplowList = this.bpmNodeUserUplowService
+		// .getByNodeUserId(nodeUserId);
+		// return getByUserIdAndUplow(userId, uplowList);
 		return null;
 	}
 
-	public List<SysUser> getByUserIdAndUplow(long userId, List uplowList) {return null;}
-//	public List<SysUser> getByUserIdAndUplow(long userId, List<BpmNodeUserUplow> uplowList) {
-//		if (uplowList == null)
-//			return null;
-//		List list = new ArrayList();
-//
-//		List<Position> pl = null;
-//
-//		List<SysOrg> ol = null;
-//		for (BpmNodeUserUplow uplow : uplowList) {
-//			Short upLowType = uplow.getUpLowType().shortValue();
-//			Integer upLowLevel = uplow.getUpLowLevel().intValue();
-//			if (uplow.getDemensionId().longValue() == Demension.positionDem
-//					.getDemId().longValue()) {
-//				if (pl == null)
-//					pl = this.positionService.getByUserId(Long.valueOf(userId));
-//				if (pl != null)
-//					for (Position p : pl) {
-//						String currentPath = p.getNodePath();
-//						int currentDepth = p.getDepth().intValue();
-//						Map param = handlerCondition(currentPath, currentDepth,
-//								upLowType, upLowLevel);
-//
-//						List l = this.dao.getUpLowPost(param);
-//						list.addAll(l);
-//					}
-//			} else {
-//				Long demensionId = uplow.getDemensionId().longValue();
-//				if (ol == null)
-//					ol = this.sysOrgService.getByUserIdAndDemId(
-//							Long.valueOf(userId), Long.valueOf(demensionId));
-//				if (ol != null)
-//					for (SysOrg o : ol) {
-//						String currentPath = o.getPath();
-//						int currentDepth = o.getDepth().intValue();
-//						Map param = handlerCondition(currentPath, currentDepth,
-//								upLowType, upLowLevel);
-//						param.put("demensionId", Long.valueOf(demensionId));
-//
-//						List l = this.dao.getUpLowOrg(param);
-//						list.addAll(l);
-//					}
-//			}
-//		}
-//		short upLowType;
-//		int upLowLevel;
-//		long demensionId;
-//		return list;
-//	}
+	public List<SysUser> getByUserIdAndUplow(long userId, List uplowList) {
+		return null;
+	}
+
+	// public List<SysUser> getByUserIdAndUplow(long userId,
+	// List<BpmNodeUserUplow> uplowList) {
+	// if (uplowList == null)
+	// return null;
+	// List list = new ArrayList();
+	//
+	// List<Position> pl = null;
+	//
+	// List<SysOrg> ol = null;
+	// for (BpmNodeUserUplow uplow : uplowList) {
+	// Short upLowType = uplow.getUpLowType().shortValue();
+	// Integer upLowLevel = uplow.getUpLowLevel().intValue();
+	// if (uplow.getDemensionId().longValue() == Demension.positionDem
+	// .getDemId().longValue()) {
+	// if (pl == null)
+	// pl = this.positionService.getByUserId(Long.valueOf(userId));
+	// if (pl != null)
+	// for (Position p : pl) {
+	// String currentPath = p.getNodePath();
+	// int currentDepth = p.getDepth().intValue();
+	// Map param = handlerCondition(currentPath, currentDepth,
+	// upLowType, upLowLevel);
+	//
+	// List l = this.dao.getUpLowPost(param);
+	// list.addAll(l);
+	// }
+	// } else {
+	// Long demensionId = uplow.getDemensionId().longValue();
+	// if (ol == null)
+	// ol = this.sysOrgService.getByUserIdAndDemId(
+	// Long.valueOf(userId), Long.valueOf(demensionId));
+	// if (ol != null)
+	// for (SysOrg o : ol) {
+	// String currentPath = o.getPath();
+	// int currentDepth = o.getDepth().intValue();
+	// Map param = handlerCondition(currentPath, currentDepth,
+	// upLowType, upLowLevel);
+	// param.put("demensionId", Long.valueOf(demensionId));
+	//
+	// List l = this.dao.getUpLowOrg(param);
+	// list.addAll(l);
+	// }
+	// }
+	// }
+	// short upLowType;
+	// int upLowLevel;
+	// long demensionId;
+	// return list;
+	// }
 
 	private static Map<String, Object> handlerCondition(String currentPath,
 			int currentDepth, short upLowType, int upLowLevel) {
@@ -256,22 +260,22 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUser> implements
 
 	public List<SysUser> getOnlineUser(List<SysUser> list) {
 		List listOnl = new ArrayList();
-//		Map<Long, OnlineUser> onlineUsers = AppUtil.getOnlineUsers();
-//		List<OnlineUser> onlineList = new ArrayList();
-//		for (Long sessionId : onlineUsers.keySet()) {
-//			OnlineUser onlineUser = (OnlineUser) onlineUsers.get(sessionId);
-//
-//			onlineList.add(onlineUser);
-//		}
-//		for (Iterator i$ = list.iterator(); i$.hasNext();) {
-//			SysUser sysUser = (SysUser) i$.next();
-//			for (OnlineUser onlineUser : onlineList) {
-//				Long sysUserId = sysUser.getUserId();
-//				Long onlineUserId = onlineUser.getUserId();
-//				if (sysUserId.toString().equals(onlineUserId.toString()))
-//					listOnl.add(sysUser);
-//			}
-//		}
+		// Map<Long, OnlineUser> onlineUsers = AppUtil.getOnlineUsers();
+		// List<OnlineUser> onlineList = new ArrayList();
+		// for (Long sessionId : onlineUsers.keySet()) {
+		// OnlineUser onlineUser = (OnlineUser) onlineUsers.get(sessionId);
+		//
+		// onlineList.add(onlineUser);
+		// }
+		// for (Iterator i$ = list.iterator(); i$.hasNext();) {
+		// SysUser sysUser = (SysUser) i$.next();
+		// for (OnlineUser onlineUser : onlineList) {
+		// Long sysUserId = sysUser.getUserId();
+		// Long onlineUserId = onlineUser.getUserId();
+		// if (sysUserId.toString().equals(onlineUserId.toString()))
+		// listOnl.add(sysUser);
+		// }
+		// }
 		return listOnl;
 	}
 
@@ -389,13 +393,12 @@ public class SysUserServiceImpl extends BaseServiceImpl<SysUser> implements
 		return sysUserOrg.getUserId();
 	}
 
-
 	@Override
 	public void updStatus(Long[] userIds, Long subSystemId) {
 		Short status = -1;
 		try {
 			this.dao.updStatus(userIds, status);
-//			this.dao.delDcomUserAndShift(userIds, subSystemId);
+			// this.dao.delDcomUserAndShift(userIds, subSystemId);
 		} catch (Exception f) {
 			f.printStackTrace();
 		}

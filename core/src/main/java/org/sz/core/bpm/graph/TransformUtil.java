@@ -1694,12 +1694,11 @@ public class TransformUtil {
 
 	private static String getPointXml(ArrayList<Point> list) {
 		StringBuffer sb = new StringBuffer();
-	
-	    for (Point p : list) {
-		     sb.append("\n<omgdi:waypoint x=\"" + p.getX() + "\" y=\""
-						+ p.getY() + "\"></omgdi:waypoint>\n");
+
+		for (Point p : list) {
+			sb.append("\n<omgdi:waypoint x=\"" + p.getX() + "\" y=\""
+					+ p.getY() + "\"></omgdi:waypoint>\n");
 		}
-	
 
 		return sb.toString();
 	}

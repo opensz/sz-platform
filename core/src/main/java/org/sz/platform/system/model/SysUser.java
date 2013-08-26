@@ -28,17 +28,18 @@ import org.sz.core.model.BaseModel;
 import org.sz.core.util.ContextUtil;
 import org.sz.platform.system.dao.SysRoleDao;
 import org.sz.platform.system.webservice.api.util.adapter.GrantedAuthorityAdapter;
+
 @Entity
-@Table(name="sys_user")
+@Table(name = "sys_user")
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
 @XmlRootElement(namespace = "bpm")
 public class SysUser extends BaseModel implements UserDetails {
-	
+
 	public static final String SEARCH_BY_ROL = "1";
 	public static final String SEARCH_BY_ORG = "2";
 	public static final String SEARCH_BY_POS = "3";
 	public static final String SEARCH_BY_ONL = "4";
-	
+
 	public static final Short UN_LOCKED = 0;
 	public static final Short LOCKED = 1;
 
@@ -50,8 +51,7 @@ public class SysUser extends BaseModel implements UserDetails {
 	public static final Short STATUS_Del = -1;
 
 	public static Long CUR_ORG_ID = 0l;
-	
-	
+
 	protected Long userOrgId;
 	protected Long userId;
 	protected String fullname;
@@ -68,14 +68,13 @@ public class SysUser extends BaseModel implements UserDetails {
 	protected String picture;
 	protected String retype;
 	protected String orgName;
-	
-	/////// field that added by y.mao /////////
+
+	// ///// field that added by y.mao /////////
 	private String empId;
 	protected String firstSpell; // 拼音首字母
 	private String desc;
-	
-	
-	//////////////////////////////////////////
+
+	// ////////////////////////////////////////
 	@Transient
 	public String getRetype() {
 		return this.retype;
@@ -100,6 +99,7 @@ public class SysUser extends BaseModel implements UserDetails {
 	public void setPicture(String picture) {
 		this.picture = picture;
 	}
+
 	@Transient
 	public String getOrgName() {
 		return this.orgName;
@@ -108,6 +108,7 @@ public class SysUser extends BaseModel implements UserDetails {
 	public void setOrgName(String orgName) {
 		this.orgName = orgName;
 	}
+
 	@Transient
 	public Long getUserOrgId() {
 		return this.userOrgId;
@@ -205,7 +206,8 @@ public class SysUser extends BaseModel implements UserDetails {
 	public String getPhone() {
 		return this.phone;
 	}
-	@Column(name="first_spell")
+
+	@Column(name = "first_spell")
 	public String getFirstSpell() {
 		return firstSpell;
 	}
@@ -213,10 +215,8 @@ public class SysUser extends BaseModel implements UserDetails {
 	public void setFirstSpell(String firstSpell) {
 		this.firstSpell = firstSpell;
 	}
-	
-	
-	
-	@Column(name="des")
+
+	@Column(name = "des")
 	public String getDesc() {
 		return desc;
 	}
@@ -224,7 +224,6 @@ public class SysUser extends BaseModel implements UserDetails {
 	public void setDesc(String desc) {
 		this.desc = desc;
 	}
-	
 
 	public String getEmpId() {
 		return empId;
@@ -335,7 +334,8 @@ public class SysUser extends BaseModel implements UserDetails {
 			return roleCollection;
 		}
 
-		SysRoleDao sysRoleDao = (SysRoleDao) ContextUtil.getBean(SysRoleDao.class);
+		SysRoleDao sysRoleDao = (SysRoleDao) ContextUtil
+				.getBean(SysRoleDao.class);
 		List<SysRole> roleList = sysRoleDao.getByUserId(this.userId);
 		Collection roleCollection = new ArrayList();
 		if ((roleList != null) && (roleList.size() > 0)) {
@@ -375,6 +375,5 @@ public class SysUser extends BaseModel implements UserDetails {
 	public boolean isEnabled() {
 		return this.status == STATUS_OK;
 	}
-	
 
 }

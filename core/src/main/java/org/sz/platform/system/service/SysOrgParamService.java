@@ -5,7 +5,7 @@ import java.util.List;
 import org.sz.core.service.BaseService;
 import org.sz.platform.system.model.SysOrgParam;
 
-public interface SysOrgParamService extends BaseService<SysOrgParam>{
+public interface SysOrgParamService extends BaseService<SysOrgParam> {
 
 	void add(long orgId, List<SysOrgParam> valueList);
 

@@ -1,7 +1,5 @@
 package org.sz.platform.system.model;
 
-import org.sz.platform.system.model.GlobalType;
-
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
@@ -15,13 +13,13 @@ public class GlobalType extends BaseModel {
 	public static final String CAT_DIC = "DIC";
 	public static final String CAT_FILE_FORMAT = "FILEFORMAT";
 	public static final String CAT_REPORT = "REPORT_TYPE";
-	public static final String CAT_BUSINESS = "BUSINESS_TYPE"; //add by bobo, 2013
-	
-	
+	public static final String CAT_BUSINESS = "BUSINESS_TYPE"; // add by bobo,
+																// 2013
+
 	public static final String NODE_KEY_DIC = "DIC";
 	public static final String TYPE_NAME_BPM = "流程分类";
 	public static final String TYPE_NAME_DIC = "数据字典";
-	
+
 	public static final Integer DATA_TYPE_TREE = Integer.valueOf(1);
 	public static final Integer DATA_TYPE_FLAT = Integer.valueOf(0);
 	public static final long ROOT_PID = -1L;
@@ -31,7 +29,7 @@ public class GlobalType extends BaseModel {
 	public static final String IS_PARENT_Y = "true";
 	public static final int IS_LEAF_N = 0;
 	public static final int IS_LEAF_Y = 1;
-	
+
 	protected Long typeId = Long.valueOf(0L);
 	protected String typeName;
 	protected String nodePath;

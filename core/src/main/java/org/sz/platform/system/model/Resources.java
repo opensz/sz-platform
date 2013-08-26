@@ -1,7 +1,5 @@
 package org.sz.platform.system.model;
 
-import org.sz.platform.system.model.Resources;
-
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
@@ -26,8 +24,7 @@ public class Resources extends BaseModel {
 	public static final Short IS_DISPLAY_IN_MENU_Y = 1;
 	public static final String IS_CHECKED_N = "false";
 	public static final String IS_CHECKED_Y = "true";
-	
-	
+
 	protected Long resId;
 	protected String resName;
 	protected String alias;
@@ -40,8 +37,7 @@ public class Resources extends BaseModel {
 	protected Short isOpen;
 	protected Long systemId;
 	protected String checked = "false";
-	
-	
+
 	protected String param;
 
 	public String getChecked() {
@@ -161,7 +157,6 @@ public class Resources extends BaseModel {
 	public Long getSystemId() {
 		return this.systemId;
 	}
-
 
 	public String getParam() {
 		return param;

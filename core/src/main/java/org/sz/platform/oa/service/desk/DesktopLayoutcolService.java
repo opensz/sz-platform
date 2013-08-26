@@ -6,7 +6,7 @@ import java.util.Map;
 import org.sz.core.service.BaseService;
 import org.sz.platform.oa.model.desk.DesktopLayoutcol;
 
-public interface DesktopLayoutcolService extends BaseService<DesktopLayoutcol>  {
+public interface DesktopLayoutcolService extends BaseService<DesktopLayoutcol> {
 
 	void delByLayoutId(Long layoutId);
 

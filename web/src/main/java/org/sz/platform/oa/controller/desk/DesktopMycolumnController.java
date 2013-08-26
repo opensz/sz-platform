@@ -53,8 +53,8 @@ public class DesktopMycolumnController extends BaseController {
 	@Action(description = "查看桌面个人栏目分页列表")
 	public ModelAndView list(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		List list = this.desktopMycolumnService.getAll(new WebQueryFilter(request,
-				"desktopMycolumnItem"));
+		List list = this.desktopMycolumnService.getAll(new WebQueryFilter(
+				request, "desktopMycolumnItem"));
 		ModelAndView mv = getAutoView().addObject("desktopMycolumnList", list);
 		return mv;
 	}

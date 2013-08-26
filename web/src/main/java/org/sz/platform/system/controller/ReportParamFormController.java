@@ -1,6 +1,6 @@
- package org.sz.platform.system.controller;
- 
-  import javax.annotation.Resource;
+package org.sz.platform.system.controller;
+
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -16,51 +16,48 @@ import org.sz.core.web.ResultMessage;
 import org.sz.core.web.controller.BaseFormController;
 import org.sz.platform.system.model.ReportParam;
 import org.sz.platform.system.service.ReportParamService;
- 
- @Controller
- @RequestMapping({"/platform/system/reportParam/"})
- public class ReportParamFormController extends BaseFormController
- {
- 
-   @Resource
-   private ReportParamService reportParamService;
- 
-   @RequestMapping({"save"})
-   @Action(description="添加或更新报表参数")
-   public void save(HttpServletRequest request, HttpServletResponse response, ReportParam reportParam, BindingResult bindResult)
-     throws Exception
-   {
-     ResultMessage resultMessage = validForm("reportParam", reportParam, bindResult, request);
- 
-     if (resultMessage.getResult() == 0)
-     {
-       writeResultMessage(response.getWriter(), resultMessage);
-       return;
-     }
-     String resultMsg = null;
-     if (reportParam.getPARAMID() == null) {
-       reportParam.setPARAMID(Long.valueOf(UniqueIdUtil.genId()));
-       this.reportParamService.add(reportParam);
-       resultMsg = getText("record.added", new Object[] { "报表参数" });
-     } else {
-       this.reportParamService.update(reportParam);
-       resultMsg = getText("record.updated", new Object[] { "报表参数" });
-     }
-     writeResultMessage(response.getWriter(), resultMsg, 1);
-   }
- 
-   @ModelAttribute
-   protected ReportParam getFormObject(@RequestParam("PARAMID") Long PARAMID, Model model)
-     throws Exception
-   {
-     this.logger.debug("enter ReportParam getFormObject here....");
-     ReportParam reportParam = null;
-     if (PARAMID != null)
-       reportParam = (ReportParam)this.reportParamService.getById(PARAMID);
-     else {
-       reportParam = new ReportParam();
-     }
-     return reportParam;
-   }
- }
 
+@Controller
+@RequestMapping({ "/platform/system/reportParam/" })
+public class ReportParamFormController extends BaseFormController {
+
+	@Resource
+	private ReportParamService reportParamService;
+
+	@RequestMapping({ "save" })
+	@Action(description = "添加或更新报表参数")
+	public void save(HttpServletRequest request, HttpServletResponse response,
+			ReportParam reportParam, BindingResult bindResult) throws Exception {
+		ResultMessage resultMessage = validForm("reportParam", reportParam,
+				bindResult, request);
+
+		if (resultMessage.getResult() == 0) {
+			writeResultMessage(response.getWriter(), resultMessage);
+			return;
+		}
+		String resultMsg = null;
+		if (reportParam.getPARAMID() == null) {
+			reportParam.setPARAMID(Long.valueOf(UniqueIdUtil.genId()));
+			this.reportParamService.add(reportParam);
+			resultMsg = getText("record.added", new Object[] { "报表参数" });
+		} else {
+			this.reportParamService.update(reportParam);
+			resultMsg = getText("record.updated", new Object[] { "报表参数" });
+		}
+		writeResultMessage(response.getWriter(), resultMsg, 1);
+	}
+
+	@ModelAttribute
+	protected ReportParam getFormObject(@RequestParam("PARAMID") Long PARAMID,
+			Model model) throws Exception {
+		this.logger.debug("enter ReportParam getFormObject here....");
+		ReportParam reportParam = null;
+		if (PARAMID != null)
+			reportParam = (ReportParam) this.reportParamService
+					.getById(PARAMID);
+		else {
+			reportParam = new ReportParam();
+		}
+		return reportParam;
+	}
+}

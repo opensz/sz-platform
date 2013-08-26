@@ -31,7 +31,7 @@ public class DemensionController extends BaseController {
 		List list = this.demensionService.getDemenByQuery(new WebQueryFilter(
 				request, "demensionItem"));
 		ModelAndView mv = getAutoView().addObject("demensionList", list);
-		
+
 		return mv;
 	}
 

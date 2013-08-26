@@ -34,123 +34,129 @@ import org.sz.core.web.ResultMessage;
 /**
  * 
  */
-public class BaseFormController extends GenericController implements ServletContextAware {
-    protected final transient Log log = LogFactory.getLog(getClass());
-    
-    
-    public static final String MESSAGES_KEY = "successMessages";
+public class BaseFormController extends GenericController implements
+		ServletContextAware {
+	protected final transient Log log = LogFactory.getLog(getClass());
 
-    protected String cancelView;
-    protected String successView;
+	public static final String MESSAGES_KEY = "successMessages";
 
-    private ServletContext servletContext;
-    
-    @Resource
+	protected String cancelView;
+	protected String successView;
+
+	private ServletContext servletContext;
+
+	@Resource
 	protected ConfigurableBeanValidator confValidator;
 
-    @Autowired(required = false)
-    Validator validator;
+	@Autowired(required = false)
+	Validator validator;
 
+	@SuppressWarnings("unchecked")
+	public void saveError(HttpServletRequest request, String error) {
+		List errors = (List) request.getSession().getAttribute("errors");
+		if (errors == null) {
+			errors = new ArrayList();
+		}
+		errors.add(error);
+		request.getSession().setAttribute("errors", errors);
+	}
 
-    @SuppressWarnings("unchecked")
-    public void saveError(HttpServletRequest request, String error) {
-        List errors = (List) request.getSession().getAttribute("errors");
-        if (errors == null) {
-            errors = new ArrayList();
-        }
-        errors.add(error);
-        request.getSession().setAttribute("errors", errors);
-    }
-    
-    @SuppressWarnings("unchecked")
-    public void saveMessage(HttpServletRequest request, String msg) {
-        List messages = (List) request.getSession().getAttribute(MESSAGES_KEY);
+	@SuppressWarnings("unchecked")
+	public void saveMessage(HttpServletRequest request, String msg) {
+		List messages = (List) request.getSession().getAttribute(MESSAGES_KEY);
 
-        if (messages == null) {
-            messages = new ArrayList();
-        }
+		if (messages == null) {
+			messages = new ArrayList();
+		}
 
-        messages.add(msg);
-        request.getSession().setAttribute(MESSAGES_KEY, messages);
-    }
+		messages.add(msg);
+		request.getSession().setAttribute(MESSAGES_KEY, messages);
+	}
 
-    /**
-     * Convenience method for getting a i18n key's value.  Calling
-     * getMessageSourceAccessor() is used because the RequestContext variable
-     * is not set in unit tests b/c there's no DispatchServlet Request.
-     *
-     * @param msgKey
-     * @param locale the current locale
-     * @return
-     */
-    public String getText(String msgKey, Locale locale) {
-        return this.messages.getMessage(msgKey, locale);
-    }
+	/**
+	 * Convenience method for getting a i18n key's value. Calling
+	 * getMessageSourceAccessor() is used because the RequestContext variable is
+	 * not set in unit tests b/c there's no DispatchServlet Request.
+	 * 
+	 * @param msgKey
+	 * @param locale
+	 *            the current locale
+	 * @return
+	 */
+	public String getText(String msgKey, Locale locale) {
+		return this.messages.getMessage(msgKey, locale);
+	}
 
-    /**
-     * Convenient method for getting a i18n key's value with a single
-     * string argument.
-     *
-     * @param msgKey
-     * @param arg
-     * @param locale the current locale
-     * @return
-     */
-    public String getText(String msgKey, String arg, Locale locale) {
-        return getText(msgKey, new Object[] { arg }, locale);
-    }
+	/**
+	 * Convenient method for getting a i18n key's value with a single string
+	 * argument.
+	 * 
+	 * @param msgKey
+	 * @param arg
+	 * @param locale
+	 *            the current locale
+	 * @return
+	 */
+	public String getText(String msgKey, String arg, Locale locale) {
+		return getText(msgKey, new Object[] { arg }, locale);
+	}
 
-    /**
-     * Convenience method for getting a i18n key's value with arguments.
-     *
-     * @param msgKey
-     * @param args
-     * @param locale the current locale
-     * @return
-     */
-    public String getText(String msgKey, Object[] args, Locale locale) {
-        return messages.getMessage(msgKey, args, locale);
-    }
+	/**
+	 * Convenience method for getting a i18n key's value with arguments.
+	 * 
+	 * @param msgKey
+	 * @param args
+	 * @param locale
+	 *            the current locale
+	 * @return
+	 */
+	public String getText(String msgKey, Object[] args, Locale locale) {
+		return messages.getMessage(msgKey, args, locale);
+	}
 
-    /**
-     * Convenience method to get the Configuration HashMap
-     * from the servlet context.
-     *
-     * @return the user's populated form from the session
-     */
-    public Map getConfiguration() {
-        Map config = (HashMap) servletContext.getAttribute(Constants.CONFIG);
+	/**
+	 * Convenience method to get the Configuration HashMap from the servlet
+	 * context.
+	 * 
+	 * @return the user's populated form from the session
+	 */
+	public Map getConfiguration() {
+		Map config = (HashMap) servletContext.getAttribute(Constants.CONFIG);
 
-        // so unit tests don't puke when nothing's been set
-        if (config == null) {
-            return new HashMap();
-        }
+		// so unit tests don't puke when nothing's been set
+		if (config == null) {
+			return new HashMap();
+		}
 
-        return config;
-    }
+		return config;
+	}
 
-    /**
-     * Set up a custom property editor for converting form inputs to real objects
-     * @param request the current request
-     * @param binder the data binder
-     */
-    @InitBinder
-    protected void initBinder(HttpServletRequest request,
-                              ServletRequestDataBinder binder) {
-        binder.registerCustomEditor(Integer.class, null,
-                                    new CustomNumberEditor(Integer.class, null, true));
-        binder.registerCustomEditor(Long.class, null,
-                                    new CustomNumberEditor(Long.class, null, true));
-        binder.registerCustomEditor(byte[].class,
-                                    new ByteArrayMultipartFileEditor());
-        SimpleDateFormat dateFormat = 
-            new SimpleDateFormat(getText("date.format", request.getLocale()));
-        dateFormat.setLenient(false);
-        binder.registerCustomEditor(Date.class, null, 
-                                    new CustomDateEditor(dateFormat, true));
-    }
-    
-    protected ResultMessage validForm(String form, Object obj,
+	/**
+	 * Set up a custom property editor for converting form inputs to real
+	 * objects
+	 * 
+	 * @param request
+	 *            the current request
+	 * @param binder
+	 *            the data binder
+	 */
+	@InitBinder
+	protected void initBinder(HttpServletRequest request,
+			ServletRequestDataBinder binder) {
+		binder.registerCustomEditor(Integer.class, null,
+				new CustomNumberEditor(Integer.class, null, true));
+		binder.registerCustomEditor(Long.class, null, new CustomNumberEditor(
+				Long.class, null, true));
+		binder.registerCustomEditor(byte[].class,
+				new ByteArrayMultipartFileEditor());
+		SimpleDateFormat dateFormat = new SimpleDateFormat(getText(
+				"date.format", request.getLocale()));
+		dateFormat.setLenient(false);
+		binder.registerCustomEditor(Date.class, null, new CustomDateEditor(
+				dateFormat, true));
+	}
+
+	protected ResultMessage validForm(String form, Object obj,
 			BindingResult result, HttpServletRequest request) {
 		ResultMessage resObj = new ResultMessage(1, "");
 		this.confValidator.setFormName(form);
@@ -169,36 +175,33 @@ public class BaseFormController extends GenericController implements ServletCont
 		return resObj;
 	}
 
+	public final BaseFormController setCancelView(String cancelView) {
+		this.cancelView = cancelView;
+		return this;
+	}
 
+	public final String getCancelView() {
+		// Default to successView if cancelView is invalid
+		if (this.cancelView == null || this.cancelView.length() == 0) {
+			return getSuccessView();
+		}
+		return this.cancelView;
+	}
 
-   
-    public final BaseFormController setCancelView(String cancelView) {
-        this.cancelView = cancelView;
-        return this;
-    }
+	public final String getSuccessView() {
+		return this.successView;
+	}
 
-    public final String getCancelView() {
-        // Default to successView if cancelView is invalid
-        if (this.cancelView == null || this.cancelView.length()==0) {
-            return getSuccessView();
-        }
-        return this.cancelView;   
-    }
+	public final BaseFormController setSuccessView(String successView) {
+		this.successView = successView;
+		return this;
+	}
 
-    public final String getSuccessView() {
-        return this.successView;
-    }
-    
-    public final BaseFormController setSuccessView(String successView) {
-        this.successView = successView;
-        return this;
-    }
+	public void setServletContext(ServletContext servletContext) {
+		this.servletContext = servletContext;
+	}
 
-    public void setServletContext(ServletContext servletContext) {
-        this.servletContext = servletContext;
-    }
-
-    protected ServletContext getServletContext() {
-        return servletContext;
-    }
+	protected ServletContext getServletContext() {
+		return servletContext;
+	}
 }

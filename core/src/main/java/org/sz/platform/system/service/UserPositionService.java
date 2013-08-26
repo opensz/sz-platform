@@ -5,7 +5,7 @@ import java.util.List;
 import org.sz.core.service.BaseService;
 import org.sz.platform.system.model.UserPosition;
 
-public interface UserPositionService extends BaseService<UserPosition>{
+public interface UserPositionService extends BaseService<UserPosition> {
 
 	void add(Long posId, Long[] userIds) throws Exception;
 

@@ -8,7 +8,7 @@ import org.sz.platform.oa.model.desk.DesktopLayout;
 import org.sz.platform.oa.model.desk.DesktopLayoutcol;
 import org.sz.platform.oa.model.desk.DesktopMycolumn;
 
-public interface DesktopMycolumnService extends BaseService<DesktopMycolumn>{
+public interface DesktopMycolumnService extends BaseService<DesktopMycolumn> {
 
 	List<DesktopMycolumn> getByUserId(Long userId);
 

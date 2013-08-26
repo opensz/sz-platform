@@ -69,8 +69,8 @@ public class SqlSessionFactoryFactoryBean implements FactoryBean,
 								mapperLocation.getInputStream(), conf, path,
 								conf.getSqlFragments());
 
-						xmlMapperBuilder.parse();			
-						conf.getMappedStatementNames();  //conf.buildAllStatements();
+						xmlMapperBuilder.parse();
+						conf.getMappedStatementNames(); // conf.buildAllStatements();
 					} catch (Exception e) {
 						throw new NestedIOException(
 								"Failed to parse mapping resource: '"

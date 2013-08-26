@@ -48,7 +48,7 @@ public class GlobalTypeController extends BaseController {
 
 	@RequestMapping({ "getPingyin" })
 	@ResponseBody
-	//@Action(description = "级联删除分类，即同时删除其所有子分类")
+	// @Action(description = "级联删除分类，即同时删除其所有子分类")
 	public String getPingyin(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		String typeName = RequestUtil.getString(request, "typeName");

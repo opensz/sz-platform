@@ -1,8 +1,7 @@
 package org.sz.platform.bpm.model.form;
 
-import org.sz.platform.bpm.model.form.BpmFormDef;
-
 import java.util.Date;
+
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
@@ -34,8 +33,8 @@ public class BpmFormDef extends BaseModel implements Cloneable {
 	protected String publishedBy;
 	protected Date publishTime;
 	protected String tableName = "";
-	protected Long templateId;  //表单使用的模板ID
-	
+	protected Long templateId; // 表单使用的模板ID
+
 	public void setFormDefId(Long formDefId) {
 		this.formDefId = formDefId;
 	}
