@@ -65,8 +65,10 @@ public class SzPreAuthenticatedProcessingFilter extends
 		} catch (Exception e) {
 		}
 		if (encryptCode.equals(authcode)) {
-			System.out.print("partnerId:" + partnerId + "   username:"
-					+ username);
+			if(log.isDebugEnabled()){
+				log.debug("partnerId:" + partnerId + "   username:"
+						+ username);
+			}
 			return true;
 		}
 		return false;

@@ -567,8 +567,7 @@ public class StringUtil {
 	}
 
 	public static void main(String[] args) {
-		String str = "${scriptImpl.getStartUserPos(startUser)==\"&#37096;&#38376;&#32463;&#29702;\"}";
-		System.out.println(htmlEntityToString(str));
+
 	}
 
 	/**

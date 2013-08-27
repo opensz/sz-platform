@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.sz.core.annotion.Action;
 import org.sz.core.customertable.BaseTableMeta;
 import org.sz.core.customertable.IDbView;
 import org.sz.core.customertable.TableModel;
@@ -25,6 +26,8 @@ import org.sz.core.web.util.RequestUtil;
 import org.sz.platform.bpm.model.form.BpmFormDialog;
 import org.sz.platform.bpm.service.form.BpmFormDialogService;
 import org.sz.platform.system.service.SysDataSourceService;
+
+import flex.messaging.log.Log;
 
 @Controller
 @RequestMapping({ "/platform/form/bpmFormDialog/" })
@@ -127,7 +130,7 @@ public class BpmFormDialogController extends BaseController {
 	}
 
 	@RequestMapping({ "getByDsObjectName" })
-	// @Action(description = "根据对象名称对象类型")
+	@Action(description = "根据对象名称对象类型")
 	@ResponseBody
 	public Map getByDsObjectName(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
@@ -147,7 +150,9 @@ public class BpmFormDialogController extends BaseController {
 			}
 			map.put("success", "true");
 		} catch (Exception ex) {
-			System.out.println("getByDsObjectName:" + ex.getMessage());
+			if (logger.isDebugEnabled()) {
+				logger.debug("getByDsObjectName:" + ex.getMessage());
+			}
 			map.put("success", "false");
 		}
 		return map;

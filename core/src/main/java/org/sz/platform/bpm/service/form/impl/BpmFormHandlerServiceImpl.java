@@ -204,7 +204,7 @@ public class BpmFormHandlerServiceImpl implements BpmFormHandlerService {
 				model.put("opinion", opinion);
 				options = options
 						+ this.freemarkEngine.mergeTemplateIntoString(
-								"opinion.ftl", model);
+								"bpm/opinion.ftl", model);
 			}
 			map.put(entry.getKey(), options);
 		}

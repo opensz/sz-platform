@@ -84,6 +84,7 @@ public class ModemMessageOperator {
 				rsStr = rsStr + c;
 			}
 			if (rsStr.indexOf("OK") > 0) {
+			
 				System.out.println("找到" + portStr + ":短信模块串口");
 				rsbool = true;
 			}

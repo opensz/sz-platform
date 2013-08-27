@@ -174,6 +174,6 @@ public class LoginController extends BaseController {
 
 	public static void main(String[] args) {
 		String str = EncryptUtil.encryptSha256("1");
-		System.out.println(str);
+		//System.out.println(str);
 	}
 }

@@ -75,19 +75,15 @@ public class TransformUtil {
 		case Top:
 			switch (toShape.getDirectory()) {
 			case Top:
-				System.out.println("Top Top");
 				list = caculateTopTop(fromShape, toShape);
 				break;
 			case Left:
-				System.out.println("Top Left");
 				list = caculateTopLeft(fromShape, toShape);
 				break;
 			case Right:
-				System.out.println("Top Right");
 				list = caculateTopRight(fromShape, toShape);
 				break;
 			case Bottom:
-				System.out.println("Top Bottom");
 				list = caculateTopBottom(fromShape, toShape);
 			}
 
@@ -95,19 +91,15 @@ public class TransformUtil {
 		case Left:
 			switch (toShape.getDirectory()) {
 			case Top:
-				System.out.println(" Left Top ");
 				list = caculateLeftTop(fromShape, toShape);
 				break;
 			case Left:
-				System.out.println(" Left Left ");
 				list = caculateLeftLeft(fromShape, toShape);
 				break;
 			case Right:
-				System.out.println(" Left Right ");
 				list = caculateLeftRight(fromShape, toShape);
 				break;
 			case Bottom:
-				System.out.println(" Left Bottom ");
 				list = caculateLeftBottom(fromShape, toShape);
 			}
 
@@ -115,19 +107,15 @@ public class TransformUtil {
 		case Right:
 			switch (toShape.getDirectory()) {
 			case Top:
-				System.out.println(" Right Top ");
 				list = caculateRightTop(fromShape, toShape);
 				break;
 			case Left:
-				System.out.println(" Right Left ");
 				list = caculateRightLeft(fromShape, toShape);
 				break;
 			case Right:
-				System.out.println(" Right Right ");
 				list = caculateRightRight(fromShape, toShape);
 				break;
 			case Bottom:
-				System.out.println(" Right Bottom ");
 				list = caculateRightBottom(fromShape, toShape);
 			}
 
@@ -135,19 +123,15 @@ public class TransformUtil {
 		case Bottom:
 			switch (toShape.getDirectory()) {
 			case Top:
-				System.out.println(" Bottom Top ");
 				list = caculateBottomTop(fromShape, toShape);
 				break;
 			case Left:
-				System.out.println(" Bottom Left ");
 				list = caculateBottomLeft(fromShape, toShape);
 				break;
 			case Right:
-				System.out.println(" Bottom Right ");
 				list = caculateBottomRight(fromShape, toShape);
 				break;
 			case Bottom:
-				System.out.println(" Bottom Bottom ");
 				list = caculateBottomBottom(fromShape, toShape);
 			}
 
@@ -1254,7 +1238,7 @@ public class TransformUtil {
 		float toY = toShape.getPoint().getY();
 
 		if (toShape.getLeftCenter().getX() + minLen <= fromX) {
-			System.out.println("caculateLeftLeft目标在源对象的左边");
+			//"caculateLeftLeft目标在源对象的左边";
 
 			if ((toShape.getBottomCenter().getY() + minLen < fromY)
 					|| (toShape.getTopCenter().getY() > fromY + minLen)) {
@@ -1294,7 +1278,7 @@ public class TransformUtil {
 		} else if ((toShape.getRightCenter().getX() + minLen > fromX)
 				&& (toShape.getLeftCenter().getX() < fromShape.getRightCenter()
 						.getX() + minLen)) {
-			System.out.println("caculateLeftLeft中部");
+			//"caculateLeftLeft中部";
 			float tmpx = 0.0F;
 			if (toX < fromX)
 				tmpx = toX - Offset;
@@ -1310,11 +1294,11 @@ public class TransformUtil {
 			list.add(p3);
 			list.add(p4);
 		} else {
-			System.out.println("caculateLeftLeft右边");
+			//"caculateLeftLeft右边";
 
 			if ((toY + minLen < fromShape.getTopCenter().getY())
 					|| (toY > fromShape.getBottomCenter().getY() + minLen)) {
-				System.out.println("caculateLeftLeft上方下方");
+				//"caculateLeftLeft上方下方";
 				Point p1 = new Point(fromX, fromY);
 				Point p2 = new Point(fromX - Offset, fromY);
 				Point p3 = new Point(fromX - Offset, toY);
@@ -1324,7 +1308,7 @@ public class TransformUtil {
 				list.add(p3);
 				list.add(p4);
 			} else {
-				System.out.println("caculateLeftLeft纵向中部");
+				//"caculateLeftLeft纵向中部";
 				float tmpx = (fromShape.getRightCenter().getX() + toX) / 2.0F;
 				float tmpy = 0.0F;
 

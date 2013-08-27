@@ -342,7 +342,7 @@ public class ProcessRunServiceImpl extends BaseServiceImpl<ProcessRun> implement
 		messageModel.put("userName", receiverUser.getFullname());
 		String url = this.configproperties.get("serverUrl") + "/platform/bpm/task/toStart.xht?taskId=" + taskId;
 		messageModel.put("linkStr", url);
-		String message = this.freemarkEngine.mergeTemplateIntoString("message.ftl", messageModel);
+		String message = this.freemarkEngine.mergeTemplateIntoString("message/message.ftl", messageModel);
 		InnerMessage innerMessage = new InnerMessage();
 		innerMessage.setSubject(processRun.getSubject());
 		innerMessage.setFrom("0");
@@ -360,7 +360,7 @@ public class ProcessRunServiceImpl extends BaseServiceImpl<ProcessRun> implement
 		messageModel.put("userName", receiverUser.getFullname());
 		String url = this.configproperties.get("serverUrl") + "/platform/bpm/task/toStart.xht?taskId=" + taskId;
 		messageModel.put("linkStr", url);
-		String message = this.freemarkEngine.mergeTemplateIntoString("message.ftl", messageModel);
+		String message = this.freemarkEngine.mergeTemplateIntoString("message/message.ftl", messageModel);
 		InnerMessage innerMessage = new InnerMessage();
 		innerMessage.setSubject(processRun.getSubject());
 		innerMessage.setFrom("0");
@@ -379,7 +379,7 @@ public class ProcessRunServiceImpl extends BaseServiceImpl<ProcessRun> implement
 		Map messageModel = new HashMap();
 		messageModel.put("processName", processRun.getSubject());
 		messageModel.put("userName", receiverUser.getFullname());
-		String content = this.freemarkEngine.mergeTemplateIntoString("shortMessage.ftl", messageModel);
+		String content = this.freemarkEngine.mergeTemplateIntoString("message/shortMessage.ftl", messageModel);
 		SmsMobile smsMobile = new SmsMobile();
 		String mobile = receiverUser.getMobile();
 		if(mobile.indexOf("/") != -1){
@@ -398,7 +398,7 @@ public class ProcessRunServiceImpl extends BaseServiceImpl<ProcessRun> implement
 		mailMap.put("userName", receiverUser.getFullname());
 		String url = this.configproperties.get("serverUrl") + "/platform/bpm/task/toStart.xht?taskId=" + taskId;
 		mailMap.put("linkStr", url);
-		String content = this.freemarkEngine.mergeTemplateIntoString("mailMessage.ftl", mailMap);
+		String content = this.freemarkEngine.mergeTemplateIntoString("message/mailMessage.ftl", mailMap);
 		MailModel mailModel = new MailModel();
 		mailModel.setSubject(processRun.getSubject());
 		String[] sendTos = { receiverUser.getEmail() };

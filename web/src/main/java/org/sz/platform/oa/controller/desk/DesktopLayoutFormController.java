@@ -44,7 +44,6 @@ public class DesktopLayoutFormController extends BaseFormController {
 			else
 				desktopLayout.setIsDefault(Integer.valueOf(0));
 			String[] aryWidth = desktopLayout.getWidth().split(",");
-			System.out.println(StringUtils.join(aryWidth, ","));
 			desktopLayout.setWidth(StringUtils.join(aryWidth, ","));
 			this.desktopLayoutService.add(desktopLayout);
 			resultMsg = getText("record.added", new Object[] { "桌面布局" });

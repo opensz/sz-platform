@@ -153,7 +153,6 @@ public abstract class ParamSearch<T> {
 				param.put("paramValue", "%" + paramValue + "%");
 			else
 				param.put("paramValue", paramValue);
-			System.out.print("[@_@]" + param.toString());
 			return param;
 		}
 		throw new Exception("sql参数不是xxx" + condition + "x形式:" + expression);

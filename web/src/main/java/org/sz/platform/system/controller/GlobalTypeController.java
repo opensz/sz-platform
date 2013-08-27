@@ -209,13 +209,9 @@ public class GlobalTypeController extends BaseController {
 	@ResponseBody
 	public List<GlobalType> getByCatKey(HttpServletRequest request) {
 		String catKey = RequestUtil.getString(request, "catKey");
-		System.out.println("[catKey]:" + catKey);
 		boolean hasRoot = RequestUtil.getInt(request, "hasRoot", 1) == 1;
 
 		List list = this.globalTypeService.getByCatKey(catKey, hasRoot);
-		if (list != null && list.size() > 0) {
-			System.out.println("[catKey]:" + list.get(0));
-		}
 		return list;
 	}
 

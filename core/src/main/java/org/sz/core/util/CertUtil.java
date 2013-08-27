@@ -35,7 +35,6 @@ public class CertUtil {
 
 	public static void main(String[] args) {
 		File file = get("smtp.gmail.com", 465);
-		System.out.println(file.getAbsolutePath());
 	}
 
 	public static File get(String host, int port) {
@@ -143,7 +142,6 @@ public class CertUtil {
 			e.printStackTrace();
 			return null;
 		} finally {
-			System.out.println("关闭连接...");
 			try {
 				if (in != null)
 					in.close();
@@ -153,7 +151,6 @@ public class CertUtil {
 					out.close();
 			} catch (IOException e) {
 				e.printStackTrace();
-				System.out.println("关闭连接失败!");
 			}
 		}
 	}

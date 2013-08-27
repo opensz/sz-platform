@@ -23,8 +23,8 @@
 			</div>
 		</div>
 		<div class="panel-body">
-				${html}
-				${pageHtml}	
+				${f:unescapeXml(html)}
+				${f:unescapeXml(pageHtml)}	
 				<br />		
 		</div>
 </div>

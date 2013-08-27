@@ -1,45 +1,31 @@
-<%--
-	desc:edit the 桌面栏目
---%>
 <%@page language="java" pageEncoding="UTF-8"%>
 <%@include file="/commons/include/html_doctype.html"%>
 <html>
 <head>
 <title>编辑 桌面栏目</title>
 <%@include file="/commons/include/form.jsp"%>
-<link type="text/css" rel="stylesheet"
-	href="${ctx}/jslib/codemirror/lib/codemirror.css">
-<script type="text/javascript"
-	src="${ctx}/jslib/codemirror/lib/codemirror.js"></script>
-<script type="text/javascript"
-	src="${ctx}/jslib/codemirror/mode/xml/xml.js"></script>
-<script type="text/javascript"
-	src="${ctx}/jslib/codemirror/mode/javascript/javascript.js"></script>
-<script type="text/javascript"
-	src="${ctx}/jslib/codemirror/mode/css/css.js"></script>
-<script type="text/javascript"
-	src="${ctx}/jslib/codemirror/mode/htmlmixed/htmlmixed.js"></script>
-
+<%@include file="/commons/include/codemirror.jsp"%>
 <script type="text/javascript"
 	src="${ctx}/servlet/ValidJs?form=desktopColumn"></script>
 <script type="text/javascript">
 	$(function() {
 
-		var width = $("#html").width();
-		var height = $("#html").height();
+		//var width = $("#html").width();
+		//var height = $("#html").height();
 		editor = CodeMirror.fromTextArea(document.getElementById("html"), {
 			mode : "text/html",
 			tabMode : "indent",
 			lineNumbers : true
 		});
 
-		editor.setSize(width, height);
+		//editor.setSize(width, height);
 
 		function showRequest(formData, jqForm, options) {
 			return true;
 		}
 		valid(showRequest, showResponse);
 		$("a.save").click(function() {
+		    editor.save();
 			$('#desktopColumnForm').submit();
 		});
 	});

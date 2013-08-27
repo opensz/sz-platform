@@ -6,10 +6,13 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 import org.sz.core.model.BaseModel;
 
 public class BpmTableTemplate extends BaseModel {
+	
 	public static final int AUTHOR_TYPE_ALL = 1;
 	public static final int AUTHOR_TYPE_SELF = 2;
 	public static final int AUTHOR_TYPE_UNDER = 3;
 	public static final int AUTHOR_TYPE_ORG = 4;
+	
+	
 	protected Long id;
 	protected Long tableId;
 	protected Long categoryId;

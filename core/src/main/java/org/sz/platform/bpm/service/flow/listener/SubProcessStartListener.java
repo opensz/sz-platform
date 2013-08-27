@@ -18,7 +18,6 @@ public class SubProcessStartListener implements ExecutionListener {
 		List<ActivityImpl> list = activityImpl.getActivities();
 		for (ActivityImpl actImpl : list) {
 			if ("userTask".equals(actImpl.getProperty("type"))) {
-				System.out.println("★★★★★★★★★★firstNode=" + actImpl.getId());
 				execution.setVariable("firstNode", actImpl.getId());
 				break;
 			}

@@ -38,6 +38,6 @@ public class UserSessionListener implements HttpSessionAttributeListener {
 	}
 
 	public void attributeReplaced(HttpSessionBindingEvent event) {
-		System.out.println(event.getName());
+		
 	}
 }

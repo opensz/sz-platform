@@ -1,12 +1,11 @@
 package org.sz.core.sms.impl;
 
-import org.sz.core.sms.impl.ModemMessage;
-import org.sz.core.sms.impl.ModemMessageOperator;
-
-import java.io.PrintStream;
 import java.util.List;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.smslib.AGateway.Protocols;
 import org.smslib.GatewayException;
 import org.smslib.Message.MessageEncodings;
@@ -16,6 +15,9 @@ import org.smslib.modem.SerialModemGateway;
 import org.sz.core.sms.IShortMessage;
 
 public class ModemMessage implements IShortMessage {
+	
+	private static Log log = LogFactory.getLog(ModemMessage.class);
+	
 	private static ModemMessage instance = null;
 
 	private static Lock lock = new ReentrantLock();
@@ -108,9 +110,10 @@ public class ModemMessage implements IShortMessage {
 		if (this.serviceHasOpen)
 			return sendMessage(mobiles, message);
 		String comStr = ModemMessageOperator.getInstance().getRightComStr();
-		if (comStr == null)
-			System.out.println("[SMS]未能获取到可以发送短信的串口。");
-		System.out.println("[SMS]开始使用串口:" + comStr + "发送短信。");
+		if (comStr == null) {
+			log.warn("[SMS]未能获取到可以发送短信的串口。");
+		}
+		log.info("[SMS]开始使用串口:" + comStr + "发送短信。");
 		if (comStr != null) {
 			if (initial(comStr, 9600, "0000")) {
 				this.serviceHasOpen = true;

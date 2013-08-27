@@ -5,9 +5,13 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.sz.core.model.BaseModel;
 
+/**
+ * 系统模板管理
+ *
+ */
 public class SysTemplate extends BaseModel {
 	protected Long templateId;
-	protected Integer templateType;
+	protected Integer templateType;  //模板类型
 	protected String name;
 	protected String content;
 
