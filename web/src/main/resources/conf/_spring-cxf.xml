@@ -13,8 +13,9 @@
 
     <bean id="jsonProvider" class="org.codehaus.jackson.jaxrs.JacksonJsonProvider"/>
 
+    <!--  
     <jaxws:endpoint id="userService" implementor="#userManager" address="/UserService"/>
-    <!-- Add new endpoints for additional services you'd like to expose -->
+    
     
     <jaxrs:server address="/api">
         <jaxrs:features>
@@ -32,5 +33,6 @@
             <entry key="feed" value="application/atom+xml"/>
         </jaxrs:extensionMappings>
     </jaxrs:server>
+    -->
 
 </beans>

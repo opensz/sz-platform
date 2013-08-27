@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+  
+<mapper namespace="org.sz.core.bpm.model.ProcessExecution">
+  <insert id="add" parameterType="org.sz.core.bpm.model.ProcessExecution">
+    insert into ACT_RU_EXECUTION (ID_, REV_, PROC_INST_ID_, BUSINESS_KEY_, PROC_DEF_ID_, ACT_ID_, IS_ACTIVE_, IS_CONCURRENT_, IS_SCOPE_, PARENT_ID_, SUPER_EXEC_)
+    values (
+      #{id ,jdbcType=VARCHAR},
+      1,
+      #{processInstanceId, jdbcType=VARCHAR},
+      #{businessKey, jdbcType=VARCHAR},
+      #{processDefinitionId ,jdbcType=VARCHAR},
+      #{activityId ,jdbcType=VARCHAR},
+      #{isActive ,jdbcType=BOOLEAN},
+      #{isConcurrent ,jdbcType=BOOLEAN},
+      #{isScope ,jdbcType=BOOLEAN},
+      #{parentId, jdbcType=VARCHAR},
+      #{superExecutionId, jdbcType=VARCHAR}
+    )
+  </insert>
+
+
+  <!-- EXECUTION RESULTMAP -->
+  
+  <resultMap id="executionResultMap" type="org.sz.core.bpm.model.ProcessExecution">
+    <id property="id" column="ID_" jdbcType="VARCHAR" />
+    <result property="revision" column="REV_" jdbcType="INTEGER" />
+    <result property="processInstanceId" column="PROC_INST_ID_" jdbcType="VARCHAR" />
+    <result property="businessKey" column="BUSINESS_KEY_" jdbcType="VARCHAR" />
+    <result property="processDefinitionId" column="PROC_DEF_ID_" jdbcType="VARCHAR" />
+    <result property="activityId" column="ACT_ID_" jdbcType="VARCHAR" />
+    <result property="isActive" column="IS_ACTIVE_" jdbcType="BOOLEAN" />
+    <result property="isConcurrent" column="IS_CONCURRENT_" jdbcType="BOOLEAN" />
+    <result property="isScope" column="IS_SCOPE_" jdbcType="BOOLEAN" />
+    <result property="parentId" column="PARENT_ID_" jdbcType="VARCHAR" />
+    <result property="superExecutionId" column="SUPER_EXEC_" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <!-- EXECUTION SELECT -->
+  
+  <select id="getById" parameterType="string" resultMap="executionResultMap">
+    select * from ACT_RU_EXECUTION where ID_ = #{id}
+  </select>
+  
+  <delete id="delAssigneeByExecutionId" parameterType="java.lang.String">
+  	delete from ACT_RU_VARIABLE where EXECUTION_ID_=#{exeuctionId} and NAME_='assignee'
+  </delete>
+  
+  <delete id="delLoopCounterByExecutionId" parameterType="java.lang.String">
+  	delete from ACT_RU_VARIABLE where EXECUTION_ID_=#{exeuctionId} and NAME_='loopCounter'
+  </delete>
+  
+</mapper>

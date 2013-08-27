@@ -1,0 +1,18 @@
+﻿/* @import url("common.css");
+@import url("form.css");
+@import url("grid.css");
+@import url("grid.css");
+@import url("layout.css");
+@import url("tab.css");
+@import url("dialog.css"); */
+
+/*框架*/
+@import url("layout.css");
+/*标签*/
+@import url("tab.css");
+/*数据列表*/
+@import url("grid.css");
+/*弹出对话框*/
+@import url("dialog.css"); 
+/*表单*/
+@import url("form.css");

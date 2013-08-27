@@ -1,42 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans:beans xmlns="http://www.springframework.org/schema/security"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:beans="http://www.springframework.org/schema/beans" xmlns:p="http://www.springframework.org/schema/p"
-             xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
               http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 
-    <http pattern="/images/**" security="none"/>
-    <http pattern="/styles/**" security="none"/>
-    <http pattern="/scripts/**" security="none"/>
-    <http pattern="/monitoring/**" security="none"/>
-    <http pattern="/login**" security="none"/>
-    
+	<http pattern="/commons/**" security="none" />
+	<http pattern="/styles/**" security="none" />
+	<http pattern="/js/**" security="none" />
+	<http pattern="/jslib/**" security="none" />
+	<http pattern="/themes/**" security="none" />
+	<http pattern="/login/**" security="none" />
+	<http pattern="/login**" security="none" />
+	<http pattern="/WEB-INF/common/errorpage/*.jsp" security="none" />
 
-    <http auto-config="true">
-        <intercept-url pattern="/app/admin/**" access="ROLE_ADMIN"/>
-        <intercept-url pattern="/app/passwordHint*" access="ROLE_ANONYMOUS,ROLE_ADMIN,ROLE_USER"/>
-        <intercept-url pattern="/app/signup*" access="ROLE_ANONYMOUS,ROLE_ADMIN,ROLE_USER"/>
-        <intercept-url pattern="/app/**" access="ROLE_ADMIN,ROLE_USER"/>
-        <form-login login-page="/login" authentication-failure-url="/login?error=true" login-processing-url="/j_security_check"/>
-        <remember-me user-service-ref="userDao" key="e37f4b31-0c45-11dd-bd0b-0800200c9a66"/>
-    </http>
+	<http pattern="/monitoring/**" security="none" />
 
-    <authentication-manager>
-        <authentication-provider user-service-ref="userDao">
-            <password-encoder ref="passwordEncoder">
-                <salt-source ref="saltSource"/>
-            </password-encoder>
-        </authentication-provider>
-    </authentication-manager>
 
-    <beans:bean id="saltSource" class="org.springframework.security.authentication.dao.ReflectionSaltSource"
-        p:userPropertyToUse="username"/>
+	<http pattern="/media/**" security="none" />
+	<http pattern="/servlet/ValidCode" security="none" />
+	<http pattern="/servlet/ValidJs" security="none" />
+	<http pattern="/pad/**" security="none" />
 
-    <!-- Override the default password-encoder (SHA) by uncommenting the following and changing the class -->
-    <!-- <bean id="passwordEncoder" class="org.springframework.security.authentication.encoding.ShaPasswordEncoder"/> -->
 
-    <global-method-security>
-        <protect-pointcut expression="execution(* *..service.UserManager.getUsers(..))" access="ROLE_ADMIN"/>
-        <protect-pointcut expression="execution(* *..service.UserManager.removeUser(..))" access="ROLE_ADMIN"/>
-    </global-method-security>
+
+	<http auto-config="true" servlet-api-provision="true">
+
+		<intercept-url pattern="*.xht" access="ROLE_USER,ROLE_ADMIN" />
+
+
+		<form-login login-page="/login.jsp"
+			always-use-default-target="true" />
+
+
+		<!-- custom-filter position="FORM_LOGIN_FILTER" ref="szAuthenticationFilter" 
+			/ -->
+
+		<!-- custom-filter position="PRE_AUTH_FILTER" ref="szPreAuthFilter" / -->
+
+
+		<logout logout-url="/logout" logout-success-url="/login.jsp" />
+		<remember-me key="szplatformPrivateKey" />
+
+		<custom-filter before="FILTER_SECURITY_INTERCEPTOR" ref="szPermissionFilter" />
+		<access-denied-handler ref="szAccessDeniedHandler" />
+
+	</http>
+
+	<beans:bean id="szPreAuthFilter"
+		class="org.sz.core.security.web.SzPreAuthenticatedProcessingFilter">
+		<beans:property name="authenticationManager" ref="authenticationManager" />
+	</beans:bean>
+
+	<beans:bean id="szAuthenticationFilter"
+		class="org.sz.core.security.web.SzUsernamePasswordAuthenticationFilter">
+		<beans:property name="authenticationManager" ref="authenticationManager" />
+	</beans:bean>
+
+	<beans:bean id="szAccessDeniedHandler"
+		class="org.sz.core.security.web.SzAccessDeniedHandler">
+		<beans:property name="accessDeniedUrl" value="/WEB-INF/common/errorpage/403.jsp" />
+	</beans:bean>
+
+	<authentication-manager alias="authenticationManager">
+		<authentication-provider user-service-ref="sysUserDao">
+			<password-encoder hash="sha-256" base64="true" />
+		</authentication-provider>
+	</authentication-manager>
+
+	<beans:bean id="szPermissionFilter" class="org.sz.core.security.web.SzPermissionFilter">
+		<beans:property name="authenticationManager" ref="authenticationManager" />
+		<beans:property name="accessDecisionManager" ref="accessDecisionManager" />
+		<beans:property name="securityMetadataSource" ref="securityMetadataSource" />
+	</beans:bean>
+
+
+	<!-- 访问决策器，决定某个用户具有的角色，是否有足够的权限去访问某个资源 -->
+	<beans:bean id="accessDecisionManager" class="org.sz.core.security.web.SzDecisionManager" />
+
+
+	<!-- 资源源数据定义，即定义某一资源可以被哪些角色访问 -->
+	<beans:bean id="securityMetadataSource"
+		class="org.sz.core.security.web.SzSecurityMetadataSource" scope="singleton">
+		<beans:property name="anonymousUrls">
+			<beans:set>
+				<beans:value>/login.xht</beans:value>
+				<beans:value>/login.jsp</beans:value>
+				<beans:value>/bpmImage</beans:value>
+				<beans:value>/platform/bpm/processRun/userImage.xht</beans:value>
+				<beans:value>/platform/bpm/processRun/getFlowStatusByInstanceId.xht
+				</beans:value>
+				<beans:value>/platform/bpm/processRun/taskUser.xht</beans:value>
+				<!-- flex附件上传的 -->
+				<beans:value>/platform/bpm/bpmDefinition/getXmlImport.xht
+				</beans:value>
+			</beans:set>
+		</beans:property>
+	</beans:bean>
+
 </beans:beans>

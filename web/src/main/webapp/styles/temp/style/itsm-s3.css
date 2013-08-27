@@ -1,0 +1,79 @@
+@charset "utf-8";
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,address,code,em,img,strong,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,tbody,tr,th,td {
+	border: none; margin: 0px; padding: 0px; list-style: none;font-size:12px;
+}  
+*{margin:0;padding:0;}  
+body{margin:0px;padding:0px;font-size:12px;}
+ol,ul {list-style:none;}  
+
+ /* 超链接全局定位 */ 
+a {font-size:12px;text-decoration: none;}  
+a:hover {}  
+a img{border: none;}  
+
+/* 关键元素定位 */ 
+/* 解决在IE, firefox中, ul自带margin, padding, 清除为 0 以免变形*/ 
+ul {margin:0;padding:0;}
+/* 如果想默认 li属性  
+li{display:inline;float:left;}  
+*/ 
+th {font-weight:bold;}  
+table {empty-cells:show;border-collapse:collapse;}  
+h1,h2,h3,h4,h5,h6 {font-size:12px;}  
+em,cite,strong,th {text-align:left;font-style:normal;}  
+
+/* 输入控件定义 */ 
+input,textarea,select,radio {font-size:12px;margin:0;padding:0;}  
+
+/*临时去掉滚动条*/
+div{overflow:hidden;}
+
+/* 全局通用结束 */ 
+table {border-collapse:collapse;border-spacing:0;}  
+th {text-align:center;}  
+
+blockquote {quotes:none;}  
+blockquote:before,blockquote:after {content:'';content: none;}  
+:link,:visited { text-decoration: none; }  
+
+td,th,div {word-break:break-all;word-wrap:break-word;}  
+
+form {display:inline;}  
+
+*{outline:none;}  
+
+/* 清除浮动 代码 */
+.clear{
+	clear:both;
+	height:0px;
+	width:0px;
+}
+
+/*form表单元素*/
+select {
+	margin:0px;
+	border: 1px solid #CCCFD7;
+	color: #000000;
+	background-color: #FFFFFF;
+	height:22px; line-height:18px;
+	padding:2px 0;
+}
+input[type="text"],input[type="password"],input[type="file"]{
+	margin:0px;
+	border: 1px solid #CCCFD7;
+	color: #000000;
+	background-color: #FFFFFF;
+	height: 20px;
+	background:url("../images/text-bg.gif") repeat-x scroll 0 0 white;
+}
+textarea{
+	margin:0px;
+	padding:0px;
+	border: 1px solid #CCCFD7;
+	color: #000000;
+	background-color: #FFFFFF;
+	height: 67px;
+	resize:none;
+	background:url("../images/text-bg.gif") repeat-x scroll 0 0 white;	
+}
+

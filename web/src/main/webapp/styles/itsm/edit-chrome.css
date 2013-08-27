@@ -1,0 +1,67 @@
+/****编辑页面2列宽度样式*****************************************************************/
+
+/***编辑页面两列时 chrome谷歌浏览器 所使用的样式******************/
+/*.edit-casedeal{ background:#91c6e8;}
+.edit-casedeal .x-field-label-cell{ width:90px!important; background:#91c6e8; padding-left:6px;} */
+
+.edit-casedeal{}
+.edit-casedeal .x-field-label-cell{background:#91c6e8;}
+.edit-casedeal .x-form-trigger-wrap{font-size:12px;}
+
+.edit-part{ width:90%;}
+.edit-part .x-field-label-cell{ width:120px!important; background:#91c6e8; padding-left:6px;}
+.edit-part .x-form-trigger-wrap{ width:100%!important; font-size:12px;}
+
+.edit-part2-1-1{ width:45%;}
+.edit-part2-1-1 .x-field-label-cell{ width:120px!important; background:#91c6e8; padding-left:6px;}
+.edit-part2-1-1 .x-form-trigger-wrap{ width:100%!important; font-size:12px;}
+
+.edit-part2-2-1{ width:95%;}
+.edit-part2-2-1 .x-field-label-cell{ width:120px!important; background:#91c6e8; padding-left:6px;}
+.edit-part2-2-1 .x-form-trigger-wrap{ width:100%!important; font-size:12px;} 
+
+/****编辑页面3列宽度样式*****************************************************************/
+
+/***编辑页面三列时 chrome谷歌浏览器 所使用的样式********************/
+.edit-part3{ width:90%;}
+.edit-part3 .x-field-label-cell{ width:120px!important; background:#91c6e8; padding-left:6px;}
+.edit-part3 .x-form-trigger-wrap{ width:100%!important; font-size:12px;}
+
+/**.edit-part3-2-1{ width:95%;}
+.edit-part3-2-1 .x-field-label-cell{ width:65px!important; background:#91c6e8; padding-left:6px;}
+.edit-part3-2-1 .x-form-trigger-wrap{ width:100%!important; font-size:12px;} **/
+
+@media all and (min-width:0px){ .edit-part3-2-1{ width:95%;} }  /*opera*/
+@media all and (min-width:0px){ .edit-part3-2-1 .x-field-label-cell{ width:120px!important; background:#91c6e8; padding-left:6px;} }  /*opera*/
+@media all and (min-width:0px){ .edit-part3-2-1 .x-form-trigger-wrap{ width:100%!important; font-size:12px;} }  /*opera*/
+
+.edit-part3-3-1{ width:96.5%;}
+.edit-part3-3-1 .x-field-label-cell{ width:120px!important; background:#91c6e8; padding-left:6px;}
+.edit-part3-3-1 .x-form-trigger-wrap{ width:100%!important; font-size:12px;}
+
+/*左边带按钮的控件用*/
+.edit-part3-btn{width:100%;}
+.edit-part3-btn .x-field-label-cell{ width:120px!important; background:#91c6e8; padding-left:6px;}
+.edit-part3-btn .x-form-trigger-wrap{ width:100%!important; font-size:12px;}
+
+
+.edit-part-button{
+	vertical-align:top!important;
+} 
+
+
+/*Fixed bug HWITSMDEV-3541 只显示纵向滚动条 */
+.kitty .x-panel-body-default{
+	overflow-x:hidden;
+	overflow-y:auto;
+}
+
+
+
+
+
+
+
+
+
+

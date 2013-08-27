@@ -1,0 +1,67 @@
+@charset "utf-8";
+/*布局容器*/
+.table-layout{
+	margin:0px auto;
+	padding:0px;
+	width:98%;
+	margin-top:5px;
+}	
+	/*编辑页面分为几列*/
+	.table-layout .table-layout-cell-3,.table-layout .table-layout-cell-2,.table-layout .table-layout-cell-1{
+		padding-right:15px;
+		padding-bottom:5px;
+		width:30%;
+	}
+	.table-layout .table-layout-cell-2{
+		width:50%;	
+	}	
+	.table-layout .table-layout-cell-1{
+		width:100%;	
+	}	
+	
+	/*标题栏*/
+	.table_form{
+		margin:0px;
+		padding:0px;	
+		width:100%;
+		height:100%;
+	}	
+	.table_form .form-field-lable{
+		padding-left:3px;
+		background-color:#91C6E8;
+		height:24px;
+		line-height:100%;
+		vertical-align:middle;  
+	}	
+	.table_form  input[type="text"],.table_form  input[type="password"],.table_form select,.table_form textarea{
+		height:24px;
+		width:100%;
+	}
+	.table_form  select{}
+	.table_form  textarea{
+		height:60px;
+	}
+	/*必填项提示*/
+	.table_form .form-field-lable span{color:red;}
+	/*报错*/
+	.table_form  .form-field-errors{
+		border:1px solid red;
+		background-color:white;
+		background-image:url("../images/form/invalid_line.gif");
+		background-position:center bottom;
+		background-repeat:repeat-x;
+		border-color:#CC3300;		
+	}
+	/*不可修改*/
+	.table_form  .form-field-readonly{
+		background:none repeat scroll 0 0 #DFE8F7;	
+	}
+	/*控件激活*/
+	.table_form  .form-field-focus{
+		border-color:#7EADD9;
+	}		
+	/*针对备注文本域这种高度而设计*/
+	.table_form .form-field-lable-top{
+		vertical-align:top;
+		padding-top:5px;
+	}

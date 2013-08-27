@@ -1,0 +1,246 @@
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,address,code,em,img,strong,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,tbody,tr,th,td {
+	border: none; margin: 0px; padding: 0px; list-style: none;font-size:12px;
+}  
+body {
+	margin: 0px;
+	padding: 0px;
+	font-size: 12px;
+	background:#E5EDEF;
+	background-attachment: fixed;
+	background-image:url("images/bg.jpg");
+	background-repeat:no-repeat;
+	background-position:center;
+	background-color:#1393ff;
+	overflow:hidden;
+/* 	-moz-background-size:cover;
+	background-size:cover;
+	background-size:100% 100%;
+	overflow:hidden;		*/
+}
+form {
+	margin: 0px;
+	padding: 0px;
+}
+input,ul,li,p { margin:0; padding:0; list-style-type: none;}
+
+.logo{
+	position: absolute;
+	left: 5px;
+	top: 5px;
+	width:316px;
+	height:56px;
+	/*background:url("images/logo.png") no-repeat;*/
+}
+.working_hours{
+	position: absolute;
+	right:0px;
+	top: 5px;
+	width:316px;
+	height:56px;
+	background:url("images/fwrx.png") no-repeat;
+}
+.login{
+ 	position:absolute; 
+	bottom:3%; 
+	left:50%; 
+	margin:-84px 0 0 -132px; 
+	/*width:346px;*/
+	width:455px;
+	height:230px;
+	background:url("images/login-bg.png") no-repeat;
+	padding-top:60px;
+	border:0px solid red;
+}
+
+
+.login li input[type="button"],input[type="submit"]{
+	padding:4px 8px;
+}
+/*普通按钮*/
+.login .btn{
+	float:left;
+	margin-right:5px;
+	display: inline-block;
+	*display: inline;
+	vertical-align: baseline;
+	outline: none;
+	cursor: pointer;
+	text-align: center;
+	text-decoration: none;
+	padding:3px 8px 3px 8px;
+	/*text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);	
+	*/
+	-webkit-border-radius: 5px; 
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	color: #d9eef7;
+	border: solid 1px #0076a3;
+ 	background: #0095cd;
+	background: url(images/btn/but_bg.jpg);	
+ 	background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+	background: -moz-linear-gradient(top,  #00adee,  #0078a5);
+ 	/*filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#00adee', endColorstr='#0078a5');	 */
+	behavior: url(ie-css3.htc); /* This lets IE know to call the script on all elements which get the 'box' class */		
+}
+.login .btn:hover ,.login .btn_hover {
+	text-decoration: none;
+	background: #007ead;
+	background:url(images/btn/but_hover_bg.jpg);	
+	background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
+	background: -moz-linear-gradient(top,  #0095cc,  #00678e);
+/* 	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#0095cc', endColorstr='#00678e'); */
+	behavior: url(ie-css3.htc);	
+}
+.login .btn:active ,.login .btn_active{
+	color: #80bed6;
+	background: url(images/btn/but_active_bg.jpg);	
+ 	background: -webkit-gradient(linear, left top, left bottom, from(#0078a5), to(#00adee));
+	background: -moz-linear-gradient(top,  #0078a5,  #00adee); /	
+/* 	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#0078a5', endColorstr='#00adee'); */
+	behavior: url(ie-css3.htc);
+}
+.login .btn span{
+	display:block;
+	height:16px;
+	line-height:16px;
+	vertical-align: text-bottom;
+}
+
+.flash_div{
+	position:absolute;
+	left:0px;
+	top:-50px;
+}
+
+
+/*左边选择*/
+.left{
+	float:left;
+	width:112px;
+	height: 170px;
+	font-weight:bold;
+	padding-top: 10px;
+	margin-left:40px;
+}
+.left li{
+	height:35px;
+	text-align: center;
+	width:112px;
+	line-height:35px;
+}
+.left li a {
+	color: #333;
+	text-decoration: none;
+}
+.left li a:hover {
+	color: #000;
+	text-decoration: none;
+}
+.left li:hover {
+	background-image: url(images/left_b.png);
+	background-repeat: no-repeat;
+	height: 35px;
+	width: 112px;
+}
+.topic:hover{ width: 112px; height: 35px; background: url(images/left_b.png) no-repeat; 
+ 					display: block; line-height: 35px; text-align:center;}
+.left li.current{ width: 112px; height:35px; background: url(images/left_b.png) no-repeat; display: block; 
+						line-height: 35px; text-align:center;}
+.left .selected {
+	background-image: url(images/left_b.png);
+	background-repeat: no-repeat;
+	height: 35px;
+	width: 112px;
+}
+/*中间线*/
+.line {
+	background-image: url(images/line.png);
+	background-repeat: no-repeat;
+	height: 187px;
+	width: 5px;
+	overflow:hidden;
+	float: left;
+}
+/*右边内容*/
+.biao {
+	background-image: none;
+	width: 280px;
+	height:190px;
+	float: left;
+}
+.biao li {
+	height: 22px;
+	margin-bottom: 5px;
+	background-image: none;
+}
+.biao .b_ru {
+	width: 340px;
+	margin-right: auto;
+	margin-left: auto;
+}
+.biao .ts {
+	font-size: 12px;
+	background-image: none;
+	text-align: center;
+	width: 300px;
+	color: #F00;
+	border: 1px dotted #666;
+	line-height: 22px;
+	height: 22px;
+}
+
+.biao .w {
+	float: left;
+	height: 22px;
+	width: 70px;
+	font-size: 12px;
+	font-weight: bold;
+	line-height: 22px;
+}
+.biao .ru {
+	height: 20px;
+	width: 180px;
+	color: #242424;
+	font-size: 13px;
+	border: 1px solid #CECCCC;
+	line-height: 20px;
+}
+.biao .but {
+	background-image: none;
+	height: 35px;
+	padding-left:40px;
+	margin-top:15px;
+	width: 135px;
+	float: left;
+}
+
+.biao .download{
+ float:left; padding-left:10px; font-size:12px;
+ width: 55px; height:25px; line-height:25px;
+ margin-top:15px;
+ }
+.biao .download a{ color:#333; font-weight: bold; text-decoration: none;}
+.biao .download a:hover{ color:#0c5496; font-weight: bold; text-decoration: none;}
+.biao .error_message {
+	font-size: 12px;
+	background-image: none;
+	text-align: center;
+	width: 250px;
+	color: #F00;
+	border: 1px dotted #333;
+	line-height: 22px;
+	height: 22px;
+}
+.biao .select_login {
+	height: 20px;
+	width: 180px;
+	color: #242424;
+	font-size: 13px;
+	border: 1px solid #CECCCC;
+	line-height: 20px;
+}
+
+

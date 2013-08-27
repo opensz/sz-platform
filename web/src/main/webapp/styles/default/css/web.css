@@ -1,0 +1,871 @@
+body {
+	font-size: 12px;
+	margin:0;
+	padding:0;
+}
+
+iframe{margin: -1px 0px -1px 0px;}
+
+.panel {
+	width: 100%;
+	/*height:100%;*/
+	/*padding-bottom: 20px;*/
+}
+
+.panel-body {
+	
+}
+
+.panel-top {
+	margin-top: 2px;
+}
+
+.date,.datetime{
+	background: url(../images/datePicker.gif) no-repeat scroll right center #FFFFFF;
+    border: 1px solid #999999;
+    /*height: 20px;*/
+}
+
+.tbar-title {
+	padding-left: 20px;
+	margin-top: 2px;
+	border: 1px #8dc2e3 solid;
+	
+	height: 24px;
+	padding-top: 5px;
+	font-size: 13px;
+	font-weight: bold;
+	background: url(../images/list_title_bg.jpg) repeat-x;
+}
+
+.panel-toolbar {
+	
+	padding-left: 2px;
+	border-top: none;
+	border-bottom: none;
+	border: 1px #8dc2e3 solid;
+	height: 21px;
+	padding-top: 4px;
+	background: url(../images/menu_select_bg.jpg) repeat-x;
+
+}
+
+.panel-toolbar a {
+	text-decoration: none;
+	color: blue;
+	float: left;
+	margin-left: 10px;
+}
+
+.tree-toolbar {
+	padding-left: 2px;
+	border-top: none;
+	border-bottom: none;
+	border: 1px #8dc2e3 solid;
+	height: 21px;
+	padding-top: 4px;
+	background: url(../images/menu_select_bg.jpg) repeat-x;
+}
+
+.tree-toolbar a {
+	text-decoration: none;
+	color: blue;
+	float: left;
+	margin-left: 10px;
+}
+
+
+
+
+
+.toolBar a {padding-left:20px;cursor: hand;}
+/*数据区*/
+.panel-data {
+	width: 100%;
+	margin-top: 10px;
+}
+
+/*搜索区*/
+.panel-search {
+	min-width: 450px;
+	border: 1px #8dc2e3 solid;
+	padding-left: 20px;
+	border-top: none;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+.bar-button,.link-btn {
+	padding-left: 22px;
+	height: 20px;
+	width: auto;
+	padding-top: 2px;
+	padding-right: 8px;
+	cursor: pointer;
+}
+
+.inputText {
+	border: 1px solid #abc1d1;
+	padding:2px;
+}
+
+.panel-search input,.panel-search button {
+	margin: 4px 4px 6px 4px;
+	padding: 2px 1px 2px 1px;
+}
+
+.panel-table {
+	margin: 0;
+}
+
+
+
+.table-grid {
+	border: 1px solid rgb(123, 171, 207);
+	width: 100%;
+}
+
+.table-grid thead {
+	
+	height: 34px;
+	width: 100%;
+}
+
+.table-grid caption {
+	border-width: 1px 1px medium;
+	border-style: solid solid none;
+	border-color: rgb(168, 207, 235) rgb(168, 207, 235) currentColor;
+	height: 14px;
+	text-align: left;
+	color: rgb(28, 86, 138);
+	padding-top: 5px;
+	padding-left: 5px;
+	font-weight: bold;
+	background-color: rgb(223, 234, 251);
+}
+
+.table-grid th {
+	color: #102A49;
+	height: 34px;
+	padding-left: 5px;
+	text-align: center;
+	border: dotted 1px a8cfeb;
+	white-space: nowrap;
+	border-right: solid 1px #a8cfeb;
+	background: url(../images/content_bg_sort.jpg) repeat-x;
+}
+
+div.header{
+	background: url(../images/content_bg_sort.jpg) repeat-x;
+	height: 30px;
+	line-height:30px;
+	width: 100%;
+	text-align: left;
+	padding-left: 5px;
+}
+
+.table-detail {
+	width: 100%;
+	margin: 0 auto;
+	border-collapse: collapse;
+}
+
+.table-detail th {
+	text-align: right;
+	padding-right: 6px;
+	color: #000;
+	height: 32px;
+	border: solid 1px #A8CFEB;
+	font-weight: bold;
+	text-align: right;
+	font-size: 13px;
+	font-weight: bold;
+	padding-right: 5px;
+	background-color: #edf6fc;
+	padding-right: 5px;
+	border: 1px solid #8dc2e3;
+}
+
+.head {
+	text-align: right;
+	padding-right: 6px;
+	color: #000;
+	height: 32px;
+	border: solid 1px #A8CFEB;
+	font-weight: bold;
+	text-align: right;
+	font-size: 13px;
+	font-weight: bold;
+	padding-right: 5px;
+	background-color: #edf6fc;
+	padding-right: 5px;
+	border: 1px solid #8dc2e3;
+}
+
+.table-detail textarea{
+	margin:2px;
+	border: 1px solid #abc1d1;
+	padding:2px;
+}
+
+.table-detail td {
+	border: solid 1px #A8CFEB;
+	padding-left: 6px;
+	text-align: left;
+}
+
+th a,th a:visited {
+	color: #102A49;
+}
+
+th a:hover {
+	text-decoration: underline;
+}
+
+th.sorted a,th.sortable a {
+	background-position: right;
+	display: block;
+	width: 100%;
+}
+
+th.sortable a {
+	background-repeat: no-repeat;
+}
+
+th.order1 a {
+	background-image: url(../images/displaytag/icon-sort-desc.gif);
+	background-repeat: no-repeat;
+	background-position: 80% 0%;
+}
+
+th.order2 a {
+	background-image: url(../images/displaytag/icon-sort-asc.gif);
+	background-repeat: no-repeat;
+	background-position: 80% 0%;
+}
+
+.table-grid td {
+	height: 28px;
+	padding: 4px 4px 4px 4px;
+	border-left: solid 1px #a8cfeb;
+	border-right: solid 1px #a8cfeb;
+	border-bottom: solid 1px #a8cfeb;
+	text-align: left;
+	padding-left: 10px;
+	word-break: break-all; /*当行数据内容过多时，表格换行*/
+}
+
+.even span,.odd span {
+	cursor: pointer;
+}
+
+.table-grid .even {
+	height: 28px;
+	background-color: #fff;
+}
+
+.table-grid .odd {
+	height: 28px;
+	background: #f1f6ff;
+}
+
+.table-grid .over {
+	background: url(../images/content_bg_hover.jpg);
+}
+
+/*数据导出区*/
+.area-export {
+	text-align: right;
+	clear: both;
+	margins: 0;
+	paddings: 0;
+	border: 1px solid rgb(123, 171, 207);
+	border-top: none;
+	padding-top: 6px;
+	height: 23px;
+}
+
+.area-export .exportlinks {
+	display: inline-table;
+	margin-right: 20px;
+	text-align: right;
+}
+
+.area-export input {
+	vertical-align: middle;
+}
+
+.area-export .exportlinks .export {
+	padding: 0 4px 1px 20px;
+	display: inline;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.exportlinks a {
+	text-decoration: none;
+}
+
+.area-export .exportlinks .excel {
+	background-image: url(../images/displaytag/ico_file_excel.png);
+	background-repeat: no-repeat;
+}
+
+.area-export .exportlinks .csv {
+	background-image: url(../images/displaytag/ico_file_csv.png);
+	background-repeat: no-repeat;
+}
+
+.area-export .exportlinks .xml {
+	background-image: url(../images/displaytag/ico_file_xml.png);
+	background-repeat: no-repeat;
+}
+
+.area-export .exportlinks .pdf {
+	background-image: url(../images/displaytag/ico_file_pdf.png);
+	background-repeat: no-repeat;
+}
+
+.area-export .exportlinks .rtf {
+	background-image: url(../images/displaytag/ico_file_rtf.png);
+	background-repeat: no-repeat;
+}
+
+.panel-page {
+	border: 1px #8dc2e3 solid;
+	padding-left: 20px;
+	border-top: none;
+	min-width: 450px;
+	height: 25px;
+	margin: 0; padding : 0;
+	background: url(../images/menu_select_bg.jpg) repeat-x;
+	padding: 0;
+}
+
+.l-panel-bbar-inner {
+	margin: 0;
+	width: 100%;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+.btn-go {
+	width: 43px;
+	height: 21px;
+	font-size: 15px;
+	font-family: Verdana, Geneva, sans-serif;
+	background: url(../images/trun_button2.jpg) no-repeat 0 1px;
+	border: none;
+	cursor: pointer;
+}
+
+.panel-page img {
+	cursor: pointer;
+}
+
+
+/*验证表单字段样式*/
+label.error {
+	background: url(../images/valid/unchecked.gif) no-repeat 0px 0px;
+	margin-left: 16px;
+	padding-left: 16px;
+	padding-bottom: 2px;
+	font-weight: bold;
+	color: #EA5200;
+}
+
+label.checked {
+	background: url(../images/valid/checked.gif) no-repeat 0px 0px;
+}
+
+/*================common button=====================================*/
+
+
+a.search {
+	background: url(../images/icons/icons_46.png) no-repeat left;
+	margin-left: 0px !important;
+}
+
+
+a.add {
+	background: url(../images/icons/icons_07-16.png) no-repeat left;
+}
+
+
+a.del {
+	background: url(../images/icons/icons_14-38.png) no-repeat left;
+}
+
+
+a.save {
+	background: url(../images/icons/icons_save.png) no-repeat 0 -1px;
+}
+
+
+
+a.back {
+	background: url(../images/icons/icons_back.png) no-repeat left;
+}
+
+a.close {
+	background: url(../images/menu/close.gif) 0px 1px no-repeat;
+}
+
+
+span.red{font-weight: bold;color: red;}
+span.green{font-weight: bold;color: green;}
+
+
+/*功能菜单单元格*/
+.attach {background:url(../images/icon/icon_attach.gif) 0px 5px no-repeat;}
+
+.ref {background:url(../images/menu/public.gif) 0px 5px no-repeat;}
+
+.print{background:url(../images/button/print.png)0px 4px no-repeat;}
+.exp {background:url(../images/menu/expand.gif) 0px 5px no-repeat;}
+.col {background:url(../images/menu/collapse.gif) 0px 5px no-repeat;}
+
+.init {background:url(../images/menu/init.png) 0px 4px no-repeat;}
+.publi {background:url(../images/menu/public.gif) 0px 3px no-repeat;}
+.copy {background:url(../images/menu/copy.gif) 0px 4px no-repeat;}
+.check {background:url(../images/menu/check.gif) 0px 1px no-repeat;}
+.excel {background:url(../images/menu/excel.gif) 0px 1px no-repeat;}
+
+.search {background:url(../images/menu/get.gif) 0px 0px no-repeat;}
+
+
+.get {background:url(../images/menu/get.gif) 0px 1px no-repeat;}
+.history {background:url(../images/menu/history.gif) 0px 3px no-repeat;}
+.help {background:url(../images/menu/help.gif) 0px 1px no-repeat;}
+.ok {background:url(../images/menu/ok.gif) 0px 1px no-repeat;}
+
+.no {background:url(../images/menu/no.png) 0px 3px no-repeat;}
+.reply {background:url(../images/menu/reply.png) 0px 3px no-repeat;}
+.import {background:url(../images/menu/import.png) 0px 3px no-repeat;}
+.img {background:url(../images/menu/img.gif) 0px 1px no-repeat;}
+.li {background:url(../images/menu/li.gif) 0px 1px no-repeat;}
+.run {background:url(../images/menu/run.png) 0px 5px no-repeat;}
+.read {background:url(../images/menu/add.gif) 0px 1px no-repeat;}
+.reload {background:url(../images/menu/reload.gif) 0px 1px no-repeat;}
+.resetPwd {background:url(../images/menu/resetPwd.gif) 0px 1px no-repeat;}
+.save {background:url(../images/menu/save.gif) 2px 3px no-repeat;}
+.showOther {background:url(../images/menu/showOther.gif) 0px 1px no-repeat;}
+.sort {background:url(../images/menu/sort.gif) 0px 1px no-repeat;}
+.start {background:url(../images/menu/run.png) 0px 3px no-repeat;}
+.split {background:url(../images/menu/split.gif) 0px 1px no-repeat;}
+.table {background:url(../images/menu/table.gif) 0px 1px no-repeat;}
+
+.undo {background:url(../images/menu/undo.png) 0px 3px no-repeat;}
+
+
+.redo {background:url(../images/menu/redo.png) 0px 3px no-repeat;}
+
+.upd {background:url(../images/menu/edit.gif) 0px 1px no-repeat;}
+.word {background:url(../images/menu/table.gif) 0px 1px no-repeat;}
+.zoom {background:url(../images/menu/zoom.gif) 0px 1px no-repeat;}
+.up {background:url(../images/menu/up.png) 0px 3px no-repeat;}
+.down {background:url(../images/menu/down.png) 0px 3px no-repeat;}
+
+.download {background:url(../images/menu/download.png) 0px 3px no-repeat;}
+
+.upload {background:url(../images/menu/upload.png) 0px 3px no-repeat;}
+
+
+.xml-bpm {background:url(../images/menu/xml-bpm.png) 0px 3px no-repeat;}
+
+.xml-design {background:url(../images/menu/xml-design.png) 0px 3px no-repeat;}
+
+
+.preview {background:url(../images/menu/preview.png) 0px 4px no-repeat;}
+.msg {background:url(../images/menu/msg.gif) 0px 1px no-repeat;}
+.flow_design{background:url(../images/menu/flow_design.png) 0px 4px no-repeat;}
+ .vline{background-color:silver;padding-left:1px;padding-right:0px;margin:0px 2px 0px 2px;}
+
+
+.tref {background:url(../images/icon/reload.png) 0px 2px no-repeat;}
+.texp {background:url(../images/icon/expand.gif) 0px 2px no-repeat;}
+.tcol {background:url(../images/icon/collapse.gif) 0px 2px no-repeat;}
+
+
+.moveup {background:url(../images/menu/moveup.png) 0px 3px no-repeat;}
+.movedown {background:url(../images/menu/movedown.png) 0px 3px no-repeat;}
+
+.next {background:url(../images/button/next.gif) 0px 3px no-repeat;}
+
+.prev {background:url(../images/button/prev.gif) 0px 3px no-repeat;}
+
+
+
+/*=================link button start=================================*/
+
+a.link{
+	padding-left:20px;cursor: pointer;  color: blue;font-size:12px;
+	text-decoration: none;
+}
+
+a.link.disabled{
+	color: gray;
+}
+
+a.link:hover{
+
+	text-decoration: underline;
+}
+
+a.link.search{
+	background:url(../images/icons/icons_search.png) 0px 1px no-repeat;
+}
+
+a.link.add{
+	background:url(../images/icons/icons_add.png) 0px -1px no-repeat;
+}
+
+a.link.del{
+	background:url(../images/icons/icons_del.png) 0px -1px no-repeat;
+}
+
+a.link.save{
+	background:url(../images/icons/icons_save.png) 0px -3px no-repeat;
+}
+
+a.link.back{
+	background:url(../images/icons/icons_back.png) 0px -2px no-repeat;
+}
+
+a.link.init{
+	background:url(../images/menu/init.png) 0px 0px no-repeat;
+}
+
+a.link.show{
+	background:url(../images/menu/show.gif) 0px -2px no-repeat;
+}
+
+a.link.no{
+	background:url(../images/menu/no.png) 0px -2px no-repeat;
+}
+
+a.link.undo{
+	background:url(../images/menu/undo.png) 0px 0px no-repeat;
+}
+
+a.link.redo{
+	background:url(../images/menu/redo.png)  0px -2px no-repeat;
+}
+
+a.link.update{
+	background:url(../images/menu/update.gif)  0px -2px no-repeat;
+}
+
+a.link.upload{
+	background:url(../images/menu/upload.png) 0px -2px no-repeat;
+}
+
+a.link.xml-bpm{
+	background:url(../images/menu/xml-bpm.png) 0px 0px no-repeat;
+}
+
+a.link.reload{
+	background:url(../images/icon/reload.png) 0px  1px no-repeat;
+}
+
+a.link.xml-design{
+	
+	background:url(../images/menu/xml-design.png) 0px 0px no-repeat;
+}
+
+a.link.preview{
+	background:url(../images/menu/preview.png) 0px 0px no-repeat;
+}
+
+a.link.expand{
+	background:url(../images/icon/expand.gif) 0px -0px no-repeat;
+}
+
+a.link.collapse{
+	background:url(../images/icon/collapse.gif) 0px -0px no-repeat;
+}
+
+a.link.moveup{
+	background: url(../images/menu/moveup.png) 0px 1px no-repeat;
+}
+
+a.link.movedown{
+	background: url(../images/menu/movedown.png) 0px 1px no-repeat;
+}
+
+a.link.next{
+	background:url(../images/button/next.gif) 0px 1px no-repeat;
+}
+
+a.link.prev{
+	background:url(../images/button/prev.gif) 0px 1px no-repeat;
+}
+
+
+a.link.edit{
+	background:url(../images/icons/icons_edit.png) 0px -2px no-repeat;
+}
+
+a.link.copy{
+	background:url(../images/button/copy.jpg) 0px -0px no-repeat;
+}
+
+a.link.test{
+	background: url(../images/button/test.gif) 0px -2px no-repeat;
+}
+
+a.link.detail{
+	background:url(../images/icons/icons_detail.png) 0px -2px no-repeat;
+}
+
+a.link.flowDesign{
+	background: url(../images/button/flow_design.png) 0px -2px no-repeat;
+}
+
+a.link.dataList{
+	background: url(../images/icons/icons_dataList.png) 0px -2px no-repeat;
+}
+
+a.link.uploadPhoto{
+	background: url(../images/button/uploadPhoto.gif) 0px -2px no-repeat;
+}
+
+a.link.run{
+	background: url(../images/button/run.png) 0px 0px no-repeat;
+}
+
+a.link.goForward{
+	background: url(../images/button/goForward.gif) 0px 0px no-repeat;
+}
+
+a.link.resetPwd{
+	background: url(../images/button/resetPwd.png) 0px -2px no-repeat;
+} 
+
+a.link.get{
+	background:url(../images/button/get.gif)  0px -2px no-repeat;
+}
+
+a.link.clean{
+	background: url(../images/button/clean.gif)  0px 2px no-repeat;
+}
+
+
+a.link.download{
+	background: url(../images/button/download.png)  0px 1px no-repeat;
+}
+
+a.link.var{
+	background: url(../images/bpm/code.gif) 0px 0px no-repeat;
+}
+
+a.link.backUp{
+	background: url(../images/button/backUp.gif) 0px -2px no-repeat;
+}
+
+a.link.setting{
+	background: url(../images/menu/setting.png) 0px 1px no-repeat;
+}
+
+a.link.grant{
+	background: url(../images/menu/grant.png) 0px 0px no-repeat;
+}
+
+a.link.deploy{
+	background: url(../images/icon/deploy.gif) 0px 0px no-repeat;
+}
+
+a.link.auth{
+	background: url(../images/button/auth.gif) 0px -2px no-repeat;
+}
+
+a.link.lock{
+	background: url(../images/menu/lock.png) 0px -2px no-repeat;
+}
+
+a.link.unlock{
+	background: url(../images/menu/unlock.png) 0px 0px no-repeat;
+}
+
+a.link.newVersion{
+	background: url(../images/icons/newVersion.gif) 0px -2px no-repeat;
+}
+
+a.link.cancel{
+	background: url(../images/icon/cancel.gif) 0px 2px no-repeat;
+}
+a.link.selectFile{
+	background: url(../images/icon/file.gif) 0px 2px no-repeat;
+}
+
+a.link.print{
+	background: url(../images/icon/print.gif) 0px -2px no-repeat;
+}
+
+a.link.printSetting{
+	background: url(../images/icon/printSetting.gif) 0px 2px no-repeat;
+}
+
+a.link.printPreView{
+	background: url(../images/icon/printPreView.gif) 0px 2px no-repeat;
+}
+
+a.link.sendMessage{
+	background: url(../images/icon/sendMessage.gif) 0px -3px no-repeat;
+}
+
+a.link.addMessage{
+	background: url(../images/icon/addMessage.gif) 0px -2px no-repeat;
+}
+
+a.link.parameter{
+	background: url(../images/button/parameter.png) 0px -2px no-repeat;
+}
+
+a.link.close {
+	background: url(../images/menu/close.gif) 0px -2px no-repeat;
+}
+
+
+a.link.primary {
+	background: url(../images/icon/primary.gif) 0px -2px no-repeat;
+}
+
+a.link.notPrimary {
+	background: url(../images/icon/notPrimary.gif) 0px -2px no-repeat;
+}
+
+a.link.charge {
+	background: url(../images/icon/charge.gif) 0px -2px no-repeat;
+}
+
+a.link.noCharge {
+	background: url(../images/icon/noCharge.gif) 0px -2px no-repeat;
+}
+
+.link-sortUp {
+	background: url(../images/menu/arrow-up.png) no-repeat !important;
+	text-decoration: none;
+}
+
+.link-sortDown {
+	background: url(../images/menu/arrow-down.png) no-repeat !important;
+	text-decoration: none;
+}
+
+.link-sortTop {
+	background: url(../images/menu/sort_top.png) no-repeat !important;
+}
+
+.link-sortBottom {
+	background: url(../images/menu/sort_bottom.png) no-repeat !important;
+}
+
+/*==================end of link button===============================*/
+
+/*布局底部设置*/
+div.bottom{text-align: center;align:center;padding-top: 6px;}
+/*设置弹出窗口中按钮的样式*/
+
+/*去掉下划线*/
+a.button:link { text-decoration: none;}
+
+a.button {
+	display: inline-block;
+	text-decoration:none;
+	cursor:pointer;height:15px; 
+	line-height: 15px; 
+	background:url(../images/button/button.gif) no-repeat left 0px;
+	color:#000;  
+	padding:5px 0px 5px 10px; 
+	font-size: 12px;
+	text-align: center;
+}
+
+a.button span{ 
+	display: inline-block;
+	height:15px; 
+	line-height: 15px;
+	white-space:nowrap; 
+	background:url(../images/button/button.gif) no-repeat right  0px;
+	color:#000; 
+	padding:5px 10px 5px 3px; 
+	font-size: 12px;
+	text-align: center;
+	margin: -5px -2px 0px 0px; 
+}
+
+a.button span.icon{
+	height:0px;
+	display: inline-block;
+	padding:10px 2px 10px 16px;
+	width:0px;
+	margin-top:-5px;
+	margin-bottom:-5px;
+}
+
+a.button:hover {
+	background:url(../images/button/button_over.gif) no-repeat left 0px;
+}
+a.button:hover span{
+	background:url(../images/button/button_over.gif) no-repeat right 0px;
+	margin: -5px -2px 0px 0px;
+}
+
+a.button:hover span.icon{
+	height:0px;
+	display: inline-block;
+	padding:10px 2px 10px 16px;
+	width:0px;
+	margin-top:-5px;
+	margin-bottom:-5px;
+}
+/**
+	图标按钮在此定义。
+*/
+a.button span.icon.save{
+	background: url(../images/icons/icons_save.png) no-repeat -2px -2px;
+}
+
+a.button span.icon.ok{
+	background: url(../images/icon/ok.gif) no-repeat 0px 3px;
+}
+
+a.button span.icon.cancel{
+	background: url(../images/icon/cancel.gif) no-repeat 0px 3px;
+}
+
+a.button span.icon.valid{
+	background: url(../images/icon/valid.gif) no-repeat 0px 3px;
+}
+
+
+/*
+	提示信息。
+*/
+a.tipinfo{
+	background:url(../images/icon/help.gif) 0px -2px no-repeat;
+	padding-left: 20px;
+	line-height: 20px;
+	text-decoration: none;
+	position: relative;
+}
+a.tipinfo span{
+	display: none;
+}
+a.tipinfo:hover span{
+	position:absolute;
+	top:0px;
+	left:25px; 
+	width:200px;
+	font-weight:bold;
+	color:red;
+	font-size:14px;
+	display:inline;
+	padding:3px 3px 3px 3px;
+	word-break:break-all;
+	border: 1px solid #A4BED4;
+	background-color:#E4EFFD;
+	line-height: 20px;
+	text-decoration: none; 
+}

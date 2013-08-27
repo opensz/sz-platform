@@ -1,0 +1,87 @@
+.icon{ width:16px; height:16px; float:left; background-image:url(images/icon.gif); background-repeat: no-repeat;}
+.add{background-position:0px 0px!important;}
+.search{background-position:0px -14px!important;}
+.view{background-position:0px -33px !important;}
+.man { background-position: -16px 0px;}
+.women{ background-position:-16px -17px;}
+.request{ background-position:-16px -36px;}
+.incident{ background-position:-16px -54px;}
+.question{ background-position:-16px -71px;}
+.change{ background-position:-16px -90px;}
+.release{ background-position:-16px -108px;}
+.requirement{ background-position:-16px -126px;}
+.common{ background-position:-16px -144px;}
+
+/**grid列表中的工单状态图标**/
+
+.grid_case_create{ background-position:-16px -162px;}     /*1. 创建**/
+.grid_case_wassign{ background-position:-16px -180px;}    /*2. 待分配**/
+.grid_case_handle{ background-position:-16px -198px;}     /*3. 待处理**/
+.grid_case_process{ background-position:-16px -216px;}    /*4. 处理中**/
+.grid_case_wback{ background-position:-16px -234px;}      /*5. 待回访**/
+.grid_case_complete{ background-position:-16px -252px;}   /*6. 完成*/
+.grid_case_close{ background-position:-16px -270px;}     /*10.已关闭**/
+.grid_case_copy{ background-position:-16px -288px!important;}  /*工单复制*/
+.grid_case_hangup{ width:16px; height:16px; float:left; background-image:url(images/btn-icon/hung.png); background-repeat:no-repeat;}  /*工单挂起*/
+.problem{ width:16px; height:16px; float:left; background-image:url(images/btn-icon/question.png); background-repeat:no-repeat; margin-left:0px;}  /*问题*/
+/*.complete{ background-position:-16px -233px;}  以前写的：完房**/
+/*.suspend{ background-position:-16px -215px;}   以前写的：挂赿**/
+/*.archive { background-position:-16px -288px;}  以前写的：归桿**/
+
+/*优先级别*/
+.priortity_1{ background-position:-34px 0px;}
+.priortity_2{ background-position:-34px -18px;}
+.priortity_3{ background-position:-34px -36px;}
+.priortity_4{ background-position:-34px -54px;}
+.priortity_5{ background-position:-34px -72px;}
+
+/*服务级别*/
+.severlevel_1{ background-position:-34px -90px;}
+.severlevel_2{ background-position:-34px -108px;}
+.severlevel_3{ background-position:-34px -126px;}
+.severlevel_4{ background-position:-34px -144px;}
+.severlevel_5{ background-position:-34px -162px;}
+
+
+.case_type{ background-position:-52px 0px;}        /*工单类型*/
+.service_level{ background-position:-52px -18px;}
+.case_priority{ background-position:-52px -36px;}
+.case_status{ background-position:-52px -54px;}
+.case_father{ background-position:-52px -73px;}    /*父工卿**/
+.case_son{ background-position:-52px -91px;}       /*子工卿**/
+
+.icon_case_son{
+    background-image: url("images/list-icon/icon_case_son.gif");
+    background-repeat: no-repeat;
+    float: left;
+	height:16px;
+	padding-left:18px;
+}
+.icon_case_father{
+    background-image: url("images/list-icon/icon_case_father.gif");
+    background-repeat: no-repeat;
+    float: left;
+	height:16px;
+	padding-left:18px;
+}
+
+.asset_add{ background-position:-70px -36px!important;} /*添加资产**/
+.asset_choose{ background-position:-70px -54px!important; } /*选择资产**/
+.deptstaff_select{ background-position:-70px -72px!important;}
+.link_search{background-position:0px -67px!important;}/*链路*/
+.staff_add{ background-position:0px -51px!important;} /**快速**/
+.notice{ background-position:-70px -90px!important;} /*张韶明5.23 提示**/
+
+.clear{ background-position:-70px -18px!important;}/*清空输入框内宿**/
+
+.but_c {
+	background: none !important;/*取消按钮默认样式*/
+} 
+.but_c {
+	border: 0 none;
+}
+/**
+.but_c:hover {
+	border: 1px solid #81a4d0;
+}
+*/

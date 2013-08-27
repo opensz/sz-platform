@@ -1,0 +1,1013 @@
+@import url(../calendar-aqua/theme.css);
+
+form li p {
+	font-size: 12px;
+	line-height: 1em;
+	color: #222;
+	font-weight: bold;
+	margin-bottom: 0;
+}
+
+form li .content {
+	margin-bottom: 8px;
+}
+
+form li .content p {
+	font-size: 1em;
+	line-height: 2em;
+	color: #000;
+	margin-bottom: 0;
+}
+
+form li div p {
+	margin: 0 0 5px 0;
+}
+
+[disabled="disabled"] {
+	background-color: eee;
+}
+
+label.desc {
+	display: block;
+	float: left;
+	text-align: left;
+	font-size: 12px;
+	padding-right:10px;
+}
+
+label.desc_small {
+	margin: 3px 0;
+	padding: 0 4px;
+	color: #444;
+	display: block;
+	font-size: 1em;
+	float: left;
+	text-align: right;
+}
+
+label.desc,desc_small {
+	height:22px;
+	line-height: 22px;
+	font-size: 1em;
+}
+
+.labellarge {
+	clear: both;
+	display: block;
+	width: auto;
+	text-align: left;
+	padding-bottom: 3px;
+}
+
+.labellarge .desc {
+	width: 120px;
+}
+
+fieldset {
+	text-align: left;
+	margin-bottom: 8px;
+	border: #ddd 1px solid;
+	/*width: 97.8%; *
+	width: 97.8%;
+	_width: 97.5%; */
+} 
+
+legend {
+	font-size: 14px;
+	font-weight: bold;
+	color: #000;
+	margin: 0;
+	margin-left: 14px; >
+	margin-left: 7px;
+	padding: 0;
+}
+
+fieldset .form {
+	margin-top: 8px;
+}
+
+li fieldset legend {
+	font-weight: normal;
+}
+
+#main fieldset {
+	margin-left: 30px;
+	width: 96.0%;
+	margin-left: 15px\9; *
+	width: 97.8%;
+	_width: 97.5%;
+}
+
+input {
+	padding: 2px;
+}
+
+textarea {
+	font-size: 1em;
+	padding: 4px;
+}
+
+input.checkbox {
+	vertical-align: middle;
+	margin-top: 5px;
+}
+
+select {
+	font-size: 12px;
+}
+
+select,textarea {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #666;
+	vertical-align: middle;
+	border: 1px solid #b5b8c8;
+	background-image:-webkit-gradient(linear, 50% 0, 50% 100%, color-stop(0%, #eef3f7), color-stop(100%, #fffeff));
+	background-image:-moz-linear-gradient(top, #eef3f7, #fffeff);
+	background-image:linear-gradient(top, #eef3f7, #fffeff);
+	FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#eef3f7,endColorStr=#fffeff);
+	height:22px; line-height:22px;
+	
+}
+input{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #666;
+	vertical-align: middle;
+	/*border: 1px solid #b5b8c8; */
+	background-image:-webkit-gradient(linear, 50% 0, 50% 100%, color-stop(0%, #eef3f7), color-stop(100%, #fffeff));
+	background-image:-moz-linear-gradient(top, #eef3f7, #fffeff);
+	background-image:linear-gradient(top, #eef3f7, #fffeff);
+	height:22px; line-height:22px;
+}
+
+input.mini {
+	width: 40px; *
+	width: 40px;
+	_width: 41px;
+	border: #ddd 1px solid;
+	margin-right: 10px;
+}
+
+input.little {
+	width: 111px; *
+	width: 111px;
+	_width: 100px;
+	border: #ddd 1px solid;
+}
+
+input.tiny {
+	width: 121px; *
+	width: 121px;
+	_width: 120px;
+	border: #ddd 1px solid;
+}
+
+input.small {
+	width: 175px;
+}
+
+input.smallYellow {
+	border: #fb7000 1px solid;
+	width: 175px;
+}
+
+input.large {
+	width: 518px;
+}
+
+input.hsmall {
+	height: 13px;
+	margin: 0;
+}
+
+input.medium {
+	width: 206px;
+}
+
+input.Wmedium {
+	width: 495px;
+}
+
+input.large {
+	height: 18px;
+}
+
+input.Wlarge {
+	width: 525px;
+}
+
+input.medium,input.Wmedium,input.Wlarge {
+	border: 1px solid #b5b8c8;
+	background-image:-webkit-gradient(linear, 50% 0, 50% 100%, color-stop(0%, #eef3f7), color-stop(100%, #fffeff));
+	background-image:-moz-linear-gradient(top, #eef3f7, #fffeff);
+	background-image:linear-gradient(top, #eef3f7, #fffeff);
+	FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#eef3f7,endColorStr=#fffeff);
+}
+
+input.small,input.large {
+	border: 1px solid #b5b8c8;
+	background-image:-webkit-gradient(linear, 50% 0, 50% 100%, color-stop(0%, #eef3f7), color-stop(100%, #fffeff));
+	background-image:-moz-linear-gradient(top, #eef3f7, #fffeff);
+	background-image:linear-gradient(top, #eef3f7, #fffeff);
+	FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#eef3f7,endColorStr=#fffeff);
+	height:22px; line-height:22px;
+}
+
+input.tinyRed {
+	border: 1px solid red;
+	height: 40px;
+	width: 130px; *
+	width: 130px;
+	_width: 120px;
+}
+
+input.jumpBTN {
+	background-position: -112px -42px;
+	background-repeat: no-repeat;
+	border: 0;
+	color: #333;
+	width: 38px;
+	height: 19px;
+	padding: 0;
+	margin: 0;
+	vertical-align: middle;
+}
+
+input[type="button"].jumpBTN,x:-moz-any-link,x:default {
+	background-position: -112px -42px;
+}
+
+input[type="button"].jumpBTN:hover,x:-moz-any-link,x:default {
+	background-position: -139px -398px;
+}
+
+input[type="button"].jumpBTN,input[type="button"].jumpBTN:hover,x:-moz-any-link,x:default
+	{
+	background-repeat: no-repeat;
+	background-color: transparent;
+	border: 0;
+	color: #333;
+	width: 38px;
+	height: 19px;
+	padding: 0;
+	margin: 0;
+	vertical-align: middle;
+	padding-bottom: 3px; *
+	padding-top: 3px;
+	_padding-buttom: 0;
+}
+
+@media screen and(-webkit-min-device-pixel-ratio:0) {
+	input[type="button"].jumpBTN {
+		background-position: -112px -42px;
+		background-repeat: no-repeat;
+		border: 0;
+		color: #333;
+		width: 38px;
+		height: 19px;
+		padding: 0;
+		margin: 0;
+		vertical-align: middle;
+		padding-bottom: 3px; *
+		padding-top: 3px;
+		_padding-buttom: 0;
+	}
+}
+
+input.jump {
+	height: 18px;
+	width: 30px;
+	line-height:18px;
+	border: #c9c9c9 1px solid;
+	padding: 0;
+	margin: 0;
+	color: #666;
+	text-align: center;
+}
+
+select.tiny {
+	width: 129px; *
+	width: 130px;
+	_width: 129px;
+
+}
+
+select.small {
+	width: 183px;
+}
+
+select.medium {
+	width: 184px !important;
+	width: 182px;
+	height: 22px;
+}
+
+select.large {
+	width: ;
+}
+
+textarea {
+	overflow: auto;
+	word-break: break-all;
+	word-wrap: break-word;
+}
+
+textarea.small {
+	border: 1px solid #d3dde7;
+	width: 189px;
+}
+
+textarea.large {
+	width: 514px;
+	border: 1px solid #ddd;
+}
+
+textarea.Wmedium {
+	border: 1px solid #d3dde7;
+	width: 502px;
+}
+
+textarea.Wlarge {
+	width: 632px;
+	border: 1px solid #ddd;
+}
+
+textarea.vlarge {
+	height: 85px;
+}
+
+textarea.vmedium {
+	height: 58px;
+}
+
+textarea.vsmall {
+	height: 46px;
+}
+
+textarea.bg {
+	background-color: #eee;
+}
+
+input.disabled {
+	background: #eee;
+	margin: 0;
+	text-align: left;
+}
+
+input[type="text"].disabled,x:-moz-any-link,x:default {
+	background: #eee;
+	margin: 0;
+	text-align: left;
+}
+
+input.disabledBot {
+	background-position: -139px -346px;
+	background-repeat: no-repeat;
+	width: 83px;
+	height: 25px;
+	border: 1px solid #c5c5c5;
+	background-color: transparent;
+	color: #fff;
+	margin-right: 3px;
+	text-align: center;
+}
+
+input[type="submit"].disabledBot,input[type="submit"].disabledBot:hover,input[type="button"].disabledBot,input[type="button"].disabledBot:hover,x:-moz-any-link,x:default
+	{
+	background-position: -139px -346px;
+	background-repeat: no-repeat;
+	width: 83px;
+	height: 25px;
+	border: 1px solid #c5c5c5;
+	background-color: transparent;
+	color: #808080;
+	margin-right: 3px;
+	text-align: center;
+	cursor: auto;
+}
+input[type="button"],input[type="button"]:hover{ line-height:22px;}
+input[type="button"]{ background-position: 0px -486px;}
+/* input[type="button"]:hover{ background-position: 0px -514px;} */
+
+input[type="submit"],input[type="reset"],x:-moz-any-link,x:default
+	{
+	background-position: -139px -346px;
+}
+
+input[type="submit"]:hover,input[type="reset"]:hover,x:-moz-any-link,x:default
+	{
+	background-position: -216px -369px;
+}
+
+input[type="submit"],input[type="submit"]:hover,input[type="reset"],input[type="reset"]:hover x:-moz-any-link,x:default
+	{
+	background-repeat: no-repeat;
+	width: 83px;
+	height: 25px;
+	border: 1px solid #c5c5c5;
+	background-color: transparent;
+	color: #000;
+	margin-right: 3px;
+	text-align: center;
+	cursor: pointer;
+}
+
+@media screen and(-webkit-min-device-pixel-ratio:0) {
+	input[type="submit"],input[type="button"],input[type="reset"] {
+		background-position: -139px -346px;
+		background-repeat: no-repeat;
+		width: 83px;
+		height: 25px;
+		border: 1px solid #c5c5c5;
+		margin-right: 3px;
+		text-align: center;
+		cursor: pointer;
+	}
+}
+
+@media screen and(-webkit-min-device-pixel-ratio:0) {
+	input[type="submit"]:hover,input[type="button"]:hover,input[type="reset"]:hover
+		{
+		background-color: #09F;
+		background-position: -216px -369px;
+		background-repeat: no-repeat;
+		width: 83px;
+		height: 25px;
+		border: 1px solid #c5c5c5;
+		color: #000;
+		margin-right: 3px;
+		text-align: center;
+		cursor: pointer;
+	}
+}
+
+input.button {
+	background-position: -139px -346px;
+}
+
+input.button:hover {
+	background-position: -216px -369px;
+}
+
+input.buttonover {
+	background-position: - -216px -369px;
+}
+
+input.button20 {
+	background-position: -5px -169px;
+	vertical-align: middle;
+}
+
+input.button20over {
+	background-position: -111px -100px;
+}
+
+input.button22 {
+	background-position: -139px -346px;
+}
+
+input.button22:hover {
+	background-position: -216px -369px;
+}
+
+input.button22,input.button22:hover,input.button,input.button:hover {
+	background-repeat: no-repeat;
+	height: 25px;
+	border: 1px solid #c5c5c5;
+	background-color: transparent;
+	color: #000;
+	margin-right: 3px;
+	width: 83px;
+	text-align: center;
+	cursor: pointer;
+}
+
+input[type="button"].button22,input[type="submit"].button22,x:-moz-any-link,x:default
+	{
+	background-position: -139px -346px;
+}
+
+input[type="button"].button22:hover,input[type="submit"].button22:hover,x:-moz-any-link,x:default
+	{
+	background-position: -216px -369px;
+}
+
+input[type="button"].button22,input[type="submit"].button22,input[type="button"].button22:hover,input[type="submit"].button22:hover,x:-moz-any-link,x:default
+	{
+	background-repeat: no-repeat;
+	height: 25px;
+	border: 1px solid #c5c5c5;
+	background-color: transparent;
+	color: #000;
+	margin-right: 3px;
+	width: 83px;
+	text-align: center;
+	cursor: pointer;
+}
+
+input.buttonMedium {
+	background-position: -139px -346px;
+}
+
+input.buttonMedium:hover {
+	background-position: -216px -369px;
+}
+
+input[type="button"].buttonMedium,input[type="submit"].buttonMedium,x:-moz-any-link,x:default
+	{
+	background-position: -139px -346px;
+}
+
+input[type="button"].buttonMedium:hover,input[type="submit"].buttonMedium:hover,x:-moz-any-link,x:default
+	{
+	background-position: -216px -369px;
+}
+
+input.buttonMedium,input.buttonMedium:hover {
+	background-repeat: no-repeat;
+	height: 25px;
+	border: 1px solid #c5c5c5;
+	background-color: transparent;
+	color: #000;
+	margin-right: 3px;
+	width: 120px;
+	text-align: center;
+	cursor: pointer;
+}
+
+input[type="button"].buttonMedium,input[type="submit"].buttonMedium,input[type="button"].buttonMedium:hover,input[type="submit"].buttonMedium:hover,x:-moz-any-link,x:default
+	{
+	background-repeat: no-repeat;
+	height: 25px;
+	border: 1px solid #c5c5c5;
+	background-color: transparent;
+	color: #000;
+	margin-right: 3px;
+	width: 120px;
+	text-align: center;
+	cursor: pointer;
+}
+
+input.buttonW {
+	background-position: -5px -77px;
+	color: #676767;
+}
+
+input[type="button"].buttonW,x:-moz-any-link,x:default {
+	background-position: -5px -77px;
+}
+
+input[type="button"].buttonW:hover,x:-moz-any-link,x:default {
+	background-position: -4px -138px;
+}
+
+input[type="button"].buttonW,input[type="button"].buttonW:hover,x:-moz-any-link,x:default
+	{
+	color: #676767;
+	height: 22px;
+	width: 84px;
+}
+
+input.inc {
+	background-position: -96px -14px;
+	width: 13px;
+	height: 8px;
+	margin: 0;
+}
+
+input.incover {
+	background-position: -89px -14px;
+	width: 6px;
+	height: 11px;
+	margin-right: 3px;
+}
+
+input.buttonnew {
+	background-position: 0 -432px;
+}
+
+input.buttonnew:hover {
+	background-position: 0 -456px;
+}
+
+input.buttonnew,input.buttonnew:hover {
+	background-repeat: no-repeat;
+	background-color: transparent;
+	cursor: pointer;
+	color: #000;
+	height: 25px;
+	border: 1px solid #c8c8c8;
+	padding: 2px 3px 0 28px;
+	margin: 0;
+	width: auto;
+	-width: 0;
+	overflow: visible ! ie;
+	color: #222;
+}
+
+input[type="button"].buttonnew,x:-moz-any-link,x:default {
+	background-position: 0 -431px;
+}
+
+input[type="button"].buttonnew:hover,x:-moz-any-link,x:default {
+	background-position: 0 -456px;
+}
+
+input[type="button"].buttonnew,input[type="button"].buttonnew:hover,x:-moz-any-link,x:default
+	{
+	background-repeat: no-repeat;
+	background-color: transparent;
+	cursor: pointer;
+	color: #000;
+	height: 25px;
+	margin: 0;
+	border: 1px solid #c8c8c8;
+	padding: 2px 3px 0 25px;
+	color: #222;
+	width: auto;
+}
+
+span.calendarIoc {
+	background: url("images/calendar.png") repeat scroll 0 0 transparent;
+	height: 20px;
+	position: absolute;
+	text-align: left;
+	width: 17px;
+}
+
+input.pad {
+	background-position: -113px -14px;
+}
+
+input.matter {
+	background-position: -136px -14px;
+}
+
+input.date {
+	background-position: -163px -14px;
+}
+
+input.search {
+	background-position: -189px -14px;
+}
+
+input[type="submit"].pad,.pad:hover,x:-moz-any-link,x:default {
+	background-position: -113px -14px;
+}
+
+input[type="submit"].matter,.matter:hover,x:-moz-any-link,x:default {
+	background-position: -136px -14px;
+}
+
+input[type="submit"].date,.date:hover,x:-moz-any-link,x:default {
+	background-position: -163px -14px;
+}
+
+input[type="submit"].search,search:hover,x:-moz-any-link,x:default {
+	background-position: -189px -14px;
+}
+
+input[type="button"].pad,.pad:hover,x:-moz-any-link,x:default {
+	background-position: -113px -14px;
+}
+
+input[type="button"].matter,.matter:hover,x:-moz-any-link,x:default {
+	background-position: -136px -14px;
+}
+
+input[type="button"].date,.date:hover,x:-moz-any-link,x:default {
+	background-position: -163px -14px;
+}
+
+input[type="button"].search,search:hover,x:-moz-any-link,x:default {
+	background-position: -189px -14px;
+}
+
+input[type="submit"].inc,.inc:hover,input[type="submit"].pad,.pad:hover,input[type="submit"].matter,.matter:hover,input[type="submit"].date,.date:hover,input[type="submit"].search,.search:hover,x:-moz-any-link,x:default
+	{
+	width: 16px;
+	height: 17px;
+	border: none;
+}
+
+input[type="buttton"].inc,.inc:hover,input[type="button"].pad,.pad:hover,input[type="button"].matter,.matter:hover,input[type="button"].date,.date:hover,input[type="button"].search,.search:hover,x:-moz-any-link,x:default
+	{
+	width: 16px;
+	height: 17px;
+	border: none;
+}
+
+input.help {
+	background-position: -247px -14px;
+	width: 14px;
+	height: 14px;
+}
+
+input.add {
+	background-position: -219px -47px;
+}
+
+input.by {
+	background-position: -219px -66px;
+}
+
+input.button20,input.button20over {
+	height: 20px;
+	width: 68px;
+	margin: 0;
+}
+
+input.buttonW,input.buttonWover {
+	width: 84px;
+	height: 22px;
+	border: none;
+}
+
+input.buttonnew {
+	font-size: 12px;
+	font-weight: 300;
+}
+
+input.button,input.button20,input.inc {
+	padding: 0;
+}
+
+input.add,input.by {
+	width: 9px;
+	height: 9px;
+}
+
+input.help,input.add,input.by {
+	margin-left: 5px;
+}
+
+input.pad,input.matter,input.date,input.search {
+	width: 16px;
+	height: 17px;
+}
+
+input.pgUp {
+	background-position: -16px 0px;
+	border: none;
+}
+
+input.pgDn {
+	background-position: -32px 0px;
+	border: none;
+}
+
+input.end {
+	background-position: -48px 0px;
+	border: none;
+}
+
+input.first {
+	background-position: 0px 0px;
+	border: none;
+}
+
+input[type="button"].pgUp,x:-moz-any-link,x:default {
+	background-position: -16px 0px;
+}
+
+input[type="button"].pgDn,x:-moz-any-link,x:default {
+	background-position: -32px 0px;
+}
+
+input[type="button"].end,x:-moz-any-link,x:default {
+	background-position: -48px 0px;
+}
+
+input[type="button"].first,x:-moz-any-link,x:default {
+	background-position: 0px 0px;
+}
+
+input[type="button"].pgUp:hover,x:-moz-any-link,x:default {
+	background-position: -16px -16px;
+}
+
+input[type="button"].pgDn:hover,x:-moz-any-link,x:default {
+	background-position: -32px -16px;
+}
+
+input[type="button"].end:hover,x:-moz-any-link,x:default {
+	background-position: -48px -16px;
+}
+
+input[type="button"].first:hover,x:-moz-any-link,x:default {
+	background-position: 0px -16px;
+}
+
+input.pgUp,input.pgDn,input.first,input.end,input.pgUpHover,input.pgDnHover,input.firstHover,input.endHover
+	{
+	width: 16px;
+	height: 16px;
+	vertical-align: middle;
+	border: none;
+	background-repeat: no-repeat;
+	background-color: transparent;
+	border: none;
+}
+
+input[type="button"].pgUp,input[type="button"].pgDn,input[type="button"].first,input[type="button"].end,input[type="button"].pgUpHover,input[type="button"].pgDnHover,input[type="button"].firstHover,input[type="button"].endHover�� input[type="button"].pgUp:hover,input[type="button"].pgDn:hover,input[type="button"].first:hover,input[type="button"].end:hover,input[type="button"].pgUpHover,input[type="button"].pgDnHover,input[type="button"].firstHover,input[type="button"].endHover,x:-moz-any-link,x:default
+	{
+	width: 16px;
+	height: 16px;
+	vertical-align: middle;
+	border: none;
+	background-repeat: no-repeat;
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+input.pgUpHover {
+	background-position: -16px -16px;
+}
+
+input.pgDnHover {
+	background-position: -32px -16px;
+}
+
+input.firstHover {
+	background-position: 0px -16px;
+}
+
+input.endHover {
+	background-position: -48px -16px;
+}
+
+input[type="button"].pgUpHover,x:-moz-any-link,x:default {
+	background-position: -16px -16px;
+}
+
+input[type="button"].pgDnHover,x:-moz-any-link,x:default {
+	background-position: -32px -16px;
+}
+
+input[type="button"].firstHover,x:-moz-any-link,x:default {
+	background-position: 0px -16px;
+}
+
+input[type="button"].endHover,x:-moz-any-link,x:default {
+	background-position: -48px -16px;
+}
+
+input.pgUpHover,input.pgDnHover,input.firstHover,input.endHover {
+	cursor: pointer;
+}
+
+input.People {
+	background-position: -278px -164px;
+}
+
+input.Asset_user {
+	background-position: -213px -164px;
+}
+
+input.Work {
+	background-position: -235px -164px;
+	cursor: auto;
+}
+
+input[type="button"].Work,input[type="button"].Work:hover,x:-moz-any-link,x:default
+	{
+	background-position: -235px -164px;
+	cursor: auto;
+}
+
+input.Knowledge {
+	background-position: -257px -164px;
+}
+
+input.History {
+	background-position: -278px -144px;
+	cursor: auto;
+}
+
+input[type="button"].History,input[type="button"].History:hover,x:-moz-any-link,x:default
+	{
+	background-position: -278px -144px;
+	cursor: auto;
+}
+
+input[type="button"].Work,input[type="button"].Work:hover,input[type="button"].History,input[type="button"].History:hover,x:-moz-any-link,x:default
+	{
+	width: 19px;
+	height: 19px;
+	margin: 0 8px 0 5px;
+	border: none;
+	padding: 0;
+}
+
+input.Found {
+	background-position: -257px -144px;
+}
+
+input.Asset_user,input.Work,input.Knowledge,input.People,input.History,input.Found
+	{
+	width: 19px;
+	height: 19px;
+	margin: 0 8px 0 5px;
+	padding: 0;
+}
+
+input.close {
+	background-position: -215px -14px;
+}
+
+input.Annex {
+	background-position: -275px -13px;
+}
+
+input[type="button"].Annex,x:-moz-any-link,x:default {
+	background-position: -275px -13px;
+}
+
+input[type="button"].Annex:hover,x:-moz-any-link,x:default {
+	background-position: -275px -13px;
+	width: 14px;
+	height: 14px;
+}
+
+input.Del {
+	background-position: -296px -14px;
+	margin-right: 10px;
+}
+
+input.close,input.Annex,input.Del {
+	width: 14px;
+	height: 14px;
+}
+
+input.refresh {
+	background: url(images/refresh.gif) no-repeat;
+	width: 11px;
+	height: 10px;
+	border: none;
+	margin-left: 5px;
+	vertical-align: middle;
+}
+
+input[type="button"].refresh,input[type="button"].refresh:hover,x:-moz-any-link,x:default
+	{
+	background: url(images/refresh.gif) no-repeat;
+	width: 11px;
+	height: 10px;
+	border: none;
+}
+
+input.vip {
+	background-position: -245px -45px;
+	width: 24px;
+	height: 13px;
+}
+
+input.buttonover,input.button20,input.button20over,input.button22over,input.buttonW,input.buttonWover,input.inc,input.incover,input.pad,input.matter,input.date,input.search,input.help,input.add,input.by,input.Asset_user,input.Work,input.Knowledge,input.People,input.History,input.Found,input.close,input.Annex,input.Del,input.vip
+	{
+	background-repeat: no-repeat;
+	border: 0;
+	background-color: transparent;
+	cursor: pointer;
+	color: #000;
+}
+
+input.popClose {
+	background: url(images/popFillet.gif) 0 0 no-repeat;
+	height: 26px;
+	width: 25px;
+	border: none;
+	margin-top: 25px;
+}
+
+.but {
+	background: url(images/but5_on.gif) no-repeat top;
+	color: #FFF;
+}
+
+.buton {
+	background: url(images/but6_over.gif) no-repeat top;
+	color: #333;
+}
+
+.but,.buton {
+	width: 73px;
+	height: 20px;
+	font-size: 13px;
+	border: 0;
+	padding-top: 3px;
+}
+
+label[for="save_inspectionPlan_periodType"] {
+	display: none;
+	background-color: #03F;
+}
+
+label[for="mailReportConfig_monthSendTime"] {
+	display: none;
+}
+
+.fontgray {
+	color: #999;
+}

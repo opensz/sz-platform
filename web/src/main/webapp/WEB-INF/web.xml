@@ -6,16 +6,14 @@
 	<display-name>sz platform</display-name>
 	<distributable />
 
-	<!-- precompiled jsp mappings -->
-	
-	
+
+	<!-- 环境参数设置 -->
+
 	<!--设置Log4j的配置文件的路径 -->
 	<context-param>
 		<param-name>log4jConfigLocation</param-name>
 		<param-value>classpath:conf/log4j.xml</param-value>
 	</context-param>
-	
-
 	<!-- Define the basename for a resource bundle for I18N -->
 	<context-param>
 		<param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
@@ -39,75 +37,8 @@
             classpath:/conf/_spring-security.xml
         </param-value>
 	</context-param>
-	
-	<context-param>
-		<param-name>menuConfigLocation</param-name>
-		<param-value>/WEB-INF/classes/conf/menu-config.xml</param-value>
-	</context-param>
 
-	<filter>
-		<filter-name>encodingFilter</filter-name>
-		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
-		<init-param>
-			<param-name>encoding</param-name>
-			<param-value>UTF-8</param-value>
-		</init-param>
-		<init-param>
-			<param-name>forceEncoding</param-name>
-			<param-value>true</param-value>
-		</init-param>
-	</filter>
-	<filter>
-		<filter-name>exportFilter</filter-name>
-		<filter-class>org.displaytag.filter.ResponseOverrideFilter</filter-class>
-	</filter>
-	<!-- GZipFilter has issues with XFire's service-listing servlet. -->
-	<!-- http://issues.appfuse.org/browse/APF-863 -->
-	<!-- And showing blank pages. http://issues.appfuse.org/browse/APF-1037 -->
-	<!-- We recommend you configure gzipping in your servlet container. web 
-		server, or load balancer. -->
-	<!--filter> <filter-name>gzipFilter</filter-name> <filter-class>net.sf.ehcache.constructs.web.filter.GzipFilter</filter-class> 
-		</filter -->
-	<!--<filter> <filter-name>lazyLoadingFilter</filter-name> <filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter</filter-class> 
-		</filter> -->
-	<!-- Use "org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter" 
-		if you're using JPA -->
-	<filter>
-		<filter-name>localeFilter</filter-name>
-		<filter-class>org.sz.core.web.filter.LocaleFilter</filter-class>
-	</filter>
-	<filter>
-		<filter-name>rewriteFilter</filter-name>
-		<filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
-		<!-- sets up log level (will be logged to context log) can be: TRACE, DEBUG, 
-			INFO (default), WARN, ERROR, FATAL, log4j, commons, sysout:{level} (ie, sysout:DEBUG) 
-			if you are having trouble using normal levels use sysout:DEBUG -->
-		<init-param>
-			<param-name>logLevel</param-name>
-			<param-value>commons</param-value>
-		</init-param>
-		<!-- set the amount of seconds the conf file will be checked for reload 
-			can be a valid integer (0 denotes check every time, -1 denotes no reload 
-			check, default -1) -->
-		<init-param>
-			<param-name>confReloadCheckInterval</param-name>
-			<param-value>-1</param-value>
-		</init-param>
-	</filter>
-	<filter>
-		<filter-name>securityFilter</filter-name>
-		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
-		<init-param>
-			<param-name>targetBeanName</param-name>
-			<param-value>springSecurityFilterChain</param-value>
-		</init-param>
-	</filter>
-	<filter>
-		<filter-name>sitemesh</filter-name>
-		<filter-class>com.opensymphony.module.sitemesh.filter.PageFilter</filter-class>
-	</filter>
-
-
+	<!-- J2EE应用监控 JavaMelody -->
 	<filter>
 		<filter-name>monitoring</filter-name>
 		<filter-class>net.bull.javamelody.MonitoringFilter</filter-class>
@@ -126,44 +57,10 @@
 	</filter-mapping>
 
 
-	<filter-mapping>
-		<filter-name>sitemesh</filter-name>
-		<url-pattern>/*</url-pattern>
-		<dispatcher>REQUEST</dispatcher>
-		<dispatcher>FORWARD</dispatcher>
-	</filter-mapping>
-	<filter-mapping>
-		<filter-name>encodingFilter</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
-	<!--<filter-mapping> <filter-name>lazyLoadingFilter</filter-name> <url-pattern>/*</url-pattern> 
-		</filter-mapping> -->
-	<filter-mapping>
-		<filter-name>localeFilter</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
-	<!--filter-mapping> <filter-name>gzipFilter</filter-name> <url-pattern>/*</url-pattern> 
-		</filter-mapping -->
-	<filter-mapping>
-		<filter-name>rewriteFilter</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
-	<filter-mapping>
-		<filter-name>securityFilter</filter-name>
-		<url-pattern>/*</url-pattern>
-		<dispatcher>REQUEST</dispatcher>
-		<dispatcher>FORWARD</dispatcher>
-		<dispatcher>INCLUDE</dispatcher>
-	</filter-mapping>
-	<filter-mapping>
-		<filter-name>exportFilter</filter-name>
-		<url-pattern>/app/*</url-pattern>
-	</filter-mapping>
-
+	<!-- 监听器 -->
 	<listener>
 		<listener-class>net.bull.javamelody.SessionListener</listener-class>
 	</listener>
-
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
@@ -177,25 +74,160 @@
 		<listener-class>org.sz.core.web.listener.StartupListener</listener-class>
 	</listener>
 	<listener>
-		<listener-class>org.sz.core.web.listener.UserCounterListener</listener-class>
+		<listener-class>org.sz.core.web.listener.UserSessionListener</listener-class>
 	</listener>
 	<listener>
 		<listener-class>org.sz.core.web.jsp.EscapeXmlELResolverListener</listener-class>
 	</listener>
-	<listener>
-		<listener-class>net.sf.navigator.menu.MenuContextListener</listener-class>
-	</listener>
 
+
+	<!-- 国际化（本地化及编码） -->
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.sz.core.web.filter.EncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+		<init-param>
+			<param-name>contentType</param-name>
+			<param-value>text/html;charset=UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/servlet/ValidJs</url-pattern>
+	</filter-mapping>
+	<filter>
+		<filter-name>localeFilter</filter-name>
+		<filter-class>org.sz.core.web.filter.LocaleFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>localeFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+
+	<!-- AOP(延迟加载/Request共享) -->
+	<filter>
+		<filter-name>lazyLoadingFilter</filter-name>
+		<filter-class>org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>lazyLoadingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<filter>
+		<filter-name>aopFilter</filter-name>
+		<filter-class>org.sz.core.web.filter.AopFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>aopFilter</filter-name>
+		<url-pattern>*.xht</url-pattern>
+	</filter-mapping>
+
+
+	<!-- GZipFilter has issues with XFire's service-listing servlet. -->
+	<!-- http://issues.appfuse.org/browse/APF-863 -->
+	<!-- And showing blank pages. http://issues.appfuse.org/browse/APF-1037 -->
+	<!-- We recommend you configure gzipping in your servlet container. web 
+		server, or load balancer. -->
+	<!--filter> <filter-name>gzipFilter</filter-name> <filter-class>net.sf.ehcache.constructs.web.filter.GzipFilter</filter-class> 
+		</filter -->
+
+
+	<!--filter-mapping> <filter-name>gzipFilter</filter-name> <url-pattern>/*</url-pattern> 
+		</filter-mapping -->
+
+
+	<!-- URL Rewrite -->
+	<filter>
+		<filter-name>rewriteFilter</filter-name>
+		<filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
+		<!-- sets up log level (will be logged to context log) can be: TRACE, DEBUG, 
+			INFO (default), WARN, ERROR, FATAL, log4j, commons, sysout:{level} (ie, sysout:DEBUG) 
+			if you are having trouble using normal levels use sysout:DEBUG -->
+		<init-param>
+			<param-name>logLevel</param-name>
+			<param-value>commons</param-value>
+		</init-param>
+		<!-- set the amount of seconds the conf file will be checked for reload 
+			can be a valid integer (0 denotes check every time, -1 denotes no reload 
+			check, default -1) -->
+		<init-param>
+			<param-name>confReloadCheckInterval</param-name>
+			<param-value>-1</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>rewriteFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter>
+		<filter-name>exportFilter</filter-name>
+		<filter-class>org.displaytag.filter.ResponseOverrideFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>exportFilter</filter-name>
+		<url-pattern>/app/*</url-pattern>
+	</filter-mapping>
+
+
+	<!-- 安全检查 -->
+	<filter>
+		<filter-name>securityFilter</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+		<init-param>
+			<param-name>targetBeanName</param-name>
+			<param-value>springSecurityFilterChain</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>securityFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+		<dispatcher>INCLUDE</dispatcher>
+	</filter-mapping>
+
+	<!-- Spring MVC -->
 	<servlet>
 		<servlet-name>dispatcher</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-		<load-on-startup>1</load-on-startup>
+		<servlet-class>org.sz.core.web.servlet.SpringMvcServlet</servlet-class>
+		<load-on-startup>2</load-on-startup>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>classpath:conf/dispatcher-servlet.xml</param-value>
 		</init-param>
 	</servlet>
 
+	<servlet-mapping>
+		<servlet-name>dispatcher</servlet-name>
+		<url-pattern>*.xht</url-pattern>
+	</servlet-mapping>
+
+
+	<!-- WebService/CXF设置 -->
+	<servlet>
+		<servlet-name>CXFServlet</servlet-name>
+		<servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>CXFServlet</servlet-name>
+		<url-pattern>/services/*</url-pattern>
+	</servlet-mapping>
+
+	<!-- AJAX/DWR设置 -->
 	<servlet>
 		<servlet-name>dwr-invoker</servlet-name>
 		<servlet-class>org.directwebremoting.servlet.DwrServlet</servlet-class>
@@ -211,25 +243,43 @@
 		</init-param>
 	</servlet>
 
-	<servlet>
-		<servlet-name>CXFServlet</servlet-name>
-		<servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
-	</servlet>
-
 	<servlet-mapping>
 		<servlet-name>dwr-invoker</servlet-name>
 		<url-pattern>/dwr/*</url-pattern>
 	</servlet-mapping>
 
+
+	<servlet>
+		<servlet-name>Connector</servlet-name>
+		<servlet-class>net.fckeditor.connector.ConnectorServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
 	<servlet-mapping>
-		<servlet-name>CXFServlet</servlet-name>
-		<url-pattern>/services/*</url-pattern>
+		<servlet-name>Connector</servlet-name>
+		<url-pattern>
+			/jslib/fckeditor/editor/filemanager/connectors/*
+		</url-pattern>
 	</servlet-mapping>
 
+
+	<servlet>
+		<servlet-name>ValidCode</servlet-name>
+		<servlet-class>org.sz.core.web.servlet.ValidCode</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ValidJS</servlet-name>
+		<servlet-class>org.sz.core.web.servlet.ValidJs</servlet-class>
+	</servlet>
 	<servlet-mapping>
-		<servlet-name>dispatcher</servlet-name>
-		<url-pattern>/app/*</url-pattern>
+		<servlet-name>ValidCode</servlet-name>
+		<url-pattern>/servlet/ValidCode</url-pattern>
 	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ValidJS</servlet-name>
+		<url-pattern>/servlet/ValidJs</url-pattern>
+	</servlet-mapping>
+
+
 
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
@@ -237,7 +287,7 @@
 
 	<error-page>
 		<error-code>500</error-code>
-		<location>/error.jsp</location>
+		<location>/WEB-INF/common/errorpage/500.jsp</location>
 	</error-page>
 	<error-page>
 		<error-code>400</error-code>
@@ -245,11 +295,11 @@
 	</error-page>
 	<error-page>
 		<error-code>403</error-code>
-		<location>/403.jsp</location>
+		<location>/WEB-INF/common/errorpage/403.jsp</location>
 	</error-page>
 	<error-page>
 		<error-code>404</error-code>
-		<location>/404.jsp</location>
+		<location>/WEB-INF/common/errorpage/404.jsp</location>
 	</error-page>
 
 	<jsp-config>
@@ -257,10 +307,14 @@
 			<url-pattern>*.jsp</url-pattern>
 			<trim-directive-whitespaces>true</trim-directive-whitespaces>
 		</jsp-property-group>
+		<taglib>
+			<taglib-uri>http://www.servicezon.com/functions</taglib-uri>
+			<taglib-location>/WEB-INF/tld/SzTag.tld</taglib-location>
+		</taglib>
 	</jsp-config>
 
 	<session-config>
-		<session-timeout>15</session-timeout>
+		<session-timeout>30</session-timeout>
 		<cookie-config>
 			<http-only>true</http-only>
 			<!--<secure>true</secure> -->

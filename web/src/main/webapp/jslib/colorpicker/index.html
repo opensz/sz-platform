@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>jquery插件颜色选择器 点击颜色选择颜色值与颜色相应变化</title>
+<style type="text/css">
+
+/* colorSelector */
+#colorSelector{position:relative;width:15px;height:15px;background:url(images/select.png);}
+#colorSelector div{position:absolute;top:1px;left:1px;width:22px;height:22px;background:url(images/select.png) center;}
+#colorpickerHolder2{top:25px;left:0;width:356px;height:0;overflow:hidden;position:absolute;}
+#colorpickerHolder2 .colorpicker{background-image:url(images/custom_background.png);position:absolute;bottom:0;left:0;}
+#customWidget{position:relative;height:25px;}
+</style>
+<link rel="stylesheet" href="css/colorpicker.css" type="text/css" />
+<script type="text/javascript" src="http://www.jsfoot.com/skin/js/jquery.js"></script>
+<script type="text/javascript" src="js/colorpicker.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('#colorSelector').ColorPicker({
+	color: '#0000ff',
+	onShow: function (colpkr) {
+		$(colpkr).fadeIn(500);
+		return false;
+	},
+	onHide: function (colpkr) {
+		$(colpkr).fadeOut(500);
+		return false;
+	},
+	onChange: function (hsb, hex, rgb) {
+		$('#colorSelector div').css('backgroundColor', '#' + hex);
+	}
+});
+});
+</script>
+</head>
+<body>
+
+				<p>使用回调的实现预览的颜色和添加颜色动画。</p>
+				<p>
+					<div id="colorSelector"><div style="background-color: #765343"></div></div>
+				</p>
+	
+</body>
+</html>

@@ -1,0 +1,487 @@
+/**字体大小问题 修复EXTJS 4.0.2a在ie9与FIREFOX下字体过小、表格头部字体在Chrome下模糊的CSS 补丁  **/
+.x-btn-default-small .x-btn-inner, .x-btn-default-medium .x-btn-inner, .x-btn-default-large .x-btn-inner, .x-btn-default-toolbar-small .x-btn-inner, .x-btn-default-toolbar-medium .x-btn-inner, .x-btn-default-toolbar-large .x-btn-inner, .x-menu-item-text, .x-html-editor-tb .x-font-select, .x-panel-header-default, .x-panel-header-text-default, .x-panel-header-default-framed, .x-tip-header, .x-tip-body, .x-form-invalid-tip-body, .x-tip-header-text, .x-progress-text, .x-toolbar, .x-toolbar .x-form-item-label, .x-toolbar .x-toolbar-text, .x-window-header-text-default, .x-tab-bar, .x-tab button, .x-grid-rowbody, .x-grid-row .x-grid-cell, .x-grid-group-title, .x-grid-row-editor .x-form-field, .x-grid-row-editor .x-form-display-field, .x-form-invalid-under, .x-fieldset-header, .x-column-header, .x-mask-msg div, .x-btn-group-header-text-default-framed, table.x-datepicker-inner a, .x-monthpicker-item, .x-dd-drag-ghost 
+{ font-size: 12px;}
+
+.x-column-header { text-shadow:0 0 0 rgba(255, 255, 255, 0.3);}  
+/**Panel样式**********************************************************************************************************/
+.x-panel-header-text-default-framed {
+	color:#04468c;
+	font-size:12px;
+	font-weight:bold;
+	font-family:tahoma, arial, verdana, sans-serif;
+}
+/**panel头部标题部分样式 **/
+.x-panel-header-default {
+	font-size:14px;
+	line-height:15px;
+	border-color:#99bbe8;
+	border-width:1px;
+	border-style:solid;
+	background-image:none;
+	background-color:#cbddf3;
+	background-image:-webkit-gradient(linear, 50% 0, 50% 100%, color-stop(0%, #e8f2fb), color-stop(45%, #d2e6f4), color-stop(46%, #c4dff0), color-stop(50%, #b3d6e9), color-stop(51%, #b3d6e8), color-stop(100%, #bdd9e4));
+	background-image:-moz-linear-gradient(top, #e8f2fb, #d2e6f4 45%, #c4dff0 46%, #b3d6e9 50%, #b3d6e8 51%, #bdd9e4);
+	background-image:linear-gradient(top, #e8f2fb, #d2e6f4 45%, #c4dff0 46%, #b3d6e9 50%, #b3d6e8 51%, #bdd9e4);
+	-moz-box-shadow:#f4f8fd 0 1px 0 0 inset;
+	-webkit-box-shadow:#f4f8fd 0 1px 0 0 inset;
+	-o-box-shadow:#f4f8fd 0 1px 0 0 inset;
+	box-shadow:#f4f8fd 0 1px 0 0 inset;
+}
+/**panel头部标题部分样式(针对IE) **/   
+.x-nlg .x-panel-header-default-top {
+	background-image:url('../resources/themes/images/self_blue/panel-header/panel-header-default-top-bg.gif');
+} 
+/*圆角panel头部标题背景 */
+.x-panel-header-default-framed-top{
+	background-color:#cbddf3;
+	background-image:-webkit-gradient(linear, 50% 0, 50% 100%, color-stop(0%, #e8f2fb), color-stop(45%, #d2e6f4), color-stop(46%, #c4dff0), color-stop(50%, #b3d6e9), color-stop(51%, #b3d6e8), color-stop(100%, #bdd9e4));
+	background-image:-moz-linear-gradient(top, #e8f2fb, #d2e6f4 45%, #c4dff0 46%, #b3d6e9 50%, #b3d6e8 51%, #bdd9e4);
+	background-image:linear-gradient(top, #e8f2fb, #d2e6f4 45%, #c4dff0 46%, #b3d6e9 50%, #b3d6e8 51%, #bdd9e4);
+}
+/*圆角panel头部标题背景（针对IE） */
+.x-nbr .x-panel-header-default-framed-top-tl, 
+.x-nbr .x-panel-header-default-framed-top-bl, 
+.x-nbr .x-panel-header-default-framed-top-tr, 
+.x-nbr .x-panel-header-default-framed-top-br, 
+.x-nbr .x-panel-header-default-framed-top-tc, 
+.x-nbr .x-panel-header-default-framed-top-bc, 
+.x-nbr .x-panel-header-default-framed-top-ml, 
+.x-nbr .x-panel-header-default-framed-top-mr {
+	zoom:1;
+	background-image:url('../resources/themes/images/self_blue/panel-header/panel-header-default-framed-top-corners.gif');
+}
+.x-nbr .x-panel-header-default-framed-top-ml, 
+.x-nbr .x-panel-header-default-framed-top-mr {
+	zoom:1;
+	background-image:url('../resources/themes/images/self_blue/panel-header/panel-header-default-framed-top-sides.gif');
+	background-position:0 0;
+}
+.x-nlg .x-panel-header-default-framed-top-mc {
+	background-image:url('../resources/themes/images/self_blue/panel-header/panel-header-default-framed-top-bg.gif');
+	background-color:#cbddf3;
+}
+
+
+/**********************************************************************************************************************/
+/*Accordion里的样式*/
+.x-accordion-hd .x-panel-header-text{ font-size:12px; font-weight:bold; color:#20475f;}
+.x-accordion-hd{ border-top-color:#5a93bb!important; border-bottom-color:#aad6e8!important;}
+
+/*accrodion背景*/
+.x-accordion-hd {
+	background-image:-webkit-gradient(linear, 50% 0, 50% 100%, color-stop(0%, #7ec4e8), color-stop(48%, #519cc7), color-stop(52%, #5ea1ca), color-stop(100%, #78b0d3))!important;
+	background-image:-moz-linear-gradient(top, #7ec4e8, #519cc7 48%, #5ea1ca 52%, #78b0d3)!important;
+	background-image:linear-gradient(top, #7ec4e8, #519cc7 48%, #5ea1ca 52%, #78b0d3)!important;
+	-moz-box-shadow:inset 0 0 0 0 #d9e7f8;
+	-webkit-box-shadow:inset 0 0 0 0 #d9e7f8;
+	-o-box-shadow:inset 0 0 0 0 #d9e7f8;
+	box-shadow:inset 0 0 0 0 #d9e7f8;  
+}  
+.x-accordion-hd{ background-image:url('../resources/themes/images/self_blue/panel-header/panel-header-default-top-accordion-bg.gif')!important;}
+
+
+/**Tab选项卡样式*******************************************************************************************************/
+/*选项卡bar背景颜色*/
+.x-tab-bar {
+	/*版本1
+	background-color:#cbdaef;
+	background-image:-webkit-gradient(linear, 50% 0, 50% 100%, color-stop(0%, #e8f2fb), color-stop(100%, #bed9e4));
+	background-image:-moz-linear-gradient(top, #e8f2fb, #bed9e4);
+	background-image:linear-gradient(top, #e8f2fb, #bed9e4);
+	font-size:12px; */
+	
+	
+	/*版本2
+	background-color:#cbddf3;
+	background-image:-webkit-gradient(linear, 50% 0, 50% 100%, color-stop(0%, #b5d7f5), color-stop(45%, #a2ceed), color-stop(46%, #a0cdec), color-stop(50%, #9ccbea), color-stop(51%, #87c1e1), color-stop(100%, #82c0e1));
+	background-image:-moz-linear-gradient(top, #b5d7f5, #a2ceed 45%, #a0cdec 46%, #9ccbea 50%, #87c1e1 51%, #82c0e1);
+	background-image:linear-gradient(top, #b5d7f5, #a2ceed 45%, #a0cdec 46%, #9ccbea 50%, #87c1e1 51%, #82c0e1);  */
+	
+	/*3*/
+	background-image:-webkit-gradient(linear, 50% 0, 50% 100%, color-stop(0%, #98cfed), color-stop(45%, #69adcb), color-stop(46%, #68acca), color-stop(50%, #68adcb), color-stop(51%, #6db1cf), color-stop(100%, #7abcdc));
+	background-image:-moz-linear-gradient(top, #98cfed, #69adcb 45%, #68acca 46%, #68adcb 50%, #6db1cf 51%, #7abcdc);
+	background-image:linear-gradient(top, #98cfed, #69adcb 45%, #68acca 46%, #68adcb 50%, #6db1cf 51%, #7abcdc); 
+} 
+/*选项卡bar背景颜色（针对IE的）*/
+.x-nlg .x-tab-bar {
+	background-image:url('../resources/themes/images/self_blue/tab-bar/tab-bar-bg.gif');
+}
+/*选项卡bar里tab下面的横条样式
+（此处边框只涉及到了上左右，下边框是panel默认的,所以一般和panel边框颜色设成一致）  */
+.x-tab-bar-strip-default, .x-tab-bar-strip-default-plain {
+	border-style:solid;
+	border-color:#5195af;
+	background-color:#deeef4;
+}
+/*tab选项卡*/
+/* .x-tab button{ font-size:11px!important;} */
+.x-tab-default-top { border-bottom:1px solid #5195af!important;}    /* tab默认底部边框 */
+.x-tab-default-top-active { border-bottom-color:#5195af!important;} /* tab当前底部边框 */
+.x-tab-default-top{ color:#434343;} /*选项卡中文字颜色*/
+
+@media all and (min-width:0px){ .x-tab-default-top button,.x-tab-default-top .x-tab-inner{ line-height:11px;} }
+.x-tab-default-top button,.x-tab-default-top .x-tab-inner{ 
+	line-height:14px\9;
+	line-height:14px\0;
+	+line-height:14px;
+	_line-height:14px;
+}
+
+
+/*选项卡下面的留白区域 */
+.x-tab-bar-top .x-tab-bar-strip{
+	border-top:1px solid #5195af !important;
+} 
+ 
+/**tab选项卡默认样式 **/
+.x-tab-default-top {
+	padding:3px 3px 0 3px;
+	border-width:1px 1px 0 1px;
+	border-style:solid;
+	background-image:none;
+	background-color:#deecfd;
+	background-image:-webkit-gradient(linear, 50% 0, 50% 100%, color-stop(0%, #dff4fc), color-stop(48%, #b0cfd8), 
+					color-stop(52%, #badbe3), color-stop(100%, #c8ecf2));
+	background-image:-webkit-linear-gradient(top, #dff4fc, #b0cfd8 48%, #badbe3 52%, #c8ecf2);
+	background-image:-moz-linear-gradient(top, #dff4fc, #b0cfd8 48%, #badbe3 52%, #c8ecf2);
+	background-image:-o-linear-gradient(top, #dff4fc, #b0cfd8 48%, #badbe3 52%, #c8ecf2);
+	background-image:-ms-linear-gradient(top, #dff4fc, #b0cfd8 48%, #badbe3 52%, #c8ecf2);
+	background-image:linear-gradient(top, #dff4fc, #b0cfd8 48%, #badbe3 52%, #c8ecf2)
+} 
+/**tab选项卡默认样式（针对IE浏览器）**/
+.x-nbr .x-tab-default-top-tl, 
+.x-nbr .x-tab-default-top-bl, 
+.x-nbr .x-tab-default-top-tr, 
+.x-nbr .x-tab-default-top-br, 
+.x-nbr .x-tab-default-top-tc, 
+.x-nbr .x-tab-default-top-bc, 
+.x-nbr .x-tab-default-top-ml, 
+.x-nbr .x-tab-default-top-mr {
+	zoom:1;
+	background-image:url('../resources/themes/images/self_blue/tab/tab-default-top-corners.gif');
+}
+.x-nbr .x-tab-default-top-ml, 
+.x-nbr .x-tab-default-top-mr {
+	zoom:1;
+	background-image:url('../resources/themes/images/self_blue/tab/tab-default-top-sides.gif');
+	background-position:0 0
+}
+.x-nlg .x-tab-default-top-mc {
+	background-image:url('../resources/themes/images/self_blue/tab/tab-default-top-bg.gif');
+	background-color:#deecfd;
+}
+/**tab选项卡当前current样式（背景颜色及边框颜色） **/
+.x-tab-top-active {
+	border:1px solid #5195af !important;
+	background-color:#deecfd;
+	background-image:-webkit-gradient(linear, 50% 0, 50% 100%, color-stop(0%, #fefefe), color-stop(48%, #edf4f6), 
+					color-stop(52%, #d8e7eb), color-stop(100%, #d9e9f0));
+	background-image:-moz-linear-gradient(top, #fefefe, #edf4f6 48%, #d8e7eb 52%, #d9e9f0);
+	background-image:-o-linear-gradient(top, #fefefe, #edf4f6 48%, #d8e7eb 52%, #d9e9f0);
+	background-image:-ms-linear-gradient(top, #fefefe, #edf4f6 48%, #d8e7eb 52%, #d9e9f0);
+	background-image:linear-gradient(top, #fefefe, #edf4f6 48%, #d8e7eb 52%, #d9e9f0)
+} 
+/**tab选项卡当前current样式（针对IE浏览器） **/
+.x-nbr .x-tab-top-active .x-frame-tl, 
+.x-nbr .x-tab-top-active .x-frame-bl, 
+.x-nbr .x-tab-top-active .x-frame-tr, 
+.x-nbr .x-tab-top-active .x-frame-br, 
+.x-nbr .x-tab-top-active .x-frame-tc, 
+.x-nbr .x-tab-top-active .x-frame-bc {
+	zoom:1;
+	background-image:url('../resources/themes/images/self_blue/tab/tab-default-top-active-corners.gif');
+}
+.x-nbr .x-tab-top-active .x-frame-ml, 
+.x-nbr .x-tab-top-active .x-frame-mr {
+	zoom:1;
+	background-image:url('../resources/themes/images/self_blue/tab/tab-default-top-active-sides.gif');
+	background-position:0 0
+}
+.x-nbr .x-tab-top-active .x-frame-mc {
+	background-image:url('../resources/themes/images/self_blue/tab/tab-default-top-active-bg.gif');
+	background-color:#deecfd;
+}
+
+
+/**********************************************************************************************************************/
+/**search四个圆角方框**/
+.x-panel{ overflow: hidden; position: relative;}
+.x-panel-default-framed { border-color:#a9c6d8;}
+.x-panel-default-framed {
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	-o-border-radius:4px;
+	-ms-border-radius:4px;
+	-khtml-border-radius:4px;
+	border-radius:4px;
+	padding:4px 4px 4px 4px;
+	border-width:1px;
+	border-style:solid;
+	background-color:#e8f3fb;
+}
+/*search四个圆角方框--IE实现方法*/
+.x-grid-row-editor-buttons-bl, .x-grid-row-editor-buttons-br {
+	width:4px; height:4px; bottom:0;
+	background-image:url('../resources/themes/images/self_blue/panel/panel-default-framed-corners.gif');
+	}
+.x-nbr .x-panel-default-framed-tl, .x-nbr .x-panel-default-framed-bl, .x-nbr .x-panel-default-framed-tr, .x-nbr .x-panel-default-framed-br, .x-nbr .x-panel-default-framed-tc, .x-nbr .x-panel-default-framed-bc, .x-nbr .x-panel-default-framed-ml, .x-nbr .x-panel-default-framed-mr {
+	zoom:1; background-image:url('../resources/themes/images/self_blue/panel/panel-default-framed-corners.gif');
+	}
+.x-nbr .x-panel-default-framed-ml, .x-nbr .x-panel-default-framed-mr {
+	zoom:1;
+	background-image:url('../resources/themes/images/self_blue/panel/panel-default-framed-sides.gif');
+	background-position:0 0;
+	background-repeat:repeat-y;
+}
+/*panel里的body样式*/
+.x-panel-body-default{ background:#DCF5FA;}
+
+/**search里面的body**/
+.x-panel-body-default-framed {
+	background:#e8f3fb;
+	color:black;
+	border-width:0;
+	border-style:solid;
+} 
+/**********************************************************************************************************************/
+
+/**grid里的工具栏样式**/
+.x-toolbar-default {
+	border-color:#a2bcd7;
+	background-image:none;
+	background-color:#ff000;
+	background-image:-webkit-gradient(linear, 50% 0, 50% 100%, color-stop(0%, #eaf6ff), color-stop(100%, #9ec4d1));
+	background-image:-moz-linear-gradient(top, #eaf6ff, #9ec4d1);
+	background-image:linear-gradient(top, #eaf6ff, #9ec4d1);
+}
+/*grid里的工具栏样式（针对IE里的--注意路径）*/
+.x-nlg .x-toolbar-default {
+	background-image:url('../resources/themes/images/self_blue/toolbar/toolbar-default-bg.gif')!important;
+	background-repeat:repeat-x;
+}
+
+/*grid表头样式 *************************************************************************************/
+/*表头文字样式*/
+.x-column-header {
+	font:normal 12px/15px tahoma, arial, verdana, sans-serif;
+	color:#f3f9f9;
+	font:normal 12px tahoma, arial, verdana, sans-serif;}
+/*表头背景*/
+.x-column-header {
+	background-color:#bbc7d0;
+	background-image:-webkit-gradient(linear, 50% 0, 50% 100%, color-stop(0%, #549dc7), color-stop(100%, #76bde2));
+	background-image:-moz-linear-gradient(top, #549dc7, #76bde2);
+	background-image:linear-gradient(top, #549dc7, #76bde2);}
+	
+/*表头背景(针对IE)*/
+.x-nlg .x-grid-header-ct, .x-nlg .x-column-header {
+	background:url('../resources/themes/images/self_blue/grid/column-header-bg.gif') repeat-x 0 top;
+}
+/*表头滑过背景*/
+.x-column-header-over, .x-column-header-sort-ASC, .x-column-header-sort-DESC {
+	border-left-color:#bbc7d0;
+	border-right-color:#bbc7d0;
+	background-image:none;
+	background-color:#bbc7d0;
+	background-image:-webkit-gradient(linear, 50% 0, 50% 100%, color-stop(0%, #4888ad), color-stop(100%, #629dbc));
+	background-image:-moz-linear-gradient(top, #4888ad, #629dbc);
+	background-image:linear-gradient(top, #4888ad, #629dbc);
+}
+
+/*表头滑过背景(针对IE)*/
+.x-nlg .x-column-header-over, .x-nlg .x-column-header-sort-ASC, .x-nlg .x-column-header-sort-DESC {
+	background:url('../resources/themes/images/self_blue/grid/column-header-over-bg.gif') repeat-x 0 top;
+}
+/*表头鼠标滑过--下拉按钮*/
+.x-column-header-trigger {
+	background-color:#c3daf9;
+	background-image:url('../resources/themes/images/self_blue/grid/grid3-hd-btn.gif');
+} 
+/**grid里的button滑过样式************************************************************/
+.x-btn-default-toolbar-small-over {
+	background-color:#dbeeff;
+	background-image:-webkit-gradient(linear, 50% 0, 50% 100%, color-stop(0%, #dbeeff), color-stop(48%, #d0e7ff), color-stop(52%, #bbd2f0), color-stop(100%, #bed6f5));
+	background-image:-moz-linear-gradient(top, #dbeeff, #d0e7ff 48%, #bbd2f0 52%, #bed6f5);
+	background-image:linear-gradient(top, #dbeeff, #d0e7ff 48%, #bbd2f0 52%, #bed6f5);
+}
+/**grid里的button滑过样式（针对IE）**/
+.x-nbr .x-btn-default-toolbar-small-over .x-frame-tl, .x-nbr .x-btn-default-toolbar-small-over .x-frame-bl, .x-nbr .x-btn-default-toolbar-small-over .x-frame-tr, .x-nbr .x-btn-default-toolbar-small-over .x-frame-br, .x-nbr .x-btn-default-toolbar-small-over .x-frame-tc, .x-nbr .x-btn-default-toolbar-small-over .x-frame-bc {
+	background-image:url('../resources/themes/images/self_blue/btn/btn-default-toolbar-small-over-corners.gif');
+}
+.x-nbr .x-btn-default-toolbar-small-over .x-frame-ml, .x-nbr .x-btn-default-toolbar-small-over .x-frame-mr {
+	background-image:url('../resources/themes/images/self_blue/btn/btn-default-toolbar-small-over-sides.gif');
+}
+.x-nbr .x-btn-default-toolbar-small-over .x-frame-mc {
+	background-color:#dbeeff;
+	background-image:url('../resources/themes/images/self_blue/btn/btn-default-toolbar-small-over-bg.gif');
+}
+/*grid里数据行样式************************************************************/
+/*grid偶数行背景颜色*/
+.x-grid-row-alt .x-grid-cell, .x-grid-row-alt .x-grid-rowwrap-div {
+	background-color:#e9edf2!important;
+}
+/*grid行鼠标滑过背景颜色*/
+.x-grid-row-over .x-grid-cell, .x-grid-row-over .x-grid-rowwrap-div {
+	border-color:#ddd;
+	background-color:#e7fffe;
+}
+/*grid选中行背景颜色*/
+.x-grid-row-selected .x-grid-cell, .x-grid-row-selected .x-grid-rowwrap-div {
+	border-style:dotted;
+	border-color:#a3bae9;
+	background-color:#b4ebec!important;
+}
+
+
+
+/**********************************************************************************************************************/
+
+/*中间分隔*/
+.x-splitter{ background:#3b7ba9;}
+/*背景颜色
+.x-grid-view{ background:#ccdef1;} */
+
+/**编辑页面样式详见 edit-common.css 和 edit-chrome.css ****************************************************************/
+
+/****高级搜索里的每列宽度样式****/
+
+/*针对FF和IE浏览器的*/
+.search-advance-part{ width:90%;}
+.search-advance-part .x-field-label-cell{ width:27%!important;}
+.search-advance-part .x-form-trigger-wrap{ width:100%!important; font-size:12px;}
+.search-advance-part2{ width:95%!important;}
+.search-advance-part2 .x-field-label-cell{ width:12.7%!important;}
+.search-advance-part2 .x-form-trigger-wrap{ width:100%!important; font-size:12px;}
+/*针对Chrome*/
+@media all and (min-width:0px){ .search-advance-part{ width:90%;} }
+@media all and (min-width:0px){ .search-advance-part .x-field-label-cell{ width:60px!important;} }
+@media all and (min-width:0px){ .search-advance-part .x-form-trigger-wrap{ width:100%!important; font-size:12px;}}
+@media all and (min-width:0px){ .search-advance-part2{ width:95%!important;} }
+@media all and (min-width:0px){ .search-advance-part2 .x-field-label-cell{ width:23px!important;} }
+@media all and (min-width:0px){ .search-advance-part2 .x-form-trigger-wrap{ width:100%!important; font-size:12px;}}
+
+/****快速搜索里的每列宽度样式****/
+.search-fast-part{ width:93%;}
+.search-fast-part .x-field-label-cell{ width:60px;}
+.search-fast-part .x-form-item-body { width:100%!important; font-size:12px;}
+.search-fast-part .x-form-trigger-wrap{ width:100%!important; font-size:12px;}
+.button_width2{ width:150px;}
+
+/****一行搜索里的每列宽度样式****/
+.search-line-part{ width:93%;}
+.search-line-part .x-field-label-cell{ width:55px;}
+.search-line-part .x-form-item-body { width:100%!important; font-size:12px;}
+.search-line-part .x-form-trigger-wrap{ width:100%!important; font-size:12px;}
+.button_width1{ width:60px;}
+.button_width3{ width:90px;}
+
+/****编辑页面里1列宽度样式 详见edit-common.css和edit-chrome.css*****/
+/****编辑页面里2列宽度样式 详见edit-common.css和edit-chrome.css*****/
+/****编辑页面里3列宽度样式 详见edit-common.css和edit-chrome.css*****/
+
+
+/*弹出框中一列时label宽度*/
+.edit-part1-labelwidth .x-field-label-cell{ width:65px!important;}
+
+/**windows弹出框样式**/
+.x-window-body-default{ background-color:#e6f4f6;}
+.x-window-header-default-top{ background-color:#6da7c2;}
+.x-window-default{ background-color:#6da7c2;}
+
+/**windown弹出框样式***********************************************
+.x-window-default {
+	border-color:#7eaab0;
+	background:#a4d1ea;
+}
+.x-window-header-default-top {
+	background-color:#a4d1ea;
+}
+.x-window-body-default {
+	background:#a4d1ea;
+}
+.x-nlg .x-window-default-mc {
+	background-color:#a4d1ea; **/
+}
+/**windown弹出框样式（针对IE）*************************************************/
+.x-nbr .x-window-default-tl, 
+.x-nbr .x-window-default-bl, 
+.x-nbr .x-window-default-tr, 
+.x-nbr .x-window-default-br, 
+.x-nbr .x-window-default-tc, 
+.x-nbr .x-window-default-bc, 
+.x-nbr .x-window-default-ml, 
+.x-nbr .x-window-default-mr {
+	background-image:url('../resources/themes/images/self_blue/window/window-default-corners.gif');
+}
+.x-nbr .x-window-default-ml, 
+.x-nbr .x-window-default-mr {
+	background-image:url('../resources/themes/images/self_blue/window/window-default-sides.gif');
+	background-position:0 0;
+	background-repeat:repeat-y;
+}
+
+.x-nbr .x-window-header-default-top-tl, 
+.x-nbr .x-window-header-default-top-tc, 
+.x-nbr .x-window-header-default-top-tr, 
+.x-nbr .x-window-header-default-top-bl, 
+.x-nbr .x-window-header-default-top-bc,
+.x-nbr .x-window-header-default-top-br, 
+.x-nbr .x-window-header-default-top-ml, 
+.x-nbr .x-window-header-default-top-mr {
+	background-image:url('../resources/themes/images/self_blue/window-header/window-header-default-top-corners.gif');
+}
+.x-nbr .x-window-header-default-top-ml, 
+.x-nbr .x-window-header-default-top-mr {
+	background-image:url('../resources/themes/images/self_blue/window-header/window-header-default-top-sides.gif');
+	background-position:0 0;
+	background-repeat:repeat-y;
+}
+.x-nlg .x-window-header-default-top-mc { background-color:#6da7c2;}   
+.x-nlg .x-window-default-mc{ background-color:#6da7c2;}
+ 
+/**部分组件禁用样式**/
+.x-item-disabled .x-form-item-label, 
+.x-item-disabled .x-form-field, 
+.x-item-disabled .x-form-cb-label{opacity:0.3;}
+
+/**display的样式 
+.x-form-display-field{ padding-left:5PX; background:#b7d8dc; border:1px solid #a6b9c2;} **/
+
+/**控件只读样式**/
+.s3-readonly .x-form-field{ background:#dfe8f7; border:1px solid #a6b9c2; color:#000;}
+
+.s3-readonly2 .x-form-radio{
+	background-image:url('../resources/themes/images/default/form/radio2.gif');
+	background-position:-39px 0px;
+}
+.s3-readonly2-current .x-form-radio{
+	background-image:url('../resources/themes/images/default/form/radio2.gif');
+	background-position:-39px -13px;
+}
+
+.s3-readonly2 .x-form-checkbox{ 
+	background-image:url('../resources/themes/images/default/form/checkbox2.gif');
+	background-position:-39px 0px;
+	}
+.s3-readonly2-current .x-form-checkbox{ 
+	background-image:url('../resources/themes/images/default/form/checkbox2.gif');
+	background-position:-39px -13px;
+	}
+.qx-s3-readonly .x-form-field{
+    background: none repeat scroll 0 0 #ffffff;
+}
+
+
+.icon_not_important {
+	background-image : url(images/btn-icon/icon_not_important.png);
+	background-repeat : no-repeat;
+	width : 16px;
+	height : 16px;
+}
+
+.icon_is_important {
+	background-image : url(images/btn-icon/icon_is_important.png);
+	background-repeat : no-repeat;
+	width : 16px;
+	height : 16px;
+}

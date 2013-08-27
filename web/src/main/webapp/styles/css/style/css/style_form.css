@@ -1,0 +1,192 @@
+/**page inputBox**/
+ul, li, img, form {
+	border:0px;
+	margin:0px;
+	padding:0px;
+	list-style:none;
+	list-style-type:none;
+}
+.inputBox_01, .inputBox_01 .bg, .inputBox_01 .bg input, .inputBox, .inputBox .bg, .inputBox .bg input, .selectBox, .selectBox .bg, .selectBox .bg input, .fileBox, .fileBox .bg {
+	background-image:url(../images/inputBox.gif);
+}
+.inputBox_01 {
+	display:inline-block;
+	height:24px;
+	padding-left:4px;
+	background-repeat:no-repeat;
+	background-position:left -30px;
+}
+.inputBox_01 img {
+	float:left;
+	margin:4px 0px;
+	vertical-align:text-bottom;
+}
+.inputBox_01 .bg {
+	float:left;
+	height:24px;
+	line-height:24px;
+	padding-right:4px;
+	background-repeat:no-repeat;
+	background-position:right -60px;
+	font-size:12px;
+	color:#666;
+}
+.inputBox_01 .bg input {
+	float:left;
+	border:0px;
+	margin:0px;
+	padding:0px;
+	background-repeat:repeat-x;
+	background-position:0px 0px;
+	height:24px;
+	line-height:24px;
+	background-color:transparent;
+}
+/*----------------------------------*/
+.inputBox {
+	display:inline-block;
+	height:24px;
+	padding-left:4px;
+	background-repeat:no-repeat;
+	background-position:left -30px;
+}
+.inputBox img {
+	float:left;
+	margin:4px 0px;
+	vertical-align:text-bottom;
+}
+.inputBox .bg {
+	float:left;
+	height:24px;
+	line-height:24px;
+	padding-right:4px;
+	background-repeat:no-repeat;
+	background-position:right -60px;
+	font-size:12px;
+	color:#666;
+}
+.inputBox .bg input {
+	float:left;
+	border:0px;
+	margin:0px;
+	padding:0px;
+	background-repeat:repeat-x;
+	background-position:0px 0px;
+	height:24px;
+	line-height:24px;
+	background-color:transparent;
+}
+/*----------------------------------*/
+.selectBox {
+	display:inline-block;
+	height:24px;
+	padding-left:2px;
+	background-repeat:no-repeat;
+	background-position:left -30px;
+}
+.selectBox img {
+	float:left;
+	margin:4px 0px;
+	vertical-align:text-bottom;
+}
+.selectBox .bg {
+	float:left;
+	height:24px;
+	line-height:24px;
+	padding-right:2px;
+	background-repeat:no-repeat;
+	background-position:right -60px;
+	font-size:12px;
+	color:#666;
+}
+.selectBox .bg select {
+	float:left;
+	border:0px;
+	margin:2px 0px;
+	padding:0px;
+	background-repeat:repeat-x;
+	background-position:0px 0px;
+	height:20px;
+	line-height:20px;
+	background-color:transparent;
+}
+/*----------------------------------*/
+.fileBox {
+	display:inline-block;
+	height:24px;
+	padding-left:2px;
+	background-repeat:no-repeat;
+	background-position:left -30px;
+}
+.fileBox img {
+	float:left;
+	margin:4px 0px;
+	vertical-align:text-bottom;
+}
+.fileBox .bg {
+
+	height:24px;
+	line-height:24px;
+	padding-right:2px;
+	background-repeat:no-repeat;
+	background-position:right -60px;
+	font-size:12px;
+	color:#666;
+}
+.fileBox .bg input {
+	float:left;
+	border:0px;
+	margin:2px 0px;
+	padding:0px;
+	height:20px;
+	line-height:20px;
+	background-color:transparent;
+}
+/*----------------------------------*/
+.textareaBox {
+	position:relative;
+	display:inline-block;
+	padding:0px;
+	margin:4px 0px;
+	background-color:#FFF;
+	border:1px solid #b3b3b3;
+}
+.textareaBox img {
+	position:absolute;
+	float:left;
+	vertical-align:text-bottom;
+}
+.textareaBox .bg {
+	float:left;
+	font-size:12px;
+	color:#666;
+}
+.textareaBox .bg textarea {
+	float:left;
+	border:0px;
+	margin:0px;
+	padding:0px;
+	background-repeat:repeat-x;
+	background-position:0px 0px;
+	line-height:20px;
+	background-color:transparent;
+}
+
+
+
+/*iconBox*/
+.iconBox_dateStar, .iconBox_dateEnd {
+	background-image:url(../images/iconBox.gif);
+}
+.iconBox_dateStar {
+	width:16px;
+	height:16px;
+	background-repeat:no-repeat;
+	background-position:0px 0px;
+}
+.iconBox_dateEnd {
+	width:16px;
+	height:16px;
+	background-repeat:no-repeat;
+	background-position:-16px 0px;
+}

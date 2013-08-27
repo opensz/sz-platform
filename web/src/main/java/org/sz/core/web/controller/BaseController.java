@@ -36,21 +36,24 @@ public class BaseController extends GenericController {
 		session.setAttribute("message", message);
 	}
 
-	
 	@InitBinder
-   protected void initBinder(HttpServletRequest request, ServletRequestDataBinder binder)
-   {
-     this.logger.debug("init binder ....");
-     binder.registerCustomEditor(Integer.class, null, new CustomNumberEditor(Integer.class, null, true));
-     binder.registerCustomEditor(Long.class, null, new CustomNumberEditor(Long.class, null, true));
-//     binder.registerCustomEditor(Boolean.class, new ByteArrayMultipartFileEditor());
-     binder.registerCustomEditor(Boolean.class, null, new CustomBooleanEditor(true));
-     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-     dateFormat.setLenient(false);
-     binder.registerCustomEditor(Date.class, null, new CustomDateEditor(dateFormat, true));
-   }
+	protected void initBinder(HttpServletRequest request,
+			ServletRequestDataBinder binder) {
+		this.logger.debug("init binder ....");
+		binder.registerCustomEditor(Integer.class, null,
+				new CustomNumberEditor(Integer.class, null, true));
+		binder.registerCustomEditor(Long.class, null, new CustomNumberEditor(
+				Long.class, null, true));
+		// binder.registerCustomEditor(Boolean.class, new
+		// ByteArrayMultipartFileEditor());
+		binder.registerCustomEditor(Boolean.class, null,
+				new CustomBooleanEditor(true));
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		dateFormat.setLenient(false);
+		binder.registerCustomEditor(Date.class, null, new CustomDateEditor(
+				dateFormat, true));
+	}
 
-	
 	protected ResultMessage validForm(String form, Object obj,
 			BindingResult result, HttpServletRequest request) {
 		ResultMessage resObj = new ResultMessage(1, "");
@@ -70,31 +73,29 @@ public class BaseController extends GenericController {
 		return resObj;
 	}
 
-	
 	public ModelAndView getView(String category, String id) {
 		String view = ConfigUtil.getVal(category, id);
 		return new ModelAndView(view);
 	}
-	
-	public static byte[] getByte(File file) throws Exception
-    {
-	       if (file == null) {
-	            return null;
-	        }
-	        try {
-	            FileInputStream stream = new FileInputStream(file);
-	            ByteArrayOutputStream out = new ByteArrayOutputStream(1000);
-	            byte[] b = new byte[1000];
-	            int n;
-	            while ((n = stream.read(b)) != -1)
-	                out.write(b, 0, n);
-	            stream.close();
-	            out.close();
-	            return out.toByteArray();
-	        } catch (IOException e) {
-	        	e.printStackTrace();
-	        }
-	        return null;
-    }
+
+	public static byte[] getByte(File file) throws Exception {
+		if (file == null) {
+			return null;
+		}
+		try {
+			FileInputStream stream = new FileInputStream(file);
+			ByteArrayOutputStream out = new ByteArrayOutputStream(1000);
+			byte[] b = new byte[1000];
+			int n;
+			while ((n = stream.read(b)) != -1)
+				out.write(b, 0, n);
+			stream.close();
+			out.close();
+			return out.toByteArray();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 
 }

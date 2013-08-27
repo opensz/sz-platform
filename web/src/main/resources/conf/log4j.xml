@@ -68,6 +68,11 @@
     <logger name="org.sz.platform.tool">
         <level value="INFO"/>
     </logger>
+    
+    
+    <logger name="org.sz.core.web.controller">
+        <level value="DEBUG"/>
+    </logger>
 
     <root>
         <level value="WARN"/>

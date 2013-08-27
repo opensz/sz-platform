@@ -1,0 +1,49 @@
+/*------tools-----*/
+.pickList button, table.pickList td button{ background-image:url(images/workblue.gif); }
+/*------list-tab------*/
+/*------layout-itsd-more--------*/
+#nav { background:url(images/topblue.gif) repeat-x 0 -72px;}
+#nav li a:hover, #nav a.current, sidebar h2, .sidebar h2.open, .sidebar h2.close, .sidebar h2 span, .sidebar h2#vmt_menu-support-user span, .sidebar h2#vmt_menu-support-asset span, .sidebar h2#vmt_menu-support-case span, .sidebar h2#vmt_menu-support-km span, .sidebar .local a, .sidebar .local a:hover, .sidebar .local a.current, .sidebardesk h2, #detail_col li .left input.button, .quickSearch .right .rolling a, .quickSearch .right .rolling a:hover, .quickSearch .right td a, .quickSearch .right td a:hover, .quickSearch input.button, .quickSearch input.button:hover, .menu0 li, .menu0 li.hover, h4 .title, h4 .titleSmall, h4 .FontButHover, .Menubox li, .Menubox li.hover, .hot_knowledge li, #knowledgeSearch input.button{ background-image:url(images/workblue.gif); }
+/*------layout------*/
+div#header {height:71px;background:url(images/topblue.gif) repeat-x;}
+
+/*-------forms---------*/
+input.jumpBTN {background-image:url(images/workblue.gif); }
+input[type="button"].jumpBTN, input[type="button"].jumpBTN:hover, x:-moz-any-link, x:default{ background-image:url(images/workblue.gif); }
+@media screen and (-webkit-min-device-pixel-ratio:0){input[type="button"].jumpBTN{background-image:url(images/workblue.gif);}}
+input.disabledBot{background-image:url(images/workblue.gif);}
+input[type="submit"].disabledBot, input[type="submit"].disabledBot:hover, input[type="button"].disabledBot, input[type="button"].disabledBot:hover, x:-moz-any-link, x:default{background-image:url(images/workblue.gif); }
+input[type="button"], input[type="button"]:hover, input[type="submit"], input[type="submit"]:hover, input[type="reset"], input[type="reset"]:hover x:-moz-any-link, x:default{ background-image:url(images/workblue.gif); }
+@media screen and (-webkit-min-device-pixel-ratio:0){input[type="submit"], input[type="button"], input[type="reset"]{background-image:url(images/workblue.gif);}} 
+@media screen and (-webkit-min-device-pixel-ratio:0){input[type="submit"]:hover, input[type="button"]:hover, input[type="reset"]:hover{ background-image: url(images/workblue.gif);}} 
+input.button22, input.button22:hover, input.button, input.button:hover{ background-image:url(images/workblue.gif); }
+input[type="button"].button22, input[type="submit"].button22, input[type="button"].button22:hover, input[type="submit"].button22:hover, x:-moz-any-link, x:default{
+background-image:url(images/workblue.gif); }
+input.buttonMedium, input.buttonMedium:hover{ background-image:url(images/workblue.gif);}
+input[type="button"].buttonMedium, input[type="submit"].buttonMedium, input[type="button"].buttonMedium:hover, input[type="submit"].buttonMedium:hover, x:-moz-any-link, x:default{ background-image:url(images/workblue.gif);}
+input.buttonnew, input.buttonnew:hover{ background-image:url(images/workblue.gif);}
+input[type="button"].buttonnew, input[type="button"].buttonnew:hover, x:-moz-any-link, x:default{background-image:url(images/workblue.gif);}
+input.pgUp, input.pgDn, input.first, input.end, input.pgUpHover, input.pgDnHover, input.firstHover, input.endHover{background-image:url(images/workblue.gif);}
+input[type="button"].pgUp, input[type="button"].pgDn, input[type="button"].first, input[type="button"].end, input[type="button"].pgUpHover, input[type="button"].pgDnHover, input[type="button"].firstHover, input[type="button"].endHover， input[type="button"].pgUp:hover, input[type="button"].pgDn:hover, input[type="button"].first:hover, input[type="button"].end:hover, input[type="button"].pgUpHover, input[type="button"].pgDnHover, input[type="button"].firstHover, input[type="button"].endHover, x:-moz-any-link, x:default{background-image:url(images/workblue.gif); }
+input.buttonover, input.button20, input.button20over, /*input.button22,*/ input.button22over, input.buttonW, input.buttonWover, input.inc, input.incover, input.pad, input.matter, input.date, input.search, input.help, input.add, input.by, input.Asset_user, input.Work, input.Knowledge, input.People, input.History, input.Found, input.close, input.Annex, input.Del, input.vip{  background-image:url(images/workblue.gif);}
+/*---------2c87d9-------------*/
+/*------tools---------*/
+.fb a:hover, .FontButHover{ background-color:#2c87d9;}
+/*------list-tab--------*/
+.page-top a:hover, .div_href{ background-color:#2c87d9;}
+.pagination a:hover{ background-color:#2c87d9; color:#fff;}
+/*-----------layout-itsd-more------------*/
+.sidebardesk .flash_href a:hover, .sidebardesk .flash_href a.current{ color:#2c87d9; }
+.flash_href .left, h4 .FontButHover{color:#2c87d9; }
+#detail_col a:hover, #detail_col .buttonbar div a:hover, .quickSearch a:hover, .form a:hover, .form .right a:hover, .tablePrePageInfo a:hover{background-color:#2c87d9; color:#fff;}
+.quickSearch .both a:hover{background-color:#2c87d9;}
+/*------layout----------*/
+.main_content .info ul a:hover, .main_content .info ul .right a:hover{ background-color:#2c87d9;}
+/*-----ceedff------*/
+/*------layout-itsd-more-----------*/
+.pageTip{ background-color:#eef6fd;}
+.SpecialCon .right li .left div, .SpecialConC .left div li .right div, .quickSearch .right{background-color:#eef6fd;}
+
+/*------typo----------*/
+.table .even:hover, .table .odd:hover, .table .old:hover, .tabledesk .even:hover, .tabledesk .odd:hover, .tabledesk .old:hover{background-color:#ceedff;  background:url(images/td_hover_blue.gif);}/*for IE7 IE8*/
+.table .even:hover td, .table .odd:hover td, .table .old:hover td, .tabledesk .even:hover td, .tabledesk .odd:hover td, .tabledesk .old:hover td, x:-moz-any-link, x:default  {/*/*/background-color:#ceedff;/* */ }/*for FF*/

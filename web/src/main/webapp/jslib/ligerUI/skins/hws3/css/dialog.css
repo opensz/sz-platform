@@ -1,0 +1,28 @@
+
+.l-dialog-tl{background:url('../images/win/dialog.gif') no-repeat;background-position:-12px 0px;}
+.l-dialog-tc{background:url('../images/win/dialog-tc.gif') repeat-x;}
+.l-dialog-tr{background:url('../images/win/dialog.gif') no-repeat;background-position:-18px 0px;}
+.l-dialog-bl{background:url('../images/win/dialog.gif') no-repeat;background-position:-12px -26px;}
+.l-dialog-bc{background:url('../images/win/dialog-bc.gif') repeat-x;}
+.l-dialog-br{background:url('../images/win/dialog.gif') no-repeat;background-position:-18px -26px;}
+.l-dialog-cl{background:url('../images/win/dialog.gif') repeat-y;}
+.l-dialog-cr{background:url('../images/win/dialog.gif') repeat-y; background-position:-6px 0px;}
+
+.l-dialog-winbtns{ position:absolute;right:0px; top:4px; height:16px;}
+.l-dialog-winbtn{background:url('../images/win/dialog-winbtns.gif') no-repeat;cursor:pointer;overflow:hidden; width:17px; height:16px; float:right; margin-right:4px;}
+
+.l-dialog-close{background-image:url('../images/win/dialog.gif');background-position:-24px 0px;}
+
+.l-dialog-tc-inner .l-dialog-icon {
+    display:none;
+}
+.l-dialog-title {
+    color:#04468c;
+    font-weight:700;
+    padding-left:0px;
+    padding-right:20px;
+    padding-top:0;
+    text-align:left;
+    text-shadow:none;
+}
+

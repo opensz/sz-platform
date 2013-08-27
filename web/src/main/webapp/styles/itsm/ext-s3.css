@@ -1,0 +1,88 @@
+/**footer样式**/
+.bottom {
+	height:30px;
+	color:#ffffff!important;
+	border-color:#a2bcd7;
+	background-image:none;
+	background-color:#58a7d4;
+	background-image:-webkit-gradient(linear, 50% 0, 50% 100%, color-stop(0%, #58a7d4), color-stop(55%, #4d96b5),color-stop(100%, #3782b0));
+	background-image:-moz-linear-gradient(top, #58a7d4, #4d96b5, #3782b0);
+	background-image:linear-gradient(top, #58a7d4, #4d96b5, #3782b0);
+}
+.bottom{ background: url(images/footer.jpg) repeat-x!important; height: 22px; width: auto;}
+
+/******必填控件 label样式***********/
+.req{ color: #FF0000; font-size:14px;}
+
+.s3-server{ width:120px; height:22px; line-height:22px\9; float:left; font-size:12px; cursor:pointer;} /*新增工单里每列样式*/
+.s3-sepline{ padding: 0px 10px; color:#1d4279; }
+
+/*设置具体控件样式,包括input,select,textfield,textareafield,checkbox,radiogroup*/
+.s3-textfield{ width:410px!important;} /*设置长的textfield输入框的宽度*/
+.s3-textareafield{ width:410px!important; height:76px!important; padding-top:3px;} /*设置textareafield文本域的宽高*/
+.s3-large-textareafield{ width:660px!important; height:76px!important;} /*设置长的textareafield的宽高*/
+.s3-search-textfield{ width:250px!important;}  /*设置搜索框中长textfield文本框的宽度*/
+.s3-out{ width:530px!important;} /*设置文字和控件总共占的宽度*/
+
+
+/*button上小图标*/
+/*已经有基类*/
+.add{ background-image:url(images/btn-icon/add.png); background-repeat: no-repeat; float:left; margin-left:4px;}
+.delete{ background-image:url(images/btn-icon/delete.png); background-repeat: no-repeat; float:left; margin-left:4px;}
+.save{ background-image:url(images/btn-icon/save.png); background-repeat: no-repeat; float:left; margin-left:4px;}
+.close{ background-image:url(images/btn-icon/close.png); background-repeat: no-repeat; float:left; margin-left:4px;}
+.return{ background-image:url(images/btn-icon/return.png); background-repeat: no-repeat; float:left; margin-left:4px;}
+.search_common{ background-image:url(images/btn-icon/search.png); background-repeat: no-repeat; float:left; margin-left:4px;}/*查询*/
+.store_in{ background-image:url(images/btn-icon/store_in.png); background-repeat: no-repeat; float:left; margin-left:4px;}/*回库*/
+.store_out{ background-image:url(images/btn-icon/store_out.png); background-repeat: no-repeat; float:left; margin-left:4px;}/*出库*/
+.purchase_software{ background-image:url(images/btn-icon/purchase_software.png); background-repeat: no-repeat; float:left; margin-left:4px;}/*采购软件*/
+.copy{ background-image:url(images/btn-icon/copy.png); background-repeat: no-repeat; float:left; margin-left:4px;}/*20121009添加--复制、副本*/
+.upgrade{background-image:url(images/btn-icon/upgrade.png); background-repeat: no-repeat; float:left; margin-left:4px;}/*20120927添加－－升级节点*/
+.print{background-image:url(images/btn-icon/print.png); background-repeat: no-repeat; float:left; margin-left:4px;}/*20121009添加--打印*/
+.search_advance{background-image:url(images/btn-icon/search_advance.png); background-repeat: no-repeat; float:left; margin-left:4px;}/*20120929添加－－高级查询*/
+.path{ background-image:url(images/btn-icon/path.png); background-repeat: no-repeat; float:left; margin-left:4px;}/*20121009添加--流程图*/
+.import{background-image:url(images/btn-icon/import.png); background-repeat: no-repeat; float:left; margin-left:4px;}/*20121009添加－－导入*/
+.export{background-image:url(images/btn-icon/export.png); background-repeat: no-repeat; float:left; margin-left:4px;}/*20121009添加－－导出*/
+.spread{background-image:url(images/btn-icon/spread.png); background-repeat: no-repeat; float:left; margin-left:4px;}/*20120927添加－－展开所有*/
+.gather{background-image:url(images/btn-icon/gather.png); background-repeat: no-repeat; float:left; margin-left:4px;}/*20120927添加－－合上所有*/
+.purchase_part{background-image:url(images/btn-icon/purchase_part.png); background-repeat: no-repeat; float:left; margin-left:4px;}/*20120928添加－－采购部件*/
+.purchase_it{background-image:url(images/btn-icon/purchase_it.png); background-repeat: no-repeat; float:left; margin-left:4px;}/*20120928添加－－采购泛IT资产*/
+.purchase_desk_hard{background-image:url(images/btn-icon/purchase_desk_hard.png); background-repeat: no-repeat; float:left; margin-left:4px;}/*20120928添加－－采购桌面硬件*/
+.purchase_sys_hard{background-image:url(images/btn-icon/purchase_sys_hard.png); background-repeat: no-repeat; float:left; margin-left:4px;}/*20120928添加－－采购系统硬件*/
+/*20121009添加基类*/
+.purchase_bus_system{ background-image:url(images/btn-icon/purchase_bus_system.png); background-repeat: no-repeat; float:left; margin-left:4px;}/*采购商务系统*/
+.case_add{ background-image:url(images/btn-icon/case_add.png); background-repeat: no-repeat; float:left; margin-left:4px;}/*工单新增*/
+.report_add{ background-image:url(images/btn-icon/report_add.png); background-repeat: no-repeat; float:left; margin-left:4px;}/*报表新增*/
+.procedure_upload{ background-image:url(images/btn-icon/procedure_upload.png); background-repeat: no-repeat; float:left; margin-left:4px;}/*上传流程*/
+.edit{ background-image:url(images/btn-icon/edit.png); background-repeat: no-repeat; float:left; margin-left:4px;}/*编辑*/
+.refresh{ background-image:url(images/btn-icon/refresh.png); background-repeat: no-repeat; float:left; margin-left:4px;}/*刷新*/
+.replace{ background-image:url(images/btn-icon/replace.png); background-repeat: no-repeat; float:left; margin-left:4px;}/*替换*/
+.asset_return{background-image:url(images/btn-icon/asset_return.png); background-repeat: no-repeat; float:left; margin-left:4px;}/*20120928添加－－归还*/
+.use{background-image:url(images/btn-icon/use.png); background-repeat: no-repeat; float:left; margin-left:4px;}/*20120929添加－－使用*/
+.to_loan{background-image:url(images/btn-icon/to_loan.png); background-repeat: no-repeat; float:left; margin-left:4px;}/*20120929添加－－借调*/
+.management{background-image:url(images/btn-icon/management.png); background-repeat: no-repeat; float:left; margin-left:4px;}/*20120929添加－－处置*/
+.choose{ background-image:url(images/btn-icon/add.png); background-repeat: no-repeat; float:left; margin-left:4px;}
+.left_move{background-image:url(images/btn-icon/left_move.png); background-repeat: no-repeat; float:left; margin-left:4px;}/*20121011添加－－左移*/
+.right_move{background-image:url(images/btn-icon/right_move.png); background-repeat: no-repeat; float:left; margin-left:4px;}/*20121011添加－－右移*/
+.problem{background-image:url(images/btn-icon/problem.png); background-repeat: no-repeat; float:left; margin-left:4px;}/*20121011添加－－问题*/
+.hung{ background-image:url(images/btn-icon/hung.png); background-repeat: no-repeat; float:left; margin-left:4px;} /*NO.38--20121102--挂起*/
+.cancel_hung{ background-image:url(images/btn-icon/cancel_hung.png); background-repeat: no-repeat; float:left; margin-left:4px;} /*NO.39--20121102--取消挂起*/
+
+.stop{ background-image:url(images/btn-icon/stop.png); background-repeat: no-repeat; float:left; margin-left:4px;}
+/*节点升级--无对应图片无基类.同升级节点*/
+.point_upgrade{ background-image:url(images/btn-icon/point_upgrade.png); background-repeat: no-repeat; float:left; margin-left:4px;}
+/*高级查询--同上面高级查询无基类*/
+.search_high{ background-image:url(images/btn-icon/search_up.png); background-repeat: no-repeat; float:left; margin-left:4px;}
+/*采购泛IT资产--同上面无基类*/
+.purchase_f_it{ background-image:url(images/btn-icon/purchase_f_it.png); background-repeat: no-repeat; float:left; margin-left:4px;}
+/*采购硬件--同上采购桌面硬件无基类*/
+.purchase_hardware{ background-image:url(images/btn-icon/purchase_hardware.png); background-repeat: no-repeat; float:left; margin-left:4px;}
+/*采购应用系统--同上面采购系统硬件无基类*/
+.purchase_app_system{ background-image:url(images/btn-icon/purchase_app_system.png); background-repeat: no-repeat; float:left; margin-left:4px;}
+
+.closeTab{ background-image:url(images/btn-icon/closeTab.png); background-repeat: no-repeat; float:left; margin-left:4px;}  /*关闭tab 页*/
+
+
+.cancel_task{ background-image:url(images/btn-icon/cancel_task.png); background-repeat: no-repeat; float:left; margin-left:4px;} /*NO.40--20130129--取消任务*/
+.restore_task{ background-image:url(images/btn-icon/restore_task.png); background-repeat: no-repeat; float:left; margin-left:4px;} /*NO.41--20130129--恢复任务*/
+

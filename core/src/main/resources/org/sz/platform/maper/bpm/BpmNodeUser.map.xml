@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="org.sz.platform.bpm.model.flow.BpmNodeUser">
+	<resultMap id="BpmNodeUser" type="org.sz.platform.bpm.model.flow.BpmNodeUser">
+		<id property="nodeUserId" column="nodeUserId" jdbcType="NUMERIC"/>
+		<result property="setId" column="setId" jdbcType="NUMERIC"/>
+		<result property="nodeId" column="nodeId" jdbcType="VARCHAR"/>
+		<result property="assignType" column="assignType" jdbcType="NUMERIC"/>
+		
+		<result property="cmpIds" column="cmpIds" jdbcType="CLOB"/>
+		<result property="cmpNames" column="cmpNames" jdbcType="CLOB"/>
+		<result property="actDefId" column="actDefId" jdbcType="VARCHAR"/>
+		<result property="compType" column="compType" jdbcType="NUMERIC"/>
+		<result property="sn" column="sn" jdbcType="NUMERIC"/>
+	</resultMap>
+	
+	<sql id="columns">
+		nodeUserId,setId,nodeId,assignType,cmpIds,cmpNames,actDefId,compType,sn
+	</sql>
+	
+	<sql id="dynamicWhere">
+		<where>
+			<if test="@Ognl@isNotEmpty(nodeUserId)"> AND nodeUserId  =#{nodeUserId} </if>
+			<if test="@Ognl@isNotEmpty(setId)"> AND setId  =#{setId} </if>
+			<if test="@Ognl@isNotEmpty(nodeId)"> AND nodeId  LIKE '%${nodeId}%'  </if>
+			<if test="@Ognl@isNotEmpty(assignType)"> AND assignType  =#{assignType} </if>
+			<if test="@Ognl@isNotEmpty(actDefId)"> AND actDefId  =#{actDefId} </if>
+		</where>
+	</sql>
+
+	<insert id="add" parameterType="org.sz.platform.bpm.model.flow.BpmNodeUser">
+		INSERT INTO bpm_node_user
+		(<include refid="columns"/>)
+		VALUES
+		(#{nodeUserId,jdbcType=NUMERIC}, #{setId,jdbcType=NUMERIC}, #{nodeId,jdbcType=VARCHAR}, #{assignType,jdbcType=NUMERIC}, #{cmpIds,jdbcType=CLOB}, #{cmpNames,jdbcType=CLOB}, #{actDefId,jdbcType=VARCHAR}, #{compType,jdbcType=NUMERIC}, #{sn,jdbcType=NUMERIC})
+	</insert>
+	
+	<delete id="delById" parameterType="java.lang.Long">
+		DELETE FROM BPM_NODE_USER 
+		WHERE
+		nodeUserId=#{nodeUserId}
+	</delete>
+	
+	<update id="update" parameterType="org.sz.platform.bpm.model.flow.BpmNodeUser">
+		UPDATE bpm_node_user SET
+		setId=#{setId,jdbcType=NUMERIC} , 
+		nodeId=#{nodeId,jdbcType=VARCHAR} , 
+		assignType=#{assignType,jdbcType=NUMERIC} , 
+		cmpIds=#{cmpIds,jdbcType=CLOB} , 
+		cmpNames=#{cmpNames,jdbcType=CLOB} , 
+		actDefId=#{actDefId,jdbcType=VARCHAR} , 
+		compType=#{compType,jdbcType=NUMERIC} , 
+		sn=#{sn,jdbcType=NUMERIC} 
+		WHERE
+		nodeUserId=#{nodeUserId}
+	</update>
+	
+	<select id="getById" parameterType="java.lang.Long" resultMap="BpmNodeUser">
+		SELECT <include refid="columns"/>
+		FROM BPM_NODE_USER
+		WHERE
+		nodeUserId=#{nodeUserId}
+	</select>
+	
+	<select id="getAll" resultMap="BpmNodeUser">
+		SELECT <include refid="columns"/>
+		FROM BPM_NODE_USER   
+		<include refid="dynamicWhere" />
+		<if test="@Ognl@isNotEmpty(orderField)">
+		order by ${orderField} ${orderSeq}
+		</if>
+		<if test="@Ognl@isEmpty(orderField)">
+		order by nodeUserId  desc
+		</if>
+	</select>
+	
+	<select id="getBySetId" parameterType="java.lang.Long" resultMap="BpmNodeUser">
+		SELECT *
+		FROM BPM_NODE_USER WHERE 
+		setId = #{setId} 
+		ORDER BY sn asc
+	</select>
+	<delete id="delByActDefId" parameterType="String">
+		DELETE FROM BPM_NODE_USER 
+		WHERE
+		actDefId=#{actDefId}
+	</delete>
+</mapper>

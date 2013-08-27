@@ -1,0 +1,122 @@
+iframe.popFrame {}
+div.popContext {}
+.popWin {position: absolute;left: 25%; line-height:20px;top: 60px;margin: 0px auto; margin-bottom:12px;text-align: left;z-index:10000; overflow:hidden; text-align:left;}
+div.poplarge{ width:661px;}
+div.poplarge-child{width:630px;}
+div.popmedium{ width:661px;}
+div.popsmall{ width:430px;}
+div.extsmall{ width:430px;height:400px}
+div.hidden{ width:0px; height:0px; visibility:hidden;}
+
+iframe.poplarge{ width:633px;}
+iframe.poplarge-child{width:600px;}
+iframe.popmedium{ width:633px;}
+iframe.popsmall{ width:400px;}
+iframe.extsmall{ width:400px;height:400px}
+
+#popWin_TEST{ }
+.popWin table td{ empty-cells:show;  }
+.popWin table{ border-collapse:collapse; table-layout:fixed; width:100%;}
+.pop_close {position: absolute;left: 0;display: block;top: 0px;height: 40px;width: 95%;z-index: 2;text-align: right;}
+.popWin_head { position: relative;cursor: move;left: 0px;top:-6px;*top:-20px;width: 100%;height: 24px;text-align: right;margin-top: 0px; z-index: 1000; background-color:transparent;}
+.popWin_head a{ display:block; background:transparent url(images/popWin.gif) 0px 0px no-repeat;height:20px;width: 17px; padding:0px;border: none; float:right; }
+.mm .popWin_title{ float:left; color:#fff; font-weight:normal; margin-top:2px;}
+.popWin_title h1{ display:inline; background:none; border:none; margin:0px; margin-left:-15px; font-weight:600;}
+
+/*---- POP WINDOW STYLE ----*/ 
+/*
+.tl { background-repeat: no-repeat; background-position: -2px -60px; height:20px; width: 16px;}
+.tm { background-repeat: repeat; background-position: 0px -126px; height:20px;}
+.tr { background-repeat: repeat; background-position: -56px -60px; height: 20px; width: 16px;}
+.ml { background-repeat:repeat-y; background-position: -2px -172px; width: 16px;}
+.mm { background-color: #fff;}
+.mr { background-repeat:repeat-y; background-position: -50px -172px; width: 16px;}
+.bl { background-repeat: repeat; background-position: -2px -80px; height: 12px; width: 16px;}
+.bm { background-repeat: repeat;background-position: 0px -146px; height: 24px;}
+.br { background-repeat: repeat; background-position: -56px -80px; height: 12px; width: 16px;}
+*/
+
+html>body .tl, .tm, .tr, .ml, .mr, .bl, .bm, .br {
+	background-image: url(images/popWin.png);
+}
+/*************** for ie 6 **************************** for ie 6 ***************/
+ * html .tl,.tm,.tr,.ml,.mr,.bl,.bm,.br{_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true, sizingMethod=scale, src="images/popWin2.png");}
+
+.tl { background-repeat: no-repeat; background-position: -2px -60px; height:20px; width: 16px;}
+.tm { background-repeat: repeat; background-position: 0px -126px; height:20px;}
+.tr { background-repeat: repeat; background-position: -56px -60px; height: 20px; width: 16px;}
+.ml { background-repeat:repeat-y; background-position: -2px -172px; width: 16px;}
+.mm { background-color: #fff;}
+.mr { background-repeat:repeat-y; background-position: -56px -172px; width: 16px;}
+.bl { background-repeat: repeat; background-position: -2px -80px; height: 12px; width: 16px;}
+.bm { background-repeat: repeat;background-position: 0px -146px; height: 24px;}
+.br { background-repeat: repeat; background-position: -56px -80px; height: 12px; width: 16px;}
+/*************** for ie 6 ***************/
+.tl, .tm, .tr, .ml, .mr, .bl, .bm, .br {
+   _background-image: url(images/popWin.gif);}
+
+
+.mm {
+ _background-color:;
+}
+/*************** for ie 6 ***************/ /*----WINDOW_IFRAME----*/
+#caseCreateDiv { margin: 0px auto;position: absolute;top: 0px;background-color: #fff;}
+#caseCreateDiv div iframe {width: 100%;height: 100%;
+	border: 0;
+}
+.mm div{ margin-top:-15px;*margin-top:-0px;}
+.mm iframe div{ }
+
+#popContent h1{ display:;}
+#popContent fieldset{ margin:0px; padding:0px; border:none;}
+/*----pop  info view------*/
+*:lang(zh) #popContent info{ margin-left:15px !important;}
+.popWin .info{ width:80%; margin-left:15px;}
+#popContent  .infoView{ width:auto; overflow:hidden;}
+#popContent  .infoView li{ width:45%; float:left; display:block; margin-bottom:4px; margin-right:15px;}
+#popContent  .infoView li.entireRow{ display:block; width:100%; clear:both; height:auto;}
+
+.infoView{ width:100%; text-align:left;}
+#popContent .small-info li{ float:left; width:44%;}
+.info fieldset .infoView li{ clear:none; font-size:12px; float:left; display:block; width:45%; padding-bottom:2px; overflow:hidden; margin-right:20px;}
+.info fieldset .infoView .entireRow{ width:100%; clear:none; font-size:12px; float:left; display:block; padding-bottom:2px; word-break:break-all; overflow:auto; }
+.info fieldset .infoView .entireRow, x:-moz-any-link, x:default {width:623px; clear:none; font-size:12px; float:left; display:block; padding-bottom:2px; overflow:auto; word-break:break-all; }
+.poplarge .info fieldset .infoView .entireRow{  width:673px;}
+.popmedium .info fieldset .infoView .entireRow{ width:633px; } 
+.popsmall .info fieldset .infoView .entireRow{  width:362px; }
+.extsmall .info fieldset .infoView .entireRow{  width:362px; height:400px}
+.info a{ float:right; color:#ed6404; text-decoration:underline;}
+.info .infoView a{ float:none;}
+#popContent #detail .infoView{ clear:both;} 
+.infoView li div{ margin:0px; margin-left:60px; *margin-left:0px; display:table-row-group; *display:block; *float:left; margin-bottom:3px;  color:#666; }
+.infoView li .left{  margin:0px; margin-left:0px; padding:0px; width:60px; text-align:left; margin-right:12px;}
+.infoView li strong{ color:#000;  }
+.infoView li .desc{ width:55px; margin:0px; padding:0px;}
+.infoView li input.small{ width:170px;}
+#popContent textarea.small{ width:166px;}
+#popContent textarea.medium{  width:238px; border:1px solid #ddd;}
+#popContent .info fieldset li .left{ margin-right:5px;}
+.mm .info{ margin-top:30px;}
+.info div{ margin-top:0px;}
+.info li .left .desc, .info li div .desc{ padding:0px; width:78px;}
+.info legend{ display:block; padding:0px; margin:0px;}
+#popContent li div .wwgrp{ margin-left:0px; clear:none;float:left; display:block; margin-left:76px!important;margin-left:38px; width:186px!important; width:229px;}
+#popContent .infoView li div .wwgrp{ margin-left:56px!important;margin-left:28px;}
+#popContent li div .wwgrp .wwctrl{ margin-top:0px; #margin-top:-4px;}
+.mm #caseType2Message{ margin-top:0px;}
+#caseType2Message .infoView li div{ margin:0px;  margin-bottom:5px;}
+#caseType2Message .infoView li{ margin-bottom:8px; clear:both; width:100%;}
+#popContent .right{ width:100%; display:block; float:right; text-align:right; width:300px; margin-top:3px;}
+#popContent .quickSearch .right{ width:23%; margin-top:0px;}
+#popContent .wwgrp{ display:block; margin-left:56px; *margin-left:52px; _margin-left:27px; clear:both; width:300px; }
+#popContent .wwgrp div{  display:inline; margin-left:0px;}
+#popContent li.rowchecheckbox div .wwgrp{ margin-left:10px!important;  width:126px!important; width:126px;}
+#popContent li.rowchecheckbox .left .wwgrp{ margin-left:84px!important;margin-left:38px; }
+
+
+#popContent .info{ margin-left:5px;}
+#popContent .info fieldset{ border: 1px solid #ddd; margin-bottom:5px; display:block; padding-left:5px; width:100%;}
+#popContent .info fieldset ul{ display:block; width:100%;}
+#popContent .listdesk{ margin-top:8px; margin-left:5px;display:block; clear:both; }
+*:lang(zh) #popContent .listdesk{ margin-left:5px  !important; width:97%;}
+#popContent #detail{margin-left:8px; width:99.3%;}

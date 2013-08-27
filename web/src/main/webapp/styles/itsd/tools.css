@@ -1,0 +1,1084 @@
+.stretch,.clear {
+	clear: both;
+	height: 1px;
+	margin: 0;
+	padding: 0;
+	font-size: 15px;
+	line-height: 1px;
+}
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+.clearfix {
+	min-width: 1002px;
+	margin: 0 auto;
+	width: expression((( document.documentElement.clientWidth ||  
+		document.body.clientWidth) < 1002 ) ?   "1002px" : "auto" );
+}
+
+.replace {
+	display: block;
+	background-repeat: no-repeat;
+	background-position: left top;
+	background-color: transparent;
+}
+
+.replace * {
+	text-indent: -10000px;
+	display: block;
+	background-repeat: no-repeat;
+	background-position: left top;
+	background-color: transparent;
+}
+
+.replace a {
+	text-indent: 0;
+}
+
+.replace a span {
+	text-indent: -10000px;
+}
+
+span.accesskey {
+	text-decoration: none;
+}
+
+.accessibility {
+	position: absolute;
+	top: -999em;
+	left: -999em;
+}
+
+.table tr.expired {
+	background-color: #FEFF8D;
+}
+
+.disabled {
+	color: #999;
+}
+
+/
+hr {
+	display: none;
+}
+
+div.hr {
+	height: 1px;
+	margin: 1.5em 10px;
+	border-bottom: 1px dotted black;
+}
+
+.o {
+	overflow: hidden;
+	clear: both;
+	width: 100%;
+	width: expression(document.body.clientWidth <=   1002 ?   "1002px" : "auto");
+	min-width: 1002px;
+}
+
+.l {
+	float: left;
+	overflow: hidden;
+}
+
+.r {
+	float: right;
+	overflow: hidden;
+}
+
+.left {
+	float:left;
+	overflow: hidden;
+}
+
+.right {
+	float: right;
+	overflow: hidden;
+	padding-top:4px;
+}
+
+.text_right {
+	text-align: right;
+}
+
+.both {
+	clear: both;
+}
+
+.text_left {
+	text-align: left;
+	padding-left: 15px;
+	display: block;
+}
+
+.form li div[class="right"] {
+	text-align: center;
+	display: black;
+	margin-right: 5px;
+	height: 25px;
+	float: right;
+}
+
+.form li div[class="right"] div[align="right"] {
+	float: left;
+	height: 25px;
+}
+
+.dis_bl {
+	text-align: left;
+	text-align: left;
+	display: block;
+	margin: 0;
+	margin-right: 5px;
+	padding: 0;
+}
+
+.dis_il {
+	display: inline;
+}
+
+.w100 {
+	width: 100%;
+}
+
+.no_border {
+	border: 0;
+}
+
+.maR15 {
+	margin-left: 15px;
+}
+
+.w640 {
+	width: 642px; *
+	width: 642px;
+	_width: 640px;
+	float: left;
+	overflow: hidden;
+}
+
+.w408 {
+	width: 408px; *
+	width: 418px;
+	_width: 408px;
+	overflow: hidden;
+}
+
+.w308 {
+	width: 364px; *
+	width: 361px;
+	_width: 351px;
+	overflow: hidden;
+}
+
+.marW4 {
+	margin-right: 5px;
+}
+
+.form .buttonbar {
+	margin-bottom: 8px; >
+	margin-bottom: 2px;
+}
+
+.drift {
+	margin-top: -35px;
+}
+
+.buttonbarleft {
+	margin-left: 97px !important;
+	margin-left: 100px;
+	text-align: left;
+	float: left;
+	margin-right: auto;
+	clear: right;
+	width: 0;
+}
+
+.buttonbarleft div {
+	display: inline;
+}
+
+.text-message .buttonbarleft {
+	margin-left: 55px !important;
+	margin-left: 60px;
+	width: auto;
+	display: inline;
+	padding: 0;
+}
+
+.text-message .buttonbarleft input {
+	float: left;
+}
+
+.buttonbar {
+	text-align: center;
+	display: black;
+	margin-right: 5px;
+	height: 25px;
+	float: right;
+	margin-top: 4px;
+}
+
+.buttonbar div {
+	float: left;
+	height: 25px;
+}
+
+.buttonbar div input {
+	text-align: center;
+}
+
+.buttonbarK {
+	text-align: right;
+	display: black;
+	float: right;
+	height: 25px;
+}
+
+.buttonbarK div {
+	display: inline;
+}
+
+.buttonbar_col {
+	text-align: right;
+	display: block;
+	padding-top: 5px;
+	width: auto;
+	float: right;
+	margin-right: 5px;
+	height: 25px;
+}
+
+.buttonbar_col div {
+	float: left;
+	display: block;
+	height: 25px;
+	margin-right: 2px;
+}
+
+.buttonbar_left {
+	text-align: left;
+	margin-left: 89px !important;
+	margin-left: 92px;
+	display: inline;
+	width: auto;
+}
+
+.buttonbar_right {
+	text-align: right;
+	float: right;
+	padding-right: 20px;
+}
+
+.buttonbar_right div {
+	display: inline;
+}
+
+.checkboxbar {
+	margin-left: 88px;
+}
+
+.checkboxbar_col {
+	margin-left: 70px; *
+	margin-left: 66px;
+	_margin-left: 69px;
+}
+
+.SpecialCheckbox {
+	margin-left: -35px !important;
+	margin-left: -40px;
+	margin-top: 4px; *
+	margin-top: -1px;
+}
+
+.Pleft5 {
+	padding-left: 5px;
+}
+
+.padH8 {
+	margin-top: 8px;
+	display: block;
+}
+
+.His {
+	display: block;
+	width: 100% !important;
+	width: 98%;
+	margin-left: 15px;
+}
+
+*:lang(zh) .His {
+	margin-left: 30px !important;
+}
+
+.His .desc {
+	margin: 0;
+	padding: 0;
+}
+
+.overage {
+	float: right;
+	margin-left: 4px;
+	overflow: hidden;
+}
+
+.form .buttonbar a {
+	float: left;
+	display: block;
+	margin-top: 8px;
+}
+
+.borGray {
+	border: #ddd 1px solid;
+}
+
+#assetUsersDisplay {
+	color: #616161;
+}
+
+.rowTwoCheckbox {
+	margin-left: 96px; *
+	margin-left: 92px;
+	display: inline;
+}
+
+.rowTwoCheckbox label.desc {
+	display: inline;
+	text-align: left;
+	font-size: 13px;
+	float: none;
+}
+
+.rowTwoCheckbox input {
+	margin-right: -9px;
+	margin-top: -2px;
+}
+
+.fb {
+	font-weight: bold;
+	color: #222;
+}
+
+.fb a {
+	font-weight: bold;
+	color: #222;
+	text-decoration: underline;
+}
+
+.fb a:hover {
+	font-weight: bold;
+	color: #fff;
+	text-decoration: none;
+}
+
+.fGray {
+	color: #999;
+}
+
+.fblue {
+	color: #00F;
+	background: none;
+}
+
+.fblue a {
+	color: #00F;
+}
+
+.fblue a:hover {
+	color: #006;
+}
+
+.fred {
+	color: #C00;
+	background: none;
+}
+
+.fred a {
+	color: #C00;
+}
+
+.fred a:hover {
+	color: #750000;
+}
+
+.fyellow {
+	color: #F90;
+}
+
+.fyellow a {
+	color: #F90;
+}
+
+.fyellow a:hover {
+	color: #844200;
+}
+
+.fGray,.fblue,.fblue a,.fblue a:hover,.fred,.fred a,.fred a:hover,.fyellow,.fyellow a,.fyellow a:hover
+	{
+	font-weight: normal;
+}
+
+.selected {
+	color: #f06604;
+}
+
+.FontButHover {
+	cursor: pointer;
+}
+
+.redbg {
+	background-color: #ffffc1;
+}
+
+.graybor {
+	border: #c9c9c9 1px solid;
+}
+
+.graybor_Nob {
+	border: #c9c9c9 1px solid;
+	border-bottom: none;
+}
+
+.bgred {
+	background: #fff5f4;
+}
+
+.bgblue {
+	background: #f5f5fa;
+}
+
+.bgyellow {
+	background: #fff5e6;
+}
+
+.bggray {
+	background: #f5f5f5;
+}
+
+.equal {
+	padding-bottom: 32767px;
+	margin-bottom: -32767px;
+}
+
+.undefined {
+	color: #F00;
+}
+
+form li div.group {
+	display: block !important;
+	background-color: #f7f7f7;
+	padding: 10px 2px 10px 0;
+	width: 573px;
+	overflow: hidden;
+}
+
+form li div.group div {
+	display: block;
+}
+
+form li div.group div div {
+	display: inline;
+}
+
+form li div.group p,form div.group p label {
+	text-align: left;
+}
+
+.wwgrp {
+	display: block;
+}
+
+.wwgrp .wwctrl {
+	display: inline;
+}
+
+.wwgrp .wwlbl {
+	display: inline;
+}
+
+.form .disLeft {
+	margin-left: 0; *
+	margin-left: -0px;
+	_margin-left: 0;
+}
+
+.form .disLeft label.desc {
+	margin-left: 0; *
+	margin-left: -44px;
+	_margin-left: -28px;
+}
+
+.form .wwctrl {
+	display: inline;
+	margin-left: 97px; *
+	margin-left: 93px;
+	_margin-left: 96px;
+}
+
+.form .wwlbl {
+	display: inline;
+}
+
+.wwlbl { /
+	display: block;
+}
+
+form li .error {
+	background-color: #ffffc1;
+}
+
+input.error,textarea.error {
+	background: #ffffc1;
+}
+
+p.error,li.error label.desc {
+	color: red !important;
+}
+
+p.error {
+	font-size: 9px !important;
+	margin: 1px 0;
+}
+
+.req {
+	font-size: 1em !important;
+	color: red;
+	font-weight: bold;
+}
+
+#loginForm fieldset {
+	width: 300px;
+	padding: 10px 30px;
+	margin: 0 auoto;
+}
+
+#loginForm li {
+	text-align: left;
+	padding: 0;
+}
+
+.pickList {
+	background-color: #FFF;
+	text-align: left;
+}
+
+.pickList button {
+	background: url(images/work.gif) -4px -169px no-repeat;
+	height: 20px;
+	width: 68px;
+	margin: 0;
+	border: none;
+	font-weight: 600;
+	color: #222;
+}
+
+.pickList input {
+	text-align: center;
+	width: 60px;
+}
+
+.pickList select {
+	height: 110px;
+	width: 100px;
+}
+
+table.pickList {
+	padding: 0;
+	border-spacing: 0;
+	text-align: left;
+	width: 620px;
+}
+
+table.pickList th.pickLabel {
+	text-align: center;
+	font-size: 12px;
+	font-weight: bold;
+	width: 260px;
+}
+
+table.pickList td {
+	text-align: left;
+	vertical-align: top;
+	padding: 0;
+}
+
+table.pickList br {
+	margin: 0;
+	padding: 0;
+	height: 1px;
+	line-height: 2px;
+}
+
+table.pickList td.moveOptions {
+	width: 50px;
+	text-align: center;
+}
+
+table.pickList td label {
+	vertical-align: middle;
+}
+
+table.pickList td button {
+	background: url(images/work.gif) -4px -169px no-repeat;
+	height: 20px;
+	width: 68px;
+	margin: 0;
+	margin-right: 2px;
+	margin-bottom: 2px;
+	border: none;
+}
+
+table.pickList td div {
+	margin-bottom: 4px;
+}
+
+table.pickList td select {
+	width: 275px;
+	border: 1px solid #ddd;
+}
+
+.ifream_widteh {
+	frameBorder: 0;
+	border: 0;
+	height: 0;
+	width: 99.9%;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+
+.listComands {
+	margin-top: 8px;
+	margin-bottom: 2px;
+	margin-bottom: -48px\9;
+	text-align: right;
+	width: 96%; 
+	*width: auto;
+	_width: 50.2%;
+	text-align: right;
+	display: block;
+	margin-right: 2px; 
+	>margin-right: 4px;
+	float: right;
+}
+
+.listComands_kL {
+	margin-top: 8px;
+	margin-bottom: -20px;
+	text-align: right;
+	width: 100%; >
+	width: 99.2%;
+	text-align: right;
+	display: block;
+	margin-right: 5px; *
+	margin-right: 3px;
+	_margin-right: 3px;
+	float: right;
+}
+
+.contraction {
+	background: url(images/Contraction.gif) no-repeat;
+}
+
+.expand {
+	background: url(images/Expand.gif) no-repeat;
+}
+
+.contraction,.expand {
+	width: 14px;
+	height: 15px;
+	padding: 0;
+	border: none;
+	float: left;
+	margin: 6px 5px auto 15px;
+}
+
+.important {
+	background: url(images/important.gif) 0 0 no-repeat;
+	vertical-align: middle;
+}
+
+.default {
+	background: url(images/default.gif) 0 0 no-repeat;
+	vertical-align: middle;
+}
+
+.close {
+	background: url(images/close.gif) 0 0 no-repeat;
+}
+
+.open {
+	background: url(images/open.gif) 0 0 no-repeat;
+}
+
+.oaservice {
+	background: url(images/oaservic.gif) 0 0 no-repeat;
+}
+
+.ttservice {
+	background: url(images/ttservice.gif) 0 0 no-repeat;
+}
+
+.requestrervice {
+	background: url(images/requestrervice.gif) 0 0 no-repeat;
+}
+
+.changeservice {
+	background: url(images/changeservice.gif) 0 0 no-repeat;
+}
+
+.questionservice {
+	background: url(images/questionservice.gif) no-repeat 0 0;
+}
+
+.new {
+	background: url(images/new.gif) no-repeat;
+}
+
+.rider {
+	background: url(images/rider.gif) no-repeat;
+	padding-left: 20px;
+	color: red;
+}
+
+.popReply {
+	background-color: #fff;
+	border: 1px solid #FF696A;
+	padding: 0 5px 5px;
+}
+
+.popReply .desc {
+	margin: 0;
+	padding: 0;
+	width: 40px;
+}
+
+.popRreply textarea.large {
+	width: 754px; *
+	width: 755px;
+	width: 759px;
+	background-color: #fff5f4;
+}
+
+.PlaceholderBlock {
+	display: block;
+	width: 100%;
+	margin:0 auto;
+	overflow: hidden;
+}
+
+.PlaceholderBlock fieldset,#detail_col .PlaceholderBlock fieldset {
+	width: auto;
+}
+
+.PlaceholderBlock .form {
+	margin-left: 0;
+	width: 100% !important;
+}
+
+.PlaceholderBlock .form .left {
+	width: 300px;
+}
+
+.PlaceholderBlock .left {
+	width: 100%;
+}
+
+#main .PlaceholderBlock fieldset {
+	width: 100%;
+}
+
+.PlaceholderBlock li.right,.PlaceholderBlock li.buttonbar {
+	margin-right: 2% !important;
+	margin-right: 2%;
+}
+
+.PlaceholderBlock .form input.medium,.PlaceholderBlock .form input.small
+	{
+	width: 165px; *
+	width: 160px;
+}
+
+.PlaceholderBlock .form select.small {
+	width: 173px; *
+	width: 168px;
+}
+
+.PlaceholderBlock .form li input.large {
+	width: 465px;
+}
+
+.PlaceholderBlock .form li {
+	clear: both;
+}
+
+#detail_col .PlaceholderBlock ul li .left {
+	width: 205px;
+}
+
+#detail_col .PlaceholderBlock ul li textarea.large {
+	width: 475px;
+}
+
+#detail_col .PlaceholderBlock input.tiny {
+	width: 99px;
+}
+
+#detail_col .PlaceholderBlock select.tiny {
+	width: 107px;
+}
+
+#detail_col .PlaceholderBlock ul li .desc {
+	width: 52px;
+}
+
+#step1,#step2,#step3,#step4 {
+	margin: 0;
+	width: 98.2% !important;
+	display: block;
+	overflow: hidden;
+	clear: none; *
+	clear: both;
+}
+
+#step1 .form,#step2 .form,#step3 .form,#step4 .form {
+	margin: 0 28px;
+	margin: 0 12px\9;
+	line-height: 20px;
+	width: 96.7% !important;
+	display: block;
+	overflow: hidden;
+	clear: both;
+}
+
+#step1 .buttonbar,#step2 .buttonbar,#step3 .buttonbar,#step4 .buttonbar
+	{
+	margin-right: 20px;
+}
+
+#step1 a {
+	float: right;
+}
+
+#step3 div div input {
+	float: right;
+}
+
+#step3 div {
+	display: block;
+}
+
+#step1 li,#step2 li,#step3 li,#step4 li {
+	clear: both;
+}
+
+.exportlinks {
+	float: left;
+}
+
+.smallform {
+	display: block;
+	width: 98.0% !important;
+	width: 97.6%;
+	margin-left: 15px;
+	margin-bottom: 8px;
+	margin-top: 8px;
+}
+
+*:lang(zh) form .smallform {
+	margin-left: 30px !important;
+}
+
+.smallform .desc {
+	width: 40px;
+	padding: 0;
+	margin: 0;
+	padding-top: 8px;
+}
+
+.smallform .medium {
+	width: 125px;
+	height: 19px;
+	line-height: 19px;
+	vertical-align: middle;
+	margin-top: 0; *
+	margin-top: -1px;
+	_margin-top: -1px;
+}
+
+.smallform div {
+	display: inline;
+}
+
+.smallform .left {
+	margin-right: 4px !important;
+	margin-right: 2px;
+}
+
+fieldset .smallform .desc {
+	width: 60px;
+}
+
+fieldset .smallform .left {
+	margin-left: 10px;
+}
+
+.info .entireRow {
+	overflow: hidden;
+	width: 90%;
+	height: 20px;
+}
+
+.page-top .floatinglayer,.floatinglayer {
+	position: absolute; #
+	position: relative;
+	padding: 0;
+	margin: 0;
+	right: 0;
+	display: block;
+	z-index: 3000000;
+}
+
+.floatinglayer div {
+	width: 313px;
+	width: 301px\9; #
+	width: 315px;
+	z-index: 3000000;
+	position: relative; #
+	position: absolute;
+	top: 0;
+	background-color: #fff;
+	padding: 5px 8px;
+	border: 1px solid #eee;
+	color: #666;
+	margin: 0;
+	left: 0;
+	margin-right: 10px;
+	text-align: left;
+}
+
+h4 .floatinglayer div {
+	margin-top: 1px;
+	width: 318px;
+	width: 302px\9; #
+	width: 305px;
+	text-align: left;
+	margin-right: 7px;
+}
+
+h4 .floatinglayer div span { #
+	width: 97px;
+}
+
+.floatinglayer div span {
+	display: inline-block;
+	width: 99px;
+	width: 96px\9; #
+	width: 102px;
+	height: 22px;
+}
+
+.floatinglayer div span { #
+	display: inline;
+}
+
+.floatinglayerBUT { #
+	width: 333px;
+	text-align: right;
+}
+
+.space {
+	margin-left: 30px;
+	margin-left: 0\9;
+}
+
+*:lang(zh) #main .space .PlaceholderBlock fieldset {
+	margin-left: 0 !important;
+}
+
+.showdiv {
+	padding: 0;
+	margin: 0;
+}
+
+.showdiv div {
+	border: 1px solid #ddd;
+	background-color: #FFF;
+	width: 300px;
+	padding: 5px 8px;
+	color: red;
+	margin: 0 0 0 190px;
+}
+
+.showdiv iframe {
+	padding: 0; #
+	background-color: #fff;
+	margin: 0 0 0 190px;
+}
+
+#showAttachmentUL {
+	clear: both;
+}
+
+#main .large-label div .desc {
+	width: 135px;
+}
+
+#codetableList li {
+	font-size: 13px;
+	border-bottom: 1px dashed #ddd;
+	display: block;
+	margin-bottom: 5px;
+	height: 20px;
+	overflow: hidden;
+}
+
+#codetableList a {
+	float: none;
+}
+
+.quickSearch .form .space-a {
+	margin-top: 4px;
+	text-align: left;
+	display: block;
+	overflow: hidden;
+}
+
+.quickSearch .form .space-a a {
+	width: 69px !important;
+	width: 71px;
+	display: inline-block;
+	margin-bottom: 3px;
+}
+
+.quickSearch .form .space-a a { #
+	display: inline;
+}
+
+.quickSearch .form .space-a a:hover {
+	display: inline-block;
+}
+
+.quickSearch .form .space-a a:hover { #
+	display: inline;
+}
+
+.divInline div {
+	float: left;
+}
+
+#tagContent {
+	margin-left: 45px !important;
+	margin-left: 26px;
+}
+
+em {
+	font-style: normal;
+	color: #f00;
+	margin-left: 5px;
+}

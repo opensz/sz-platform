@@ -7,24 +7,23 @@ import org.activiti.engine.impl.cfg.IdGenerator;
 import org.activiti.engine.impl.cfg.ProcessEngineConfigurationImpl;
 import org.activiti.engine.impl.persistence.StrongUuidGenerator;
 
-
 public class UniqueIdUtil {
 	private static long uid = 0L;
 
 	private static Lock lock = new ReentrantLock();
 
-	private static StrongUuidGenerator strongUidGen = new StrongUuidGenerator();
+	// private static StrongUuidGenerator strongUidGen = new
+	// StrongUuidGenerator();
 
 	public static long genId() throws Exception {
 		lock.lock();
 		try {
 			long id = 0L;
-			do
+			do {
 				id = System.currentTimeMillis();
-			while (id == uid);
+			} while (id == uid);
 			uid = id;
-			long l1 = id;
-			return l1;
+			return id;
 		} finally {
 			lock.unlock();
 		}
@@ -39,13 +38,12 @@ public class UniqueIdUtil {
 	}
 
 	public static String getNextId() {
-//		ProcessEngineConfigurationImpl config = (ProcessEngineConfigurationImpl) AppUtil
-//				.getBean("processEngineConfiguration");
-//		return config.getIdGenerator().getNextId();
-		return "";
+		ProcessEngineConfigurationImpl config = (ProcessEngineConfigurationImpl) ContextUtil
+				.getBean("processEngineConfiguration");
+		return config.getIdGenerator().getNextId();
 	}
 
-	public static String genStrongUID() {
-		return strongUidGen.getNextId();
-	}
+	// public static String genStrongUID() {
+	// return strongUidGen.getNextId();
+	// }
 }
