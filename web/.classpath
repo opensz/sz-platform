@@ -12,5 +12,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry combineaccessrules="false" exported="true" kind="src" path="/SZ Platform - Core"/>
+	<classpathentry kind="con" path="melibrary.com.genuitec.eclipse.j2eedt.core.MYECLIPSE_JAVAEE_6_CONTAINER"/>
 	<classpathentry kind="output" path="src/main/webapp/WEB-INF/classes"/>
 </classpath>
