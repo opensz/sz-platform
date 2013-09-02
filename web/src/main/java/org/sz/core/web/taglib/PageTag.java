@@ -1,5 +1,6 @@
 package org.sz.core.web.taglib;
 
+<<<<<<< HEAD
 import java.util.Enumeration;
 import java.util.Map;
 
@@ -8,12 +9,27 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
 
+=======
+import org.sz.core.web.taglib.PageTag;
+
+import java.util.Enumeration;
+import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.jsp.JspException;
+import javax.servlet.jsp.JspWriter;
+import javax.servlet.jsp.PageContext;
+import javax.servlet.jsp.tagext.TagSupport;
+>>>>>>> 8726cb0028c02e99622ed0e79e5568178788cf9f
 import org.apache.commons.collections.map.HashedMap;
 import org.displaytag.util.ParamEncoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.sz.core.engine.FreemarkEngine;
+<<<<<<< HEAD
 import org.sz.core.query.PageBean;
+=======
+import org.sz.core.page.PageBean;
+>>>>>>> 8726cb0028c02e99622ed0e79e5568178788cf9f
 import org.sz.core.util.SpringContextHolder;
 
 public class PageTag extends TagSupport {

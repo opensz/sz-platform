@@ -10,8 +10,8 @@
 
 
 	<bean id="processEngineConfiguration"
-		class="org.sz.core.bpm.engine.SzProcessEngineConfiguration">	
-		<property name="processEngineName" value="szBpmEngine" />
+		class="org.sz.platform.bpm.engine.SzProcessEngineConfiguration">	
+		<property name="processEngineName" ref="szBpmEngine" />
 		<property name="dataSource" ref="dataSource" />
 		<property name="transactionManager" ref="transactionManager" />
 		<property name="databaseSchemaUpdate" value="true" />

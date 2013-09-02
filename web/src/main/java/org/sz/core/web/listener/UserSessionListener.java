@@ -4,9 +4,15 @@ import javax.servlet.http.HttpSessionAttributeListener;
 import javax.servlet.http.HttpSessionBindingEvent;
 
 import org.sz.core.model.OnlineUser;
+<<<<<<< HEAD
 import org.sz.core.util.ContextUtil;
 import org.sz.core.web.util.AppUtil;
 import org.sz.platform.system.model.SysUser;
+=======
+import org.sz.core.util.SpringContextHolder;
+//import org.sz.core.util.ContextUtil;
+//import org.sz.platform.model.system.SysUser;
+>>>>>>> 8726cb0028c02e99622ed0e79e5568178788cf9f
 
 public class UserSessionListener implements HttpSessionAttributeListener {
 	public void attributeAdded(HttpSessionBindingEvent event) {

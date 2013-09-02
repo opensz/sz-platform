@@ -16,7 +16,11 @@
 	<name>SZ Platform - Web</name>
 
 	<build>
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> 8726cb0028c02e99622ed0e79e5568178788cf9f
 	</build>
 
 	<!-- Dependencies calculated by AppFuse when running full-source plugin -->
@@ -26,8 +30,18 @@
 			<artifactId>${jdbc.artifactId}</artifactId>
 			<version>${jdbc.version}</version>
 		</dependency>
+<<<<<<< HEAD
 		<!-- <dependency> <groupId>${project.parent.groupId}</groupId> <artifactId>${project.parent.artifactId}-core</artifactId> 
 			<version>${project.parent.version}</version> </dependency> -->
+=======
+		<!--  
+		<dependency>
+			<groupId>${project.parent.groupId}</groupId>
+			<artifactId>${project.parent.artifactId}-core</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+		-->
+>>>>>>> 8726cb0028c02e99622ed0e79e5568178788cf9f
 		<dependency>
 			<groupId>commons-dbcp</groupId>
 			<artifactId>commons-dbcp</artifactId>
@@ -145,7 +159,11 @@
 			<artifactId>dwr</artifactId>
 			<version>${dwr.version}</version>
 		</dependency>
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> 8726cb0028c02e99622ed0e79e5568178788cf9f
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
@@ -378,15 +396,100 @@
 		</dependency>
 		
 		<dependency>
+<<<<<<< HEAD
 			<groupId>net.fckeditor</groupId>
 			<artifactId>java-core</artifactId>
 			<version>2.4</version>
 		</dependency>
+=======
+			<groupId>net.sf.json-lib</groupId>
+			<artifactId>json-lib</artifactId>
+			<version>${json.version}</version>
+			<classifier>jdk15</classifier>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+			<version>2.3.16</version>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.2</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>xerces</groupId>
+			<artifactId>xercesImpl</artifactId>
+			<version>2.9.1</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.lucene</groupId>
+			<artifactId>IKAnalyzer</artifactId>
+			<version>3.2.8</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun.jimi</groupId>
+			<artifactId>jimi</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.logicalcobwebs</groupId>
+			<artifactId>proxool</artifactId>
+			<version>0.9.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.logicalcobwebs</groupId>
+			<artifactId>proxool-cglib</artifactId>
+			<version>0.9.1</version>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>edu.emory.mathcs</groupId>
+			<artifactId>backport</artifactId>
+			<version>1.0</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>jaxen</groupId>
+			<artifactId>jaxen</artifactId>
+			<version>1.1.1</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>icu4j</artifactId>
+					<groupId>com.ibm.icu</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.rxtx</groupId>
+			<artifactId>rxtx</artifactId>
+			<version>2.1.7</version>
+		</dependency>
+		
+		
+				
+>>>>>>> 8726cb0028c02e99622ed0e79e5568178788cf9f
 
 
 	</dependencies>
 
+<<<<<<< HEAD
 
 
 
+=======
+	
+
+	
+>>>>>>> 8726cb0028c02e99622ed0e79e5568178788cf9f
 </project>

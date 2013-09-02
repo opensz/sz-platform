@@ -37,6 +37,11 @@
             classpath:/conf/_spring-security.xml
         </param-value>
 	</context-param>
+	
+	<context-param>
+		<param-name>menuConfigLocation</param-name>
+		<param-value>/WEB-INF/classes/conf/menu-config.xml</param-value>
+	</context-param>
 
 	<!-- J2EE应用监控 JavaMelody -->
 	<filter>
@@ -142,6 +147,7 @@
 		server, or load balancer. -->
 	<!--filter> <filter-name>gzipFilter</filter-name> <filter-class>net.sf.ehcache.constructs.web.filter.GzipFilter</filter-class> 
 		</filter -->
+<<<<<<< HEAD
 
 
 	<!--filter-mapping> <filter-name>gzipFilter</filter-name> <url-pattern>/*</url-pattern> 
@@ -149,6 +155,16 @@
 
 
 	<!-- URL Rewrite -->
+=======
+	<!--<filter> <filter-name>lazyLoadingFilter</filter-name> <filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter</filter-class> 
+		</filter> -->
+	<!-- Use "org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter" 
+		if you're using JPA -->
+	<filter>
+		<filter-name>localeFilter</filter-name>
+		<filter-class>org.sz.core.web.filter.LocaleFilter</filter-class>
+	</filter>
+>>>>>>> 8726cb0028c02e99622ed0e79e5568178788cf9f
 	<filter>
 		<filter-name>rewriteFilter</filter-name>
 		<filter-class>org.tuckey.web.filters.urlrewrite.UrlRewriteFilter</filter-class>
@@ -198,6 +214,39 @@
 		<dispatcher>FORWARD</dispatcher>
 		<dispatcher>INCLUDE</dispatcher>
 	</filter-mapping>
+<<<<<<< HEAD
+=======
+	<filter-mapping>
+		<filter-name>exportFilter</filter-name>
+		<url-pattern>/app/*</url-pattern>
+	</filter-mapping>
+
+	<listener>
+		<listener-class>net.bull.javamelody.SessionListener</listener-class>
+	</listener>
+
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>org.sz.core.web.listener.StartupListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>org.sz.core.web.listener.UserCounterListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>org.sz.core.web.jsp.EscapeXmlELResolverListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>net.sf.navigator.menu.MenuContextListener</listener-class>
+	</listener>
+>>>>>>> 8726cb0028c02e99622ed0e79e5568178788cf9f
 
 	<!-- Spring MVC -->
 	<servlet>

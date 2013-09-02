@@ -99,6 +99,7 @@ public class StringUtil {
 		return trimSufffix(trimPrefix(toTrim, trimStr), trimStr);
 	}
 
+<<<<<<< HEAD
 	public static String escapeXml(String src) {
 		return StringEscapeUtils.escapeXml(src);
 	}
@@ -107,6 +108,8 @@ public class StringUtil {
 		return StringEscapeUtils.unescapeXml(src);
 	}
 
+=======
+>>>>>>> 8726cb0028c02e99622ed0e79e5568178788cf9f
 	public static String escapeHtml(String content) {
 		return StringEscapeUtils.escapeHtml(content);
 	}
@@ -567,7 +570,12 @@ public class StringUtil {
 	}
 
 	public static void main(String[] args) {
+<<<<<<< HEAD
 
+=======
+		String str = "${scriptImpl.getStartUserPos(startUser)==\"&#37096;&#38376;&#32463;&#29702;\"}";
+		System.out.println(htmlEntityToString(str));
+>>>>>>> 8726cb0028c02e99622ed0e79e5568178788cf9f
 	}
 
 	/**
