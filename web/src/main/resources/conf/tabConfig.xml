@@ -2,7 +2,7 @@
 <tabs>
 	<tab name="flow">
 	   <item  title="流程明细" url="/platform/bpm/bpmDefinition/detail.xht" />
-	   <item  title="全局设置" url="/itsm/bpm/bpmDefinition/globalNodeSet.xht" />
+	   <item  title="全局设置" url="/platform/bpm/bpmDefinition/globalNodeSet.xht" />
 	   <item  title="节点设置" url="/platform/bpm/bpmDefinition/nodeSet.xht" />
 	   <item  title="人员设置" url="/platform/bpm/bpmDefinition/userSet.xht" />
 	   <item  title="变量设置" url="/platform/bpm/bpmDefVar/list.xht" />

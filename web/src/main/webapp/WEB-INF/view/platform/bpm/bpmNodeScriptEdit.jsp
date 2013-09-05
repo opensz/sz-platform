@@ -81,7 +81,7 @@
 			<div class="tbar-title">
 				<span class="tbar-label">
 				  <c:choose>
-						<c:when test="${nodeId==0}">
+						<c:when test="${nodeId=='0'}">
 							添加流程事件脚本
 						</c:when>
 						<c:otherwise>

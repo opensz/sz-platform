@@ -29,7 +29,7 @@ import org.sz.platform.bpm.service.flow.BpmDefinitionService;
 import org.sz.platform.bpm.service.flow.BpmNodeRuleService;
 import org.sz.platform.bpm.service.flow.BpmNodeSetService;
 import org.sz.platform.bpm.service.flow.BpmService;
-import org.sz.platform.bpm.util.BpmWebUtil;
+import org.sz.platform.bpm.web.BpmWebUtil;
 
 @Controller
 @RequestMapping({ "/platform/bpm/bpmNodeRule/" })

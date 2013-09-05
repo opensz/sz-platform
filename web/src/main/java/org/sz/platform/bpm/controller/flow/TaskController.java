@@ -1,28 +1,6 @@
 package org.sz.platform.bpm.controller.flow;
 
-import java.io.PrintWriter;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.activiti.engine.TaskService;
-import org.activiti.engine.impl.persistence.entity.TaskEntity;
-import org.activiti.engine.task.Task;
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.time.DateUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.apache.ibatis.session.SqlSession;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
+import org.sz.core.annotion.Action;
 import org.sz.core.bpm.model.ProcessCmd;
 import org.sz.core.bpm.util.BpmConst;
 import org.sz.core.query.QueryFilter;
@@ -62,11 +40,35 @@ import org.sz.platform.bpm.service.flow.TaskSignDataService;
 import org.sz.platform.bpm.service.flow.TaskUserService;
 import org.sz.platform.bpm.service.form.BpmFormDefService;
 import org.sz.platform.bpm.service.form.BpmFormHandlerService;
-import org.sz.platform.bpm.util.BpmWebUtil;
+import org.sz.platform.bpm.web.BpmWebUtil;
 import org.sz.platform.system.model.SysUser;
 import org.sz.platform.system.model.SysUserAgent;
 import org.sz.platform.system.service.SysUserAgentService;
 import org.sz.platform.system.service.SysUserService;
+
+import java.io.PrintWriter;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.activiti.engine.TaskService;
+import org.activiti.engine.impl.persistence.entity.TaskEntity;
+import org.activiti.engine.task.Task;
+import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.time.DateUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * 任务控制及处理
@@ -165,7 +167,7 @@ public class TaskController extends BaseController {
 	}
 
 	@RequestMapping({ "startFlowForm" })
-	// @Action(description = "跳至启动流程页面")
+	@Action(description = "跳至启动流程页面")
 	public ModelAndView startFlowForm(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 
@@ -223,7 +225,7 @@ public class TaskController extends BaseController {
 	}
 
 	@RequestMapping({ "startFlow" })
-	// @Action(description = "启动流程")
+	@Action(description = "启动流程")
 	public void startFlow(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		PrintWriter out = response.getWriter();
@@ -756,7 +758,7 @@ public class TaskController extends BaseController {
 	}
 
 	@RequestMapping({ "claim" })
-	// @Action(description = "锁定任务")
+	@Action(description = "锁定任务")
 	public ModelAndView claim(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		String taskId = RequestUtil.getString(request, "taskId");
@@ -785,7 +787,7 @@ public class TaskController extends BaseController {
 	}
 
 	@RequestMapping({ "unlock" })
-	// @Action(description = "解锁任务")
+	@Action(description = "解锁任务")
 	public ModelAndView unlock(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		String taskId = request.getParameter("taskId");
@@ -839,7 +841,7 @@ public class TaskController extends BaseController {
 		return sb.toString();
 	}
 
-	// @Action(description = "任务指派所属人")
+	@Action(description = "任务指派所属人")
 	@RequestMapping({ "assign" })
 	public ModelAndView assign(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
@@ -859,7 +861,7 @@ public class TaskController extends BaseController {
 	}
 
 	@RequestMapping({ "setAssignee" })
-	// @Action(description = "任务指派执行人")
+	@Action(description = "任务指派执行人")
 	@ResponseBody
 	public String setAssignee(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
@@ -872,7 +874,7 @@ public class TaskController extends BaseController {
 	}
 
 	@RequestMapping({ "setOwner" })
-	// @Action(description = "任务指派所属人")
+	@Action(description = "任务指派所属人")
 	@ResponseBody
 	public String setOwner(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
@@ -885,7 +887,7 @@ public class TaskController extends BaseController {
 	}
 
 	@RequestMapping({ "setDueDate" })
-	// @Action(description = "设置任务到期时间")
+	@Action(description = "设置任务到期时间")
 	public ModelAndView setDueDate(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		String taskIds = request.getParameter("taskIds");
@@ -908,7 +910,7 @@ public class TaskController extends BaseController {
 	}
 
 	@RequestMapping({ "delete" })
-	// @Action(description = "删除任务")
+	@Action(description = "删除任务")
 	public ModelAndView delete(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		ResultMessage message = null;

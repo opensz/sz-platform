@@ -1,5 +1,25 @@
 package org.sz.platform.bpm.controller.flow;
 
+import net.sf.json.JSONArray;
+
+import org.sz.core.annotion.Action;
+import org.sz.core.util.StringUtil;
+import org.sz.core.util.UniqueIdUtil;
+import org.sz.core.web.ResultMessage;
+import org.sz.core.web.controller.BaseController;
+import org.sz.core.web.util.RequestUtil;
+import org.sz.platform.bpm.model.flow.BpmDefinition;
+import org.sz.platform.bpm.model.flow.BpmNodeSet;
+import org.sz.platform.bpm.model.flow.BpmNodeSign;
+import org.sz.platform.bpm.model.flow.BpmNodeUser;
+import org.sz.platform.bpm.model.flow.BpmNodeUserUplow;
+import org.sz.platform.bpm.service.flow.BpmDefinitionService;
+import org.sz.platform.bpm.service.flow.BpmNodeSetService;
+import org.sz.platform.bpm.service.flow.BpmNodeSignService;
+import org.sz.platform.bpm.service.flow.BpmNodeUserService;
+import org.sz.platform.bpm.service.flow.BpmNodeUserUplowService;
+import org.sz.platform.bpm.web.BpmWebUtil;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,19 +29,10 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import org.sz.core.annotion.Action;
-import org.sz.core.util.StringUtil;
-import org.sz.core.web.ResultMessage;
-import org.sz.core.web.controller.BaseController;
-import org.sz.core.web.util.RequestUtil;
-import org.sz.platform.bpm.model.flow.BpmDefinition;
-import org.sz.platform.bpm.model.flow.BpmNodeSet;
-import org.sz.platform.bpm.service.flow.BpmDefinitionService;
-import org.sz.platform.bpm.service.flow.BpmNodeSetService;
-import org.sz.platform.bpm.util.BpmWebUtil;
 
 @Controller
 @RequestMapping({ "/platform/bpm/bpmNodeSet/" })
@@ -29,9 +40,14 @@ public class BpmNodeSetController extends BaseController {
 
 	@Resource
 	private BpmNodeSetService bpmNodeSetService;
-
+	@Resource
+	private BpmNodeUserService bpmNodeUserService;
 	@Resource
 	private BpmDefinitionService bpmDefinitionService;
+	@Resource
+	private BpmNodeUserUplowService bpmNodeUserUplowService;
+	@Resource
+	private BpmNodeSignService bpmNodeSignService;
 
 	@RequestMapping({ "list" })
 	@Action(description = "查看节点设置分页列表")
@@ -92,9 +108,9 @@ public class BpmNodeSetController extends BaseController {
 		return getAutoView().addObject("bpmNodeSet", bpmNodeSet);
 	}
 
-	@RequestMapping({ "save" })
+	@RequestMapping({ "save__" })
 	@Action(description = "成功设置流程节点表单")
-	public ModelAndView save(HttpServletRequest request,
+	public ModelAndView save__(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		Long defId = Long.valueOf(RequestUtil.getLong(request, "defId"));
 		BpmDefinition bpmDefinition = (BpmDefinition) this.bpmDefinitionService
@@ -162,6 +178,185 @@ public class BpmNodeSetController extends BaseController {
 		addMessage(new ResultMessage(1, "成功设置流程节点表单及跳转方式 !"), request);
 		return new ModelAndView("redirect:list.xht?defId=" + defId + "&time="
 				+ System.currentTimeMillis());
+	}
+
+	@RequestMapping({ "save" })
+	@Action(description = "成功设置流程节点表单")
+	public void save(HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		Long defId = Long.valueOf(RequestUtil.getLong(request, "defId"));
+		String nodeId = RequestUtil.getString(request, "nodeId");
+		String actDefId = RequestUtil.getString(request, "actDefId");
+
+		String nodeName = RequestUtil.getString(request, "nodeName");
+		String formType = RequestUtil.getString(request, "formType");
+		String formKey = RequestUtil.getString(request, "formKey");
+		String formUrl = RequestUtil.getString(request, "formUrl");
+		String formDefName = RequestUtil.getString(request, "formDefName");
+		String beforeHandler = RequestUtil.getString(request, "beforeHandler");
+		String afterHandler = RequestUtil.getString(request, "afterHandler");
+
+		Map<String, BpmNodeSet> nodeMap = this.bpmNodeSetService
+				.getMapByDefId(defId);
+
+		BpmNodeSet bpmNodeSet = new BpmNodeSet();
+		if (nodeMap.containsKey(nodeId)) {
+			bpmNodeSet = (BpmNodeSet) nodeMap.get(nodeId);
+		}
+
+		String isAudit = RequestUtil.getString(request, "isAudit");
+		String isForkJoin = RequestUtil.getString(request, "isForkJoin");
+
+		if (isAudit.equals("1")) {
+			bpmNodeSet.setIsAudit(BpmNodeSet.AUDIT);
+		} else {
+			bpmNodeSet.setIsAudit(BpmNodeSet.NOT_AUDIT);
+		}
+
+		// if (isForkJoin.equals("1")) {
+		// bpmNodeSet.setIsForkJoin(BpmNodeSet.FORKJOIN);
+		// bpmNodeSet.setNodeType(new Short("1"));
+		// } else {
+		// bpmNodeSet.setIsForkJoin(BpmNodeSet.NOT_FORKJOIN);
+		// bpmNodeSet.setNodeType(new Short("0"));
+		// }
+
+		bpmNodeSet.setNodeId(nodeId);
+		bpmNodeSet.setActDefId(actDefId);
+		bpmNodeSet.setNodeName(nodeName);
+		bpmNodeSet.setFormUrl(formUrl);
+		bpmNodeSet.setFormDefName(formDefName);
+
+		if (!formKey.isEmpty()) {
+			bpmNodeSet.setFormKey(Long.valueOf(Long.parseLong(formKey)));
+		}
+		bpmNodeSet.setFormType(new Short(formType));
+
+		beforeHandler = getHandler(beforeHandler);
+		afterHandler = getHandler(afterHandler);
+
+		bpmNodeSet.setBeforeHandler(beforeHandler);
+		bpmNodeSet.setAfterHandler(afterHandler);
+		bpmNodeSet.setDefId(new Long(defId.longValue()));
+
+		String[] jumpType = request.getParameterValues("jumpType");
+		if (jumpType != null)
+			bpmNodeSet.setJumpType(StringUtil.getArrayAsString(jumpType));
+		else {
+			bpmNodeSet.setJumpType("");
+		}
+
+		bpmNodeSet.setSetType(BpmNodeSet.SetType_TaskNode);
+
+		String[] assignTypes = request.getParameterValues("assignType");
+		String[] nodeIds = request.getParameterValues("nodeId");
+		String[] cmpIdss = request.getParameterValues("cmpIds");
+		String[] cmpNamess = request.getParameterValues("cmpNames");
+		String[] nodeUserIds = request.getParameterValues("nodeUserId");
+
+		String[] compTypes = request.getParameterValues("compType");
+
+		BpmDefinition bpmDefintion = (BpmDefinition) this.bpmDefinitionService
+				.getById(defId);
+
+		if ((assignTypes != null) && (assignTypes.length > 0)) {
+			for (int i = 0; i < assignTypes.length; i++) {
+				BpmNodeUser bnUser = null;
+				if (StringUtils.isNotEmpty(nodeUserIds[i])) {
+					long nodeUserId = new Long(nodeUserIds[i]).longValue();
+
+					bnUser = (BpmNodeUser) this.bpmNodeUserService.getById(Long
+							.valueOf(nodeUserId));
+					bnUser.setCmpIds(cmpIdss[i]);
+					bnUser.setCmpNames(cmpNamess[i]);
+					bnUser.setCompType(new Short(compTypes[i]));
+					bnUser.setSn(Integer.valueOf(i));
+					this.bpmNodeUserService.update(bnUser);
+
+					if ((bnUser.getAssignType().shortValue() == 6)
+							&& (cmpIdss[i] != null)
+							&& (cmpIdss[i].length() > 0)) {
+						JSONArray ja = JSONArray.fromObject(cmpIdss[i]);
+						List uplowList = (List) JSONArray.toCollection(ja,
+								BpmNodeUserUplow.class);
+						this.bpmNodeUserUplowService.upd(nodeUserId, uplowList);
+					}
+				} else {
+					long nodeUserId = UniqueIdUtil.genId();
+
+					bnUser = new BpmNodeUser();
+					bnUser.setCmpIds(cmpIdss[i]);
+					bnUser.setCmpNames(cmpNamess[i]);
+					if (bpmNodeSet != null) {
+						bnUser.setSetId(bpmNodeSet.getSetId());
+					}
+					bnUser.setActDefId(bpmDefintion.getActDefId());
+					bnUser.setAssignType(new Short(assignTypes[i]));
+					bnUser.setCompType(new Short(compTypes[i]));
+					bnUser.setNodeId(nodeIds[i]);
+					bnUser.setNodeUserId(Long.valueOf(nodeUserId));
+					bnUser.setSn(Integer.valueOf(i));
+					this.bpmNodeUserService.add(bnUser);
+
+					if ((bnUser.getAssignType().shortValue() == 6)
+							&& (cmpIdss[i] != null)
+							&& (cmpIdss[i].length() > 0)) {
+						JSONArray ja = JSONArray.fromObject(cmpIdss[i]);
+						List uplowList = (List) JSONArray.toCollection(ja,
+								BpmNodeUserUplow.class);
+						this.bpmNodeUserUplowService.upd(nodeUserId, uplowList);
+					}
+				}
+			}
+		}
+
+		String assignMode = RequestUtil.getString(request, "assignMode");
+		bpmNodeSet.setAssignMode(new Short(assignMode));
+
+		String type = request.getParameter("type");
+
+		if ("multiUserTask".equals(type)) {
+			long id = RequestUtil.getLong(request, "signId");
+			BpmNodeSign bpmNodeSign = (BpmNodeSign) this.bpmNodeSignService
+					.getById(Long.valueOf(id));
+
+			String isAllowAdd = request.getParameter("isAllowAdd");
+			String decideType = request.getParameter("decideType");
+			String voteType = request.getParameter("voteType");
+			long voteAmount = RequestUtil.getLong(request, "voteAmount");
+
+			if (bpmNodeSign == null) {
+				bpmNodeSign = new BpmNodeSign();
+			}
+
+			if (StringUtil.isNotEmpty(isAllowAdd))
+				bpmNodeSign.setIsAllowAdd(BpmNodeSign.ADD_ALLOWED);
+			else {
+				bpmNodeSign.setIsAllowAdd(BpmNodeSign.ADD_DENY);
+			}
+			bpmNodeSign.setActDefId(actDefId);
+			bpmNodeSign.setNodeId(nodeId);
+			bpmNodeSign.setDecideType(new Short(decideType));
+			bpmNodeSign.setVoteType(new Short(voteType));
+			bpmNodeSign.setVoteAmount(voteAmount);
+
+			if (bpmNodeSign.getSignId().longValue() == 0L) {
+				bpmNodeSign.setSignId(Long.valueOf(UniqueIdUtil.genId()));
+				this.bpmNodeSignService.add(bpmNodeSign);
+			} else {
+				this.bpmNodeSignService.update(bpmNodeSign);
+			}
+
+		}
+
+		bpmNodeSetService.update(bpmNodeSet);
+
+		try {
+			writeResultMessage(response.getWriter(), "保存常用语成功!", 1);
+		} catch (Exception e) {
+			writeResultMessage(response.getWriter(),
+					"保存常用语失败:" + e.getMessage(), 0);
+		}
 	}
 
 	private List<BpmNodeSet> getGlobalStart(HttpServletRequest request,

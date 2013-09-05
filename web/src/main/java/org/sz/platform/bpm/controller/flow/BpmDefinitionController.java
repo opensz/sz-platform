@@ -49,7 +49,7 @@ import org.sz.platform.bpm.service.flow.BpmNodeUserService;
 import org.sz.platform.bpm.service.flow.BpmNodeUserUplowService;
 import org.sz.platform.bpm.service.flow.BpmService;
 import org.sz.platform.bpm.service.flow.ProcessRunService;
-import org.sz.platform.bpm.util.BpmWebUtil;
+import org.sz.platform.bpm.web.BpmWebUtil;
 import org.sz.platform.system.model.GlobalType;
 import org.sz.platform.system.model.SysRole;
 import org.sz.platform.system.model.SysUser;

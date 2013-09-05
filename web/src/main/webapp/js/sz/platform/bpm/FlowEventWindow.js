@@ -9,7 +9,7 @@
 function FlowEventWindow(conf)
 {
 	if(!conf) conf={};
-	var url=__ctx + "/platform/bpm/bpmNodeScript/edit.xht?type="+conf.type+"&actDefId=" + conf.actDefId+"&nodeId=" + conf.activitiId +"&defId=" + conf.defId;
+	var url=__ctx + "/platform/bpm/bpmNodeScript/edit.xht?type="+conf.type+"&actDefId=" + conf.actDefId+"&nodeId=" + conf.nodeId +"&defId=" + conf.defId;
 
 	var dialogWidth=800;
 	var dialogHeight=380;

@@ -35,7 +35,6 @@ import org.dom4j.Node;
 
 public class BpmUtil {
 	
-	
 	protected static final Log logger = LogFactory.getLog(BpmUtil.class);
 	protected static final String VAR_PRE_NAME = "v_";
 

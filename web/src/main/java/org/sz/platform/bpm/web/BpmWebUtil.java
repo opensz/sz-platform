@@ -1,9 +1,10 @@
-package org.sz.platform.bpm.util;
+package org.sz.platform.bpm.web;
 
 import org.sz.core.bpm.model.ProcessCmd;
 import org.sz.core.util.StringUtil;
 import org.sz.core.web.util.RequestUtil;
 import org.sz.platform.bpm.model.flow.TaskSignData;
+import org.sz.platform.bpm.util.BpmUtil;
 
 import java.util.Enumeration;
 import java.util.Map;
@@ -12,8 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang.StringUtils;
 
-public class BpmWebUtil  extends BpmUtil{
-
+public class BpmWebUtil extends BpmUtil {
 
 	public static ProcessCmd getProcessCmd(HttpServletRequest request)
 			throws Exception {

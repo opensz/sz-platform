@@ -260,6 +260,15 @@
 			/jslib/fckeditor/editor/filemanager/connectors/*
 		</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>bpmImageServlet</servlet-name>
+		<servlet-class>org.sz.platform.bpm.web.BpmImageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>bpmImageServlet</servlet-name>
+		<url-pattern>/bpmImage</url-pattern>
+	</servlet-mapping>
 
 
 	<servlet>

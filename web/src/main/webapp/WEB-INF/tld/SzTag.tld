@@ -180,7 +180,7 @@
 	<!-- 流程标签 --> 
 	<tag>
 		<name>flowVar</name>
-		<tag-class>org.sz.platform.bpm.tag.FlowVarsTag</tag-class>
+		<tag-class>org.sz.platform.bpm.web.FlowVarsTag</tag-class>
 		<body-content>jsp</body-content>
 		<attribute>
 			<name>defId</name>

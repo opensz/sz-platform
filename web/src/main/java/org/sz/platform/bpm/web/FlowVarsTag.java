@@ -1,4 +1,4 @@
-package org.sz.platform.bpm.tag;
+package org.sz.platform.bpm.web;
 
 import org.sz.core.util.StringUtil;
 import org.sz.core.web.util.AppUtil;

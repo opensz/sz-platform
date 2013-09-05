@@ -15,7 +15,7 @@
     <script type="text/javascript" src="${ctx}/js/sz/platform/bpm/FlowMessageWindow.js" ></script>
     <script type="text/javascript" src="${ctx}/js/sz/platform/bpm/FlowReminderWindow.js" ></script>
     <script type="text/javascript" src="${ctx}/js/sz/platform/bpm/FlowApprovalItemWindow.js" ></script>
-    <script type="text/javascript" src="${ctx}/js/hanweis/platform/bpm/FlowNodeSetWindow.js" ></script>
+    <script type="text/javascript" src="${ctx}/js/sz/platform/bpm/FlowNodeSetWindow.js" ></script>
     <script type="text/javascript">
     		var defId ="${bpmDefinition.defId}";
     		var actDefId ="${bpmDefinition.actDefId}";
@@ -114,7 +114,7 @@
             		//结束事件 前置脚本 endEvent
             		//用户任务 多实例任务 前后 userTask  multiUserTask
             		//脚本节点 脚本节点 script
-            		FlowEventWindow({type:type,actDefId:actDefId,activitiId:activitiId,defId:defId});
+            		FlowEventWindow({type:type,actDefId:actDefId,nodeId:activitiId,defId:defId});
             	}
             	else if(menuId=="flowDue"){
             		FlowReminderWindow({actDefId:actDefId,nodeId:activitiId});
