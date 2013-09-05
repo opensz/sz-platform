@@ -177,11 +177,10 @@
 			<rtexprvalue>true</rtexprvalue>
 		</attribute>
 	</tag>
-	<!-- 流程标签 -->
-	<!--  
+	<!-- 流程标签 --> 
 	<tag>
 		<name>flowVar</name>
-		<tag-class>org.sz.platform.tag.FlowVarsTag</tag-class>
+		<tag-class>org.sz.platform.bpm.tag.FlowVarsTag</tag-class>
 		<body-content>jsp</body-content>
 		<attribute>
 			<name>defId</name>
@@ -199,7 +198,6 @@
 			<rtexprvalue>true</rtexprvalue>
 		</attribute>
 	</tag>
-	-->
 		
 </taglib>
 

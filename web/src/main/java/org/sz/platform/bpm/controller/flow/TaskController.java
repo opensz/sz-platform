@@ -62,7 +62,7 @@ import org.sz.platform.bpm.service.flow.TaskSignDataService;
 import org.sz.platform.bpm.service.flow.TaskUserService;
 import org.sz.platform.bpm.service.form.BpmFormDefService;
 import org.sz.platform.bpm.service.form.BpmFormHandlerService;
-import org.sz.platform.bpm.util.BpmUtil;
+import org.sz.platform.bpm.util.BpmWebUtil;
 import org.sz.platform.system.model.SysUser;
 import org.sz.platform.system.model.SysUserAgent;
 import org.sz.platform.system.service.SysUserAgentService;
@@ -228,7 +228,7 @@ public class TaskController extends BaseController {
 			HttpServletResponse response) throws Exception {
 		PrintWriter out = response.getWriter();
 		try {
-			ProcessCmd processCmd = BpmUtil.getProcessCmd(request);
+			ProcessCmd processCmd = BpmWebUtil.getProcessCmd(request);
 			Long userId = ContextUtil.getCurrentUserId();
 			processCmd.setCurrentUserId(userId.toString());
 			this.processRunService.startProcess(processCmd);
@@ -248,7 +248,7 @@ public class TaskController extends BaseController {
 	public String ajaxStartFlow(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		try {
-			ProcessCmd processCmd = BpmUtil.getProcessCmd(request);
+			ProcessCmd processCmd = BpmWebUtil.getProcessCmd(request);
 			Long userId = ContextUtil.getCurrentUserId();
 			processCmd.setCurrentUserId(userId.toString());
 			ProcessRun processRun = this.processRunService
@@ -313,7 +313,7 @@ public class TaskController extends BaseController {
 	@RequestMapping({ "jumpBack" })
 	public ModelAndView jumpBack(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		ProcessCmd processCmd = BpmUtil.getProcessCmd(request);
+		ProcessCmd processCmd = BpmWebUtil.getProcessCmd(request);
 		processCmd.setCurrentUserId(ContextUtil.getCurrentUserId().toString());
 		this.processRunService.nextProcess(processCmd);
 		return new ModelAndView("redirect:list.xht");
@@ -473,9 +473,9 @@ public class TaskController extends BaseController {
 		BpmDefinition bpmDefinition = this.bpmDefinitionService
 				.getByActDefId(actDefId);
 
-		if (bpmDefinition.getIsIso() == 1) {
-			showChooseCaseNo = true;
-		}
+		//if (bpmDefinition.getIsIso() == 1) {
+		//	showChooseCaseNo = true;
+		//}
 
 		ProcessRun processRun = this.processRunService
 				.getByActInstanceId(instanceId);
@@ -698,7 +698,7 @@ public class TaskController extends BaseController {
 			HttpServletResponse response) throws Exception {
 		PrintWriter out = response.getWriter();
 		try {
-			ProcessCmd taskCmd = BpmUtil.getProcessCmd(request);
+			ProcessCmd taskCmd = BpmWebUtil.getProcessCmd(request);
 			taskCmd.setCurrentUserId(ContextUtil.getCurrentUserId().toString());
 			processRunService.temporaryTask(taskCmd);
 			ResultMessage resultMessage = new ResultMessage(1, "暂存任务成功!");
@@ -717,7 +717,7 @@ public class TaskController extends BaseController {
 		PrintWriter out = response.getWriter();
 		this.logger.debug("任务完成跳转....");
 		try {
-			ProcessCmd taskCmd = BpmUtil.getProcessCmd(request);
+			ProcessCmd taskCmd = BpmWebUtil.getProcessCmd(request);
 			taskCmd.setCurrentUserId(ContextUtil.getCurrentUserId().toString());
 			this.processRunService.nextProcess(taskCmd);
 
@@ -1032,7 +1032,7 @@ public class TaskController extends BaseController {
 	@ResponseBody
 	public String saveChangePath(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		ProcessCmd processCmd = BpmUtil.getProcessCmd(request);
+		ProcessCmd processCmd = BpmWebUtil.getProcessCmd(request);
 		this.processRunService.nextProcess(processCmd);
 		saveSuccessResultMessage(request.getSession(), "更改任务执行的路径!");
 		return "{success:true}";

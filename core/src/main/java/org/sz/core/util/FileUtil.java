@@ -404,7 +404,7 @@ public class FileUtil {
 		String templatePath = Thread.currentThread().getContextClassLoader()
 				.getResource("").toString();
 		if (templatePath.startsWith("file:/")) {
-			templatePath = templatePath.replaceFirst("file:/", "");
+			templatePath = templatePath.replaceFirst("file:", "");  //fix file:/->file:
 		}
 		templatePath = templatePath.replace("/", File.separator);
 		return templatePath;

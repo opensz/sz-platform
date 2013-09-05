@@ -49,7 +49,7 @@ import org.sz.platform.bpm.service.flow.BpmNodeUserService;
 import org.sz.platform.bpm.service.flow.BpmNodeUserUplowService;
 import org.sz.platform.bpm.service.flow.BpmService;
 import org.sz.platform.bpm.service.flow.ProcessRunService;
-import org.sz.platform.bpm.util.BpmUtil;
+import org.sz.platform.bpm.util.BpmWebUtil;
 import org.sz.platform.system.model.GlobalType;
 import org.sz.platform.system.model.SysRole;
 import org.sz.platform.system.model.SysUser;
@@ -284,7 +284,7 @@ public class BpmDefinitionController extends BaseController {
 			String defXml = this.bpmService.getDefXmlByDeployId(po
 					.getActDeployId().toString());
 			modelAndView.addObject("defXml", defXml);
-			ShapeMeta shapeMeta = BpmUtil.transGraph(defXml);
+			ShapeMeta shapeMeta = BpmWebUtil.transGraph(defXml);
 			modelAndView.addObject("shapeMeta", shapeMeta);
 		}
 		return modelAndView.addObject("bpmDefinition", po);
@@ -356,7 +356,7 @@ public class BpmDefinitionController extends BaseController {
 				.getParameter("deploy")));
 		String actFlowDefXml = "";
 		try {
-			actFlowDefXml = BpmUtil.transform(bpmDefinition.getDefKey(),
+			actFlowDefXml = BpmWebUtil.transform(bpmDefinition.getDefKey(),
 					bpmDefinition.getSubject(), bpmDefinition.getDefXml());
 			this.bpmDefinitionService.saveOrUpdate(bpmDefinition,
 					isDeploy.booleanValue(), actFlowDefXml);
@@ -597,7 +597,7 @@ public class BpmDefinitionController extends BaseController {
 				.getById(defId);
 
 		String defXml = bpmDefinition.getDefXml();
-		String actDefXml = BpmUtil.transform(bpmDefinition.getDefKey(),
+		String actDefXml = BpmWebUtil.transform(bpmDefinition.getDefKey(),
 				bpmDefinition.getSubject(), defXml);
 		this.bpmDefinitionService.deploy(bpmDefinition, actDefXml);
 		ResultMessage message = new ResultMessage(1, "发布流程成功!");
@@ -632,7 +632,7 @@ public class BpmDefinitionController extends BaseController {
 		}
 
 		String xml = this.bpmService.getDefXmlByDeployId(deployId);
-		Map conditionMap = BpmUtil.getDecisionConditions(xml, nodeId);
+		Map conditionMap = BpmWebUtil.getDecisionConditions(xml, nodeId);
 
 		List<PvmTransition> outTrans = curActivity.getOutgoingTransitions();
 		for (PvmTransition tran : outTrans) {
@@ -688,7 +688,7 @@ public class BpmDefinitionController extends BaseController {
 
 		String defXml = this.bpmService
 				.getDefXmlByProcessDefinitionId(actDefId);
-		ShapeMeta shapeMeta = BpmUtil.transGraph(defXml);
+		ShapeMeta shapeMeta = BpmWebUtil.transGraph(defXml);
 
 		ModelAndView modelAndView = getAutoView();
 

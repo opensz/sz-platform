@@ -44,7 +44,7 @@ public class BpmDefinition extends BaseModel implements Cloneable {
 
 	protected Short toFirstNode = 0;
 
-	protected Short isIso = 0;
+//	protected Short isIso = 0;
 
 	public void setDefId(Long defId) {
 		this.defId = defId;
@@ -230,13 +230,13 @@ public class BpmDefinition extends BaseModel implements Cloneable {
 		this.businessType = businessType;
 	}
 
-	public Short getIsIso() {
-		return isIso;
-	}
-
-	public void setIsIso(Short isIso) {
-		this.isIso = isIso;
-	}
+//	public Short getIsIso() {
+//		return isIso;
+//	}
+//
+//	public void setIsIso(Short isIso) {
+//		this.isIso = isIso;
+//	}
 
 	public boolean equals(Object object) {
 		if (!(object instanceof BpmDefinition)) {

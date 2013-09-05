@@ -21,7 +21,7 @@ import org.sz.platform.bpm.model.flow.BpmDefinition;
 import org.sz.platform.bpm.model.flow.BpmNodeSet;
 import org.sz.platform.bpm.service.flow.BpmDefinitionService;
 import org.sz.platform.bpm.service.flow.BpmNodeSetService;
-import org.sz.platform.bpm.util.BpmUtil;
+import org.sz.platform.bpm.util.BpmWebUtil;
 
 @Controller
 @RequestMapping({ "/platform/bpm/bpmNodeSet/" })
@@ -263,7 +263,7 @@ public class BpmNodeSetController extends BaseController {
 	public void validHandler(HttpServletRequest request,
 			HttpServletResponse response) throws IOException {
 		String handler = RequestUtil.getString(request, "handler");
-		int rtn = BpmUtil.isHandlerValid(handler);
+		int rtn = BpmWebUtil.isHandlerValid(handler);
 		String template = "{\"result\":\"%s\",\"msg\":\"%s\"}";
 		String msg = "";
 		switch (rtn) {

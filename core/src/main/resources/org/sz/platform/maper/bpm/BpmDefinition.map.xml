@@ -24,12 +24,11 @@
 		<result property="isMain" column="isMain" jdbcType="NUMERIC"/>
 		<result property="toFirstNode" column="toFirstNode" jdbcType="NUMERIC" />
 		<result property="needStartForm" column="needStartForm" jdbcType="NUMERIC" />
-		<result property="isIso" column="ISISO" jdbcType="NUMERIC" />
 		
 	</resultMap>	
 	
 	<sql id="columns">
-		defId,typeId,businessType,subject,defKey,taskNameRule,descp,status,defXml,actDeployId,actDefKey,actDefId,createtime,updatetime,createBy,updateBy,reason,versionNo,parentDefId,isMain,toFirstNode,needStartForm,isIso
+		defId,typeId,businessType,subject,defKey,taskNameRule,descp,status,defXml,actDeployId,actDefKey,actDefId,createtime,updatetime,createBy,updateBy,reason,versionNo,parentDefId,isMain,toFirstNode,needStartForm
 	</sql>
 	
 
@@ -57,7 +56,7 @@
 		#{taskNameRule,jdbcType=VARCHAR}, #{descp,jdbcType=VARCHAR}, #{status,jdbcType=NUMERIC}, #{defXml,jdbcType=CLOB},
 		 #{actDeployId,jdbcType=NUMERIC}, #{actDefKey,jdbcType=VARCHAR}, #{actDefId,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP},
 		  #{updatetime,jdbcType=TIMESTAMP}, #{createBy,jdbcType=NUMERIC}, #{updateBy,jdbcType=NUMERIC}, #{reason,jdbcType=VARCHAR},
-		   #{versionNo,jdbcType=NUMERIC}, #{parentDefId,jdbcType=NUMERIC}, #{isMain,jdbcType=NUMERIC},  #{toFirstNode,jdbcType=NUMERIC},#{needStartForm,jdbcType=NUMERIC},#{isIso,jdbcType=NUMERIC})
+		   #{versionNo,jdbcType=NUMERIC}, #{parentDefId,jdbcType=NUMERIC}, #{isMain,jdbcType=NUMERIC},  #{toFirstNode,jdbcType=NUMERIC},#{needStartForm,jdbcType=NUMERIC})
 	</insert>
 	
 	<delete id="delById" parameterType="java.lang.Long">

@@ -1,34 +1,5 @@
 package org.sz.platform.bpm.util;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.lang.reflect.Method;
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import javax.xml.transform.TransformerFactoryConfigurationError;
-
-import org.activiti.engine.RepositoryService;
-import org.activiti.engine.delegate.TaskListener;
-import org.activiti.engine.impl.RepositoryServiceImpl;
-import org.activiti.engine.impl.bpmn.diagram.ProcessDiagramGenerator;
-import org.activiti.engine.impl.persistence.entity.ProcessDefinitionEntity;
-import org.activiti.engine.repository.ProcessDefinition;
-import org.activiti.engine.repository.ProcessDefinitionQuery;
-import org.apache.commons.lang.time.DateUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.dom4j.Document;
-import org.dom4j.Element;
-import org.dom4j.Node;
 import org.sz.core.bpm.graph.DivShape;
 import org.sz.core.bpm.graph.ShapeMeta;
 import org.sz.core.bpm.model.ForkNode;
@@ -40,11 +11,33 @@ import org.sz.core.util.Dom4jUtil;
 import org.sz.core.util.FileUtil;
 import org.sz.core.util.StringUtil;
 
-public class BpmUtil {
-	private static final Log logger = LogFactory.getLog(BpmUtil.class);
-	private static final String VAR_PRE_NAME = "v_";
+import java.io.File;
+import java.io.IOException;
+import java.lang.reflect.Method;
+import java.math.BigDecimal;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
+import javax.xml.transform.TransformerFactoryConfigurationError;
+
+import org.activiti.engine.delegate.TaskListener;
+import org.apache.commons.lang.time.DateUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.dom4j.Document;
+import org.dom4j.Element;
+import org.dom4j.Node;
+
+public class BpmUtil {
 	
+	
+	protected static final Log logger = LogFactory.getLog(BpmUtil.class);
+	protected static final String VAR_PRE_NAME = "v_";
 
 	public static Object getValue(String type, String paramValue) {
 		Object value = null;
@@ -65,7 +58,8 @@ public class BpmUtil {
 			value = new Short(paramValue);
 		} else if ("D".equals(type))
 			try {
-				value = DateUtils.parseDate(paramValue, new String[] { "yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss" });
+				value = DateUtils.parseDate(paramValue, new String[] {
+						"yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss" });
 			} catch (Exception ex) {
 			}
 		else {
@@ -74,10 +68,12 @@ public class BpmUtil {
 		return value;
 	}
 
-	public static Map<String, Map<String, String>> getTaskActivitys(String defXml) {
+	public static Map<String, Map<String, String>> getTaskActivitys(
+			String defXml) {
 		Map rtnMap = new HashMap();
 
-		defXml = defXml.replace("xmlns=\"http://www.omg.org/spec/BPMN/20100524/MODEL\"", "");
+		defXml = defXml.replace(
+				"xmlns=\"http://www.omg.org/spec/BPMN/20100524/MODEL\"", "");
 
 		Document doc = Dom4jUtil.loadXml(defXml);
 		Element root = doc.getRootElement();
@@ -88,17 +84,20 @@ public class BpmUtil {
 
 		Map gateWayMap = new HashMap();
 
-		List parallelGatewayList = root.selectNodes("./process//parallelGateway");
+		List parallelGatewayList = root
+				.selectNodes("./process//parallelGateway");
 		if (parallelGatewayList.size() > 0) {
 			addToMap(parallelGatewayList, gateWayMap);
 		}
 
-		List inclusiveGatewayList = root.selectNodes("./process//inclusiveGateway");
+		List inclusiveGatewayList = root
+				.selectNodes("./process//inclusiveGateway");
 		if (inclusiveGatewayList.size() > 0) {
 			addToMap(inclusiveGatewayList, gateWayMap);
 		}
 
-		List exclusiveGatewayGatewayList = root.selectNodes("./process//exclusiveGateway");
+		List exclusiveGatewayGatewayList = root
+				.selectNodes("./process//exclusiveGateway");
 		if (exclusiveGatewayGatewayList.size() > 0) {
 			addToMap(exclusiveGatewayGatewayList, gateWayMap);
 		}
@@ -118,7 +117,7 @@ public class BpmUtil {
 			addToMap(serviceTask, serviceMap);
 			rtnMap.put("自动任务", serviceMap);
 		}
-		
+
 		List subProcess = root.selectNodes("./process//subProcess");
 		if (subProcess.size() > 0) {
 			Map subProcessMap = new HashMap();
@@ -139,21 +138,26 @@ public class BpmUtil {
 	}
 
 	public static String getFirstTaskNode(String defXml) {
-		defXml = defXml.replace("xmlns=\"http://www.omg.org/spec/BPMN/20100524/MODEL\"", "");
+		defXml = defXml.replace(
+				"xmlns=\"http://www.omg.org/spec/BPMN/20100524/MODEL\"", "");
 		Document doc = Dom4jUtil.loadXml(defXml);
 		Element root = doc.getRootElement();
-		Element startNode = (Element) root.selectSingleNode("/definitions/process/startEvent");
+		Element startNode = (Element) root
+				.selectSingleNode("/definitions/process/startEvent");
 		if (startNode == null)
 			return "";
 		String startId = startNode.attributeValue("id");
-		Element sequenceFlow = (Element) root.selectSingleNode("/definitions/process/sequenceFlow[@sourceRef='" + startId + "']");
+		Element sequenceFlow = (Element) root
+				.selectSingleNode("/definitions/process/sequenceFlow[@sourceRef='"
+						+ startId + "']");
 		if (sequenceFlow == null)
 			return "";
 		String taskId = sequenceFlow.attributeValue("targetRef");
 		return taskId;
 	}
 
-	public static Map<String, Map<String, String>> getTranstoActivitys(String defXml, List<String> nodes) {
+	public static Map<String, Map<String, String>> getTranstoActivitys(
+			String defXml, List<String> nodes) {
 		Map actMap = getTaskActivitys(defXml);
 		Collection<Map> values = actMap.values();
 		for (Iterator<String> iterator = nodes.iterator(); iterator.hasNext();) {
@@ -190,7 +194,8 @@ public class BpmUtil {
 		if (serviceBean == null)
 			return -2;
 		try {
-			Method invokeMethod = serviceBean.getClass().getDeclaredMethod(method, new Class[] { ProcessCmd.class });
+			Method invokeMethod = serviceBean.getClass().getDeclaredMethod(
+					method, new Class[] { ProcessCmd.class });
 			return 0;
 		} catch (NoSuchMethodException e) {
 			return -3;
@@ -199,12 +204,15 @@ public class BpmUtil {
 		return -4;
 	}
 
-	public static String transform(String id, String name, String xml) throws TransformerFactoryConfigurationError, Exception {
+	public static String transform(String id, String name, String xml)
+			throws TransformerFactoryConfigurationError, Exception {
 		Map map = new HashMap();
 		map.put("id", id);
 		map.put("name", name);
 
-		String xlstPath = FileUtil.getClassesPath() + "org/sz/core/bpm/graph/transform.xsl".replace("/", File.separator);
+		String xlstPath = FileUtil.getClassesPath()
+				+ "org/sz/core/bpm/graph/transform.xsl".replace("/",
+						File.separator);
 
 		logger.debug("xlslPath:" + xlstPath);
 
@@ -214,14 +222,16 @@ public class BpmUtil {
 
 		logger.debug("xml:" + str);
 
-		str = str.replace("&lt;", "<").replace("&gt;", ">").replace("xmlns=\"\"", "").replace("&amp;", "&");
-		
-		//str = str.replace("UTF-8", "utf8").replace("utf-8", "utf8");
+		str = str.replace("&lt;", "<").replace("&gt;", ">")
+				.replace("xmlns=\"\"", "").replace("&amp;", "&");
+
+		// str = str.replace("UTF-8", "utf8").replace("utf-8", "utf8");
 		return str;
 	}
 
 	public static ShapeMeta transGraph(String xml) throws Exception {
-		xml = xml.replace("xmlns=\"http://www.omg.org/spec/BPMN/20100524/MODEL\"", "");
+		xml = xml.replace(
+				"xmlns=\"http://www.omg.org/spec/BPMN/20100524/MODEL\"", "");
 		Document doc = Dom4jUtil.loadXml(xml);
 		Element root = doc.getRootElement();
 		List list = root.selectNodes("//bpmndi:BPMNShape");
@@ -270,20 +280,25 @@ public class BpmUtil {
 
 			String id = el.attributeValue("bpmnElement");
 
-			Element procEl = (Element) root.selectSingleNode("//process/descendant::*[@id='" + id + "']");
+			Element procEl = (Element) root
+					.selectSingleNode("//process/descendant::*[@id='" + id
+							+ "']");
 			String type = procEl.getName();
 			if (type.equals("serviceTask")) {
 				String attribute = procEl.attributeValue("class");
 
 				if (attribute != null) {
-					if (attribute.equals("org.sz.platform.service.bpm.MessageTask")) {
+					if (attribute
+							.equals("org.sz.platform.service.bpm.MessageTask")) {
 						type = "email";
-					} else if (attribute.equals("org.sz.platform.service.bpm.ScriptTask")) {
+					} else if (attribute
+							.equals("org.sz.platform.service.bpm.ScriptTask")) {
 						type = "script";
 					}
 				}
 			}
-			Element multiObj = procEl.element("multiInstanceLoopCharacteristics");
+			Element multiObj = procEl
+					.element("multiInstanceLoopCharacteristics");
 			if (multiObj != null)
 				type = "multiUserTask";
 			Element parent = procEl.getParent();
@@ -304,11 +319,15 @@ public class BpmUtil {
 		return shapeMeta;
 	}
 
-	public static ForkNode getForkNode(String forkNode, String xml) throws IOException {
-		xml = xml.replace("xmlns=\"http://www.omg.org/spec/BPMN/20100524/MODEL\"", "xmlns:bpm='sz'");
+	public static ForkNode getForkNode(String forkNode, String xml)
+			throws IOException {
+		xml = xml.replace(
+				"xmlns=\"http://www.omg.org/spec/BPMN/20100524/MODEL\"",
+				"xmlns:bpm='sz'");
 		Document doc = Dom4jUtil.loadXml(xml);
 		Element root = doc.getRootElement();
-		List preNodes = root.selectNodes("//sequenceFlow[@targetRef='" + forkNode + "']");
+		List preNodes = root.selectNodes("//sequenceFlow[@targetRef='"
+				+ forkNode + "']");
 		ForkNode model = new ForkNode();
 		model.setForkNodeId(forkNode);
 
@@ -316,17 +335,20 @@ public class BpmUtil {
 			Element preLine = (Element) preNodes.get(0);
 			String sourceId = preLine.attributeValue("sourceRef");
 
-			Element soureNode = (Element) root.selectSingleNode("//userTask[@id='" + sourceId + "']");
+			Element soureNode = (Element) root
+					.selectSingleNode("//userTask[@id='" + sourceId + "']");
 			if (soureNode != null) {
 				model.setPreNodeId(sourceId);
-				Element multiNode = soureNode.element("multiInstanceLoopCharacteristics");
+				Element multiNode = soureNode
+						.element("multiInstanceLoopCharacteristics");
 				if (multiNode != null) {
 					model.setMulti(true);
 				}
 			}
 		}
 
-		List<Element> nodes = root.selectNodes("//sequenceFlow[@sourceRef='" + forkNode + "']");
+		List<Element> nodes = root.selectNodes("//sequenceFlow[@sourceRef='"
+				+ forkNode + "']");
 		for (Element el : nodes) {
 			String id = el.attributeValue("targetRef");
 			String condition = "";
@@ -337,22 +359,28 @@ public class BpmUtil {
 				condition = StringUtil.trimSufffix(condition, "}");
 			}
 
-			Element targetNode = (Element) root.selectSingleNode("//*[@id='" + id + "']");
+			Element targetNode = (Element) root.selectSingleNode("//*[@id='"
+					+ id + "']");
 			String nodeName = targetNode.attributeValue("name");
 
-			NodeCondition nodeCondition = new NodeCondition(nodeName, id, condition);
+			NodeCondition nodeCondition = new NodeCondition(nodeName, id,
+					condition);
 			model.addNode(nodeCondition);
 		}
 		return model;
 	}
 
-	public static Map<String, String> getDecisionConditions(String processXml, String decisionNodeId) {
+	public static Map<String, String> getDecisionConditions(String processXml,
+			String decisionNodeId) {
 		Map map = new HashMap();
-		processXml = processXml.replace("xmlns=\"http://www.omg.org/spec/BPMN/20100524/MODEL\"", "xmlns:bpm='sz'");
+		processXml = processXml.replace(
+				"xmlns=\"http://www.omg.org/spec/BPMN/20100524/MODEL\"",
+				"xmlns:bpm='sz'");
 		Document doc = Dom4jUtil.loadXml(processXml);
 		Element root = doc.getRootElement();
 
-		List<Element> nodes = root.selectNodes("//sequenceFlow[@sourceRef='" + decisionNodeId + "']");
+		List<Element> nodes = root.selectNodes("//sequenceFlow[@sourceRef='"
+				+ decisionNodeId + "']");
 		for (Element el : nodes) {
 			String id = el.attributeValue("targetRef");
 			String condition = "";
@@ -367,11 +395,15 @@ public class BpmUtil {
 		return map;
 	}
 
-	public static String setCondition(String sourceNode, Map<String, String> map, String xml) throws IOException {
-		xml = xml.replace("xmlns=\"http://www.omg.org/spec/BPMN/20100524/MODEL\"", "xmlns:bpm=\"sz\"");
+	public static String setCondition(String sourceNode,
+			Map<String, String> map, String xml) throws IOException {
+		xml = xml.replace(
+				"xmlns=\"http://www.omg.org/spec/BPMN/20100524/MODEL\"",
+				"xmlns:bpm=\"sz\"");
 		Document doc = Dom4jUtil.loadXml(xml, "utf-8");
 		Element root = doc.getRootElement();
-		List<Element> nodes = root.selectNodes("//sequenceFlow[@sourceRef='" + sourceNode + "']");
+		List<Element> nodes = root.selectNodes("//sequenceFlow[@sourceRef='"
+				+ sourceNode + "']");
 		for (Element el : nodes) {
 			String id = el.attributeValue("targetRef");
 			String condition = (String) map.get(id);
@@ -386,27 +418,34 @@ public class BpmUtil {
 			}
 		}
 		String outXml = doc.asXML();
-		outXml = outXml.replace("xmlns:bpm=\"sz\"", "xmlns=\"http://www.omg.org/spec/BPMN/20100524/MODEL\"");
+		outXml = outXml.replace("xmlns:bpm=\"sz\"",
+				"xmlns=\"http://www.omg.org/spec/BPMN/20100524/MODEL\"");
 		return outXml;
 	}
 
-	public static String setGraphXml(String sourceNode, Map<String, String> map, String xml) throws IOException {
+	public static String setGraphXml(String sourceNode,
+			Map<String, String> map, String xml) throws IOException {
 		Document doc = Dom4jUtil.loadXml(xml);
 		Element root = doc.getRootElement();
 
-		Element node = (Element) root.selectSingleNode("//bg:Gateway[@id='" + sourceNode + "']");
+		Element node = (Element) root.selectSingleNode("//bg:Gateway[@id='"
+				+ sourceNode + "']");
 		Element portsEl = node.element("ports");
 		List portList = portsEl.elements();
 
 		for (int i = 0; i < portList.size(); i++) {
 			Element portEl = (Element) portList.get(i);
-			if ((portEl.attribute("x") == null) && (portEl.attribute("y") == null))
+			if ((portEl.attribute("x") == null)
+					&& (portEl.attribute("y") == null))
 				continue;
 			String id = portEl.attributeValue("id");
-			Element outNode = (Element) root.selectSingleNode("//bg:SequenceFlow[@startPort='" + id + "']");
+			Element outNode = (Element) root
+					.selectSingleNode("//bg:SequenceFlow[@startPort='" + id
+							+ "']");
 			if (outNode != null) {
 				String outPort = outNode.attributeValue("endPort");
-				Element tmpNode = (Element) root.selectSingleNode("//ciied:Port[@id='" + outPort + "']");
+				Element tmpNode = (Element) root
+						.selectSingleNode("//ciied:Port[@id='" + outPort + "']");
 				Element taskNode = tmpNode.getParent().getParent();
 				String taskId = taskNode.attributeValue("id");
 
@@ -425,8 +464,6 @@ public class BpmUtil {
 		return doc.asXML();
 	}
 
-	
-
 	public static String getStrByRule(String rule, Map<String, Object> map) {
 		Pattern regex = Pattern.compile("\\{(.*?)\\}", 98);
 		Matcher matcher = regex.matcher(rule);
@@ -444,7 +481,8 @@ public class BpmUtil {
 		return rule;
 	}
 
-	public static String getTitleByRule(String titleRule, Map<String, Object> map) {
+	public static String getTitleByRule(String titleRule,
+			Map<String, Object> map) {
 		Pattern regex = Pattern.compile("\\{(.*?)\\}", 98);
 		Matcher matcher = regex.matcher(titleRule);
 		while (matcher.find()) {

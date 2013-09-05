@@ -98,7 +98,7 @@ public class StartupListener implements ServletContextListener {
 	public static void setupContext(ServletContext context) {
 		ApplicationContext ctx = WebApplicationContextUtils
 				.getRequiredWebApplicationContext(context);
-		LookupManager mgr = (LookupManager) ctx.getBean("lookupManager");
+		//LookupManager mgr = (LookupManager) ctx.getBean("lookupManager");
 
 		// get list of possible roles
 		// context.setAttribute(Constants.AVAILABLE_ROLES, mgr.getAllRoles());

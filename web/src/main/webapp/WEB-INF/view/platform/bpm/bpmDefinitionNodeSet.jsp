@@ -144,7 +144,7 @@
 			<%@include file="incDefinitionHead.jsp" %>
 			<f:tab curTab="3" tabName="flow"/>
 			<div style="position: relative;background:url('${ctx}/bpmImage?deployId=${bpmDefinition.actDeployId}')  no-repeat;width:${shapeMeta.width}px;height:${shapeMeta.height}px;">
-					${shapeMeta.xml} 
+					${f:unescapeHtml(shapeMeta.xml)} 
 			</div>
 	</div>
 </body>

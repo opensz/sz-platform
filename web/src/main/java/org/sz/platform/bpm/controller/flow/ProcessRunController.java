@@ -39,7 +39,7 @@ import org.sz.platform.bpm.service.flow.ExecutionStackService;
 import org.sz.platform.bpm.service.flow.ProcessRunService;
 import org.sz.platform.bpm.service.flow.TaskOpinionService;
 import org.sz.platform.bpm.service.form.BpmFormDefService;
-import org.sz.platform.bpm.util.BpmUtil;
+import org.sz.platform.bpm.util.BpmWebUtil;
 
 @Controller
 @RequestMapping({ "/platform/bpm/processRun/" })
@@ -242,7 +242,7 @@ public class ProcessRunController extends BaseController {
 
 		String defXml = this.bpmService
 				.getDefXmlByProcessDefinitionId(processDefinitionId);
-		ShapeMeta shapeMeta = BpmUtil.transGraph(defXml);
+		ShapeMeta shapeMeta = BpmWebUtil.transGraph(defXml);
 		ModelAndView modelAndView = getAutoView();
 
 		modelAndView.addObject("defXml", defXml)

@@ -29,7 +29,7 @@ import org.sz.platform.bpm.service.flow.BpmDefinitionService;
 import org.sz.platform.bpm.service.flow.BpmNodeRuleService;
 import org.sz.platform.bpm.service.flow.BpmNodeSetService;
 import org.sz.platform.bpm.service.flow.BpmService;
-import org.sz.platform.bpm.util.BpmUtil;
+import org.sz.platform.bpm.util.BpmWebUtil;
 
 @Controller
 @RequestMapping({ "/platform/bpm/bpmNodeRule/" })
@@ -87,7 +87,7 @@ public class BpmNodeRuleController extends BaseController {
 
 		List nodeList = new ArrayList();
 		nodeList.add(nodeId);
-		Map activityList = BpmUtil.getTranstoActivitys(defXml, nodeList);
+		Map activityList = BpmWebUtil.getTranstoActivitys(defXml, nodeList);
 
 		BpmNodeSet bpmNodeSet = this.bpmNodeSetService.getByActDefIdNodeId(
 				actDefId, nodeId);
