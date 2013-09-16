@@ -34,5 +34,5 @@ public interface BpmFormHandlerService {
 			SysUser user, Map<String, Object> param, QueryFilter queryFilter)
 			throws Exception;
 
-	void copyTask(BpmFormData bpmFormData, String sourceCaseId, Long sourceFlowRunId) throws Exception;
+	//void copyTask(BpmFormData bpmFormData, String sourceCaseId, Long sourceFlowRunId) throws Exception;
 }

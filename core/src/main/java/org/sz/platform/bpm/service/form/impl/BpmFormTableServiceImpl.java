@@ -46,6 +46,9 @@ import org.sz.platform.system.model.SysDataSource;
 @Service("bpmFormTableService")
 public class BpmFormTableServiceImpl extends BaseServiceImpl<BpmFormTable>
 		implements BpmFormTableService {
+	
+	public static final String CUSTOMER_COLUMN_PREFIX = TableModel.CUSTOMER_COLUMN_PREFIX;
+	public static final String CUSTOMER_TABLE_PREFIX = TableModel.CUSTOMER_TABLE_PREFIX;
 
 	@Resource
 	private BpmFormTableDao dao;
@@ -224,7 +227,7 @@ public class BpmFormTableServiceImpl extends BaseServiceImpl<BpmFormTable>
 		if (mainTableId.longValue() > 0L)
 			hasFormDef = this.bpmFormDefDao.isTableHasFormDef(mainTableId);
 		if (hasFormDef) {
-			boolean hasData = this.bpmFormHandlerDao.getHasData("W_"
+			boolean hasData = this.bpmFormHandlerDao.getHasData(CUSTOMER_TABLE_PREFIX
 					+ tableName);
 
 			Map resultMap = caculateFields(fields, originFieldList);
@@ -271,7 +274,7 @@ public class BpmFormTableServiceImpl extends BaseServiceImpl<BpmFormTable>
 				field.setTableId(tableId);
 				this.bmpFormFieldDao.add(field);
 				ColumnModel columnModel = getByField(field, 2);
-				this.tableOperator.addColumn("W_" + tableName, columnModel);
+				this.tableOperator.addColumn(CUSTOMER_TABLE_PREFIX + tableName, columnModel);
 			}
 
 		} else if (table.getIsPublished().shortValue() == 1) {
@@ -281,7 +284,7 @@ public class BpmFormTableServiceImpl extends BaseServiceImpl<BpmFormTable>
 						.getSubTableByMainTableId(tableId);
 
 				for (BpmFormTable subTable : tableList) {
-					String tabName = "W_" + subTable.getTableName();
+					String tabName = CUSTOMER_TABLE_PREFIX + subTable.getTableName();
 					this.tableOperator.dropForeignKey(tabName, "fk_" + tabName);
 				}
 				this.dao.update(table);
@@ -290,17 +293,17 @@ public class BpmFormTableServiceImpl extends BaseServiceImpl<BpmFormTable>
 
 				addFields(tableId, fields, false);
 
-				this.tableOperator.dropTable("W_" + originTable.getTableName());
+				this.tableOperator.dropTable(CUSTOMER_TABLE_PREFIX + originTable.getTableName());
 
 				List fieldList = convertFields(fields, false);
 				createTable(table, fieldList);
 
-				pkTableName = "W_" + table.getTableName();
+				pkTableName = CUSTOMER_TABLE_PREFIX + table.getTableName();
 
 				for (BpmFormTable subTable : tableList) {
-					String tabName = "W_" + subTable.getTableName();
+					String tabName = CUSTOMER_TABLE_PREFIX + subTable.getTableName();
 					this.tableOperator.addForeignKey(pkTableName, tabName,
-							"ID", "REFID");
+							TableModel.PK_COLUMN_NAME, TableModel.FK_COLUMN_NAME);
 				}
 			} else {
 				this.dao.update(table);
@@ -309,7 +312,7 @@ public class BpmFormTableServiceImpl extends BaseServiceImpl<BpmFormTable>
 
 				addFields(tableId, fields, false);
 
-				this.tableOperator.dropTable("W_" + originTable.getTableName());
+				this.tableOperator.dropTable(CUSTOMER_TABLE_PREFIX + originTable.getTableName());
 
 				List fieldList = convertFields(fields, false);
 				createTable(table, fieldList);
@@ -440,7 +443,7 @@ public class BpmFormTableServiceImpl extends BaseServiceImpl<BpmFormTable>
 			this.dao.update(subTable);
 
 			if (subTable.getIsPublished().shortValue() == 1) {
-				this.tableOperator.dropTable("W_" + subTable.getTableName());
+				this.tableOperator.dropTable(CUSTOMER_TABLE_PREFIX + subTable.getTableName());
 			}
 
 			publish(subTableId, mainTable.getPublishedBy());
@@ -487,7 +490,7 @@ public class BpmFormTableServiceImpl extends BaseServiceImpl<BpmFormTable>
 			columnModel.setIsNull(false);
 			break;
 		case 2:
-			columnModel.setName("F_" + field.getFieldName());
+			columnModel.setName(CUSTOMER_COLUMN_PREFIX + field.getFieldName());
 			columnModel.setColumnType(field.getFieldType());
 			columnModel.setCharLen(field.getCharLen().intValue());
 			columnModel.setIntLen(field.getIntLen().intValue());
@@ -575,7 +578,7 @@ public class BpmFormTableServiceImpl extends BaseServiceImpl<BpmFormTable>
 	private void createTable(BpmFormTable table, List<BpmFormField> fields)
 			throws SQLException {
 		TableModel tableModel = new TableModel();
-		tableModel.setName("W_" + table.getTableName());
+		tableModel.setName(CUSTOMER_TABLE_PREFIX + table.getTableName());
 		tableModel.setComment(table.getTableDesc());
 
 		ColumnModel pkModel = getByField(null, 1);
@@ -622,8 +625,8 @@ public class BpmFormTableServiceImpl extends BaseServiceImpl<BpmFormTable>
 					.getById(mainTableId);
 
 			this.tableOperator.addForeignKey(
-					"W_" + bpmFormTable.getTableName(),
-					"W_" + table.getTableName(), "ID", "REFID");
+					CUSTOMER_TABLE_PREFIX + bpmFormTable.getTableName(),
+					CUSTOMER_TABLE_PREFIX + table.getTableName(), TableModel.PK_COLUMN_NAME, TableModel.FK_COLUMN_NAME);
 		}
 	}
 
@@ -694,13 +697,13 @@ public class BpmFormTableServiceImpl extends BaseServiceImpl<BpmFormTable>
 			if (BeanUtils.isNotEmpty(subTableList)) {
 				for (BpmFormTable subTable : subTableList) {
 					this.tableOperator
-							.dropTable("W_" + subTable.getTableName());
+							.dropTable(CUSTOMER_TABLE_PREFIX + subTable.getTableName());
 					this.dao.delById(subTable.getTableId());
 				}
 			}
 		}
 
-		this.tableOperator.dropTable("W_" + tableName);
+		this.tableOperator.dropTable(CUSTOMER_TABLE_PREFIX + tableName);
 		this.dao.delById(tableId);
 	}
 

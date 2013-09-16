@@ -11,6 +11,8 @@ import java.util.Set;
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
+
+import org.sz.core.customertable.TableModel;
 import org.sz.core.engine.FreemarkEngine;
 import org.sz.core.query.PageBean;
 import org.sz.core.query.QueryFilter;
@@ -137,7 +139,7 @@ public class BpmFormHandlerServiceImpl implements BpmFormHandlerService {
 					resultMap.put(fieldName, id);
 				} else if (field.getValueFrom().shortValue() == BpmFormField.VALUE_FROM_SCRIPT_SHOW) {
 					Object result = FormUtil.calcuteField(field.getScript(),
-							data.getMainFields(), "F_");
+							data.getMainFields(), TableModel.CUSTOMER_COLUMN_PREFIX);
 					resultMap.put(fieldName, result);
 				}
 			}
@@ -253,15 +255,5 @@ public class BpmFormHandlerServiceImpl implements BpmFormHandlerService {
 		return this.dao.getQuery(bpmTableTemplate, user, param, filter);
 	}
 	
-	public void copyTask(BpmFormData bpmFormData, String sourceCaseId, Long sourceFlowRunId) throws Exception{
-		handFormData(bpmFormData);
-		//
-		//修改原工单状态(作废)
-		
-		this.dao.invalidTask(bpmFormData.getTableId(), sourceCaseId);
-		
-		if(sourceFlowRunId != null){			
-			processRunService.delByIds(new Long[]{sourceFlowRunId});
-		}
-	}
+	
 }

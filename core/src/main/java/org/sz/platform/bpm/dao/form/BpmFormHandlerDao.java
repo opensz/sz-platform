@@ -36,12 +36,14 @@ public interface BpmFormHandlerDao {
 	List<Map<String, Object>> getQuery(BpmTableTemplate bpmTableTemplate,
 			SysUser user, Map<String, Object> param,QueryFilter filter)
 			throws Exception;
-	public void createTask(Long tableId, String pkValue) throws Exception;
-
-	public void offTask(Long tableId, String pkValue) throws Exception;
-
-	public void suspendTask(Long tableId, String pkValue) throws Exception;
 	
-	public void invalidTask(Long tableId, String pkValue) throws Exception;
+	
+	//public void createTask(Long tableId, String pkValue) throws Exception;
+
+	//public void offTask(Long tableId, String pkValue) throws Exception;
+
+	//public void suspendTask(Long tableId, String pkValue) throws Exception;
+	
+	//public void invalidTask(Long tableId, String pkValue) throws Exception;
 	
 }

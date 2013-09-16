@@ -564,57 +564,6 @@ public class TaskController extends BaseController {
 		return mv;
 	}
 
-	/**
-	 * ISO特殊流程处理 拷贝工单
-	 * 
-	 * @param request
-	 * @param response
-	 * @throws Exception
-	 */
-	@RequestMapping({ "copyTask" })
-	public void copyTask(HttpServletRequest request,
-			HttpServletResponse response) throws Exception {
-		String taskId = RequestUtil.getString(request, "taskId");
-		Long destCaseId = RequestUtil.getLong(request, "destCaseId");
-		Long sourceCaseId = RequestUtil.getLong(request, "sourceCaseId");
-		String sourceCaseNo = RequestUtil.getString(request, "sourceCaseNo");
-		String destCaseNo = RequestUtil.getString(request, "destCaseNo");
-
-		// 原因
-		String changeReason = RequestUtil.getString(request, "changeReason");
-		Long tableId = RequestUtil.getLong(request, "tableId");
-
-		BpmFormData bpmFormData = bpmFormHandlerService.getByKey(tableId,
-				sourceCaseId.toString());
-		Object flowRunIdObj = bpmFormData.getMainFields().get("flowrunid_");
-		Long flowRunId = null;
-		if (flowRunIdObj != null) {
-			flowRunId = Long.valueOf(flowRunIdObj.toString());
-		}
-		// 转换fieldName
-		bpmFormData.setMainFields(BpmFormTable.fieldNameMapConvert(bpmFormData
-				.getMainFields()));
-
-		PkValue pkValue = bpmFormData.getPkValue();
-		pkValue.setValue(destCaseId);
-		pkValue.setIsAdd(false);
-		bpmFormData.setPkValue(pkValue);
-
-		bpmFormData.getMainFields().put("sourcecaseid_", sourceCaseId);
-		bpmFormData.getMainFields().put("changereason_", changeReason);
-		bpmFormData.getMainFields().put("sourcecaseno_", sourceCaseNo);
-		// 注意此处的key ,要保存数据有些字段, 设置当前工单的caseNo 是从前台传过来的
-		bpmFormData.getMainFields().put("F_case_no", destCaseNo);
-
-		// bpmFormHandlerService.handFormData(bpmFormData);
-		bpmFormHandlerService.copyTask(bpmFormData,
-				String.valueOf(sourceCaseId), flowRunId);
-		//
-		// 成功之后转到toStart
-		response.sendRedirect(request.getContextPath()
-				+ "/platform/bpm/task/toStart.xht?taskId=" + taskId
-				+ "&readOnly=false");
-	}
 
 	@RequestMapping({ "opinionEdit" })
 	public ModelAndView opinionEdit(HttpServletRequest request,

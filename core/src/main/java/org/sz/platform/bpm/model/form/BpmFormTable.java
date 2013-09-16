@@ -17,6 +17,8 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.dom4j.Document;
 import org.dom4j.Element;
+
+import org.sz.core.customertable.TableModel;
 import org.sz.core.model.BaseModel;
 import org.sz.core.util.Dom4jUtil;
 import org.sz.core.util.StringUtil;
@@ -25,8 +27,8 @@ import org.sz.core.util.StringUtil;
 @XmlAccessorType(XmlAccessType.NONE)
 public class BpmFormTable extends BaseModel {
 	public static String parElmName = "table";
-
 	public static String subElmName = "subTable";
+	
 	protected Long tableId;
 
 	@XmlAttribute
@@ -316,7 +318,7 @@ public class BpmFormTable extends BaseModel {
 				continue;
 			}
 
-			newMap.put("F_" + key, fields.get(key));
+			newMap.put(TableModel.CUSTOMER_COLUMN_PREFIX + key, fields.get(key));
 		}
 		return newMap;
 	}

@@ -16,6 +16,8 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+
+import org.sz.core.customertable.TableModel;
 import org.sz.core.dao.JdbcHelper;
 import org.sz.core.mybatis.Dialect;
 import org.sz.core.query.PageBean;
@@ -119,7 +121,7 @@ public class BpmFormHandlerDaoImpl implements BpmFormHandlerDao {
 		if (isExternal == 1)
 			pkField = mainFormTableDef.getPkField();
 		else {
-			tableName = "W_" + tableName;
+			tableName = FormDataUtil.getTableName(tableName);
 		}
 		PkValue pk = new PkValue(pkField, pkValue);
 
@@ -130,18 +132,17 @@ public class BpmFormHandlerDaoImpl implements BpmFormHandlerDao {
 		for (BpmFormTable table : formTableList) {
 			SubTable subTable = new SubTable();
 
-			String fk = "REFID";
-			String subPk = "ID";
-			String subTableName = table.getTableName();
+			String fk = TableModel.FK_COLUMN_NAME;
+			String subPk = TableModel.PK_COLUMN_NAME;
+			String subTableName = FormDataUtil.getTableName(table); 
 			if (isExternal == 1) {
 				TableRelation tableRelation = mainFormTableDef
 						.getTableRelation();
 				fk = (String) tableRelation.getRelations().get(
 						table.getTableName());
 				subPk = table.getPkField();
-			} else {
-				subTableName = "W_" + subTableName;
-			}
+			} 
+			
 			Long subTableId = table.getTableId();
 
 			List list = getByFk(jdbcTemplate, subTableName, fk, pk.getValue()
@@ -188,49 +189,9 @@ public class BpmFormHandlerDaoImpl implements BpmFormHandlerDao {
 		return map;
 	}
 	
-	//创建工单
-	public void createTask(Long tableId, String pkValue) throws Exception{
-		//更新创建时间
-		BpmFormTable mainFormTableDef = (BpmFormTable) this.bpmFormTableDao
-		.getById(Long.valueOf(tableId));
-		JdbcTemplate jdbcTemplate = getJdbcTemplate(tableId);
-		String tableName = "W_" + mainFormTableDef.getTableName();
-		
-//		jdbcTemplate.execute("update " + tableName + " set status_="+org.sz.base.Constants.TASK_STATUS_RUNNING+", createTime_='" + TimeUtil.getCurrentTime()+ "' where id = " + pkValue);
-	}
 	
-	//关闭工单
-	public void offTask(Long tableId, String pkValue) throws Exception{
-		BpmFormTable mainFormTableDef = (BpmFormTable) this.bpmFormTableDao
-		.getById(Long.valueOf(tableId));
+	
 
-		JdbcTemplate jdbcTemplate = getJdbcTemplate(tableId);
-		String tableName = "W_" + mainFormTableDef.getTableName();
-		
-//		jdbcTemplate.execute("update " + tableName + " set status_="+org.sz.base.Constants.TASK_STATUS_OFF+", offTime_='" + TimeUtil.getCurrentTime()+ "' where id = " + pkValue);
-	}
-	
-	//挂起工单 
-	public void suspendTask(Long tableId, String pkValue) throws Exception{
-		BpmFormTable mainFormTableDef = (BpmFormTable) this.bpmFormTableDao
-		.getById(Long.valueOf(tableId));
-
-		JdbcTemplate jdbcTemplate = getJdbcTemplate(tableId);
-		String tableName = "W_" + mainFormTableDef.getTableName();
-		
-//		jdbcTemplate.execute("update " + tableName + " set status_="+org.sz.base.Constants.TASK_STATUS_SUSPEND+" where id = " + pkValue);
-	}
-	
-	//作废工单 
-	public void invalidTask(Long tableId, String pkValue) throws Exception{
-		BpmFormTable mainFormTableDef = (BpmFormTable) this.bpmFormTableDao
-		.getById(Long.valueOf(tableId));
-		
-		JdbcTemplate jdbcTemplate = getJdbcTemplate(tableId);
-		String tableName = "W_" + mainFormTableDef.getTableName();
-		
-//		jdbcTemplate.execute("update " + tableName + " set status_="+org.sz.base.Constants.TASK_STATUS_INVALID+" where id = " + pkValue);
-	}
 	
 	public List<Map<String, Object>> getByFk(JdbcTemplate jdbcTemplate,
 			String tableName, String fk, String fkValue, Long tableId,
@@ -256,8 +217,8 @@ public class BpmFormHandlerDaoImpl implements BpmFormHandlerDao {
 		Map rtnMap = new HashMap();
 		for (Map.Entry entry : map.entrySet()) {
 			String key = ((String) entry.getKey()).toLowerCase();
-			if ((isExternal == 0) && (key.indexOf("F_".toLowerCase()) == 0)) {
-				key = key.replaceFirst("F_".toLowerCase(), "");
+			if (isExternal == 0) {
+				key =  FormDataUtil.getOriginColumnName(key);
 			}
 			Object obj = entry.getValue();
 
@@ -286,10 +247,7 @@ public class BpmFormHandlerDaoImpl implements BpmFormHandlerDao {
 			values.add(entry.getValue());
 		}
 
-		String tableName = table.getTableName();
-		if (table.getIsExternal() != 1) {
-			tableName = "W_" + tableName;
-		}
+		String tableName = FormDataUtil.getTableName(table);
 
 		StringBuffer sql = new StringBuffer();
 		sql.append(" SELECT * FROM ");
@@ -338,15 +296,12 @@ public class BpmFormHandlerDaoImpl implements BpmFormHandlerDao {
 		StringBuffer where = new StringBuffer();
 		List values = new ArrayList();
 		for (Map.Entry entry : param.entrySet()) {
-			where.append("F_" + (String) entry.getKey());
+			where.append(TableModel.CUSTOMER_COLUMN_PREFIX + (String) entry.getKey());
 			where.append(" LIKE ? AND ");
 			values.add("%" + entry.getValue() + "%");
 		}
 
-		String tableName = table.getTableName();
-		if (table.getIsExternal() != 1) {
-			tableName = "W_" + tableName;
-		}
+		String tableName = FormDataUtil.getTableName(table);
 
 		StringBuffer sql = new StringBuffer();
 		sql.append(" SELECT * FROM ");
@@ -379,8 +334,8 @@ public class BpmFormHandlerDaoImpl implements BpmFormHandlerDao {
 		List retList = new ArrayList();
 		for (Map<String, Object> maps : list) {
 			Map newMap = new HashMap();
-			for (Map.Entry map : maps.entrySet()) {
-				String key = ((String) map.getKey()).toLowerCase().replaceFirst("F_".toLowerCase(), "");
+			for (Map.Entry map : maps.entrySet()) {		
+				String key =  FormDataUtil.getOriginColumnName((String) map.getKey());
 				newMap.put(key, map.getValue());
 			}
 			retList.add(newMap);
@@ -409,10 +364,7 @@ public class BpmFormHandlerDaoImpl implements BpmFormHandlerDao {
 			
 		}
 
-		String tableName = table.getTableName();
-		if (table.getIsExternal() != 1) {
-			tableName = "W_" + tableName;
-		}
+		String tableName = FormDataUtil.getTableName(table);
 
 		StringBuffer sql = new StringBuffer();
 		sql.append(" SELECT * FROM ");
@@ -446,7 +398,7 @@ public class BpmFormHandlerDaoImpl implements BpmFormHandlerDao {
 		for (Map<String, Object> maps : list) {
 			Map newMap = new HashMap();
 			for (Map.Entry map : maps.entrySet()) {
-				String key = ((String) map.getKey()).toLowerCase().replaceFirst("F_".toLowerCase(), "");
+				String key =  FormDataUtil.getOriginColumnName((String) map.getKey());
 				newMap.put(key, map.getValue());
 			}
 			retList.add(newMap);
@@ -455,5 +407,17 @@ public class BpmFormHandlerDaoImpl implements BpmFormHandlerDao {
 		filter.getPageBean().setTotalCount(total);
 		filter.setForWeb();
 		return retList;
+	}
+	
+	
+	protected String getTableName(BpmFormTable formTable){
+		String tableName = null;
+		if(formTable!=null){
+			tableName = formTable.getTableName();
+			if (formTable.getIsExternal() != 1) {
+				tableName = TableModel.CUSTOMER_TABLE_PREFIX + tableName;
+			}
+		}
+		return tableName;
 	}
 }

@@ -7,6 +7,7 @@ if (typeof FlowUtil == 'undefined') {
  * @param defId 流程定义ID。
  */
 FlowUtil.startFlow=function(defId){
+
 	var url= __ctx +"/platform/bpm/bpmDefinition/getCanDirectStart.xht";
 	var params={defId:defId};
 	$.post(url,params,function(data){
@@ -22,7 +23,7 @@ FlowUtil.startFlow=function(defId){
 //					top.hideMask();
 					if(responseText){//成功
 //						$.ligerMessageBox.success('提示信息',"启动流程成功!",function(){
-							var url="/platform/bpm/task/toStart.xht?taskId="+responseText;
+							var url=__ctx +"/platform/bpm/task/toStart.xht?taskId="+responseText;
 							//打开启动流程tab
 //							 top.addToTab({
 //								 resId:'taskStartFlowForm',
@@ -42,8 +43,8 @@ FlowUtil.startFlow=function(defId){
 //			$.ligerMessageBox.confirm('提示信息',"需要启动流程吗?",callBack);
 		}
 		else{
-			//var url=__ctx +"/platform/bpm/task/startFlowForm.xht?defId="+defId;
-			var url = "/platform/bpm/task/startFlowForm.xht?defId="+defId;
+			var url=__ctx +"/platform/bpm/task/startFlowForm.xht?defId="+defId;
+			//var url = "/platform/bpm/task/startFlowForm.xht?defId="+defId;
 			var icon = __ctx +　"/styles/default/images/resicon/setting.png";
 //			jQuery.openFullWindow(url);
 			top.addToTab(url,"流程启动","taskStartFlowForm",icon);
