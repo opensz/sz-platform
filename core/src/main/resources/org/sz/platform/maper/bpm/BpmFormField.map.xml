@@ -132,7 +132,7 @@
 		</if>
 	</select>
 	
-	<select id="getByTableId" parameterType="java.lang.Long" resultMap="BpmFormField" useCache="true" >
+	<select id="getByTableId" parameterType="java.lang.Long" resultMap="BpmFormField" useCache="false" >
 		SELECT <include refid="columns"/>
 		FROM BPM_FORM_FIELD
 		WHERE
@@ -141,7 +141,7 @@
 		ORDER BY SN
 	</select>
 	
-	<select id="getAllByTableId" parameterType="java.lang.Long" resultMap="BpmFormField" useCache="true">
+	<select id="getAllByTableId" parameterType="java.lang.Long" resultMap="BpmFormField" useCache="false">
 		SELECT <include refid="columns"/>
 		FROM BPM_FORM_FIELD
 		WHERE

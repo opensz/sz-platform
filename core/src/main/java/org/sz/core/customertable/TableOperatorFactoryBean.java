@@ -8,10 +8,14 @@ import org.sz.core.customertable.impl.OracleTableOperator;
 import org.sz.core.customertable.impl.SqlserverTableOperator;
 
 public class TableOperatorFactoryBean implements FactoryBean<ITableOperator> {
+	
+	
 	private static final String ORACLE = "oracle";
 	private static final String MYSQL = "mysql";
 	private static final String SQLSERVER = "sqlserver";
 	private static final String DB2 = "db2";
+	
+	
 	private ITableOperator tableOperator;
 	private String dbType = "mysql";
 	private JdbcTemplate jdbcTemplate;

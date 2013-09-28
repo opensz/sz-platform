@@ -72,6 +72,7 @@ public class SecurityUtil {
 			return null;
 		Map functionRole = new HashMap();
 		for (ResourcesUrlExt table : funcRoleList) {
+			if(table==null) continue;
 			String function = table.getFunction();
 			String role = table.getRole();
 			if (StringUtil.isEmpty(function)) {

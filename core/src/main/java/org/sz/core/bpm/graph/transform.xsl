@@ -32,9 +32,9 @@
 			</xsl:attribute>
 			<extensionElements>
 				<!-- 流程开始事件监听器 -->
-				<activiti:executionListener class="org.sz.platform.service.bpm.listener.StartEventListener"  event="start" />
+				<activiti:executionListener class="org.sz.platform.bpm.service.flow.listener.StartEventListener"  event="start" />
 				<!-- 流程结束事件监听器 -->
-				<activiti:executionListener class="org.sz.platform.service.bpm.listener.EndEventListener"  event="end" />
+				<activiti:executionListener class="org.sz.platform.bpm.service.flow.listener.EndEventListener"  event="end" />
 			</extensionElements>
 			<xsl:apply-templates />
 				
@@ -229,8 +229,8 @@
 			<xsl:choose>
 				<xsl:when test="@multiInstance='true'" >
 						<extensionElements>
-							<activiti:executionListener event="start" class="org.sz.platform.service.bpm.listener.SubProcessStartListener"/>
-							<activiti:executionListener event="end" class="org.sz.platform.service.bpm.listener.SubProcessEndListener"/>						
+							<activiti:executionListener event="start" class="org.sz.platform.bpm.service.flow.listener.SubProcessStartListener"/>
+							<activiti:executionListener event="end" class="org.sz.platform.bpm.service.flow.listener.SubProcessEndListener"/>						
 						</extensionElements>
 						<multiInstanceLoopCharacteristics activiti:elementVariable="assignee" >
 							<xsl:attribute name="isSequential">
@@ -303,14 +303,14 @@
 							<xsl:value-of select="Description"></xsl:value-of>
 						</documentation>
 						<extensionElements>
-						    <activiti:taskListener event="create" class="org.sz.platform.service.bpm.listener.TaskCreateListener" />
-						    <activiti:taskListener event="assignment" class="org.sz.platform.service.bpm.listener.TaskAssignListener" />
-						    <activiti:taskListener event="complete" class="org.sz.platform.service.bpm.listener.TaskCompleteListener" />
+						    <activiti:taskListener event="create" class="org.sz.platform.bpm.service.flow.listener.TaskCreateListener" />
+						    <activiti:taskListener event="assignment" class="org.sz.platform.bpm.service.flow.listener.TaskAssignListener" />
+						    <activiti:taskListener event="complete" class="org.sz.platform.bpm.service.flow.listener.TaskCompleteListener" />
 						</extensionElements>
 					</userTask>
 				</xsl:when>
 				<xsl:when test="@script='true'">
-					<serviceTask activiti:class="org.sz.platform.service.bpm.ScriptTask">
+					<serviceTask activiti:class="org.sz.platform.bpm.service.flow.ScriptTask">
 						<xsl:call-template name="setAttrubute">
 							<xsl:with-param name="obj" select="."></xsl:with-param>
 						</xsl:call-template>
@@ -318,7 +318,7 @@
 				</xsl:when>
 			
 				<xsl:when test="@mail='true'">
-					<serviceTask activiti:class="org.sz.platform.service.bpm.MessageTask">
+					<serviceTask activiti:class="org.sz.platform.bpm.service.flow.MessageTask">
 						<xsl:call-template name="setAttrubute">
 							<xsl:with-param name="obj" select="."></xsl:with-param>
 						</xsl:call-template>
@@ -347,9 +347,9 @@
 						</xsl:attribute>
 						<xsl:attribute name="name"><xsl:value-of select="label"></xsl:value-of></xsl:attribute>
 						<extensionElements>
-							<activiti:taskListener event="create" class="org.sz.platform.service.bpm.listener.TaskSignCreateListener"/>
-							<activiti:taskListener event="assignment" class="org.sz.platform.service.bpm.listener.TaskAssignListener" />
-						    <activiti:taskListener event="complete" class="org.sz.platform.service.bpm.listener.TaskCompleteListener" />
+							<activiti:taskListener event="create" class="org.sz.platform.bpm.service.flow.listener.TaskSignCreateListener"/>
+							<activiti:taskListener event="assignment" class="org.sz.platform.bpm.service.flow.listener.TaskAssignListener" />
+						    <activiti:taskListener event="complete" class="org.sz.platform.bpm.service.flow.listener.TaskCompleteListener" />
 						</extensionElements>
 						<multiInstanceLoopCharacteristics   activiti:elementVariable="assignee" >
 							<xsl:attribute name="isSequential">
@@ -373,9 +373,9 @@
 							<xsl:value-of select="Description"></xsl:value-of>
 						</documentation>
 						<extensionElements>
-						    <activiti:taskListener event="create" class="org.sz.platform.service.bpm.listener.TaskCreateListener" />
-						    <activiti:taskListener event="assignment" class="org.sz.platform.service.bpm.listener.TaskAssignListener" />
-						    <activiti:taskListener event="complete" class="org.sz.platform.service.bpm.listener.TaskCompleteListener" />
+						    <activiti:taskListener event="create" class="org.sz.platform.bpm.service.flow.listener.TaskCreateListener" />
+						    <activiti:taskListener event="assignment" class="org.sz.platform.bpm.service.flow.listener.TaskAssignListener" />
+						    <activiti:taskListener event="complete" class="org.sz.platform.bpm.service.flow.listener.TaskCompleteListener" />
 						</extensionElements>
 					</userTask>
 				

@@ -1,5 +1,7 @@
 package org.sz.platform.system.service.impl;
 
+import java.io.InputStream;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
@@ -8,10 +10,14 @@ import java.util.Set;
 
 import javax.annotation.Resource;
 
+import org.dom4j.Document;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
 import org.springframework.stereotype.Service;
 import org.sz.core.dao.IEntityDao;
 import org.sz.core.service.impl.BaseServiceImpl;
 import org.sz.core.util.ContextUtil;
+import org.sz.core.util.Dom4jUtil;
 import org.sz.core.util.StringUtil;
 import org.sz.core.util.UniqueIdUtil;
 import org.sz.platform.system.dao.ResourcesDao;
@@ -21,6 +27,7 @@ import org.sz.platform.system.dao.SubSystemDao;
 import org.sz.platform.system.model.Resources;
 import org.sz.platform.system.model.ResourcesUrl;
 import org.sz.platform.system.model.RoleResources;
+import org.sz.platform.system.model.Script;
 import org.sz.platform.system.model.SubSystem;
 import org.sz.platform.system.model.SysRole;
 import org.sz.platform.system.model.SysUser;
@@ -99,8 +106,10 @@ public class ResourcesServiceImpl extends BaseServiceImpl<Resources> implements
 		if ((resourcesList == null) || (resourcesList.size() == 0))
 			return resourcesList;
 
-		for (Resources res : resourcesList) {
-			res.setIcon(ctx + res.getIcon());
+		if (ctx != null) {
+			for (Resources res : resourcesList) {
+				res.setIcon(ctx + res.getIcon());
+			}
 		}
 		return resourcesList;
 	}
@@ -283,5 +292,138 @@ public class ResourcesServiceImpl extends BaseServiceImpl<Resources> implements
 		String alias = resources.getAlias();
 		Long resId = resources.getResId();
 		return this.resourcesDao.isAliasExistsForUpd(systemId, resId, alias);
+	}
+
+	public String importXml(InputStream inputStream, Resources parent)
+			throws Exception {
+		String msg = "";
+
+		Document doc = Dom4jUtil.loadXml(inputStream);
+		List<Element> itemLists = doc.selectNodes("/items/item"); // <item>
+		if ((itemLists != null) && (itemLists.size() > 0)) {
+			for (Element elm : itemLists) {
+				importXml(elm, parent);
+			}
+		}
+		return msg;
+	}
+
+	public void importXml(Element item, Resources parent) throws Exception {
+
+		Resources res = new Resources();
+		res.setSystemId(parent.getSystemId());
+		res.setParentId(parent.getResId());
+		if (item.attribute("name") != null) {
+			res.setResName(item.attribute("name").getText());
+		}
+		if (item.attribute("defaultUrl") != null) {
+			res.setDefaultUrl(item.attribute("defaultUrl").getText());
+		}
+		if (item.attribute("isDisplayMenu") != null) {
+			res.setIsDisplayInMenu(Short.valueOf(item
+					.attribute("isDisplayMenu").getText()));
+		}
+		if (item.attribute("isFolder") != null) {
+			res.setIsFolder(Short.valueOf(item.attribute("isFolder").getText()));
+		}
+		if (item.attribute("isOpen") != null) {
+			res.setIsOpen(Short.valueOf(item.attribute("isOpen").getText()));
+		}
+		if (item.attribute("sn") != null) {
+			res.setSn(Integer.valueOf(item.attribute("sn").getText()));
+		}
+		if (item.attribute("icon") != null) {
+			res.setIcon(item.attribute("icon").getText());
+		}
+		if (item.attribute("param") != null) {
+			res.setParam(item.attribute("param").getText());
+		}
+
+		addRes(res, null, null);
+
+		List<Element> children = item.selectNodes("item");
+		if ((children != null) && (children.size() > 0)) {
+			for (Element elm : children) {
+				importXml(elm, res);
+			}
+		}
+
+	}
+
+	public String exportXml(Resources res) {
+		String strXml = "";
+		Document doc = DocumentHelper.createDocument();
+		Element root = doc.addElement("items");
+		exportResources(root, res);
+		strXml = doc.asXML();
+		return strXml;
+	}
+
+	protected void exportResources(Element parent, Resources res) {
+		if (parent == null || res == null)
+			return;
+		Element elem = parent.addElement("item");
+		elem.addAttribute("name", res.getResName());
+		elem.addAttribute("defaultUrl", res.getDefaultUrl());
+		elem.addAttribute("param", res.getParam());
+		elem.addAttribute("isDisplayMenu", res.getIsDisplayInMenu().toString());
+		elem.addAttribute("isFolder", res.getIsFolder().toString());
+		elem.addAttribute("isOpen", res.getIsOpen().toString());
+		elem.addAttribute("icon", res.getIcon());
+		elem.addAttribute("sn", res.getSn().toString());
+		elem.addAttribute("alias", res.getAlias());
+
+		List<Resources> children = getChildByParentId(0L, res.getResId(),
+				(String) null);
+		if (children != null) {
+			for (Resources child : children) {
+				exportResources(elem, child);
+			}
+		}
+
+	}
+
+	public String exportXml2(Long systemId, Long resId) {
+
+		StringBuilder sb = new StringBuilder();
+		sb.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<items>");
+		Resources res = (Resources) getById(resId);
+		exportXml2(sb, res);
+		sb.append("\r\n</items>");
+
+		return sb.toString();
+	}
+
+	public String exportXml2(Resources res) {
+		StringBuilder sb = new StringBuilder();
+		sb.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<items>");
+		exportXml2(sb, res);
+		sb.append("\r\n</items>");
+		return sb.toString();
+	}
+
+	protected void exportXml2(StringBuilder sb, Resources res) {
+		if (sb == null || res == null)
+			return;
+		sb.append("\r\n<item name=\"").append(res.getResName())
+				.append("\" defaultUrl=\"").append(res.getDefaultUrl())
+				.append("\" isDisplayMenu=\"").append(res.getIsDisplayInMenu())
+				.append("\" isFolder=\"").append(res.getIsFolder())
+				.append("\" isOpen=\"").append(res.getIsOpen())
+				.append("\" icon=\"").append(res.getIcon()).append("\" sn=\"")
+				.append(res.getSn()).append("\" ");
+		if (res.getIsFolder() == 0) {
+			sb.append("/>");
+			return;
+		}
+		sb.append(">");
+		List<Resources> children = getChildByParentId(0L, res.getResId(),
+				(String) null);
+		if (children != null) {
+			for (Resources child : children) {
+				exportXml2(sb, child);
+			}
+		}
+		sb.append("\r\n</item>");
 	}
 }

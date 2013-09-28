@@ -202,12 +202,12 @@
 	<!-- Spring MVC -->
 	<servlet>
 		<servlet-name>dispatcher</servlet-name>
-		<servlet-class>org.sz.core.web.servlet.SpringMvcServlet</servlet-class>
-		<load-on-startup>2</load-on-startup>
+		<servlet-class>org.sz.core.web.servlet.SpringMvcServlet</servlet-class>	
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
 			<param-value>classpath:conf/dispatcher-servlet.xml</param-value>
 		</init-param>
+		<load-on-startup>2</load-on-startup>
 	</servlet>
 
 	<servlet-mapping>

@@ -1,5 +1,6 @@
 package org.sz.platform.system.service;
 
+import java.io.InputStream;
 import java.util.List;
 
 import org.sz.core.service.BaseService;
@@ -35,5 +36,8 @@ public interface ResourcesService extends BaseService<Resources> {
 	Integer isAliasExists(Resources resources);
 
 	Integer isAliasExistsForUpd(Resources resources);
+	
+	String importXml(InputStream inputStream, Resources parent)throws Exception;
+	String exportXml(Resources res);
 
 }

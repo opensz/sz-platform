@@ -135,7 +135,7 @@ public class BpmDefinitionServiceImpl extends BaseServiceImpl<BpmDefinition>
 		boolean isUpdate = false;
 
 		if ((bpmDefinition.getDefId() == null)
-				|| (bpmDefinition.getDefId().longValue() == 0L)) {
+				|| (bpmDefinition.getDefId().longValue() == 0L)) { // new
 			if (isDeploy) {
 				Deployment deployment = this.bpmService.deploy(
 						bpmDefinition.getSubject(), actFlowDefXml);
@@ -161,76 +161,84 @@ public class BpmDefinitionServiceImpl extends BaseServiceImpl<BpmDefinition>
 				saveOrUpdateNodeSet(actFlowDefXml, bpmDefinition, true);
 			}
 
-		} else if (isDeploy) {
-			newDefId = Long.valueOf(UniqueIdUtil.genId());
-			this.dao.updateSubVersions(newDefId, bpmDefinition.getDefKey());
+		} else { // update
+			if (isDeploy) {
+				newDefId = Long.valueOf(UniqueIdUtil.genId());
+				this.dao.updateSubVersions(newDefId, bpmDefinition.getDefKey());
 
-			Deployment deployment = this.bpmService.deploy(
-					bpmDefinition.getSubject(), actFlowDefXml);
-			ProcessDefinitionEntity ent = this.bpmService
-					.getProcessDefinitionByDeployId(deployment.getId());
-			String actDefId = ent.getId();
+				Deployment deployment = this.bpmService.deploy(
+						bpmDefinition.getSubject(), actFlowDefXml);
+				ProcessDefinitionEntity ent = this.bpmService
+						.getProcessDefinitionByDeployId(deployment.getId());
+				String actDefId = ent.getId();
 
-			BpmDefinition newBpmDefinition = (BpmDefinition) bpmDefinition
-					.clone();
+				BpmDefinition newBpmDefinition = (BpmDefinition) bpmDefinition
+						.clone();
 
-			newBpmDefinition.setVersionNo(Integer.valueOf(ent.getVersion()));
-			newBpmDefinition.setActDeployId(new Long(deployment.getId()));
-			newBpmDefinition.setActDefId(actDefId);
-			newBpmDefinition.setActDefKey(ent.getKey());
+				newBpmDefinition
+						.setVersionNo(Integer.valueOf(ent.getVersion()));
+				newBpmDefinition.setActDeployId(new Long(deployment.getId()));
+				newBpmDefinition.setActDefId(actDefId);
+				newBpmDefinition.setActDefKey(ent.getKey());
 
-			newBpmDefinition.setDefId(newDefId);
-			newBpmDefinition.setParentDefId(newDefId);
-			newBpmDefinition.setUpdatetime(new Date());
-			newBpmDefinition.setStatus(BpmDefinition.STATUS_DEPLOYED);
+				newBpmDefinition.setDefId(newDefId);
+				newBpmDefinition.setParentDefId(newDefId);
+				newBpmDefinition.setUpdatetime(new Date());
+				newBpmDefinition.setStatus(BpmDefinition.STATUS_DEPLOYED);
 
-			newBpmDefinition.setIsMain(BpmDefinition.MAIN);
+				newBpmDefinition.setIsMain(BpmDefinition.MAIN);
 
-			add(newBpmDefinition);
+				add(newBpmDefinition);
 
-			isUpdate = true;
+				isUpdate = true;
 
-			saveOrUpdateNodeSet(actFlowDefXml, newBpmDefinition, true);
+				saveOrUpdateNodeSet(actFlowDefXml, newBpmDefinition, true);
 
-			syncStartGlobal(oldDefId, newDefId, actDefId);
-		} else {
-			if (bpmDefinition.getActDeployId() != null) {
-				this.bpmService.wirteDefXml(bpmDefinition.getActDeployId()
-						.toString(), actFlowDefXml);
+				syncStartGlobal(oldDefId, newDefId, actDefId);
+			} else {
+				if (bpmDefinition.getActDeployId() != null) {
+					this.bpmService.wirteDefXml(bpmDefinition.getActDeployId()
+							.toString(), actFlowDefXml);
 
-				saveOrUpdateNodeSet(actFlowDefXml, bpmDefinition, false);
+					saveOrUpdateNodeSet(actFlowDefXml, bpmDefinition, false);
+				}
+				update(bpmDefinition);
 			}
-			update(bpmDefinition);
 		}
 
-		if (isUpdate)
+		if (isUpdate) {
 			saveOrUpdateBpmDefSeting(newDefId, oldDefId);
+		}
 	}
 
 	/**
 	 * 拷贝流程定义
+	 * 
 	 * @param sourceBpmDefinition
-	 * @throws Exception 
+	 * @throws Exception
 	 */
-	public void copyFormDef(Long sourceDefId, boolean isDeploy) throws Exception {
-		
+	public void copyFormDef(Long sourceDefId, boolean isDeploy)
+			throws Exception {
+
 		BpmDefinition sourceBpmDefinition = this.getById(sourceDefId);
-		
-		if(sourceBpmDefinition == null){
-			throw new RuntimeException("源BpmDefinition为null, 请检查传入参数sourceDefId!");
+
+		if (sourceBpmDefinition == null) {
+			throw new RuntimeException(
+					"源BpmDefinition为null, 请检查传入参数sourceDefId!");
 		}
-		
-		BpmDefinition destBpmDefinition = (BpmDefinition)sourceBpmDefinition.clone();
-		
-		//主键
+
+		BpmDefinition destBpmDefinition = (BpmDefinition) sourceBpmDefinition
+				.clone();
+
+		// 主键
 		destBpmDefinition.setDefId(UniqueIdUtil.genId());
 		destBpmDefinition.setDefKey("case_" + destBpmDefinition.getDefId());
 		destBpmDefinition.setSubject(destBpmDefinition.getSubject() + "copy");
-		destBpmDefinition.setParentDefId(null); //置空parentDefId
-		
+		destBpmDefinition.setParentDefId(null); // 置空parentDefId
+
 		String actFlowDefXml = BpmUtil.transform(destBpmDefinition.getDefKey(),
 				destBpmDefinition.getSubject(), destBpmDefinition.getDefXml());
-		if(isDeploy){
+		if (isDeploy) {
 			Deployment deployment = this.bpmService.deploy(
 					destBpmDefinition.getSubject(), actFlowDefXml);
 			ProcessDefinitionEntity ent = this.bpmService
@@ -247,41 +255,44 @@ public class BpmDefinitionServiceImpl extends BaseServiceImpl<BpmDefinition>
 		Short status = isDeploy ? BpmDefinition.STATUS_DEPLOYED
 				: BpmDefinition.STATUS_NOTDEPLOYED;
 		destBpmDefinition.setStatus(status);
-		//新增拷贝的流程定义
+		// 新增拷贝的流程定义
 		add(destBpmDefinition);
 		if (isDeploy) {
-			//拷贝 node_set
-			//查询所有nodeSet 不查setType = 1(公共) 和 2(开始结点)
-			List<BpmNodeSet> destBpmNodeSetList = bpmNodeSetDao.getByDefId(sourceDefId);
-			if(destBpmNodeSetList != null && destBpmNodeSetList.size() > 0){
-				for(BpmNodeSet destBpmNodeSet : destBpmNodeSetList){
+			// 拷贝 node_set
+			// 查询所有nodeSet 不查setType = 1(公共) 和 2(开始结点)
+			List<BpmNodeSet> destBpmNodeSetList = bpmNodeSetDao
+					.getByDefId(sourceDefId);
+			if (destBpmNodeSetList != null && destBpmNodeSetList.size() > 0) {
+				for (BpmNodeSet destBpmNodeSet : destBpmNodeSetList) {
 					Long setId = destBpmNodeSet.getSetId();
 					destBpmNodeSet.setSetId(UniqueIdUtil.genId());
 					destBpmNodeSet.setDefId(destBpmDefinition.getDefId());
 					destBpmNodeSet.setActDefId(destBpmDefinition.getActDefId());
-					
-					//清除nodeSet表单关联信息
+
+					// 清除nodeSet表单关联信息
 					destBpmNodeSet.setFormKey(0L);
 					destBpmNodeSet.setBeforeHandler("");
 					destBpmNodeSet.setAfterHandler("");
 					destBpmNodeSet.setFormDefName("");
-					destBpmNodeSet.setFormType((short)-1);
+					destBpmNodeSet.setFormType((short) -1);
 					bpmNodeSetDao.add(destBpmNodeSet);
-					
-					//拷贝 node_user
-					List<BpmNodeUser> bpmNodeUserList = bpmNodeUserDao.getBySetId(setId);
-					if(bpmNodeUserList != null && bpmNodeUserList.size() > 0){
-						for(BpmNodeUser destBpmNodeUser : bpmNodeUserList){
+
+					// 拷贝 node_user
+					List<BpmNodeUser> bpmNodeUserList = bpmNodeUserDao
+							.getBySetId(setId);
+					if (bpmNodeUserList != null && bpmNodeUserList.size() > 0) {
+						for (BpmNodeUser destBpmNodeUser : bpmNodeUserList) {
 							destBpmNodeUser.setNodeUserId(UniqueIdUtil.genId());
 							destBpmNodeUser.setSetId(destBpmNodeSet.getSetId());
-							destBpmNodeUser.setActDefId(destBpmDefinition.getActDefId());
+							destBpmNodeUser.setActDefId(destBpmDefinition
+									.getActDefId());
 							bpmNodeUserDao.add(destBpmNodeUser);
 						}
 					}
 				}
 			}
 		}
-		
+
 	}
 
 	private void saveOrUpdateNodeSet(String actFlowDefXml,
@@ -485,6 +496,7 @@ public class BpmDefinitionServiceImpl extends BaseServiceImpl<BpmDefinition>
 
 	/**
 	 * 拷贝NodeSet属性
+	 * 
 	 * @param bpmNodeSet
 	 * @param oldBpmNodeSet
 	 */

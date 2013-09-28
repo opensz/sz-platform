@@ -382,7 +382,7 @@ public class FormUtil {
 		TagNode parent = node;
 		while ((parent = (TagNode) parent.getParent()) != null) {
 			String tableName = parent.getAttribute("tablename");
-			if (tableName != null) {
+			if (tableName != null && !"".equals(tableName)) {
 				found = true;
 				break;
 			}

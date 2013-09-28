@@ -26,6 +26,7 @@ import org.sz.core.util.StringUtil;
 @XmlRootElement(name = "table")
 @XmlAccessorType(XmlAccessType.NONE)
 public class BpmFormTable extends BaseModel {
+	
 	public static String parElmName = "table";
 	public static String subElmName = "subTable";
 	
@@ -39,6 +40,10 @@ public class BpmFormTable extends BaseModel {
 
 	@XmlAttribute
 	protected Short isMain = 1;
+	
+	@XmlAttribute
+	protected String businessType; // 业务类型， CatType=BUSINESS_TYPE
+	
 	protected Long mainTableId;
 
 	@XmlAttribute
@@ -101,6 +106,16 @@ public class BpmFormTable extends BaseModel {
 
 	public Short getIsMain() {
 		return this.isMain;
+	}
+	
+	
+
+	public String getBusinessType() {
+		return businessType;
+	}
+
+	public void setBusinessType(String businessType) {
+		this.businessType = businessType;
 	}
 
 	public void setMainTableId(Long mainTableId) {

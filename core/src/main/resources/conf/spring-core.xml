@@ -22,7 +22,7 @@
 
     <!-- Enable @AspectJ support -->
     <aop:aspectj-autoproxy/>
-
+    
     <tx:advice id="txAdvice">
         <tx:attributes>
             <!-- Read-only commented out to make things easier for end-users -->
@@ -31,6 +31,7 @@
             <tx:method name="*"/>
         </tx:attributes>
     </tx:advice>
+    
 
 
 

@@ -181,8 +181,8 @@ public class BpmFormTableServiceImpl extends BaseServiceImpl<BpmFormTable>
 	private boolean hasReserveFileds(BpmFormField[] fields) {
 		for (BpmFormField field : fields) {
 			String fieldName = field.getFieldName().toLowerCase();
-			if (("curentUserId_".toLowerCase().equals(fieldName))
-					|| ("flowRunId_".toLowerCase().endsWith(fieldName))) {
+			if ((TableModel.CUSTOMER_COLUMN_CURRENTUSERID.toLowerCase().equals(fieldName))
+					|| (TableModel.FlowRunId.toLowerCase().endsWith(fieldName))) {
 				return true;
 			}
 		}

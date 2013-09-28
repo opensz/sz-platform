@@ -8,17 +8,19 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 import org.sz.core.model.BaseModel;
 
 public class BpmDefinition extends BaseModel implements Cloneable {
+	
+	
 	public static final String DefaultSubjectRule = "{流程标题:title}-{发起人:startUser}-{发起时间:startTime}";
+	
 	public static final Short MAIN = 1;
-
 	public static final Short NOT_MAIN = 0;
-
+	
 	public static final Short STATUS_DEPLOYED = 1;
-
 	public static final Short STATUS_NOTDEPLOYED = 0;
-
 	public static final Short STATUS_SUSPEND = -1;
+	
 	public static final String TABLE_NAME = "bpm_definition";
+	
 	protected Long defId;
 	protected Long typeId;
 	protected String businessType; // 业务类型， CatType=BUSINESS_TYPE
@@ -43,6 +45,10 @@ public class BpmDefinition extends BaseModel implements Cloneable {
 	protected Short needStartForm = 1;
 
 	protected Short toFirstNode = 0;
+	
+	//业务主表
+	protected Long businessTableId;
+	protected String businessTableName;
 
 //	protected Short isIso = 0;
 
@@ -229,6 +235,8 @@ public class BpmDefinition extends BaseModel implements Cloneable {
 	public void setBusinessType(String businessType) {
 		this.businessType = businessType;
 	}
+	
+	
 
 //	public Short getIsIso() {
 //		return isIso;
@@ -237,6 +245,22 @@ public class BpmDefinition extends BaseModel implements Cloneable {
 //	public void setIsIso(Short isIso) {
 //		this.isIso = isIso;
 //	}
+
+	public Long getBusinessTableId() {
+		return businessTableId;
+	}
+
+	public void setBusinessTableId(Long businessTableId) {
+		this.businessTableId = businessTableId;
+	}
+
+	public String getBusinessTableName() {
+		return businessTableName;
+	}
+
+	public void setBusinessTableName(String businessTableName) {
+		this.businessTableName = businessTableName;
+	}
 
 	public boolean equals(Object object) {
 		if (!(object instanceof BpmDefinition)) {

@@ -1,6 +1,14 @@
 package org.sz.platform.bpm.model.flow;
 
+import org.sz.core.bpm.model.ProcessTask;
+import org.sz.core.model.BaseModel;
+import org.sz.core.util.StringUtil;
+import org.sz.core.util.TimeUtil;
+
+import java.awt.Color;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -9,28 +17,34 @@ import org.activiti.engine.delegate.DelegateTask;
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.apache.commons.lang.builder.ToStringBuilder;
-import org.sz.core.bpm.model.ProcessTask;
-import org.sz.core.model.BaseModel;
-import org.sz.core.util.StringUtil;
-import org.sz.core.util.TimeUtil;
 
 @XmlAccessorType(XmlAccessType.PUBLIC_MEMBER)
 public class TaskOpinion extends BaseModel {
+	
 	public static final Short STATUS_INIT = -2;
-
 	public static final Short STATUS_CHECKING = -1;
-
 	public static final Short STATUS_ABANDON = 0;// 弃权跳过
-
 	public static final Short STATUS_AGREE = 1; // 同意
-
 	public static final Short STATUS_REFUSE = 2; // 反对
-
 	public static final Short STATUS_REJECT = 3; // 驳回
-
 	public static final Short STATUS_RECOVER = 4; // 被追回
-
 	public static final Short STATUS_BACK = 5; // 回退
+	
+	protected static Map<Short, Color> colorsMap = new HashMap();
+	
+	static{
+		colorsMap.put(TaskOpinion.STATUS_INIT, Color.darkGray);
+		colorsMap.put(TaskOpinion.STATUS_AGREE, Color.green);
+		colorsMap.put(TaskOpinion.STATUS_ABANDON, Color.orange);
+		colorsMap.put(TaskOpinion.STATUS_CHECKING, Color.red);
+		colorsMap.put(TaskOpinion.STATUS_REFUSE, Color.blue);
+		colorsMap.put(TaskOpinion.STATUS_REJECT, new Color(138, 9, 2));
+		colorsMap.put(TaskOpinion.STATUS_RECOVER, new Color(2, 59, 98));
+	}
+	
+	public static Color getColorByStatus(Short status){
+		return colorsMap.get(status);
+	}
 
 	protected Long opinionId;
 	protected String actInstId;

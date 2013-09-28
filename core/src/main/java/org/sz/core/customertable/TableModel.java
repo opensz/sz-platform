@@ -8,17 +8,20 @@ import org.sz.core.customertable.ColumnModel;
 public class TableModel {
 	public static final String PK_COLUMN_NAME = "ID";
 	public static final String FK_COLUMN_NAME = "REFID";
-	
-	public static final String CUSTOMER_COLUMN_PREFIX = "F_";
-	public static final String CUSTOMER_TABLE_PREFIX = "W_";
-	//public static final String CUSTOMER_ASSET_TABLE_PREFIX = "Z_ASSET_";
-	//public static final String CUSTOMER_ASSET_VIEW_PREFIX = "V_Z_ASSET_";
-	
+
+	public static final String CUSTOMER_COLUMN_PREFIX = ""; //"F_";
+	public static final String CUSTOMER_TABLE_PREFIX = "T_";
+	public static final String CUSTOMER_VIEW_PREFIX = "V_";
+
+	// public static final String CUSTOMER_ASSET_TABLE_PREFIX = "Z_ASSET_";
+	// public static final String CUSTOMER_ASSET_VIEW_PREFIX = "V_Z_ASSET_";
+
 	public static final String CUSTOMER_COLUMN_CURRENTUSERID = "curentUserId_";
 	public static final String FlowRunId = "flowRunId_";
-	
+
 	public static final int CUSTOMER_TABLE_NAME_MAX_LENGTH = 50;
 	public static final int CUSTOMER_COLUMN_NAME_MAX_LENGTH = 32;
+
 	private String name = "";
 
 	private String comment = "";
@@ -51,5 +54,52 @@ public class TableModel {
 
 	public void setColumnList(List<ColumnModel> columnList) {
 		this.columnList = columnList;
+	}
+
+	// ////////////////////////////////////////////////////////
+
+//	public static String getColumnName(String colName) {
+//		return CUSTOMER_COLUMN_PREFIX + colName;
+//	}
+
+
+	public static String getTableName(String tableName) {
+		return getTableName(null, null, tableName);
+
+	}
+
+	public static String getViewName(Long orgId, String type, String tableName) {
+		return getTableName(true, orgId, type, tableName);
+	}
+
+	public static String getTableName(Long orgId, String type, String tableName) {
+		return getTableName(false, orgId, type, tableName);
+	}
+
+	private static String getTableName(boolean isView, Long orgId,
+			String type, String tableName) {
+		String newTableName = null;
+		if (tableName == null || "".equals(tableName.trim())) {
+			return null;
+		}
+		newTableName = tableName.trim();
+		if (type != null && !"".equals(type.trim())) {
+			newTableName = type.trim() + "_" + newTableName;
+		}else{
+			if (isView) {
+				newTableName = CUSTOMER_VIEW_PREFIX + newTableName;
+			} else {
+				newTableName = CUSTOMER_TABLE_PREFIX + newTableName;
+			}
+		}
+		if (orgId != null && orgId.intValue() > 0) {
+			newTableName = orgId + "_" + newTableName;
+		}	
+
+		if (newTableName.length() > CUSTOMER_TABLE_NAME_MAX_LENGTH) {
+			newTableName = newTableName.substring(0,
+					CUSTOMER_TABLE_NAME_MAX_LENGTH);
+		}
+		return newTableName.toLowerCase();
 	}
 }

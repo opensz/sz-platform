@@ -3,7 +3,6 @@
   <head>
   <title>待处理工作列表</title>
   <%@include file="/commons/include/get.jsp" %>
-  <%@include file="/commons/include/ext.jsp"%>
   <%@include file="/commons/include/params.jsp"%>
   <%@ taglib prefix="system" tagdir="/WEB-INF/tags/system" %>
   <script type="text/javascript">

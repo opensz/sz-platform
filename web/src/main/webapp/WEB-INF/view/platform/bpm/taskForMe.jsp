@@ -11,7 +11,7 @@ function executeTask(taskId){
 //	 var url="${ctx}/platform/bpm/task/toStart.xht?taskId="+taskId;
 	 var url="/platform/bpm/task/toStart.xht?taskId="+taskId;
 	 //jQuery.openFullWindow(url);
-	 var icon = __ctx +　"/styles/default/images/resicon/setting.png";
+	 var icon = __ctx + "/styles/default/images/resicon/setting.png";
 //	 top.addToTab(url,"流程启动","taskStartFlowForm",icon);
 	 
 	 top.addToTab({

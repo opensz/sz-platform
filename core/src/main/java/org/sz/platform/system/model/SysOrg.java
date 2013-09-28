@@ -21,32 +21,32 @@ public class SysOrg extends BaseModel {
 	public static final Long BEGIN_ORGSUPID = Long.valueOf(-1L);
 	public static final Short BEGIN_SN = 1;
 
-	private Long orgId;
-	private Long demId;
-	private String demName;
-	private String orgName;
-	private String orgDesc;
-	private Long orgSupId;
+	protected Long orgId;
+	protected Long demId;
+	protected String demName;
+	protected String orgName;
+	protected String orgDesc;
+	protected Long orgSupId;
 
-	private String orgSupName;
-	private String path;
-	private Integer depth;
-	private Short orgType;
+	protected String orgSupName;
+	protected String path;
+	protected Integer depth;
+	protected Short orgType;
 
-	private Long creatorId;
-	private Date createtime;
-	private Long updateId;
-	private Date updatetime;
-	private String ownUser;
-	private String ownUserName;
-	private String createName;
-	private String updateName;
+	protected Long creatorId;
+	protected Date createtime;
+	protected Long updateId;
+	protected Date updatetime;
+	protected String ownUser;
+	protected String ownUserName;
+	protected String createName;
+	protected String updateName;
 
 	protected Long sn = Long.valueOf(0L);
 
-	private Integer onlineNum = Integer.valueOf(0);
-	private Short isPrimary;
-	private Short isRoot = 0;
+	protected Integer onlineNum = Integer.valueOf(0);
+	protected Short isPrimary;
+	protected Short isRoot = 0;
 
 	// /////// add by y.mao ///////////
 	private String webSite;

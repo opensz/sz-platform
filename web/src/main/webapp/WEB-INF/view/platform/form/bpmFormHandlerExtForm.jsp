@@ -6,7 +6,6 @@
 <head>
 <title>编辑表单</title>
 <%@include file="/commons/include/customFormExt.jsp" %>
-<%@include file="/commons/include/ext.jsp"%>
 <%@include file="/commons/include/params.jsp"%>
 <script type="text/javascript">
  	 Ext.onReady(function() {

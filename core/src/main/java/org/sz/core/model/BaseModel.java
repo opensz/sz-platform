@@ -5,10 +5,13 @@ import java.util.Date;
 
 public class BaseModel implements Serializable {
 	private static final long serialVersionUID = 1L;
-	protected Long createBy;
+	
+	
 	protected Date createtime;
+	protected Long createBy;
 	protected Date updatetime;
 	protected Long updateBy;
+	
 	protected String orderSeq;
 	protected String orderField;
 
